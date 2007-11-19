@@ -1,1 +1,0 @@
-{block_view_gui block=$block}
