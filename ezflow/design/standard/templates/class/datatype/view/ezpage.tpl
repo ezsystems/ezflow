@@ -1,0 +1,1 @@
+view/ezpage.tpl

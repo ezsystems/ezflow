@@ -1,0 +1,93 @@
+Setting of new block types in block.ini
+=======================================
+When adding a new block type, you have to alter the block.ini settings.
+
+Let's suppose, that the identifier of the new block type is "block_type".
+
+Edit the block.ini, find the [General] group and add the block type to
+the AllowedTypes[] variable:
+
+    [General]
+    AllowedTypes[]
+    # ...
+    AllowedTypes[]=block_type
+
+Then create a group name created [block_type] and specify the following
+variables (items marked with (*) are mandatory):
+
+    - Name (*)
+      Name of the block type as it will appear in the administration
+      interface.
+    
+    - NumberOfValidItems (*)
+      Maximum number of valid items (see pool.txt).
+    
+    - NumberOfArchivedItems (*)
+      Maximum number of archived items.
+
+    - ManualAddingOfItems (*) = disabled|enabled
+      If enabled, an administrator/editor is allowed to add items to the
+      queue (waiting items) manually.
+    
+    - TTL
+      If set, the block will not be updated for the given amount of seconds.
+      This might be useful when the content of the block is fetched from
+      the external resources which might be slow and not very frequently updated.
+      Good example might be the weather forecast fetched via SOAP from 
+      an external server.
+
+    - FetchClass (*)
+      See pool.txt for more information. Name of the class which have defined
+      the fetch() function getting new items.
+    
+    - FetchFixedParameters[] (*),
+      FetchParameters[], FetchParametersIsRequired[]
+      Some parameters to the fetch() function mentioned above might be
+      either entered by an administrator/editor while editing a page definition
+      (for example, a keyword in search fetch, a parent node ID of a section
+      from which articles are going to be taken from) and some might be 
+      fixed for the given block type.
+      
+      The set of fixed parameters is defined in FetchFixedParameters[], where
+      a key of this array is the name of the parameter, for example:
+      
+        FetchFixedParameters[]
+        FetchFixedParameters[Class]=article
+      
+      NB: as INI settings do not allow more-dimensional arrays, if you
+          want to specify array, you have to enter it as string and then
+          process it in your fetch function to create an array. For example
+          an array of classes might be defined as:
+          
+        FetchFixedParameters[]
+        FetchFixedParameters[Class]=article;folder
+      
+      Other parameters are specified by an administrator/editor in the administration
+      interface. What is allowed to enter is specified by FetchParameters[]. Let's
+      have a look at the following example:
+      
+        FetchParameters[]
+        FetchParametersIsRequired[]
+        FetchParameters[SourceID]=nodeID
+        FetchParametersIsRequired[Subtrees]=true
+        FetchParameters[Subtrees]=nodeIDs
+        FetchParameters[Keyword]=string
+        FetchParameters[SomeInteger]=integer
+
+      The key of FetchParameters[] array gives the name of a parameter,
+      the value specifies what type has to be entered:
+      
+        nodeID - node ID (in the administration interface an administrator/editor
+                          browses for single node)
+        nodeIDs - node IDs (in the administration interface an administrator/editor
+                            browses for multiple nodes)
+        string - one line text
+        integer - integer number
+
+      FetchParametersIsRequired[] specifies which of those parameters have
+      to be entered.
+
+      When calling fetch() function, an array with values of parameters
+      with keys specifying the names of parameters is passed as the first argument.
+      
+      Note: there are two other arguments, check pool.txt for more information.
