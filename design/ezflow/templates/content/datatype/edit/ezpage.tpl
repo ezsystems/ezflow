@@ -56,7 +56,7 @@ function getCookie( cookieName )
 {if ne( $zone.action, 'remove' )}
     tabView.addTab( new YAHOO.widget.Tab({ldelim}
         label: 'Zone: {$zone_names[$zone.zone_identifier]}',
-        dataSrc: '{concat( 'page/zone/', $attribute.id, '/', $attribute.version, '/', $index  )|ezurl(no)}',
+        dataSrc: '{concat( '/ezflow/zone/', $attribute.id, '/', $attribute.version, '/', $index  )|ezurl(no)}',
         cacheData: true
         {rdelim}));
 {/if}
@@ -181,7 +181,7 @@ YAHOO.extend(YAHOO.example.DDList, YAHOO.util.DDProxy, {
         var tableID = tableBody.parentNode.id;
 {/literal}
         postData += 'Block=' + tableID + '&ContentObjectAttributeID=' + {$attribute.id} + '&Version=' + {$attribute.version};
-        url = "{'/page/request'|ezurl(no)}";
+        url = "{'/ezflow/request'|ezurl(no)}";
         YAHOO.util.Connect.asyncRequest( 'POST', url, false, postData );
 {literal}
 
