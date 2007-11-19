@@ -1,7 +1,7 @@
 <?php /*
 
 [TemplateSettings]
-ExtensionAutoloadPath[]=ezmedia
+ExtensionAutoloadPath[]=ezflow
 
 [DesignSettings]
 AdditionalSiteDesignList[]=standard

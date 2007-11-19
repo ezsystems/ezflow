@@ -1,9 +1,9 @@
 <?php /* #?ini charset="iso-8859-1"?
 
 [CronjobSettings]
-ExtensionDirectories[]=ezmedia
+ExtensionDirectories[]=ezflow
 
-[CronjobPart-ezmedia]
+[CronjobPart-ezflow]
 Scripts[]=ezmupdate.php
 
 */ ?>

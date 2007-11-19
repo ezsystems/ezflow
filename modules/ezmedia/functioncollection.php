@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'extension/ezmedia/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezmPool.php' );
 
 class ezmMediaFunctionCollection
 {

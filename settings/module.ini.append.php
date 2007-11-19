@@ -1,9 +1,9 @@
 <?php /* #?ini charset="iso-8859-1"?
 
 [ModuleSettings]
-ExtensionRepositories[]=ezmedia
+ExtensionRepositories[]=ezflow
 
-ModuleList[]=ezmedia
+ModuleList[]=ezflow
 ModuleList[]=page
 
 */ ?>

@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'extension/ezmedia/classes/ezmFetchInterface.php' );
+include_once( 'extension/ezflow/classes/ezmFetchInterface.php' );
 //include_once( 'kernel/classes/ezcontentobjecttreenode.php' );
 
 class ezmLatestObjects extends ezmFetchInterface

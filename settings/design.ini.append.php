@@ -1,7 +1,7 @@
 <?php /*
 
 [ExtensionSettings]
-DesignExtensions[]=ezmedia
+DesignExtensions[]=ezflow
 
 [JavaScriptSettings]
 # List of JavaScript files to include in pagelayout

@@ -5,8 +5,8 @@
  * TODO: Re-arrange items in online section.
  * TODO: Move items from archived to queue.
  */
-include_once( 'extension/ezmedia/classes/ezmPool.php' );
-include_once( 'extension/ezmedia/classes/ezpageblockitem.php' );
+include_once( 'extension/ezflow/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 
 $contentObjectAttributeID = $_POST['ContentObjectAttributeID'];
 $version = $_POST['Version'];

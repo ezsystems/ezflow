@@ -32,7 +32,7 @@ class ezmOperations
         }
 
         $fetchClass = $blockINI->variable( $blockType, 'FetchClass' );
-        @include_once( "extension/ezmedia/classes/fetches/$fetchClass.php" );
+        @include_once( "extension/ezflow/classes/fetches/$fetchClass.php" );
         $fetchInstance = new $fetchClass();
         // TODO: maybe check if it is of ezmFetchInterface type?
         if ( !is_subclass_of( $fetchInstance, 'ezmFetchInterface' ) )

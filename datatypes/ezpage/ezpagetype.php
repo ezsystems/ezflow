@@ -13,11 +13,11 @@
  */
 
 //include_once( 'kernel/classes/ezdatatype.php' );
-include_once( 'extension/ezmedia/classes/ezpage.php' );
-include_once( 'extension/ezmedia/classes/ezpagezone.php' );
-include_once( 'extension/ezmedia/classes/ezpageblock.php' );
-include_once( 'extension/ezmedia/classes/ezpageblockitem.php' );
-include_once( 'extension/ezmedia/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezpage.php' );
+include_once( 'extension/ezflow/classes/ezpagezone.php' );
+include_once( 'extension/ezflow/classes/ezpageblock.php' );
+include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
+include_once( 'extension/ezflow/classes/ezmPool.php' );
 
 //define( "EZ_DATATYPESTRING_PAGE", "ezpage" );
 
@@ -758,7 +758,7 @@ class eZPageType extends eZDataType
         }
 
         // tmp solution
-        exec( "php runcronjobs.php ezmedia"  );
+        exec( "php runcronjobs.php ezflow"  );
 
         $page->removeProcessed();
         //var_dump($page);

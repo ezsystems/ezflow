@@ -1,6 +1,6 @@
 <?php
 
-$Module = array( 'name' => 'eZMedia' );
+$Module = array( 'name' => 'eZ Flow' );
 
 $ViewList['timeline'] = array( 'script' => 'timeline.php',
                                'params' => array( 'NodeID', 'LanguageCode' ) );

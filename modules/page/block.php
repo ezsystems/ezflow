@@ -1,6 +1,6 @@
 <?php
-include_once( 'extension/ezmedia/classes/ezpageblock.php' );
-include_once( 'extension/ezmedia/classes/ezpageblockitem.php' );
+include_once( 'extension/ezflow/classes/ezpageblock.php' );
+include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 include_once( 'kernel/common/template.php' );
 
 $module =& $Params['Module'];

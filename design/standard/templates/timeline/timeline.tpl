@@ -86,7 +86,7 @@
     YAHOO.timeline.slider.timeStartMinutes = {$past_start|datetime( 'custom', '%i' )};
     
     YAHOO.timeline.slider.nodeid = {$node.node_id};
-    YAHOO.timeline.slider.fetchURL = {"/ezmedia/preview"|ezurl};
+    YAHOO.timeline.slider.fetchURL = {"/ezflow/preview"|ezurl};
 
 
     YAHOO.namespace("timeline.calendar");    

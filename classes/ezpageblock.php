@@ -1,7 +1,7 @@
 <?php
 
-include_once( 'extension/ezmedia/classes/ezmPool.php' );
-include_once( 'extension/ezmedia/classes/ezpageblockitem.php' );
+include_once( 'extension/ezflow/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 
 class eZPageBlock
 {

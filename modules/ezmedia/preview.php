@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'extension/ezmedia/classes/ezpageblock.php' );
+include_once( 'extension/ezflow/classes/ezpageblock.php' );
 include_once( 'kernel/common/template.php' );
 
 define( 'ROTATION_NONE', 0 );
@@ -77,12 +77,12 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                 {
                     if ( !in_array( $nextID, $nextIDs, true ) )
                     {
-                        eZDebug::writeWarning( "Overflow for $currentID is $nextID, but no such block was found for the given node", 'eZMedia Update Cronjob' );
+                        eZDebug::writeWarning( "Overflow for $currentID is $nextID, but no such block was found for the given node", 'eZ Flow Update Cronjob' );
                         break;
                     }
                     if ( in_array( $nextID, $subCorrectOrder, true ) )
                     {
-                        eZDebug::writeWarning( "Loop detected, ignoring ($nextID should be after $currentID and vice versa)", 'eZMedia Update Cronjob' );
+                        eZDebug::writeWarning( "Loop detected, ignoring ($nextID should be after $currentID and vice versa)", 'eZ Flow Update Cronjob' );
                         break;
                     }
                     if ( in_array( $nextID, $correctOrder, true ) )
@@ -202,7 +202,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                     {
                         $numberOfValidItems = 20;
                         eZDebug::writeWarning( 'Number of valid items for ' . $block['block_type'] .
-                    ' is not set; using the default value (' . $numberOfValidItems . ')', 'eZMedia Update Cronjob' );
+                    ' is not set; using the default value (' . $numberOfValidItems . ')', 'eZ Flow Update Cronjob' );
                     }
 
                     $countToRemove = $countValid - $numberOfValidItems;
@@ -273,7 +273,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                                                     LIMIT 1" );
                                         if ( $duplicityCheck )
                                         {
-                                            eZDebug::writeNotice( "Object $objectID is already available in the block $overflowID.", 'eZMedia Update Cronjob' );
+                                            eZDebug::writeNotice( "Object $objectID is already available in the block $overflowID.", 'eZ Flow Update Cronjob' );
                                         }
                                         else
                                         {
@@ -315,7 +315,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                     {
                         $numberOfArchivedItems = 50;
                         eZDebug::writeWarning( 'Number of archived items for ' . $block['block_type'] .
-                    ' is not set; using the default value (' . $numberOfArchivedItems . ')', 'eZMedia Update Cronjob' );
+                    ' is not set; using the default value (' . $numberOfArchivedItems . ')', 'eZ Flow Update Cronjob' );
                     }
                     $countToRemove = $countArchived - $numberOfArchivedItems;
 

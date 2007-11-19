@@ -1,7 +1,7 @@
 <?php
 
 $eZTemplateOperatorArray = array();
-$eZTemplateOperatorArray[] = array( 'script' => 'extension/ezmedia/autoloads/ezunserialize.php',
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezunserialize.php',
                                     'class' => 'eZUnserialize',
                                     'operator_names' => array( 'unserialize' ) );
 
