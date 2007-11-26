@@ -1,0 +1,29 @@
+/* IE5 + IE6 + IE7 SPECIAL CSS - 20060522 */
+
+div#searchbox
+{
+    margin-top: 0.5em;
+}
+
+div.overflow-fix /* Hides long non-breaking lines and terminates bugs */
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+div#heightresize-main
+{
+    border-bottom: 1px solid #ffffff;  /* Fix if height script is used */
+}
+
+input.button
+{
+    padding: 0 0.5em 0 0.5em;
+    overflow: visible;  /* Fix for %-padding on input buttons */
+}
+
+div.columns-three
+{
+    margin-right: 0;  /* This value may need to be tuned depending on most expected width of div.columns-three */
+    padding-right: 33.3%;
+}
