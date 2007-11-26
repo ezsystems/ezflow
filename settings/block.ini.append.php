@@ -3,14 +3,13 @@
 [General]
 AllowedTypes[]
 #AllowedTypes[]=Example
-AllowedTypes[]=Manual
+AllowedTypes[]=Manual2Items
 AllowedTypes[]=Manual3Items
 AllowedTypes[]=Manual4Items
 AllowedTypes[]=Manual5Items
 AllowedTypes[]=Gallery
 AllowedTypes[]=Video
-AllowedTypes[]=ItemizedList
-AllowedTypes[]=VerticallyListedItems
+AllowedTypes[]=ItemList
 AllowedTypes[]=MainStory
 AllowedTypes[]=Banner
 AllowedTypes[]=Dynamic3Items
@@ -47,45 +46,55 @@ FetchParametersIsRequired[Source]=true
 #ViewName[variation1]=Main sotry 1
 #
 
-[Manual]
-Name=Default (Manual)
+[Manual2Items]
+Name=2 items (Manual)
 NumberOfValidItems=2
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=default
-ViewName[default]=Default view
+ViewList[]=2_items1
+ViewList[]=2_items2
+ViewName[2_items1]=2 items (1)
+ViewName[2_items2]=2 items (2)
 
 [Manual3Items]
 Name=3 items (Manual)
 NumberOfValidItems=3
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=3_items
-ViewName[3_items]=3 items (1)
+ViewList[]=3_items1
+ViewList[]=3_items2
+ViewName[3_items1]=3 items (1)
+ViewName[3_items2]=3 items (2)
 
 [Manual4Items]
 Name=4 items (Manual)
 NumberOfValidItems=4
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=4_items
-ViewName[4_items]=4 items (1)
+ViewList[]=4_items1
+ViewList[]=4_items2
+ViewList[]=4_items3
+ViewName[4_items1]=4 items (1)
+ViewName[4_items2]=4 items (2)
+ViewName[4_items3]=4 items (3)
 
 [Manual5Items]
 Name=5 items (Manual)
 NumberOfValidItems=5
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=5_items
-ViewName[5_items]=5 items (1)
+ViewList[]=5_items1
+ViewList[]=5_items2
+ViewName[5_items1]=5 items (1)
+ViewName[5_items2]=5 items (2)
 
 [Gallery]
 Name=Gallery (Manual)
 NumberOfValidItems=4
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=gallery
-ViewName[gallery]=Fade 4 photos
+ViewList[]=gallery1
+ViewName[gallery1]=Gallery (1)
 
 [Video]
 Name=Video (Manual)
@@ -95,21 +104,17 @@ ManualAddingOfItems=enabled
 ViewList[]=video
 ViewName[video]=Video player
 
-[ItemizedList]
-Name=Itemized List
-NumberOfValidItems=5
+[ItemList]
+Name=Item list
+NumberOfValidItems=12
 NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
-ViewList[]=itemizedlist
-ViewName[itemizedlist]=Itemized List
-
-[VerticallyListedItems]
-Name=Vertically Listed Items
-NumberOfValidItems=5
-NumberOfArchivedItems=5
-ManualAddingOfItems=enabled
-ViewList[]=verticallylisteditems
-ViewName[verticallylisteditems]=Vertically listed items
+ViewList[]=itemlist1
+ViewList[]=itemlist2
+ViewList[]=itemlist3
+ViewName[itemlist1]=List (1 col)
+ViewName[itemlist2]=List (2 cols)
+ViewName[itemlist3]=List (3 cols)
 
 [MainStory]
 Name=Main story (Manual)
@@ -118,8 +123,10 @@ NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
 ViewList[]=main_story1
 ViewList[]=main_story2
+ViewList[]=main_story3
 ViewName[main_story1]=Main story (1)
 ViewName[main_story2]=Main story (2)
+ViewName[main_story3]=Main story (3)
 
 [Banner]
 Name=Banner
@@ -128,7 +135,6 @@ NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
 ViewList[]=banner
 ViewName[banner]=Banner
-
 
 [Dynamic3Items]
 Name=3 items (dynamic)
@@ -163,6 +169,5 @@ CustomAttributes[]=poll_node_id
 UseBrowseMode[poll_node_id]=true
 ViewList[]=poll
 ViewName[poll]=Poll
-
 
 */ ?>

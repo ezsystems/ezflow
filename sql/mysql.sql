@@ -3,7 +3,7 @@
 CREATE TABLE ezm_block (
     id CHAR(32) NOT NULL,
     zone_id CHAR(32) NOT NULL,
-    name VARCHAR(255) NULL
+    name VARCHAR(255) NULL,
     node_id INTEGER UNSIGNED NOT NULL,
     overflow_id CHAR(32) NULL,
     last_update INTEGER UNSIGNED NULL DEFAULT 0,

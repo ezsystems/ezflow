@@ -1,12 +1,23 @@
 <?php /*
 
 [General]
+AllowedTypes[]=GlobalZoneLayout
 AllowedTypes[]=2ZonesLayout1
 AllowedTypes[]=2ZonesLayout2
-AllowedTypes[]=3ZonesLayout1
 AllowedTypes[]=3ZonesLayout2
 AllowedTypes[]=3ZonesLayout3
 AllowedTypes[]=4ZonesLayout1
+
+[GlobalZoneLayout]
+ZoneTypeName=Global zone layout
+
+Zones[]=main
+
+ZoneName[main]=Global zone
+
+ZoneThumbnail=globalzone_layout.gif
+
+Template=globalzonelayout.tpl
 
 [2ZonesLayout1]
 ZoneTypeName=2 zones (layout 1)
@@ -33,21 +44,6 @@ ZoneName[right]=Right zone
 ZoneThumbnail=2zones_layout2.gif
 
 Template=2zoneslayout2.tpl
-
-[3ZonesLayout1]
-ZoneTypeName=3 zones (layout 1)
-
-Zones[]=left
-Zones[]=middle
-Zones[]=right
-
-ZoneName[left]=Left zone
-ZoneName[middle]=Middle zone
-ZoneName[right]=Right zone
-
-ZoneThumbnail=3zones_layout1.gif
-
-Template=3zoneslayout1.tpl
 
 [3ZonesLayout2]
 ZoneTypeName=3 zones (layout 2)

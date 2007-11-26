@@ -1,13 +1,12 @@
-<div id="address-{$block.zone_id}-{$block.id}">
-{def $valid_items = $block.valid_nodes
-     $block_name = ''}
-{if is_set( $block.name )}
-    {set $block_name = $block.name}
-{else}
-    {set $block_name = ezini( $block.type, 'Name', 'block.ini' )}
-{/if}
-<h2 class="grey_background">{$block_name}</h2>
-{def  $attribute_file=$valid_items[0].data_map.file
+{def $valid_node = $block.valid_nodes[0]}
+
+<div class="block-type-video">
+
+<div class="attribute-header">
+    <h2>{$block.name}</h2>
+</div>
+
+{def  $attribute_file=$valid_node.data_map.file
      $video=concat("content/download/",$attribute_file.contentobject_id,"/",$attribute_file.content.contentobject_attribute_id,"/",$attribute_file.content.original_filename)|ezurl(no)}
 
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
@@ -27,15 +26,15 @@
         var object = document.createElement('object');
         object.type = 'application/x-shockwave-flash';
         object.data = {"flash/flash_player.swf"|ezdesign};
-        object.width = 297;
-        object.height = 235;
+        object.width = 269;
+        object.height = 213;
         object.innerHTML = flash;
         flashNode.appendChild(object);
         //-->
     </script>
 
     <noscript>
-    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="297" height="235">
+    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="269" height="213">
         <param name="movie" value="{'flash/flash_player.swf'|ezdesign(no)}" />
         <param name="scale" value="exactfit" />
         <param name="allowScriptAccess" value="sameDomain" />
@@ -47,5 +46,4 @@
     </noscript>
 
     </div>
-<br />
 </div>

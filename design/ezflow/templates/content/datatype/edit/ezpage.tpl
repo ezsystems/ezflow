@@ -97,6 +97,7 @@ var DDM = YAHOO.util.DragDropMgr;
 YAHOO.example.DDApp = {ldelim}
     init: function() {ldelim}
 {foreach $attribute.content.zones as $zone_id => $zone}
+    {if and( is_set( $zone.blocks ), $zone.blocks|count() )}
     {foreach $zone.blocks as $block_id => $block}
         new YAHOO.util.DDTarget("z:{$zone_id}_b:{$block_id}_q");
 
@@ -107,6 +108,7 @@ YAHOO.example.DDApp = {ldelim}
         {/foreach}
 
     {/foreach}
+    {/if}
 {/foreach}
 
     {rdelim}

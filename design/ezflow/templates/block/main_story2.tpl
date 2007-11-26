@@ -1,18 +1,48 @@
-<div id="address-{$block.zone_id}-{$block.id}">
+{def $valid_node = $block.valid_nodes[0]}
 
-{def $valid_items = $block.valid_nodes
-     $block_name = ''}
-{if is_set( $block.name )}
-    {set $block_name = $block.name}
-{else}
-    {set $block_name = ezini( $block.type, 'Name', 'block.ini' )}
-{/if}
-<h2 class="grey_background">{$block_name}</h2>
+<!-- BLOCK: START -->
+<div class="block-type-mainstory">
+<div class="border-box block-style4-box-outside">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-ml"><div class="border-mr"><div class="border-mc">
+<div class="border-content">
 
-{attribute_view_gui attribute=$valid_items[0].data_map.image image_class='mainstory1'}
+<!-- BLOCK BORDER INSIDE: START -->
 
-<h1><a href="{$valid_items[0].url_alias|ezurl(no)}" style="font-size: 30px; font-weight: bold; color: #000000; text-decoration: none">{$valid_items[0].name}</a></h1>
+<div class="border-box block-style4-box-inside">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-ml"><div class="border-mr"><div class="border-mc">
+<div class="border-content">
 
-{attribute_view_gui attribute=$valid_items[0].data_map.intro}
+<!-- BLOCK CONTENT: START -->
+
+<div class="class-article">
+
+    <div class="attribute-image">{attribute_view_gui attribute=$valid_node.data_map.image image_class='mainstory2'}</div>
+
+    <div class="attribute-header">
+        <h2><a href="{$valid_node.url_alias|ezurl(no)}">{$valid_node.name}</a></h2>
+    </div>
+
+    <div class="attribute-short">
+        {attribute_view_gui attribute=$valid_node.data_map.intro}
+    </div>
 
 </div>
+
+<!-- BLOCK CONTENT: END -->
+
+</div>
+</div></div></div>
+<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+</div>
+
+<!-- BLOCK BORDER INSIDE: END -->
+
+
+</div>
+</div></div></div>
+<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+</div>
+</div>
+<!-- BLOCK: END -->

@@ -7,7 +7,7 @@
      $user_id           = $current_user.contentobject_id}
 
 {if and( $current_node_id|eq(0), is_set( $module_result.path.0 ) , is_set( $module_result.path[$module_result.path|count|dec].node_id ) )}
-	{set $current_node_id = $module_result.path[$module_result.path|count|dec].node_id}
+    {set $current_node_id = $module_result.path[$module_result.path|count|dec].node_id}
 {/if}
 
 {cache-block keys=array( $uri_string, $basket_is_empty, $user_id, $timeline_cache_key )}
@@ -15,7 +15,6 @@
      $locales          = fetch( 'content', 'translation_list' )
      $pagerootdepth    = ezini( 'SiteSettings', 'RootNodeDepth', 'site.ini' )
      $indexpage        = ezini( 'NodeSettings', 'RootNode', 'content.ini' )
-     $infobox_count    = 0
      $path_normalized  = ''
      $path_array       = array()
      $pagedesign_class = fetch( 'content', 'class', hash( 'class_id', 'template_look' ) )
@@ -73,19 +72,12 @@
 {elseif eq( $ui_context, 'browse' )}
     {set $pagestyle       = 'nosidemenu noextrainfo'}
 {elseif $current_node_id}
-	{if is_set( $module_result.path[$pagerootdepth|dec].node_id )}
-		{set $indexpage = $module_result.path[$pagerootdepth|dec].node_id}
-	{/if}
-	{if is_set( $module_result.path[1] )}
-	    {set $infobox_count = fetch( 'content', 'list_count', hash( 'parent_node_id', $current_node_id,
-                                                                    'class_filter_type', 'include',
-                                                                    'class_filter_array', array( 'infobox' ) ) )}
-	    {if ne( $infobox_count , 0 ) }
-	        {set $pagestyle = 'sidemenu extrainfo'}
-	    {else}
-	        {set $pagestyle = 'sidemenu noextrainfo'}
-	    {/if}
-	{/if}
+    {if is_set( $module_result.path[$pagerootdepth|dec].node_id )}
+        {set $indexpage = $module_result.path[$pagerootdepth|dec].node_id}
+    {/if}
+    {if is_set( $module_result.path[1] )}
+            {set $pagestyle = 'nosidemenu extrainfo'}
+    {/if}
 {/if}
 
 {if is_set($module_result.section_id)}
@@ -111,6 +103,7 @@
 
   <!-- Header area: START -->
   <div id="header" class="float-break">
+  <div id="page-width1">
   <div id="usermenu">
     <div id="languages">
         {if $locales|count|gt( 1 )}
@@ -121,13 +114,13 @@
         {if $row.columns[0]}
             {set $site_url = $site_url|append( "/" )}
             <li{if $row.columns[1]|downcase()|eq($access_type.name)} class="current_siteaccess"{/if}>
-	        {if is_set($DesignKeys:used.url_alias)}
-	            <a href="{concat( "http://", $site_url,
-	                     $DesignKeys:used.url_alias
-	                     )}">{$language}</a>
-	        {else}
-	            <a href="{concat( "http://", $site_url,
-	                     $uri_string
+            {if is_set($DesignKeys:used.url_alias)}
+                <a href="{concat( "http://", $site_url,
+                         $DesignKeys:used.url_alias
+                         )}">{$language}</a>
+            {else}
+                <a href="{concat( "http://", $site_url,
+                         $uri_string
                          )}">{$language}</a>
             {/if}
             </li>
@@ -137,7 +130,34 @@
         </ul>
         {/if}
     </div>
+    </div>
+    {cache-block keys=array( $uri_string, $user_hash, $timeline_cache_key )}
+    <div id="logo">
+    {if $pagedesign.data_map.image.content.is_valid|not()}
+        <h1><a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}">{ezini('SiteSettings','SiteName')}</a></h1>
+    {else}
+        <a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}"><img src={$pagedesign.data_map.image.content[original].full_path|ezroot} alt="{$pagedesign.data_map.image.content[original].text}" width="{$pagedesign.data_map.image.content[original].width}" height="{$pagedesign.data_map.image.content[original].height}" /></a>
+    {/if}
+    </div>
+    <div id="searchbox">
+      <form action={"/content/search"|ezurl}>
+        <img src={"search-label.png"|ezimage()} />
+        {if eq( $ui_context, 'edit' )}
+        <input id="searchtext" name="SearchText" type="text" value="" size="12" disabled="disabled" />
+        <input id="searchbutton" class="button-disabled" type="submit" value="{'Search'|i18n('design/ezwebin/pagelayout')}" alt="Submit" disabled="disabled" />
+        {else}
+        <input id="searchtext" name="SearchText" type="text" value="" size="12" />
+        <input id="searchbutton" type="image" src={"search-button.png"|ezimage()} alt="{'Search'|i18n('design/ezwebin/pagelayout')}" />
+            {if eq( $ui_context, 'browse' )}
+             <input name="Mode" type="hidden" value="browse" />
+            {/if}
+        {/if}
+      </form>
+    </div>
     <div id="links">
+    <div class="corner-box">
+    <div class="corner-tl"><div class="corner-tr">
+    <div class="corner-content">
         <ul>
             {if $pagedesign.data_map.tag_cloud_url.data_text|ne('')}
                 {if $pagedesign.data_map.tag_cloud_url.content|eq('')}
@@ -176,69 +196,54 @@
             <li><a href={concat( "/content/edit/", $pagedesign.id, "/f/", ezini( 'RegionalSettings', 'Locale' , 'site.ini'), "/", $pagedesign.initial_language_code )|ezurl} title="{$pagedesign.data_map.site_settings_label.data_text|wash}">{$pagedesign.data_map.site_settings_label.data_text|wash}</a></li>
         {/if}
         </ul>
-    </div>
-    </div>
-    {cache-block keys=array( $uri_string, $user_hash, $timeline_cache_key )}
-    <div id="logo">
-    {if $pagedesign.data_map.image.content.is_valid|not()}
-        <h1><a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}">{ezini('SiteSettings','SiteName')}</a></h1>
-    {else}
-        <a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}"><img src={$pagedesign.data_map.image.content[logo].full_path|ezroot} alt="{$pagedesign.data_map.image.content[logo].text}" width="{$pagedesign.data_map.image.content[logo].width}" height="{$pagedesign.data_map.image.content[logo].height}" /></a>
-    {/if}
-    </div>
-    <div id="searchbox">
-      <form action={"/content/search"|ezurl}>
-        <label for="searchtext" class="hide">Search text:</label>
-        {if eq( $ui_context, 'edit' )}
-        <input id="searchtext" name="SearchText" type="text" value="" size="12" disabled="disabled" />
-        <input id="searchbutton" class="button-disabled" type="submit" value="{'Search'|i18n('design/ezwebin/pagelayout')}" alt="Submit" disabled="disabled" />
-        {else}
-        <input id="searchtext" name="SearchText" type="text" value="" size="12" />
-        <input id="searchbutton" class="button" type="submit" value="{'Search'|i18n('design/ezwebin/pagelayout')}" alt="Submit" />
-            {if eq( $ui_context, 'browse' )}
-             <input name="Mode" type="hidden" value="browse" />
-            {/if}
-        {/if}
-      </form>
+        </div>
+        </div></div>
+        </div>
     </div>
     <p class="hide"><a href="#main">Skip to main content</a></p>
+    </div>
   </div>
   <!-- Header area: END -->
 
-
+  <div id="wrapper1">
+  <div id="wrapper2">
   <!-- Top menu area: START -->
   <div id="topmenu" class="float-break">
-    {include uri='design:menu/flat_top.tpl'}
+    {include uri='design:menu/double_top.tpl'}
   </div>
   <!-- Top menu area: END -->
-  {if not( and( is_set( $content_info.class_identifier ),
-                eq( $content_info.class_identifier, 'frontpage' ),
-	        and( is_set( $content_info.viewmode ), ne( $content_info.viewmode, 'sitemap' ) ),
-	        and( is_set( $content_info.viewmode ), ne( $content_info.viewmode, 'tagcloud' ) )
-	      )
+  {if not( and( 
+            and( is_set( $content_info.viewmode ), eq( $content_info.viewmode, 'sitemap' ) ),
+            and( is_set( $content_info.viewmode ), eq( $content_info.viewmode, 'tagcloud' ) )
+          )
          )}
 
   <!-- Path area: START -->
   <div id="path">
+    <div id="page-width4">
     {include uri='design:parts/path.tpl'}
+    </div>
   </div>
   <!-- Path area: END -->
   {/if}
 
 
   <!-- Toolbar area: START -->
-  <div id="toolbar">
+  <div id="page-width5">
+      <div id="toolbar">
   {if and( $current_node_id,
            $current_user.is_logged_in,
            and( is_set( $content_info.viewmode ), ne( $content_info.viewmode, 'sitemap' ) ),
            and( is_set( $content_info.viewmode ), ne( $content_info.viewmode, 'tagcloud' ) ) ) }
   {include uri='design:parts/website_toolbar.tpl'}
   {/if}
+      </div>
   </div>
   <!-- Toolbar area: END -->
 
 
   <!-- Columns area: START -->
+<div id="page-width6">
   <div id="columns" class="float-break">
     <!-- Side menu area: START -->
     <div id="sidemenu-position">
@@ -277,6 +282,7 @@
     <!-- Extra area: END -->
 
   </div>
+</div>
   <!-- Columns area: END -->
 
   {if is_unset($pagedesign)}
@@ -290,6 +296,8 @@
 
 {include uri='design:page_footer.tpl'}
 
+  </div>
+  </div>
 </div>
 <!-- Complete page area: END -->
 

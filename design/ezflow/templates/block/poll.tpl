@@ -1,16 +1,25 @@
-<div id="address-{$block.zone_id}-{$block.id}">
-{def $block_name = ''}
-{if is_set( $block.name )}
-    {set $block_name = $block.name}
-{else}
-    {set $block_name = ezini( $block.type, 'Name', 'block.ini' )}
-{/if}
 {def $poll_node = fetch( 'content', 'node', hash( 'node_id', $block.custom_attributes.poll_node_id ) )
      $object = $poll_node.object}
-<h2 class="grey_background">{$block_name}</h2>
 
+<!-- BLOCK: START -->
+<div class="block-type-poll">
 
+<div class="border-box block-style2-box-outside">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-ml"><div class="border-mr"><div class="border-mc">
+<div class="border-content">
 
+<!-- BLOCK BORDER INSIDE: START -->
+
+<div class="border-box block-style2-box-inside">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-ml"><div class="border-mr"><div class="border-mc">
+<div class="border-content">
+
+<div class="class-poll">
+<!-- BLOCK CONTENT: START -->
+
+<h2>{$block.name}</h2>
 
         <form method="post" action={"content/action"|ezurl}>
         <input type="hidden" name="ContentNodeID" value="{$object.main_node_id}" />
@@ -34,3 +43,20 @@
 
         </form>
 </div>
+<!-- BLOCK CONTENT: END -->
+
+</div>
+</div></div></div>
+<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+</div>
+
+<!-- BLOCK BORDER INSIDE: END -->
+
+
+</div>
+</div></div></div>
+<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+</div>
+
+</div>
+<!-- BLOCK: END -->
