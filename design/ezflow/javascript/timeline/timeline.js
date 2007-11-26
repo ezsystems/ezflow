@@ -1,12 +1,12 @@
 // Calendar Start
-YAHOO.namespace("timeline.calendar");
+YAHOO.namespace( "timeline.calendar" );
 
 // Custom fuction for displaying the calendar
 YAHOO.timeline.calendar.cShow = function()
 {
     var Dom = YAHOO.util.Dom;
 
-    Dom.get( "show_calendar" ).style.backgroundImage = YAHOO.timeline.calendar.arrowImageUp;
+    Dom.get( "show_calendar" ).style.backgroundImage = YAHOO.timeline.calendar.arrowImageUP;
     Dom.get( "slider-container" ).style.marginTop = "17.3em";
 
     YAHOO.timeline.calendar.cal1.show();
@@ -25,8 +25,8 @@ YAHOO.timeline.calendar.cClose = function()
     YAHOO.timeline.calendar.isVisible = false;
 }
 
-// Toogle calendar visibiliy.
-YAHOO.timeline.calendar.toogleCalendar = function(e)
+// Toogle calendar visibility
+YAHOO.timeline.calendar.toogleCalendar = function( event )
 {
     if ( YAHOO.timeline.calendar.isVisible == false )
     {
@@ -38,7 +38,7 @@ YAHOO.timeline.calendar.toogleCalendar = function(e)
     }
 }
 
-YAHOO.timeline.calendar.selectDateHandler = function( type, args, objs) 
+YAHOO.timeline.calendar.onSelectDate = function( type, args, obj ) 
 {
 	var weekdays = this.cfg.getProperty( "WEEKDAYS_LONG" );
     var months = this.cfg.getProperty( "MONTHS_LONG" );
@@ -85,7 +85,7 @@ YAHOO.timeline.calendar.init = function()
     var calendar = YAHOO.util.Dom.get( "show_calendar" );
     YAHOO.timeline.calendar.cClose();
 	
-    YAHOO.timeline.calendar.cal1.selectEvent.subscribe( YAHOO.timeline.calendar.selectDateHandler, YAHOO.timeline.calendar.cal1, true );
+    YAHOO.timeline.calendar.cal1.selectEvent.subscribe( YAHOO.timeline.calendar.onSelectDate, YAHOO.timeline.calendar.cal1, true );
 	YAHOO.timeline.calendar.cal1.render();
 
 	YAHOO.util.Event.addListener( calendar, "click", YAHOO.timeline.calendar.toogleCalendar );
@@ -102,8 +102,6 @@ YAHOO.namespace( "timeline.slider" );
 // Slider event: while sliding
 YAHOO.timeline.slider.onSliderChange = function( offsetFromStart )
 { 
-    var offsetFromStart = YAHOO.timeline.slider.slider1.getValue();
-    
     var timestamp = YAHOO.timeline.slider.getTimestamp();
 
     var date = new Date();
@@ -123,7 +121,6 @@ YAHOO.timeline.slider.onSliderChange = function( offsetFromStart )
 
     // Update our scrubbing time label.
     label.innerHTML = hours + ":" + minutes;
-    
 }
 
 // Slider event: Finishing sliding
@@ -156,8 +153,8 @@ YAHOO.timeline.slider.init = function()
     var tickSize = 20;
     YAHOO.timeline.slider.slider1 = YAHOO.widget.Slider.getHorizSlider( YAHOO.timeline.slider.bg, YAHOO.timeline.slider.thumb, 
                                                                         topConstraint, bottomConstraint, tickSize ); 
-    //YAHOO.timeline.slider.slider1.animate = false;
-    YAHOO.timeline.slider.slider1.tickPause = 0.2;
+    YAHOO.timeline.slider.slider1.animate = false;
+    //YAHOO.timeline.slider.slider1.tickPause = 0.2;
 
     // set inital position
     YAHOO.timeline.slider.slider1.setValue( YAHOO.timeline.slider.initalSliderPosition, true, true, true ); 
@@ -245,12 +242,13 @@ YAHOO.timeline.slider.timestampFromPixels = function( currentPx, middleStartPx, 
 YAHOO.util.Event.onDOMReady( YAHOO.timeline.slider.init );
 // End Slider
 
+
 // Common namespace
 YAHOO.namespace("timeline.common");
 
 YAHOO.timeline.common.updateBlocks = function()
 {
-    YAHOO.timeline.slider.slider1.lock();
+    //YAHOO.timeline.slider.slider1.lock();
     var timestamp = YAHOO.timeline.slider.getTimestamp();
     
      // Update the title attribute on the background.  This helps assistive 
@@ -269,18 +267,23 @@ YAHOO.timeline.common.updateBlocks = function()
 // Update block callback method: callback for after we've fetched our blocks.
 YAHOO.timeline.common.updateBlocksCallback = 
 { 
-    success: function(o) 
+    success: function( o ) 
     {
         if ( o.responseText != "" )
         {
-            //var blocks = eval( "(" + o.responseText + ")" );
             var blocks = o.responseText.evalJSON();
-            for ( var objIterator = 0; objIterator < blocks.length; objIterator++ )
+            
+            blocks.each( function( item )
             {
-                var blockID = "address-" + blocks[objIterator].objectid;
-                var xhtml = blocks[objIterator].xhtml.unescapeHTML();
-                
-                // Take care of doubel quotes ""
+                // IE seems to mess up the count of our blocks array, so make sure
+                // all items are valid objects.
+                if ( item == undefined )
+                    return;
+
+                var blockID = "address-" + item.objectid;
+                var xhtml = item.xhtml.unescapeHTML();
+
+                // Take care of double quotes ""
                 xhtml = xhtml.gsub( '&quot;', '"' );
                 // Take care of single quotes ''
                 xhtml = xhtml.gsub( '&#039;', "'" );
@@ -296,23 +299,43 @@ YAHOO.timeline.common.updateBlocksCallback =
                     script = script.gsub( "<!--", "" );
                     script = script.gsub( "//-->", "" );
                     script = script.gsub( "-->", "" );
-                  return eval( script );
+                    
+                    return eval( script );
                 });
 
                 // If return xhtml contains <div id="address-..."> we need to remove it, if not 
                 // we end up with double sets of <div id="address-..."> since we put the returned
                 // xhtml into the innerHTML of the existing <div id="address-..."> tag.
+
                 if ( node.childNodes[0].id == blockID )
                 {
-                    node.innerHTML = node.firstChild.innerHTML;
+                    var params = "";
+                    var objectNode = YAHOO.util.Dom.get( "object-" + item.objectid );
+
+                    // IE does not include <param /> tags in innerHTML nor outerHTML.
+                    if ( objectNode && (/MSIE [67]/.test( navigator.appVersion ) ) )
+                    {
+                        // Build a HTML string of all params inside the object tag.
+                        var paramTags = objectNode.getElementsByTagName( "param" );
+                        for ( var i = 0; i < paramTags.length; i++ ) 
+                        { 
+                            params += paramTags[i].outerHTML;
+                        }
+                        
+                        var tag = objectNode.outerHTML.split( ">" )[0] + ">";
+                        var objectTagHTML = tag + params + objectNode.innerHTML;
+                                                
+                        node.innerHTML = node.firstChild.innerHTML;
+                        // Re-fetch the objectNode
+                        var objectNode = YAHOO.util.Dom.get( "object-" + item.objectid );                    
+                        objectNode.outerHTML = objectTagHTML;
+                    }
+                    else
+                    {
+                        node.innerHTML = node.firstChild.innerHTML;                        
+                    }
                 }
-            }
+            });
         }
-        YAHOO.timeline.slider.slider1.unlock();
-    }, 
-    failure: function(o) 
-    {
-        //alert( "Fetching blocks failed..." );
-        YAHOO.timeline.slider.slider1.lock();
-    }, 
+    }
 };

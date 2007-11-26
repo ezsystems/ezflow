@@ -23,7 +23,7 @@
 
 
 <div id="ezflow-timeline">
-    <div id="date_selecter"><a id="show_calendar" href="#">{$now_precise|l10n( 'date' )}</a></div>
+    <div id="date_selecter"><span id="show_calendar">{$now_precise|l10n( 'date' )}</span></div>
 
     <div id="cal1Container"></div> 
 
@@ -37,8 +37,7 @@
         </div>
 
         {def $timestamp=$past_start
-             $spacing=$slide_label_inital_spacing
-             $classid=""}
+             $spacing=$slide_label_inital_spacing}
 
         <div class="slider-labels">
         {* Generate time labels with low precision (1 hour = 1 tick) *}    
@@ -65,7 +64,7 @@
                 {set $spacing=$counter|mul($slide_labels_spacing)}
                 {set $spacing=$spacing|sum($slide_label_inital_spacing)}
             
-                <span class="timestamp" id="timestamp-{$classid}">{$timestamp}</span>
+                <span class="timestamp">{$timestamp}</span>
                 <span style="left: {$spacing}px" class="ticker_label">{$timestamp|datetime( 'custom', '%H:%i' )}</span>
             {/for}    
         </div>

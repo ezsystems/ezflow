@@ -82,7 +82,7 @@ body.yui-skin-sam
     background-image: none;
 }
 
-div#ezflow-timeline div#date_selecter a
+div#ezflow-timeline div#date_selecter span
 {
     display:inline;
     padding: 4px 30px 4px 8px;
@@ -90,14 +90,14 @@ div#ezflow-timeline div#date_selecter a
     background-repeat: no-repeat;
     background-position: 98% 0.65em;
     border:1px solid #EEEEEE;
-    text-decoration:none;
+    cursor: pointer;
     color: #000000;
     outline-color:invert;
     outline-style:none;
     outline-width:medium;
 }
 
-div#ezflow-timeline div.date_selecter a:hover
+div#ezflow-timeline div#date_selecter span:hover
 {
     border:1px solid #AAAAAA;
 }
