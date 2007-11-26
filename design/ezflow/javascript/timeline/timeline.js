@@ -259,7 +259,7 @@ YAHOO.timeline.common.updateBlocks = function()
 
     var fetchURL = YAHOO.timeline.slider.fetchURL;
     var nodeid = YAHOO.timeline.slider.nodeid;
-
+    
     var sourceURL = fetchURL + "/" + timestamp + "/" + nodeid;
     var transaction = YAHOO.util.Connect.asyncRequest( 'GET', sourceURL, YAHOO.timeline.common.updateBlocksCallback, null ); 
 }

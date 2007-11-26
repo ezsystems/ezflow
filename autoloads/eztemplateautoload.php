@@ -4,6 +4,9 @@ $eZTemplateOperatorArray = array();
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezunserialize.php',
                                     'class' => 'eZUnserialize',
                                     'operator_names' => array( 'unserialize' ) );
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezred5streamlist.php',
+                                    'class' => 'eZRed5StreamListOperator',
+                                    'operator_names' => array( 'red5list' ) );
 
 $eZTemplateFunctionArray = array();
 $eZTemplateFunctionArray[] = array( 'function' => 'eZPageForwardInit',

@@ -1,0 +1,402 @@
+body
+{
+    padding: 0pt;
+    margin: 0pt;
+    color: #000000;
+    font-family: "Lucida Grande", Geneva, Arial, Verdana, sans-serif;
+    width:100%;
+    padding: 0pt;
+    margin: 0pt;
+    background-color: #000000;
+    background-image: none;
+    font-size: 1.0em;
+    text-align: left;
+}
+
+div#page
+{
+    margin: 0;
+    padding: 3px 0px 3px 0px;
+    -webkit-tap-highlight-color: #000000;
+}
+
+div#main
+{
+    padding: 3px;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+a
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover 
+{
+    color: #000000;
+    text-decoration:none;
+}
+
+a.button:hover 
+{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+
+a:active 
+{
+    color: #000000;
+}
+
+a h1
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+h1, div.attribute-header h1
+{
+    font-size: 1.3em;
+    background: none;
+}
+
+h2
+{
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+p
+{
+    margin-top: 5px;
+    font-size: 0.8em;
+}
+
+.float-break
+{
+    height: 1%;
+}
+
+/* --------------- */
+
+div#full-version-link
+{
+    float: right;
+    padding-top: 5px;
+    font-size: 10px;
+}
+
+.button
+{
+    color: #000000;
+    margin-top: 10px;
+}
+
+/* --------------- */
+
+div#footer 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 0.7em;
+    text-align: center;
+}
+div#footer a
+{
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+
+div.block
+{
+    padding: 0px 0px 10px 0px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #333333;
+    cursor: pointer;
+    clear: both;
+}
+
+div.main-article div.attribute-image
+{
+    padding: 3px 0px 5px 0px;
+}
+
+div.content-view-full div.class-article div.attribute-image, div.content-view-line div.class-article div.attribute-image
+{
+    float: left;
+    padding: 3px 10px 2px 0px;
+}
+    
+
+div.attribute-header
+{
+    border-bottom: 1px solid #333333;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+div.attribute-header h1
+{
+    padding: 0px;
+    margin: 0px;
+    padding-top: 1px;
+}
+
+div.attribute-byline
+{
+    font-size: 0.85em;
+}
+
+div.content-view-full div.attribute-byline, div.content-view-full div.class-article div.attribute-byline 
+{
+    margin-top: 1em;    
+    padding-top: 0.5em;
+    border-top: 1px dotted #333333;
+    padding-bottom: 0.5em;
+    background-image: none;
+}
+
+div.attribute-byline p.author 
+{
+    clear:right;
+    float:right;
+}
+
+div.attribute-byline p 
+{
+    margin: 0pt 0pt 0.5em;
+}
+
+div.attribute-byline p.date 
+{
+    clear:left;
+}
+
+span.arrow
+{
+    background-image: url( ../images/red_arrow.gif );
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 1px 0px 5px 10px;
+}
+
+a.button
+{
+    float: left;
+    margin-right: 14px;
+}
+
+/* Next/Prev navigation */
+
+div.content-navigator 
+{
+    display:block;
+    text-align:center;
+    margin-bottom: 0.5em;
+    
+}
+
+div.content-navigator div
+{
+    display:inline;
+    text-align:center;
+}
+
+div.content-navigator div.content-navigator-separator, div.content-navigator div.content-navigator-separator-disabled 
+{
+    padding-left:4px;
+    padding-right:4px;
+}
+
+div.content-navigator div.content-navigator-arrow 
+{
+    font-size:120%;
+}
+
+div.pagenavigator 
+{
+    clear:both;
+    text-align:center;
+}
+
+div.pagenavigator span.previous 
+{
+    float:left;
+}
+
+div.pagenavigator span.next 
+{
+    float:right;
+}
+
+
+/* misc overrides */
+
+div.content-view-full div.class-article div.attribute-long, div.content-view-full div.class-gallery div.content-view-children 
+{
+    background: none;
+    background-color: #FFFFFF;
+}
+
+div.content-view-full div.class-gallery div.content-view-children 
+{
+    padding: 0;
+    float: none;
+}
+
+div.poll-result td.poll-resultbar table 
+{
+    width: 200px;
+}
+
+div.border-box
+{
+    margin-bottom: 0;
+}
+
+div.border-box div.border-tl
+{
+    background: none;
+}
+
+div.border-box div.border-tl
+{
+    background: none;
+}
+
+div.border-box div.border-tr 
+{
+    background: none;
+    padding: 0;
+}
+
+div.border-box div.border-tc, div.border-box div.border-bc
+{
+    background: none;
+    padding: 0;
+    height: 0px;    
+}
+
+div.border-box div.border-mc, div.border-box div.border-mr, div.border-box div.border-ml
+{
+    background: none;
+    padding: 0;
+}
+
+
+div.content-view-full div.class-article div.attribute-image, div.content-view-line div.class-article div.attribute-image
+{
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+div.content-view-full div.class-article div.attribute-long
+{
+    padding-bottom: 0px;
+}
+
+/* ---- */
+
+.dailyPhoto 
+{ 
+    margin-bottom: 14px; 
+    position: relative; 
+}
+
+.dailyPhoto p
+{
+    font-size: 1em;
+}
+
+.dailyPhoto .head 
+{ 
+    height: 33px; 
+}
+.dailyPhoto .head .kL 
+{ 
+    font-size: 11px; 
+    color: #1e344f; 
+    text-transform: uppercase; 
+    padding: 6px 6px 4px; 
+}
+
+.dailyPhoto .head .kR 
+{ 
+    padding: 9px 24px 1px 0; display: none; 
+}
+.dailyPhoto .head .kR a { border: 1px solid #7cb8ff; background: #fff; display: block; float: left; overflow: hidden; width: 9px; height: 9px; margin-left: 4px; }
+.dailyPhoto .head .kR a.sel { border: 1px solid #7cb8ff; background: #7cb8ff; display: block; float: left; overflow: hidden; width: 9px; height: 9px; margin-left: 4px; }
+.dailyPhoto .content div { position: absolute; bottom: 0px; left: 0px; width: 314px; height: 194px; }
+.dailyPhoto .content { margin: 0 6px 0 0px; width: 314px; height: 194px; overflow: hidden; position: relative; background: #000; }
+.dailyPhoto .content div div { position: absolute; left: 0px; bottom: 0px; height: 38px; width: 279px; padding-left: 13px; line-height: 15px; color: #fff; font-weight: bold; display: table !important; display: block;  }
+.dailyPhoto div.bg 
+{ 
+    position: absolute; 
+    left: 0px; 
+    bottom: 0px; 
+    height: 38px; 
+    width: 314px; 
+    line-height: 15px; 
+    color: #fff; 
+    background: #000; 
+    font-weight: bold; 
+    display: table !important; 
+    display: block; 
+}
+
+.dailyPhoto a, .dailyPhoto a:visited, .dailyPhoto a:hover { color: #fff; display: table-cell !important; display: inline; vertical-align: middle; }
+
+
+.dailyPhoto .captions 
+{ 
+    position: relative; 
+    left: 10px; 
+    bottom: 22px; 
+    height: 1%; 
+    width: 276px; 
+    color: #fff; 
+    font-weight: bold; 
+    z-index: 5; 
+}
+
+.dailyPhoto .captions div 
+{ 
+    margin-left: 0; 
+    padding-left: 5px; 
+    position: absolute; 
+    height: 38px;
+    width: 276px;
+    display: table !important; 
+    display: block; 
+    font-size: 12px;
+    top: -8px;
+}
+
+.dailyPhoto .captions div.hidden { position: absolute; top: 0px; left: 0px; width: 276px; height: 38px; padding-left: 15px; display: none !important; display: none; }
+
+
+.button	
+{	
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Heveltica;
+	display: block;		    
+	line-height: 22px;	 	
+	width: 50px;			
+	text-decoration: none;
+	text-align:center;
+}
+
+.blackbuttonleft
+{
+	text-shadow: #000 0px 1px 1px;	 
+	border-width: 0 5px 0 12px;
+	margin: 3px auto;
+	color: white;
+	-webkit-border-image: url(../images/blackbuttonleft.png) 0 5 0 12;		
+}
