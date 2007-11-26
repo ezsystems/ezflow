@@ -11,6 +11,7 @@ $db = eZDB::instance();
 $ini = eZINI::instance( 'block.ini' );
 
 $salt = md5( microtime() . rand( 0, 100 ) );
+$salt = substr( $salt, 0, 14 );
 $blockTable = 'ezm_block';
 $blockTMPTable = 'ezm_block_tmp_' . $salt;
 $poolTable = 'ezm_pool';
