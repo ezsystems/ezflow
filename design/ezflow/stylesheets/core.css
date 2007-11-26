@@ -303,7 +303,7 @@ optgroup
     font-style: normal;
 }
 
-input.button, button, input.defaultbutton
+input.button, input.defaultbutton
 {
     background-image: url(../images/button-bg.png);
     background-repeat: repeat-x;
