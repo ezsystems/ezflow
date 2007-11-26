@@ -6,8 +6,8 @@
     <h2>{$block.name}</h2>
 </div>
 
-{def  $attribute_file=$valid_node.data_map.file
-     $video=concat("content/download/",$attribute_file.contentobject_id,"/",$attribute_file.content.contentobject_attribute_id,"/",$attribute_file.content.original_filename)|ezurl(no)}
+{def $attribute_file=$valid_node.data_map.file
+     $video=concat("content/download/", $attribute_file.contentobject_id, "/", $attribute_file.content.contentobject_attribute_id)|ezurl(no)}
 
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
     <script type="text/javascript">
