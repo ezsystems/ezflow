@@ -7,7 +7,7 @@
  *
  */
 
-include_once( 'extension/ezflow/classes/ezmOperations.php' );
+include_once( 'extension/ezflow/classes/ezflowoperations.php' );
 include_once( 'kernel/classes/ezcontentcache.php' );
 
 define( 'ROTATION_NONE', 0 );
@@ -160,7 +160,7 @@ foreach ( $res as $row )
         $blockChanged = false;
 
         // Fetch new objects and add them to the queue of the current block
-        ezmOperations::updateBlockPoolByBlockID( $block['id'], $time );
+        eZFlowOperations::updateBlockPoolByBlockID( $block['id'], $time );
 
         $db->begin();
 

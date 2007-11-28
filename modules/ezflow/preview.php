@@ -153,7 +153,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                 $blockChanged = false;
 
                 // Fetch new objects and add them to the queue of the current block
-                //ezmOperations::updateBlockPoolByBlockID( $block['id'], $time );
+                //eZFlowOperations::updateBlockPoolByBlockID( $block['id'], $time );
 
                 $db->begin();
 

@@ -1,6 +1,6 @@
 <?php
 
-class ezmOperations
+class eZFlowOperations
 {
     function updateBlockPoolByBlockID( $blockID, $publishedBeforeOrAt = false )
     {
@@ -16,7 +16,7 @@ class ezmOperations
         
         if ( !$result )
         {
-            eZDebug::writeWarning( "Block does not exist", "ezmOperations::updateBlockPoolByBlockID('$blockID')" );
+            eZDebug::writeWarning( "Block does not exist", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
             return false;
         }
 
@@ -37,7 +37,7 @@ class ezmOperations
         // TODO: maybe check if it is of ezmFetchInterface type?
         if ( !is_subclass_of( $fetchInstance, 'ezmFetchInterface' ) )
         {
-            eZDebug::writeWarning( "Can't create an instance of the $fetchClass class", "ezmOperations::updateBlockPoolByBlockID('$blockID')" );
+            eZDebug::writeWarning( "Can't create an instance of the $fetchClass class", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
             return false;
         }
 
@@ -67,7 +67,7 @@ class ezmOperations
                                                 LIMIT 1" );
             if ( $duplicityCheck )
             {
-                eZDebug::writeNotice( "Object $objectID is already available in the block $blockID.", 'ezmOperations' );
+                eZDebug::writeNotice( "Object $objectID is already available in the block $blockID.", 'eZFlowOperations' );
             }
             else
             {
