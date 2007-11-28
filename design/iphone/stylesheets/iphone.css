@@ -20,11 +20,26 @@ div#page
     -webkit-tap-highlight-color: #000000;
 }
 
+div.block-type-mainstory div.trans-background
+{
+    width: 302px;
+}
+
+div.block-type-mainstory div.attribute-link
+{
+    width: 282px;
+}
+
 div#main
 {
-    padding: 3px;
     margin: 0;
-    background-color: #FFFFFF;
+}
+
+div#logo
+{
+    padding: 3px;
+    background-color: #FFF;
+    margin: 0px 3px;
 }
 
 a
@@ -68,7 +83,13 @@ h2
     margin-bottom: 5px;
 }
 
-p
+ul li
+{
+    line-height: 20px;
+    background-position:0pt 0.59em;
+}
+
+p, ul li
 {
     margin-top: 5px;
     font-size: 0.8em;
@@ -77,6 +98,96 @@ p
 .float-break
 {
     height: 1%;
+}
+
+
+/* MAIN LAYOUT OVERRIDES */
+div.maincol-position 
+{
+    clear: both;
+    float: none;
+}
+
+div.zone-layout-2zoneslayout1 div.leftcol-position 
+{
+    margin-left: 0px;
+    width: 100%;
+}
+
+div.zone-layout-2zoneslayout1 div.content-columns {
+    padding: 0px;
+}
+
+div.block-style1-box-inside div.border-content
+{
+    padding: 0px;
+}
+
+div.columns-two div.col-1, div.columns-two div.col-2, div.columns-three div.col-1-2, div.columns-three div.col-1, div.columns-three div.col-2, div.columns-three div.col-3, div.columns-four div.col-1-2, div.columns-four div.col-1, div.columns-four div.col-2, div.columns-four div.col-3-4, div.columns-four div.col-3, div.columns-four div.col-4 
+{
+    float: none;
+}
+
+div.columns-two div.col-2 div.col-content 
+{
+    margin-left: 0px;
+}    
+
+div.columns-two, div.columns-three div.col-1-2, div.columns-four, div.columns-four div.col-1-2, div.columns-four div.col-3-4 
+{
+    padding-right:0px;
+}
+
+div.block-type-gallery div.block div.left
+{
+    float: none;
+    width: 100%;
+}
+
+div.columns-three
+{
+padding-right: 0px;
+}
+
+div#footer address, div#footer address a
+{
+    color: #000;
+}
+
+div.content-view-full div.class-gallery div.content-view-galleryline div.attribute-name 
+{
+    display: none;
+}
+
+div.content-view-full div.class-gallery div.content-view-galleryline 
+{
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+}
+
+div.extrainfo-column-position 
+{
+    float: none;
+}
+
+div.extrainfo-column-position {
+    clear:both;
+    float:left;
+    margin-right: 0px;
+    width:100%;
+}
+
+div.columns-blog div.main-column
+{
+    margin: 0px;
+}
+
+div.columns-blog
+{
+    padding: 0px;
 }
 
 /* --------------- */
@@ -105,46 +216,64 @@ div#footer
     font-size: 0.7em;
     text-align: center;
 }
+
 div#footer a
 {
     color: #FFFFFF;
     text-decoration: underline;
 }
 
-
-div.block
-{
-    padding: 0px 0px 10px 0px;
-    margin-bottom: 10px;
-    border-bottom: 1px dotted #333333;
-    cursor: pointer;
-    clear: both;
-}
-
-div.main-article div.attribute-image
-{
-    padding: 3px 0px 5px 0px;
-}
-
-div.content-view-full div.class-article div.attribute-image, div.content-view-line div.class-article div.attribute-image
-{
-    float: left;
-    padding: 3px 10px 2px 0px;
-}
-    
-
 div.attribute-header
 {
-    border-bottom: 1px solid #333333;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    padding-bottom: 0px;
 }
+
 div.attribute-header h1
 {
     padding: 0px;
     margin: 0px;
     padding-top: 1px;
+}
+
+div.class-article div.attribute-header h2
+{
+    background-image: url( ../images/red_arrow.gif );
+    background-position:left 5px;
+    background-repeat:no-repeat;
+    padding-left:16px;
+}
+
+div.class-article
+{
+    clear: both;
+    margin-bottom: 15px;
+}
+
+div.class-article div.attribute-image, div.block-type-gallery div.attribute-image
+{
+    float: left;
+    clear: left;
+    padding-right: 8px;
+    padding-top: 2px;
+}
+
+div.block-type-gallery
+{
+    margin: 10px 0px;
+}
+
+div.block-type-gallery a.gallery-image
+{
+    clear: both;
+    display: block;
+    padding: 3px 0px;
+}
+
+div.class-article div.attribute-short p
+{
+    padding-top: 2px;
 }
 
 div.attribute-byline
@@ -177,14 +306,6 @@ div.attribute-byline p.date
     clear:left;
 }
 
-span.arrow
-{
-    background-image: url( ../images/red_arrow.gif );
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 1px 0px 5px 10px;
-}
-
 a.button
 {
     float: left;
@@ -196,15 +317,13 @@ a.button
 div.content-navigator 
 {
     display:block;
-    text-align:center;
     margin-bottom: 0.5em;
-    
+    font-size: 12px;
 }
 
 div.content-navigator div
 {
     display:inline;
-    text-align:center;
 }
 
 div.content-navigator div.content-navigator-separator, div.content-navigator div.content-navigator-separator-disabled 
@@ -234,7 +353,6 @@ div.pagenavigator span.next
     float:right;
 }
 
-
 /* misc overrides */
 
 div.content-view-full div.class-article div.attribute-long, div.content-view-full div.class-gallery div.content-view-children 
@@ -259,35 +377,6 @@ div.border-box
     margin-bottom: 0;
 }
 
-div.border-box div.border-tl
-{
-    background: none;
-}
-
-div.border-box div.border-tl
-{
-    background: none;
-}
-
-div.border-box div.border-tr 
-{
-    background: none;
-    padding: 0;
-}
-
-div.border-box div.border-tc, div.border-box div.border-bc
-{
-    background: none;
-    padding: 0;
-    height: 0px;    
-}
-
-div.border-box div.border-mc, div.border-box div.border-mr, div.border-box div.border-ml
-{
-    background: none;
-    padding: 0;
-}
-
 
 div.content-view-full div.class-article div.attribute-image, div.content-view-line div.class-article div.attribute-image
 {
@@ -299,6 +388,16 @@ div.content-view-full div.class-article div.attribute-long
 {
     padding-bottom: 0px;
 }
+
+input.button
+{
+    background-image: none;
+    margin:1.25em 0pt;
+    color: #000000;
+    border: none;
+}
+
+/* New overrides */
 
 /* ---- */
 
@@ -349,8 +448,13 @@ div.content-view-full div.class-article div.attribute-long
     display: block; 
 }
 
-.dailyPhoto a, .dailyPhoto a:visited, .dailyPhoto a:hover { color: #fff; display: table-cell !important; display: inline; vertical-align: middle; }
-
+.dailyPhoto a, .dailyPhoto a:visited, .dailyPhoto a:hover 
+{ 
+    color: #fff; 
+    display: table-cell !important; 
+    display: inline; 
+    vertical-align: middle; 
+}
 
 .dailyPhoto .captions 
 { 
@@ -380,23 +484,49 @@ div.content-view-full div.class-article div.attribute-long
 .dailyPhoto .captions div.hidden { position: absolute; top: 0px; left: 0px; width: 276px; height: 38px; padding-left: 15px; display: none !important; display: none; }
 
 
-.button	
+.ibutton a
+{
+    color: #FFFFFF;
+}
+
+.ibutton, #backbutton, #frontpagebutton
 {	
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: bold;
 	font-family: Heveltica;
 	display: block;		    
-	line-height: 22px;	 	
-	width: 50px;			
+    line-height: 38px;   	
+	width: 74px;			
 	text-decoration: none;
-	text-align:center;
+	text-align: center;
+	margin: 0px 0px;
 }
 
-.blackbuttonleft
+.blue
 {
-	text-shadow: #000 0px 1px 1px;	 
-	border-width: 0 5px 0 12px;
-	margin: 3px auto;
-	color: white;
-	-webkit-border-image: url(../images/blackbuttonleft.png) 0 5 0 12;		
+  margin: 3px auto;
+  color: white;
+  text-shadow: #000 0px 1px 1px;
+  border-width: 0 14px 0 14px;     
+  -webkit-border-image:url( ../images/bluebutton.png ) 0 14 0 14;  
+}
+
+#frontpagebutton
+{
+}
+
+#backbutton
+{
+    width: 40px;
+}
+
+#backbutton a, #frontpagebutton a
+{
+    color: white;    
+}
+
+#navigation-buttons div.object-right, #navigation-buttons div.object-left
+{
+    margin: 0px;
+    padding: 0px;
 }

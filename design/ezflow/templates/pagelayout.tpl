@@ -42,7 +42,7 @@
     @import url({concat( 'stylesheets/', $css_file )|ezdesign});
     {/foreach}
 
-    {if $display_timeline_sider}
+    {if is_set( $display_timeline_sider )}
         @import url({"stylesheets/calendar/yui-calendar.css"|ezdesign(no)});
         @import url({"stylesheets/timeline/timeline.css"|ezdesign(no)});
     {/if}
@@ -57,7 +57,7 @@
 {/foreach}
 </head>
 
-<body {if $display_timeline_sider}class="yui-skin-sam"{/if}>
+<body {if is_set( $display_timeline_sider )}class="yui-skin-sam"{/if}>
 
 <!-- Complete page area: START -->
 

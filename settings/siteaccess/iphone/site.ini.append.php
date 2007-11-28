@@ -1,18 +1,9 @@
 <?php /*
 
-[DatabaseSettings]
-DatabaseImplementation=ezmysql
-Server=localhost
-User=root
-Password=
-Database=ezflow
-Charset=
-Socket=disabled
-
 [DesignSettings]
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=ezflow
-AdditionalSiteDesignList[]=standard
+AdditionalSiteDesignList[]=ezwebin
 SiteDesign=iphone
 
 [FileSettings]

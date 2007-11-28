@@ -25,15 +25,14 @@
                                             attribute_filter, array( and, array( $sort_column, $sort_order|choose( '<', '>' ), $sort_column_value ) ),
                                             sort_by, array( $sort_column, $sort_order ) ) ) }
 
+<div class="border-box">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-ml"><div class="border-mr"><div class="border-mc float-break">
+
 <div class="content-view-full">
     <div class="class-image">
 
         <div class="attribute-header">
-            {if $node.parent.class_identifier|eq('gallery')}
-                <a class="blackbuttonleft button" href={$node.parent.url_alias|ezurl}>Gallery</a>
-            {else}
-                <a class="blackbuttonleft button" href={"/"|ezurl}>Back</a>
-            {/if}
             <h1>{$node.name|wash()}</h1>
         </div>
 
@@ -77,7 +76,7 @@
         {/if}
 
         <div class="attribute-image">
-            {attribute_view_gui attribute=$node.data_map.image image_class=iphonelarge}
+            <p>{attribute_view_gui attribute=$node.data_map.image image_class=imagelarge}</p>
         </div>
 
         <div class="attribute-caption">
@@ -85,4 +84,8 @@
         </div>
 
     </div>
+</div>
+
+</div></div></div>
+<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
 </div>

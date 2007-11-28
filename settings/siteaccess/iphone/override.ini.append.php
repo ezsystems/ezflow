@@ -78,12 +78,6 @@ MatchFile=full/flash.tpl
 Subdir=templates
 Match[class_identifier]=flash
 
-[full_flash_player]
-Source=node/view/full.tpl
-MatchFile=full/flash_player.tpl
-Subdir=templates
-Match[class_identifier]=flash_player
-
 [full_folder]
 Source=node/view/full.tpl
 MatchFile=full/folder.tpl
@@ -608,4 +602,10 @@ Source=content/view/billboard.tpl
 MatchFile=billboard/flash.tpl
 Subdir=templates
 Match[class_identifier]=flash
+
+[tiny_image]
+Source=content/view/tiny.tpl
+MatchFile=tiny_image.tpl
+Subdir=templates
+Match[class_identifier]=image
 */ ?>

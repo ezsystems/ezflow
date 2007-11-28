@@ -154,7 +154,6 @@ YAHOO.timeline.slider.init = function()
     YAHOO.timeline.slider.slider1 = YAHOO.widget.Slider.getHorizSlider( YAHOO.timeline.slider.bg, YAHOO.timeline.slider.thumb, 
                                                                         topConstraint, bottomConstraint, tickSize ); 
     YAHOO.timeline.slider.slider1.animate = false;
-    //YAHOO.timeline.slider.slider1.tickPause = 0.2;
 
     // set inital position
     YAHOO.timeline.slider.slider1.setValue( YAHOO.timeline.slider.initalSliderPosition, true, true, true ); 
@@ -243,7 +242,7 @@ YAHOO.util.Event.onDOMReady( YAHOO.timeline.slider.init );
 // End Slider
 
 
-// Common namespace
+// Common namespace, for things shared between the slider and the timeline.
 YAHOO.namespace("timeline.common");
 
 YAHOO.timeline.common.updateBlocks = function()
@@ -251,10 +250,10 @@ YAHOO.timeline.common.updateBlocks = function()
     //YAHOO.timeline.slider.slider1.lock();
     var timestamp = YAHOO.timeline.slider.getTimestamp();
     
-     // Update the title attribute on the background.  This helps assistive 
+    // Update the title attribute on the background.  This helps assistive 
     // technology to communicate the state change
     var date = new Date();
-    date.setTime( timestamp * 1000 ) // setTime() takes milliseconds, not seconds.
+    date.setTime( timestamp * 1000 ); // setTime() takes milliseconds, not seconds.
     YAHOO.util.Dom.get( YAHOO.timeline.slider ).title = date;
 
     var fetchURL = YAHOO.timeline.slider.fetchURL;
@@ -299,7 +298,7 @@ YAHOO.timeline.common.updateBlocksCallback =
                     script = script.gsub( "<!--", "" );
                     script = script.gsub( "//-->", "" );
                     script = script.gsub( "-->", "" );
-                    
+
                     return eval( script );
                 });
 
@@ -312,7 +311,8 @@ YAHOO.timeline.common.updateBlocksCallback =
                     var params = "";
                     var objectNode = YAHOO.util.Dom.get( "object-" + item.objectid );
 
-                    // IE does not include <param /> tags in innerHTML nor outerHTML.
+                    // IE does not include <param /> tags in innerHTML 
+                    // or outerHTML for object tags.
                     if ( objectNode && (/MSIE [67]/.test( navigator.appVersion ) ) )
                     {
                         // Build a HTML string of all params inside the object tag.
