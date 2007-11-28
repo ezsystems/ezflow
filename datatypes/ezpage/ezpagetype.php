@@ -747,11 +747,15 @@ class eZPageType extends eZDataType
         }
 
         eZFlowOperations::update();
-        foreach ( $publishedNodes as $node )
+
+        if ( eZSquidCacheManager::isEnabled() )
         {
-            $url = $node->attribute( 'path_identification_string' );
-            eZURI::transformURI( $url, false, 'full' );
-            eZSquidCacheManager::purgeURL( $url );
+            foreach ( $publishedNodes as $node )
+            {
+                $url = $node->attribute( 'path_identification_string' );
+                eZURI::transformURI( $url, false, 'full' );
+                eZSquidCacheManager::purgeURL( $url );
+            }
         }
 
         $page->removeProcessed();

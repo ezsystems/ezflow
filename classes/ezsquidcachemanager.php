@@ -35,10 +35,10 @@ class eZSquidCacheManager
 
         $ini = eZINI::instance( 'squid.ini' );
 
-        $server = $ini->variable( 'SquidSettings', 'Server' );
-        $port = $ini->variable( 'SquidSettings', 'Port' );
+        $server = $ini->variable( 'Squid', 'Server' );
+        $port = $ini->variable( 'Squid', 'Port' );
         $path = $url;
-        $timeout = $ini->variable( 'SquidSettings', 'Timeout' );
+        $timeout = $ini->variable( 'Squid', 'Timeout' );
 
         $errorNumber = "";
         $errorString = "";
@@ -70,6 +70,20 @@ class eZSquidCacheManager
 
         // close the socket
         fclose( $fp );
+      }
+
+      static function isEnabled()
+      {
+          $ini = eZINI::instance( 'squid.ini' );
+          
+          if ( $ini->variable( 'Squid', 'PurgeCacheOnPublish' ) == 'enabled' )
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
       }
 
 }
