@@ -34,3 +34,5 @@ class ezmMediaFunctionCollection
         return $result;
     }
 }
+
+?>

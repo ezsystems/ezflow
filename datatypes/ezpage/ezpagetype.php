@@ -6,6 +6,7 @@ include_once( 'extension/ezflow/classes/ezpageblock.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 include_once( 'extension/ezflow/classes/ezmPool.php' );
 include_once( 'extension/ezflow/classes/ezflowoperations.php' );
+include_once( 'extension/ezflow/classes/ezsquidcachemanager.php' );
 
 //define( "EZ_DATATYPESTRING_PAGE", "ezpage" );
 
@@ -273,11 +274,11 @@ class eZPageType extends eZDataType
                     $page = $contentObjectAttribute->content();
                     $zoneAllowedType = $http->postVariable( 'ContentObjectAttribute_ezpage_zone_allowed_type_' . $contentObjectAttribute->attribute( 'id' ) );
                     $page->setAttribute( 'zone_layout', $zoneAllowedType );
-                    
+
                     if ( $page->getZoneCount() > 0)
-                        $page->removeZones();
-                    
-                        $zoneINI = eZINI::instance( 'zone.ini' );
+                    $page->removeZones();
+
+                    $zoneINI = eZINI::instance( 'zone.ini' );
 
                     foreach ( $zoneINI->variable( $zoneAllowedType, 'Zones' ) as $zone )
                     {
@@ -626,7 +627,7 @@ class eZPageType extends eZDataType
                                 $zone->attributes['blocks'][$index] = $block;
                             }
                         }
-                        
+
                         foreach ( $zone->attribute( 'blocks' ) as $block )
                         {
                             $blockID = $block->attribute( 'id' );
@@ -746,6 +747,12 @@ class eZPageType extends eZDataType
         }
 
         eZFlowOperations::update();
+        foreach ( $publishedNodes as $node )
+        {
+            $url = $node->attribute( 'path_identification_string' );
+            eZURI::transformURI( $url, false, 'full' );
+            eZSquidCacheManager::purgeURL( $url );
+        }
 
         $page->removeProcessed();
         $contentObjectAttribute->content( $page );

@@ -1,3 +1,9 @@
+<script src={"javascript/yahoo-dom-event/yahoo-dom-event.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script src={"javascript/element/element-beta.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script src={"javascript/tabview/tabview.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script src={"javascript/dragdrop/dragdrop-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
+
 {def $zone_id = ''
      $block_id = ''
      $item_id = ''

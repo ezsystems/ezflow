@@ -1,3 +1,5 @@
+<?php /*
+
 [AliasSettings]
 AliasList[]
 AliasList[]=iphonelarge
@@ -24,3 +26,5 @@ Filters[]=geometry/scalewidthdownonly=155
 Reference=
 Filters[]
 Filters[]=geometry/scalewidthdownonly=102.2
+
+* */ ?>

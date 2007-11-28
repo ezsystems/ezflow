@@ -153,7 +153,6 @@ echo $varName . '{SearchResult:' . $r . ",\nSearchCount:" . $searchList['SearchC
 if (  $debug ) echo ",\ndebug:'" . $debug . "'";
 echo '};';
 
-
 eZExecution::cleanExit();
 
-
+?>

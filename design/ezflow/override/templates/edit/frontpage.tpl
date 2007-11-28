@@ -1,3 +1,5 @@
+<script src={"javascript/ez_core.js"|ezdesign} type="text/javascript" language="javascript"></script>
+
 <form enctype="multipart/form-data" id="editform" name="editform" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
 
 {include uri='design:parts/website_toolbar_edit.tpl'}

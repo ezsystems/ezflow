@@ -508,7 +508,7 @@ div.block-style1-box-outside div.border-mr
 
 div.block-style1-box-outside div.border-mc
 {
-    background: url(../images/block-style1-box-outside/border-mc.png) repeat-x top left;
+    background: none;
     padding: 0;
 
 }
@@ -863,7 +863,7 @@ div.block-style2-box-outside div.border-mr
 
 div.block-style2-box-outside div.border-mc
 {
-    background: url(../images/block-style2-box-outside/border-mc.png) repeat-x top left;
+    background: none;
     padding: 0;
 
 }

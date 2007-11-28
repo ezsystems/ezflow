@@ -11,7 +11,7 @@ if ( isset( $Params['NodeID'] ) )
     $nodeID = $Params['NodeID'];
 
 if ( !$nodeID )
-    return $Module->handleError( EZ_ERROR_KERNEL_NOT_AVAILABLE, 'kernel' );
+    return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
     
 if ( isset( $Params['LanguageCode'] ) )
     $languageCode = $Params['LanguageCode'];
@@ -21,7 +21,7 @@ else
 $node = eZContentObjectTreeNode::fetch( $nodeID, $languageCode );
 
 if ( !$node )
-    return $Module->handleError( EZ_ERROR_KERNEL_NOT_AVAILABLE, 'kernel' );
+    return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
 
 $tpl = templateInit();
 $ini = eZINI::instance();

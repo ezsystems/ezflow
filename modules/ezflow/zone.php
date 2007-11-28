@@ -8,10 +8,10 @@ $version = $Params['Version'];
 $zoneID = $Params['ZoneID'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
-$page =& $contentObjectAttribute->content();
+$page = $contentObjectAttribute->content();
 $zone =& $page->getZone( $zoneID );
 
-$tpl =& templateInit();
+$tpl = templateInit();
 
 $tpl->setVariable('zone_id', $zoneID );
 $tpl->setVariable('zone', $zone );

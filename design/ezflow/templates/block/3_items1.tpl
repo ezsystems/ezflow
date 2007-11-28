@@ -3,6 +3,8 @@
 
 <div class="attribute-header"><h2>{$block.name}</h2></div>
 
+{if is_set( $valid_nodes[0] )}
+
 <div class="class-article">
 
     <div class="attribute-header">
@@ -16,6 +18,10 @@
     </div>
 
 </div>
+
+{/if}
+
+{if is_set( $valid_nodes[1] )}
 
 <div class="separator"></div>
 
@@ -33,6 +39,10 @@
 
 </div>
 
+{/if}
+
+{if is_set( $valid_nodes[2] )}
+
 <div class="separator"></div>
 
 <div class="class-article">
@@ -48,5 +58,7 @@
     </div>
 
 </div>
+
+{/if}
 
 </div>

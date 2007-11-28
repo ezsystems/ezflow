@@ -14,8 +14,8 @@ class eZFlowOperations
 
     static function updateBlockPoolByBlockID( $blockID, $publishedBeforeOrAt = false )
     {
-        $db =& eZDB::instance();
-        $blockINI =& eZINI::instance( 'block.ini' );
+        $db = eZDB::instance();
+        $blockINI = eZINI::instance( 'block.ini' );
 
         if ( !$publishedBeforeOrAt )
         {
