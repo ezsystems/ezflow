@@ -5,6 +5,11 @@ div#searchbox
     margin-top: 0.5em;
 }
 
+input#searchtext
+{
+    height: 16px;
+}
+
 div.overflow-fix /* Hides long non-breaking lines and terminates bugs */
 {
     width: 100%;

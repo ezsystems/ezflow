@@ -1,5 +1,3 @@
-<script src={"javascript/ez_core.js"|ezdesign} type="text/javascript" language="javascript"></script>
-
 <form enctype="multipart/form-data" id="editform" name="editform" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
 
 {include uri='design:parts/website_toolbar_edit.tpl'}
@@ -91,10 +89,11 @@ function addBlock( object, id )
 <p>
 <select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
 <option>Select:</option>
-{def $zone_id = ''}
+{def $zone_id = ''
+     $zone_name = ezini( $content_attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
     {foreach $content_attribute.content.zones as $index => $zone}
     {set $zone_id = $index}
-    <optgroup label="Zone: {$zone.name}">
+    <optgroup label="{$zone_name[$zone.zone_identifier]}">
         {foreach $zone.blocks as $index => $block}
         <option value="{$zone_id}-{$index}">{$index|inc}: {ezini( $block.type, 'Name', 'block.ini' )}</option>
         {/foreach}

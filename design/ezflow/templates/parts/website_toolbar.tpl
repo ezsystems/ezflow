@@ -84,7 +84,9 @@
     <input type="image" src={"websitetoolbar/ezwt-icon-locations-disabled.gif"|ezimage} name="AddAssignmentButton" title="{'Add locations'|i18n( 'design/ezwebin/parts/website_toolbar' )}" disabled="disabled" />
 {/if}
 
-<a href={concat( "/ezflow/timeline/", $current_node.node_id )|ezurl}><img src={"websitetoolbar/ezwt-icon-timeline.gif"|ezimage()} /></a>
+{if eq( $content_object.content_class.identifier, 'frontpage' )}
+&nbsp;<a href={concat( "/ezflow/timeline/", $current_node.node_id )|ezurl} title="{'Timeline'|i18n( 'design/ezwebin/parts/website_toolbar' )}"><img src={"websitetoolbar/ezwt-icon-timeline.gif"|ezimage()} alt="{'Timeline'|i18n( 'design/ezwebin/parts/website_toolbar' )}" /></a>
+{/if}
 
   <input type="hidden" name="HasMainAssignment" value="1" />
   <input type="hidden" name="ContentObjectID" value="{$content_object.id}" />

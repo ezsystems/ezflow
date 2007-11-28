@@ -158,7 +158,7 @@ div#links a
 
 div#searchbox
 {
-    width: 45em; /* Needs to be sufficient width to fit both text input and submit button to avoid Konqueror breaking the line between them */
+    width: 40em; /* Needs to be sufficient width to fit both text input and submit button to avoid Konqueror breaking the line between them */
     margin-top: 0.5em;
     margin-right: 1em;
     text-align: right;
@@ -180,7 +180,7 @@ input#searchtext
     background-position: left bottom;
     background-repeat: repeat-x;
     font-size: 0.85em;
-    height: 19px;
+    height: 15px;
     padding: 0;
     width: 222px;
     float: left;

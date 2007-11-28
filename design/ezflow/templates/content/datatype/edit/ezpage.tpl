@@ -59,13 +59,14 @@ function getCookie( cookieName )
 
     var tabView = new YAHOO.widget.TabView();
 {foreach $attribute.content.zones as $index => $zone}
-{if ne( $zone.action, 'remove' )}
+    {if and( is_set( $zone.action ), eq( $zone.action, 'remove' ) )}
+        {skip}
+    {/if}
     tabView.addTab( new YAHOO.widget.Tab({ldelim}
-        label: 'Zone: {$zone_names[$zone.zone_identifier]}',
+        label: '{$zone_names[$zone.zone_identifier]}',
         dataSrc: '{concat( '/ezflow/zone/', $attribute.id, '/', $attribute.version, '/', $index  )|ezurl(no)}',
         cacheData: true
         {rdelim}));
-{/if}
 {/foreach}
 
 var activeTabIndex = getCookie( 'eZPageActiveTabIndex' );

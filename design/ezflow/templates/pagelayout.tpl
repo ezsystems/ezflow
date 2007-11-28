@@ -141,13 +141,12 @@
     </div>
     <div id="searchbox">
       <form action={"/content/search"|ezurl}>
-        <img src={"search-label.png"|ezimage()} />
         {if eq( $ui_context, 'edit' )}
         <input id="searchtext" name="SearchText" type="text" value="" size="12" disabled="disabled" />
         <input id="searchbutton" class="button-disabled" type="submit" value="{'Search'|i18n('design/ezwebin/pagelayout')}" alt="Submit" disabled="disabled" />
         {else}
         <input id="searchtext" name="SearchText" type="text" value="" size="12" />
-        <input id="searchbutton" type="image" src={"search-button.png"|ezimage()} alt="{'Search'|i18n('design/ezwebin/pagelayout')}" />
+        <input id="searchbutton" class="button" type="submit" value="{'Search'|i18n('design/ezwebin/pagelayout')}" alt="Submit" />
             {if eq( $ui_context, 'browse' )}
              <input name="Mode" type="hidden" value="browse" />
             {/if}
