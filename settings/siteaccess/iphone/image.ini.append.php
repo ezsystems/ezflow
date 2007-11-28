@@ -36,6 +36,6 @@ Filters[]=geometry/scalewidthdownonly=239
 [imainstory1]
 Reference=
 Filters[]
-Filters[]=geometry/scalewidthdownonly=302=======
+Filters[]=geometry/scalewidthdownonly=302
 
 */ ?>
