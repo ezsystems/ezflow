@@ -1,4 +1,8 @@
 {* Dependencies *}
+<script src={"javascript/prototype.js"|ezdesign} type="text/javascript"></script>
+<script src={"javascript/yahoo-dom-event/yahoo-dom-event.js"|ezdesign} type="text/javascript"></script>
+<script src={"javascript/dragdrop/dragdrop-min.js"|ezdesign} type="text/javascript"></script>
+
 <script src={"javascript/slider/slider-min.js"|ezdesign} type="text/javascript"></script>
 <script src={"javascript/connection/connection-min.js"|ezdesign} type="text/javascript"></script>
 
