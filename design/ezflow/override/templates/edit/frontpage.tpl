@@ -28,7 +28,7 @@
     <input class="textfield" type="text" name="SearchStr" value="" onkeypress="return ezajaxSearchEnter(event)" />
     <input name="SearchOffset" type="hidden" value="0"  />
     <input name="SearchLimit" type="hidden" value="10"  />
-    <input class="serach-button" type="image" src={"search_button.gif"|ezimage} name="" onclick="return ezajaxSearchPost();" />
+    <input class="serach-button" type="image" src={"search_button.gif"|ezimage} name="SearchButton" onclick="return ezajaxSearchPost();" value="" />
 </div>
 {*
 <div class="block">
@@ -81,21 +81,21 @@
 {literal}
 function addBlock( object, id )
 {
-	var $select = object;
-	var $id = id;
-	var addToBlock = document.getElementById( 'addtoblock' );
-	addToBlock.name = 'CustomActionButton[' + $id  +'_new_item' + '-' + $select.value + ']';
+    var $select = object;
+    var $id = id;
+    var addToBlock = document.getElementById( 'addtoblock' );
+    addToBlock.name = 'CustomActionButton[' + $id  +'_new_item' + '-' + $select.value + ']';
 }
 {/literal}
 </script>
 <p>
-<select id="" onchange="addBlock( this, {$content_attribute.id} );">
+<select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
 <option>Select:</option>
 {def $zone_id = ''}
-	{foreach $content_attribute.content.zones as $index => $zone}
+    {foreach $content_attribute.content.zones as $index => $zone}
     {set $zone_id = $index}
-	<optgroup label="Zone: {$zone.name}">
-    	{foreach $zone.blocks as $index => $block}
+    <optgroup label="Zone: {$zone.name}">
+        {foreach $zone.blocks as $index => $block}
         <option value="{$zone_id}-{$index}">{$index|inc}: {ezini( $block.type, 'Name', 'block.ini' )}</option>
         {/foreach}
     </optgroup>
@@ -283,9 +283,10 @@ function ezajaxSearchClick( el, obj, i )
 
 </div>
 
-</div>
 </div></div></div>
 <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+</div>
+
 </div>
 
 <!-- ZONE CONTENT: END -->
