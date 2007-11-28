@@ -1,23 +1,11 @@
 <?php
 
-/*!
- \class   ezpagetype ezpagetype.php
- \ingroup eZDatatype
- \brief   Handles the datatype page. By using page you can ...
- \version 1.0
- \date    Wednesday 01 August 2007 4:31:52 pm
- \author  Administrator User
-
-
-
- */
-
-//include_once( 'kernel/classes/ezdatatype.php' );
 include_once( 'extension/ezflow/classes/ezpage.php' );
 include_once( 'extension/ezflow/classes/ezpagezone.php' );
 include_once( 'extension/ezflow/classes/ezpageblock.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 include_once( 'extension/ezflow/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezflowoperations.php' );
 
 //define( "EZ_DATATYPESTRING_PAGE", "ezpage" );
 
@@ -757,11 +745,9 @@ class eZPageType extends eZDataType
             }
         }
 
-        // tmp solution
-        exec( "php runcronjobs.php ezflow"  );
+        eZFlowOperations::update();
 
         $page->removeProcessed();
-        //var_dump($page);
         $contentObjectAttribute->content( $page );
         $contentObjectAttribute->store();
     }
