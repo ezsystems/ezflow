@@ -398,6 +398,86 @@ div.zone-layout-2zoneslayout1 div.leftcol-position
 
 /* COLUMNS 2zoneslayout1: END */
 
+/* COLUMNS 2zoneslayout2: START */
+
+div.zone-layout-2zoneslayout2 div.border-mc
+{
+    padding: 0;
+}
+
+div.zone-layout-2zoneslayout2 div.content-columns
+{
+    padding: 0 0 0 287px;
+}
+
+div.zone-layout-2zoneslayout2 div.leftcol-position
+{
+    width: 287px;
+    margin-left: -287px;
+}
+
+/* COLUMNS 2zoneslayout2: END */
+
+/* COLUMNS 3zoneslayout1: START */
+
+div.zone-layout-3zoneslayout1 div.border-mc
+{
+    padding: 0;
+}
+
+div.zone-layout-3zoneslayout1 div.content-columns
+{
+    padding: 0 0 0 483px;
+}
+
+div.zone-layout-3zoneslayout1 div.leftcol-position
+{
+    width: 483px;
+    margin-left: -483px;
+}
+
+/* COLUMNS 3zoneslayout1: END */
+
+/* COLUMNS 3zoneslayout2: START */
+
+div.zone-layout-3zoneslayout2 div.border-mc
+{
+    padding: 0;
+}
+
+div.zone-layout-3zoneslayout2 div.content-columns
+{
+    padding: 0 0 0 287px;
+}
+
+div.zone-layout-3zoneslayout2 div.leftcol-position
+{
+    width: 287px;
+    margin-left: -287px;
+}
+
+/* COLUMNS 3zoneslayout2: END */
+
+/* COLUMNS 4zoneslayout1: START */
+
+div.zone-layout-4zoneslayout1 div.border-mc
+{
+    padding: 0;
+}
+
+div.zone-layout-4zoneslayout1 div.content-columns
+{
+    padding: 0 0 0 483px;
+}
+
+div.zone-layout-4zoneslayout1 div.leftcol-position
+{
+    width: 483px;
+    margin-left: -483px;
+}
+
+/* COLUMNS 4zoneslayout1: END */
+
 /* CONTENT EDIT FRONTPAGE: START */
 
 div.content-edit-frontpage div.content-columns
@@ -411,9 +491,14 @@ div.content-edit-frontpage div.leftcol-position
     margin-left: -225px;
 }
 
+div.content-edit-frontpage div.maincol
+{
+    padding-left: 10px;
+}
+
 div.content-edit-frontpage div.leftcol
 {
-    padding-right: 10px;
+
 }
 
 div.content-edit-frontpage div.border-mc
@@ -1652,6 +1737,7 @@ div.break
 div.columns-two, div.columns-three, div.columns-four
 {
     height: 1%; /* Fix for IE */
+    position: relative;
 }
 
 div.columns-two:after, div.columns-three:after, div.columns-four:after

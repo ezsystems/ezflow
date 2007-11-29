@@ -16,6 +16,11 @@ div.overflow-fix /* Hides long non-breaking lines and terminates bugs */
     overflow: hidden;
 }
 
+input.box, textarea.box
+{
+    width: 99%;
+}
+
 div#heightresize-main
 {
     border-bottom: 1px solid #ffffff;  /* Fix if height script is used */
