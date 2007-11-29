@@ -92,6 +92,9 @@ function addBlock( object, id )
 {def $zone_id = ''
      $zone_name = ezini( $content_attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
     {foreach $content_attribute.content.zones as $index => $zone}
+    {if and( is_set( $zone.action ), eq( $zone.action, 'remove' ) )}
+        {skip}
+    {/if}
     {set $zone_id = $index}
     <optgroup label="{$zone_name[$zone.zone_identifier]}">
         {foreach $zone.blocks as $index => $block}
