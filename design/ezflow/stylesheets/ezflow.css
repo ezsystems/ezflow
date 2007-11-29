@@ -1065,7 +1065,7 @@ div.block-style3-box-outside div.border-mr
 
 div.block-style3-box-outside div.border-mc
 {
-    background: url(../images/block-style3-box-outside/border-mc.png) repeat-x top left;
+    background: none;
 
 }
 
@@ -1669,11 +1669,37 @@ div.block-type-4items div.attribute-image
 
 /* BLOCK 5 ITEMS: START */
 
-div.block-type-5items div.border-box-style4 h2
+div.block-type-5items div.class-article
+{
+    background-image:url(../images/block-type-5items/top-bg.png);
+    background-position:left top;
+    background-repeat:repeat-x;
+    padding:8px 12px;
+    position:relative;
+}
+
+div.block-type-5items div.class-article h2
 {
     margin-top: 0;
-    color: #2e81a1;
+    color: #000000;
     font-size: 1em;
+}
+
+div.block-type-5items div.class-article h2 a
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+div.block-type-5items div.border-box-style4 div.class-article
+{
+    padding: 0 4px 0 4px;
+    background-image: none;
+}
+
+div.block-type-5items div.border-box-style4 h2
+{
+    color: #2e81a1;
 }
 
 div.block-type-5items div.border-box-style4 h2 a
@@ -1685,12 +1711,7 @@ div.block-type-5items div.border-box-style4 h2 a
 div.block-type-5items div.attribute-image
 {
     float: left;
-    margin-right: 0.5em;
-}
-
-div.block-type-5items div.class-article
-{
-    padding: 0 4px 0 4px;
+    margin: 0.25em 0.5em 0 0;
 }
 
 /* BLOCK 5 ITEMS: END */
