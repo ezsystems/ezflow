@@ -6,6 +6,7 @@ AliasList[]=mainstory2
 AliasList[]=mainstory3
 AliasList[]=block2items1
 AliasList[]=block2items2
+AliasList[]=block3items3
 AliasList[]=blockgallery1
 AliasList[]=imagelarge
 
@@ -34,6 +35,12 @@ Filters[]=geometry/scalewidth=195
 Filters[]=geometry/crop=195;98;0;0
 
 [block2items2]
+Reference=
+Filters[]
+Filters[]=geometry/scalewidth=195
+Filters[]=geometry/crop=195;98;0;0
+
+[block3items3]
 Reference=
 Filters[]
 Filters[]=geometry/scalewidth=195

@@ -49,6 +49,13 @@ Subdir=templates
 Match[type]=Manual3Items
 Match[view]=3_items2
 
+[block_3_items3]
+Source=block/view/view.tpl
+MatchFile=block/3_items3.tpl
+Subdir=templates
+Match[type]=Manual3Items
+Match[view]=3_items3
+
 [block_4_items1]
 Source=block/view/view.tpl
 MatchFile=block/4_items1.tpl

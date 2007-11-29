@@ -63,8 +63,10 @@ NumberOfArchivedItems=5
 ManualAddingOfItems=enabled
 ViewList[]=3_items1
 ViewList[]=3_items2
+ViewList[]=3_items3
 ViewName[3_items1]=3 items (1)
 ViewName[3_items2]=3 items (2)
+ViewName[3_items3]=3 items (3 cols)
 
 [Manual4Items]
 Name=4 items (Manual)

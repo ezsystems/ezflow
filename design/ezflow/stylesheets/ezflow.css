@@ -496,11 +496,6 @@ div.content-edit-frontpage div.maincol
     padding-left: 10px;
 }
 
-div.content-edit-frontpage div.leftcol
-{
-
-}
-
 div.content-edit-frontpage div.border-mc
 {
     padding-left: 5px;
@@ -1038,6 +1033,141 @@ div.block-style2-box-inside div.border-content
 
 /* BLOCK BOX 2: END */
 
+/* BLOCK BOX 3: START*/
+
+div.block-style3-box-outside div.border-tl
+{
+    background-image: url(../images/block-style3-box-outside/border-tl.png);
+}
+
+div.block-style3-box-outside div.border-tr
+{
+    background-image: url(../images/block-style3-box-outside/border-tr.png);
+    padding: 0 6px 0 6px;
+}
+
+div.block-style3-box-outside div.border-tc
+{
+    background-image: url(../images/block-style3-box-outside/border-tc.png);
+    height: 6px;
+}
+
+div.block-style3-box-outside div.border-ml
+{
+    background-image: url(../images/block-style3-box-outside/border-ml.png);
+}
+
+div.block-style3-box-outside div.border-mr
+{
+    background-image: url(../images/block-style3-box-outside/border-mr.png);
+    padding: 0 4px 0 4px;
+}
+
+div.block-style3-box-outside div.border-mc
+{
+    background: url(../images/block-style3-box-outside/border-mc.png) repeat-x top left;
+
+}
+
+div.block-style3-box-outside div.border-bl
+{
+    background-image: url(../images/block-style3-box-outside/border-bl.png);
+}
+
+div.block-style3-box-outside div.border-br
+{
+    background-image: url(../images/block-style3-box-outside/border-br.png);
+    padding: 0 6px 0 6px;
+}
+
+div.block-style3-box-outside div.border-bc
+{
+    background-image: url(../images/block-style3-box-outside/border-bc.png);
+    height: 6px;
+}
+
+div.block-style3-box-outside div.border-content
+{
+    padding: 1px 3px 1px 3px;
+}
+
+/* BLOCK BORDER INSIDE: START */
+
+div.block-style3-box-inside div.border-tl
+{
+    background-image: url(../images/block-style3-box-inside/border-tl.png);
+}
+
+div.block-style3-box-inside div.border-tr
+{
+    background-image: url(../images/block-style3-box-inside/border-tr.png);
+    padding: 0 6px 0 6px;
+}
+
+div.block-style3-box-inside div.border-tc
+{
+    background-image: url(../images/block-style3-box-inside/border-tc.png);
+    height: 6px;
+}
+
+div.block-style3-box-inside div.border-ml
+{
+    background-image: url(../images/block-style3-box-inside/border-ml.png);
+}
+
+div.block-style3-box-inside div.border-mr
+{
+    background-image: url(../images/block-style3-box-inside/border-mr.png);
+    padding: 0 2px 0 2px;
+}
+
+div.block-style3-box-inside div.border-mc
+{
+    background: url(../images/block-style3-box-inside/border-mc.png) repeat-x top left;
+
+}
+
+div.block-style3-box-inside div.border-bl
+{
+    background-image: url(../images/block-style3-box-inside/border-bl.png);
+}
+
+div.block-style3-box-inside div.border-br
+{
+    background-image: url(../images/block-style3-box-inside/border-br.png);
+    padding: 0 6px 0 6px;
+}
+
+div.block-style3-box-inside div.border-bc
+{
+    background-image: url(../images/block-style3-box-inside/border-bc.png);
+    height: 6px;
+}
+
+div.block-style3-box-inside div.border-content
+{
+    padding: 0;
+}
+
+div.block-style3-box-inside div.columns-three-divider-1-2
+{
+    background: url(../images/block-style3-box-inside/col-sep.png) 33% 0% repeat-y;
+}
+
+div.block-style3-box-inside div.columns-three-divider-2-3
+{
+    background: url(../images/block-style3-box-inside/col-sep.png) 67% 0% repeat-y;
+}
+
+div.block-style3-box-inside div.columns-three div.col-1
+{
+
+}
+
+/* BLOCK BORDER INSIDE: END */
+
+/* BLOCK BOX 3: END */
+
 /* BLOCK BOX 6: START*/
 
 div.block-style6-box-outside div.border-tl
@@ -1476,6 +1606,28 @@ div.block-view-3_items2 div.attribute-image
 {
     margin-top: 0.25em;
 }
+
+div.block-view-3_items3 div.class-article
+{
+    padding: 0;
+    background-image: none;
+    padding: 4px;
+}
+
+div.block-view-3_items3 div.class-article div.attribute-header h2
+{
+    background-image: none;
+    text-transform: none;
+    padding: 0;
+    margin-bottom: 0.75em;
+}
+
+div.block-view-3_items3 div.attribute-image
+{
+    margin-top: 0;
+    float: none;
+}
+
 
 /* BLOCK 3 ITEMS: END */
 
