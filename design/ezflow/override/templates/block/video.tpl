@@ -7,8 +7,17 @@
 </div>
 
 
-{def $attribute_file=$valid_node.data_map.file
-     $video=concat("content/download/", $attribute_file.contentobject_id, "/", $attribute_file.content.contentobject_attribute_id)|ezurl(no)}
+{def $siteurl=concat( "http://", ezini( 'SiteSettings', 'SiteURL' ) )  
+     $attribute_file=$valid_node.data_map.file
+     $video=concat("content/download/", $attribute_file.contentobject_id, "/", $attribute_file.content.contentobject_attribute_id)|ezurl(no)
+     $flash_var=concat( "moviepath=", $video )}
+
+     {* Embed URL, which URL to retrieve the embed code from. *}
+     {set $flash_var=$flash_var|append( "&amp;embedurl=", concat( $siteurl, "/flash/embed/", $valid_node.object.id ) )}
+
+     {* Embed Link *}
+     {set $flash_var=$flash_var|append( "&amp;embedlink=", concat( $siteurl, $valid_node.url_alias|ezurl(no) ) )}
+
 
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
 
@@ -21,7 +30,7 @@
         flash = flash + '<param name="scale" value="exactfit" /> ';
         flash = flash + '<param name="allowScriptAccess" value="sameDomain" />';
         flash = flash + '<param name="allowFullScreen" value="true" />';
-        flash = flash + '<param name="flashvars" value="moviepath={$video}" />';
+        flash = flash + '<param name="flashvars" value="{$flash_var}" />';
         flash = flash + '<param name="wmode" value="opaque" />';
         flash = flash + '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player<\/a> avaliable!<\/p>';
         var flashEnd = '<\/object>';
@@ -35,7 +44,7 @@
         <param name="scale" value="exactfit" />
         <param name="allowScriptAccess" value="sameDomain" />
         <param name="allowFullScreen" value="true" />
-        <param name="flashvars" value="moviepath={$video}" />
+        <param name="flashvars" value="moviepath={$flash_var}" />
         <param name="wmode" value="opaque" />
         <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
     </object>

@@ -1,7 +1,9 @@
 <?php
+
 $Module = array( 'name' => 'Flash', "variable_params" => true );
 
 $ViewList = array();
-$ViewList['list'] = array( 'script' => 'list.php' );
+$ViewList['embed'] = array( 'script' => 'embed.php', 'params' => array ( 'ObjectID' ) );
+                               
 
 ?>
