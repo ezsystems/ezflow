@@ -5,8 +5,8 @@
 {set-block scope=root variable=cache_ttl}0{/set-block}
 
 {* Define default settings for the broadcaster flash *}
-{def $width=325
-     $height=330
+{def $width=340
+     $height=340
      $flash='flash/broadcaster.swf'|ezdesign(no)
      $fileserver=$node.object.data_map.file_server.content
      $streamserver=$node.object.data_map.stream_server.content
@@ -62,14 +62,15 @@
                 insertMedia( '<param name="bgcolor" value="#ffffff" />' );
                 insertMedia( '<param name="quality" value="high" />' );
                 insertMedia( '<param name="flashvars" value="{$flash_var}" />');        
+                insertMedia( '<param name="menu" value="false" />' );
                 insertMedia( '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>');
                 insertMedia( '</object>' );
             //-->
             </script>
 
             <noscript>
-            <object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}">          
-                <param name="movie" value="{$flash}" />
+            <object type="application/x-shockwave-flash" data="{$flash}?{$flash_var}" width="{$width}" height="{$height}">          
+                <param name="movie" value="{$flash}?{$flash_var}" />
                 <param name="scale" value="exactfit" />
                 <param name="wmode" value="opaque" />
                 <param name="allowScriptAccess" value="sameDomain" />
@@ -77,6 +78,7 @@
                 <param name="allowFullScreen" value="false" />
                 <param name="quality" value="high" />
                 <param name="flashvars" value="{$flash_var}" />
+                <param name="menu" value="false" />
                 <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
             </object>
             </noscript>

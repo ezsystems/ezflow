@@ -26,7 +26,7 @@
         <!--
             var flash_id="flash-{$block.zone_id}-{$block.id}";
         
-            var flashString = '<object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}"> ';
+            var flashString = '<object type="application/x-shockwave-flash" data="{$flash}?{$flash_var}" width="{$width}" height="{$height}"> ';
             flashString += '<param name="movie" value="{$flash}" /> ';
             flashString += '<param name="scale" value="exactfit" /> ';
             flashString += '<param name="wmode" value="opaque" />' ;
@@ -35,6 +35,7 @@
             flashString += '<param name="bgcolor" value="#ffffff" />' ;
             flashString += '<param name="quality" value="high" />' ;
             flashString += '<param name="flashvars" value="{$flash_var}" />';
+            flashString += '<param name="menu" value="false" />';
             flashString += '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>';
             flashString += '</object>' ;
             
@@ -43,8 +44,8 @@
         </script>
 
         <noscript>
-        <object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}">          
-            <param name="movie" value="{$flash}" />
+        <object type="application/x-shockwave-flash" data="{$flash}?{$flash_var}" width="{$width}" height="{$height}">          
+            <param name="movie" value="{$flash}?{$flash_var}" />
             <param name="scale" value="exactfit" />
             <param name="wmode" value="opaque" />
             <param name="allowScriptAccess" value="sameDomain" />
@@ -52,6 +53,7 @@
             <param name="allowFullScreen" value="false" />
             <param name="quality" value="high" />
             <param name="flashvars" value="{$flash_var}" />
+            <param name="menu" value="false" />
             <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
         </object>
         </noscript>
@@ -59,7 +61,7 @@
     
     <div class="block">
         {if $flash_list}
-            <h2>Recorded videos</h2>
+            <h3>Recorded videos</h3>
             <ul>
                 {foreach $flash_list as $name => $item}
                     <li><a href={concat( $valid_node.url_alias, "/(video)/", $name|wash )|ezurl}>{$name|wash}</a></li>
