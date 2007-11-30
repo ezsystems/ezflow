@@ -9,7 +9,7 @@ $directory = ".";
 // IMPORTANT: Change the key (here and in your flash recorder object) from the 
 // default key if you do not want people to be able to retreive the file list.
 $key = "ThisIsTheDefaultKeyChangeMe";
-$limit = 2;
+$limit = 10;
 
 if ( isset( $_GET["key"] ) === false || $_GET['key'] != $key )
     return;
