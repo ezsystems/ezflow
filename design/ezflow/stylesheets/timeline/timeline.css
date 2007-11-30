@@ -126,3 +126,19 @@ span.timestamp
 { 
     display: none;
 }
+
+div#timeline-loader
+{
+    position: absolute;
+    left: 580px;
+    top: 10px;
+    display: none;
+}
+
+div#timeline-loader span.text
+{
+    padding-right: 10px;
+    padding-top: 3px;
+    display: block;
+    float: left;
+}

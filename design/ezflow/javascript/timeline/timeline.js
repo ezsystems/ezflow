@@ -160,6 +160,8 @@ YAHOO.timeline.slider.init = function()
 
     YAHOO.timeline.slider.slider1.subscribe( "change", YAHOO.timeline.slider.onSliderChange ); 
     YAHOO.timeline.slider.slider1.subscribe( "slideEnd", YAHOO.timeline.slider.onSliderEnd ); 
+    
+    YAHOO.timeline.slider.loadingBarHidden = true;
 }
 
 // Slider utility method: Generate timestamp from the pixel positon of the thumb.
@@ -176,6 +178,22 @@ YAHOO.timeline.slider.getTimestamp = function()
     timestamp = YAHOO.timeline.slider.timestampStart + timestamp;
     
     return timestamp;
+}
+
+// Show/Hide slider progress bar
+YAHOO.timeline.slider.toogleProgressBar = function()
+{
+    loadingNode = YAHOO.util.Dom.get( "timeline-loader" );
+    if ( YAHOO.timeline.slider.loadingBarHidden )
+    {
+        loadingNode.style.display = "block";
+        YAHOO.timeline.slider.loadingBarHidden = false;
+    }
+    else
+    {
+        loadingNode.style.display = "none";
+        YAHOO.timeline.slider.loadingBarHidden = true;
+    }
 }
 
 // Slider utility method: generate a timestamp from the pixel offset where the slider thumb is located.
@@ -260,7 +278,9 @@ YAHOO.timeline.common.updateBlocks = function()
     var nodeid = YAHOO.timeline.slider.nodeid;
     
     var sourceURL = fetchURL + "/" + timestamp + "/" + nodeid;
-    var transaction = YAHOO.util.Connect.asyncRequest( 'GET', sourceURL, YAHOO.timeline.common.updateBlocksCallback, null ); 
+    
+    var transaction = YAHOO.util.Connect.asyncRequest( 'GET', sourceURL, YAHOO.timeline.common.updateBlocksCallback, null );
+    YAHOO.timeline.slider.toogleProgressBar();
 }
 
 // Update block callback method: callback for after we've fetched our blocks.
@@ -337,5 +357,10 @@ YAHOO.timeline.common.updateBlocksCallback =
                 }
             });
         }
+        YAHOO.timeline.slider.toogleProgressBar();
+    },
+    failure: function( o )
+    {
+        YAHOO.timeline.slider.toogleProgressBar();
     }
 };

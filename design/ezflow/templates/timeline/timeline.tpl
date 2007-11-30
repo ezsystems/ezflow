@@ -27,6 +27,11 @@
 
 
 <div id="ezflow-timeline">
+
+    <div id="timeline-loader">
+        <p><span class="text">Loading, please wait...</span><img src={"timeline/loading.gif"|ezimage} alt="Loading" title="Loading" /></p>
+    </div>
+
     <div id="date_selecter"><span id="show_calendar">{$now_precise|l10n( 'date' )}</span></div>
 
     <div id="cal1Container"></div> 
