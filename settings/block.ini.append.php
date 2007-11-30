@@ -15,6 +15,7 @@ AllowedTypes[]=Banner
 AllowedTypes[]=Dynamic3Items
 AllowedTypes[]=TagCloud
 AllowedTypes[]=Poll
+AllowedTypes[]=FlashRecorder
 
 #[Example]
 ## Name of the block type as shown in the editorial interface.
@@ -171,5 +172,13 @@ CustomAttributes[]=poll_node_id
 UseBrowseMode[poll_node_id]=true
 ViewList[]=poll
 ViewName[poll]=Poll
+
+[FlashRecorder]
+Name=Flash Recorder
+NumberOfValidItems=8
+NumberOfArchivedItems=4
+ManualAddingOfItems=enabled
+ViewList[]=flash_recorder
+ViewName[flash_recorder]=Flash Recorder
 
 */ ?>

@@ -158,4 +158,11 @@ MatchFile=edit/frontpage.tpl
 Subdir=templates
 Match[class_identifier]=frontpage
 
+[block_flash_recorder]
+Source=block/view/view.tpl
+MatchFile=block/flash_recorder.tpl
+Subdir=templates
+Match[type]=FlashRecorder
+Match[view]=flash_recorder
+
 */ ?>

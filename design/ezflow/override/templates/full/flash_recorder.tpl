@@ -32,9 +32,9 @@
 
 {* Define defaults if we're playing a movie *}
 {if $should_display_brodcaster|not()}
-    {set $height=420}
-    {set $width=530}
-    {set $flash='flash/flash_player.swf'|ezdesign(no)} 
+    {set $height=352}
+    {set $width=445}
+    {set $flash='flash/streaming.swf'|ezdesign(no)} 
     {set $flash_var=concat( "moviepath=", $video_url )}
 {/if}
 
@@ -51,57 +51,53 @@
         </div>
 
         <div class="block">    
-            <div class="element">
-                <script type="text/javascript">
-                <!--
-                    insertMedia( '<object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}"> ');
-                    insertMedia( '<param name="movie" value="{$flash}" /> ');
-                    insertMedia( '<param name="scale" value="exactfit" /> ');
-                    insertMedia( '<param name="wmode" value="opaque" />' );
-                    insertMedia( '<param name="allowScriptAccess" value="sameDomain" />');
-                    insertMedia( '<param name="allowFullScreen" value="true" />');
-                    insertMedia( '<param name="bgcolor" value="#ffffff" />' );
-                    insertMedia( '<param name="quality" value="high" />' );
-                    insertMedia( '<param name="flashvars" value="{$flash_var}" />');        
-                    insertMedia( '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>');
-                    insertMedia( '</object>' );
-                //-->
-                </script>
+            <script type="text/javascript">
+            <!--
+                insertMedia( '<object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}"> ');
+                insertMedia( '<param name="movie" value="{$flash}" /> ');
+                insertMedia( '<param name="scale" value="exactfit" /> ');
+                insertMedia( '<param name="wmode" value="opaque" />' );
+                insertMedia( '<param name="allowScriptAccess" value="sameDomain" />');
+                insertMedia( '<param name="allowFullScreen" value="true" />');
+                insertMedia( '<param name="bgcolor" value="#ffffff" />' );
+                insertMedia( '<param name="quality" value="high" />' );
+                insertMedia( '<param name="flashvars" value="{$flash_var}" />');        
+                insertMedia( '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>');
+                insertMedia( '</object>' );
+            //-->
+            </script>
 
-                <noscript>
-                <object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}">          
-                    <param name="movie" value="{$flash}" />
-                    <param name="scale" value="exactfit" />
-                    <param name="wmode" value="opaque" />
-                    <param name="allowScriptAccess" value="sameDomain" />
-                    <param name="bgcolor" value="#ffffff" />
-                    <param name="allowFullScreen" value="false" />
-                    <param name="quality" value="high" />
-                    <param name="flashvars" value="{$flash_var}" />
-                    <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
-                </object>
-                </noscript>
-            </div>
-            
-            <div class="element">
-                {if $flash_list}
-                    <h2>Recorded videos</h2>
-                    <ul>
-                        {foreach $flash_list as $name => $item}
-                            {if $view_parameters.video|eq( $name|wash )}
-                                <li>{$name|wash}</li>
-                            {else}
-                                <li><a href={concat( $node.url_alias, "/(video)/", $name|wash )|ezurl}>{$name|wash}</a></li>
-                            {/if}
-                        {/foreach}            
-                    </ul>
-    
-                    {if $should_display_brodcaster|not}
-                        <p><a href={$node.url_alias|ezurl}>Record a video</a></p>
-                    {/if}
+            <noscript>
+            <object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}">          
+                <param name="movie" value="{$flash}" />
+                <param name="scale" value="exactfit" />
+                <param name="wmode" value="opaque" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="allowFullScreen" value="false" />
+                <param name="quality" value="high" />
+                <param name="flashvars" value="{$flash_var}" />
+                <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
+            </object>
+            </noscript>
+        </div>
+        <div class="block">
+            {if $flash_list}
+                <h2>Recorded videos</h2>
+                <ul>
+                    {foreach $flash_list as $name => $item}
+                        {if $view_parameters.video|eq( $name|wash )}
+                            <li>{$name|wash}</li>
+                        {else}
+                            <li><a href={concat( $node.url_alias, "/(video)/", $name|wash )|ezurl}>{$name|wash}</a></li>
+                        {/if}
+                    {/foreach}            
+                </ul>
+
+                {if $should_display_brodcaster|not}
+                    <p><a href={$node.url_alias|ezurl}>Record a video</a></p>
                 {/if}
-            </div>
-            
+            {/if}
         </div>
     </div>
 </div>

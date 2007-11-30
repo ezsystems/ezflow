@@ -65,7 +65,7 @@ class eZRed5StreamListOperator
         if ( !$red5ListURL or !$key or !$red5ListURL )
             return "";
 
-        $remoteHandle = fopen( $this->buildURL( array( $red5ListURL, '?key=' . $key ) ), "r" );
+        $remoteHandle = fopen( $this->buildURL( array( $red5ListURL, "flash_video_list.php", '?key=' . $key ) ), "r" );
         if ( !$remoteHandle )
             return "";
 
