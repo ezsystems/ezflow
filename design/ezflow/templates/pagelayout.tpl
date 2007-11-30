@@ -10,6 +10,10 @@
     {set $current_node_id = $module_result.path[$module_result.path|count|dec].node_id}
 {/if}
 
+{if is_set( $timeline_cache_key )|not}
+    {def $timeline_cache_key=false()}
+{/if}
+
 {cache-block keys=array( $uri_string, $basket_is_empty, $user_id, $timeline_cache_key )}
 {def $pagestyle        = 'nosidemenu noextrainfo'
      $locales          = fetch( 'content', 'translation_list' )
