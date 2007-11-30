@@ -36,7 +36,30 @@ $nodeResult = eZNodeviewfunctions::generateNodeView( $tpl, $node, $contentObject
 // should be disabled by this view.
 $cacheKey = "timeline-" + time();
 $nodeResult["title_path"] = array( array( "text" => "Timeline Preview" ), array( "text" => $node->attribute( 'name' ) ) );
-$site = array( 'title' => $ini->variable( 'SiteSettings', 'SiteName' ) );
+
+$httpCharset = eZTextCodec::httpCharset();
+$locale = eZLocale::instance();
+$languageCode = $locale->httpLocaleCode();
+
+$site = array( 'title' => $ini->variable( 'SiteSettings', 'SiteName' ),
+               'design' => $ini->variable( 'DesignSettings', 'SiteDesign' ),
+               'http_equiv' => array( 'Content-Type' => 'text/html; charset=' . $httpCharset,
+                                      'Content-language' => $languageCode ) );
+
+$currentUser = eZUser::currentUser();
+$tpl->setVariable( "current_user", $currentUser );
+$tpl->setVariable( 'ui_context', "" );
+
+$uri = eZURI::instance( eZSys::requestURI() );
+require_once "access.php";
+
+$access = accessType( $uri,
+                      eZSys::hostname(),
+                      eZSys::serverPort(),
+                      eZSys::indexFile() );
+$access = changeAccess( $access );
+$tpl->setVariable( 'access_type', $access );
+$tpl->setVariable( 'uri_string', $uri->uriString() );
 
 $tpl->setVariable( "site", $site );
 $tpl->setVariable( "timeline_cache_key", $cacheKey );
