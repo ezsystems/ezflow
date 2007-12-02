@@ -135,9 +135,11 @@ ViewName[main_story3]=Main story (3)
 Name=Banner
 NumberOfValidItems=1
 NumberOfArchivedItems=5
-ManualAddingOfItems=enabled
-ViewList[]=banner
-ViewName[banner]=Banner
+ManualAddingOfItems=disabled
+ViewList[]=banner1
+ViewList[]=banner2
+ViewName[banner1]=Banner (medium)
+ViewName[banner2]=Banner (small)
 
 [Dynamic3Items]
 Name=3 items (dynamic)

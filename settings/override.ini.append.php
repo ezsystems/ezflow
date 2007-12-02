@@ -119,12 +119,19 @@ Subdir=templates
 Match[type]=ItemList
 Match[view]=itemlist3
 
-[block_banner]
+[block_banner1]
 Source=block/view/view.tpl
-MatchFile=block/banner.tpl
+MatchFile=block/banner1.tpl
 Subdir=templates
 Match[type]=Banner
-Match[view]=banner
+Match[view]=banner1
+
+[block_banner2]
+Source=block/view/view.tpl
+MatchFile=block/banner2.tpl
+Subdir=templates
+Match[type]=Banner
+Match[view]=banner2
 
 [block_tag_cloud]
 Source=block/view/view.tpl
