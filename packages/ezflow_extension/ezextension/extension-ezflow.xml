@@ -457,7 +457,6 @@
   <file name="design.ini.append.php" path="/settings" md5sum="c7c956c1c8b53c77b2a1ed70a32e9345"/>
   <file name="image.ini.append.php" path="/settings" md5sum="b78ff836a964077d6674c0f9221ce7fd"/>
   <file name="module.ini.append.php" path="/settings" md5sum="134d47b913963134c90366b5eb17051a"/>
-  <file name="override.ini.append.php" path="/settings" md5sum="e83075759b4e20fc5ba4de8571589b54"/>
   <file name="site.ini.append.php" path="/settings" md5sum="4f61e9604e02d1fa5131a77e6c83ef2b"/>
   <file name="siteaccess" path="/settings" md5sum="" type="dir"/>
   <file name="iphone" path="/settings/siteaccess" md5sum="" type="dir"/>
