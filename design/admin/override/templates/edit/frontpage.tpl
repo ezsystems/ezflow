@@ -1,33 +1,30 @@
-<form enctype="multipart/form-data" id="editform" name="editform" method="post" action={concat("/content/edit/",$object.id,"/",$edit_version,"/",$edit_language|not|choose(concat($edit_language,"/"),''))|ezurl}>
+<form name="editform" id="editform" enctype="multipart/form-data" method="post" action={concat( '/content/edit/', $object.id, '/', $edit_version, '/', $edit_language|not|choose( concat( $edit_language, '/' ), '/' ), $is_translating_content|not|choose( concat( $from_language, '/' ), '' ) )|ezurl}>
 
-{include uri='design:parts/website_toolbar_edit.tpl'}
-
-<!-- ZONE CONTENT: START -->
-
-<div class="content-edit-frontpage">
-
-<div class="border-box">
-<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
-<div class="border-ml"><div class="border-mr"><div class="border-mc">
-<div class="border-content">
-
-<div class="norightcol">
-
-<div class="content-columns float-break">
-<div class="leftcol-position">
-<div class="leftcol">
-
-<!-- SEARCH BOX: START -->
+<div id="leftmenu">
+<div id="leftmenu-design">
 
 <div id="ajaxsearchbox" class="tab-container">
+
+<div class="box-header"><div class="box-tc"><div class="box-ml"><div class="box-mr"><div class="box-tl"><div class="box-tr">
+
+<h4>{'Quick search'|i18n( 'design/admin/content/edit' )}</h4>
+
+</div></div></div></div></div></div>
+
+<div class="box-bc"><div class="box-ml"><div class="box-mr"><div class="box-br"><div class="box-bl"><div class="box-content">
+
 
 <div class="block">
     <label>Search phrase</label>
     <input class="textfield" type="text" name="SearchStr" value="" onkeypress="return ezajaxSearchEnter(event)" />
     <input name="SearchOffset" type="hidden" value="0"  />
     <input name="SearchLimit" type="hidden" value="10"  />
-    <input class="serach-button" type="image" src={"search_button.gif"|ezimage} name="SearchButton" onclick="return ezajaxSearchPost();" value="" />
 </div>
+
+<div class="block">
+    <input class="button" type="button" name="SearchButton" onclick="return ezajaxSearchPost();" value="{'Search'|i18n( 'design/admin/content/edit' )}" />
+</div>
+
 {*
 <div class="block">
     <label>Section to search</label>
@@ -69,7 +66,6 @@
 </div>
 
 <div class="block search-results">
-    <span class="header">Results</span>
     <div id="ajaxsearchresult" style="overflow: hidden">
 </div>
 
@@ -86,7 +82,9 @@ function addBlock( object, id )
 }
 {/literal}
 </script>
-<p>
+
+<div class="block">
+<label>{'Select block'|i18n( 'design/admin/content/edit' )}</label>
 <select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
 <option>Select:</option>
 {def $zone_id = ''
@@ -103,16 +101,23 @@ function addBlock( object, id )
     </optgroup>
     {/foreach}
 </select>
-</p>
-<input id="addtoblock" class="button" type="submit" name="CustomActionButton[{$content_attribute.id}_new_item]" value="Add to block" />
+</div>
+
+<div class="block">
+    <input id="addtoblock" class="button" type="submit" name="CustomActionButton[{$content_attribute.id}_new_item]" value="{'Add to block'|i18n( 'design/admin/content/edit' )}" />
+</div>
 {/if}
 {/foreach}
 
 </div>
 
 
+</div></div></div></div></div></div>
 
 </div>
+
+{include uri='design:content/edit_menu.tpl'}
+
 <script type="text/javascript" src={"javascript/ez_core.js"|ezdesign}></script>
 <script type="text/javascript">
 <!--
@@ -128,8 +133,6 @@ function showDateRange( t )
     else
         dateRange[0].style.display = 'none';
 }
-
-
 
 function ezajaxSearchPost()
 {
@@ -180,7 +183,7 @@ function ezajaxSearchPostBack( r )
    {
        for (var i = 0, l = search.length; i < l; i++)
        {
-      temp += '<div class="result-item float-break"><div class="item-title">{/literal}<img src={"item-bullet.gif"|ezimage} \/>{literal} ' + search[i].name + '<\/div><div class="item-published-date">' + unixtimetodate( search[i].published ) +'<\/div><div class="item-selector"><input type="checkbox" value="' + search[i].id + '" name="SelectedObjectIDArray[]" /><\/div><\/div>';
+      temp += '<div class="block"><div class="item-title">{/literal}{literal} ' + search[i].name + '<\/div><div class="item-published-date">' + unixtimetodate( search[i].published ) +'<\/div><div class="item-selector"><input type="checkbox" value="' + search[i].id + '" name="SelectedObjectIDArray[]" /><\/div><\/div>';
        }
        ezajaxSearchDisplay.el.innerHTML = temp;
        ezajaxSearchObjectSpans = ez.$$('span', ezajaxSearchDisplay);
@@ -219,79 +222,144 @@ function ezajaxSearchClick( el, obj, i )
 </div>
 </div>
 
-<div class="maincol-position">
-<div class="maincol">
+<div id="maincontent"><div id="fix">
+<div id="maincontent-design">
+<!-- Maincontent START -->
 
-
+{include uri='design:content/edit_validation.tpl'}
 
 <div class="content-edit">
 
-    <div class="attribute-header">
-        <h1 class="long">{'Edit %1 - %2'|i18n( 'design/ezwebin/content/edit', , array( $class.name|wash, $object.name|wash ) )}</h1>
-    </div>
+<div class="context-block">
 
-    <div class="attribute-language">
-    {def $language_index = 0
-         $from_language_index = 0
-         $translation_list = $content_version.translation_list}
+{* DESIGN: Header START *}<div class="box-header"><div class="box-tc"><div class="box-ml"><div class="box-mr"><div class="box-tl"><div class="box-tr">
 
-    {foreach $translation_list as $index => $translation}
-       {if eq( $edit_language, $translation.language_code )}
-          {set $language_index = $index}
-       {/if}
-    {/foreach}
+<h1 class="context-title">{$object.class_identifier|class_icon( normal, $object.class_name )}&nbsp;{'Edit <%object_name> [%class_name]'|i18n( 'design/admin/content/edit',, hash( '%object_name', $object.name, '%class_name', $class.name ) )|wash}</h1>
 
-    {if $is_translating_content}
+{* DESIGN: Mainline *}<div class="header-mainline"></div>
 
-        {def $from_language_object = $object.languages[$from_language]}
+{* DESIGN: Header END *}</div></div></div></div></div></div>
 
-        {'Translating content from %from_lang to %to_lang'|i18n( 'design/ezwebin/content/edit',, hash(
-            '%from_lang', concat( $from_language_object.name, '&nbsp;<img src="', $from_language_object.locale|flag_icon, '" style="vertical-align: middle;" alt="', $from_language_object.locale, '" />' ),
-            '%to_lang', concat( $translation_list[$language_index].locale.intl_language_name, '&nbsp;<img src="', $translation_list[$language_index].language_code|flag_icon, '" style="vertical-align: middle;" alt="', $translation_list[$language_index].language_code, '" />' ) ) )}
+{* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
 
-    {else}
+<div class="context-information">
+<p class="translation">
+{let language_index=0
+     from_language_index=0
+     translation_list=$content_version.translation_list}
 
-        {'Content in %language'|i18n( 'design/ezwebin/content/edit',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
+{section loop=$translation_list}
+  {section show=eq( $edit_language, $item.language_code )}
+    {set language_index=$:index}
+  {/section}
+{/section}
 
-    {/if}
-    </div>
+{section show=$is_translating_content}
 
-    {include uri='design:content/edit_validation.tpl'}
+    {let from_language_object=$object.languages[$from_language]}
 
-    {include uri='design:content/edit_attribute.tpl'}
+    {'Translating content from %from_lang to %to_lang'|i18n( 'design/admin/content/edit',, hash(
+        '%from_lang', concat( $from_language_object.name, '&nbsp;<img src="', $from_language_object.locale|flag_icon, '" style="vertical-align: middle;" alt="', $from_language_object.locale, '" />' ),
+        '%to_lang', concat( $translation_list[$language_index].locale.intl_language_name, '&nbsp;<img src="', $translation_list[$language_index].language_code|flag_icon, '" style="vertical-align: middle;" alt="', $translation_list[$language_index].language_code, '" />' ) ) )}
 
-    <div class="buttonblock">
-    <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input type="hidden" name="DiscardConfirm" value="0" />
-    <input type="hidden" name="RedirectIfDiscarded" value="{ezhttp( 'LastAccessesURI', 'session' )}" />
-    <input type="hidden" name="RedirectURIAfterPublish" value="{ezhttp( 'LastAccessesURI', 'session' )}" />
-    </div>
+    {/let}
+
+{section-else}
+
+    {$translation_list[$language_index].locale.intl_language_name}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
+
+{/section}
+
+{/let}
+</p>
+<div class="break"></div>
+</div>
+
+{section show=$is_translating_content}
+<div class="content-translation">
+{/section}
+
+<div class="context-attributes">
+    {include uri='design:content/edit_attribute.tpl' view_parameters=$view_parameters}
+</div>
+
+{section show=$is_translating_content}
+</div>
+{/section}
+
+{* DESIGN: Content END *}</div></div></div>
+<div class="controlbar">
+{* DESIGN: Control bar START *}<div class="box-bc"><div class="box-ml"><div class="box-mr"><div class="box-tc"><div class="box-bl"><div class="box-br">
+<div class="block">
+
+    {section show=ezpreference( 'admin_edit_show_re_edit' )}
+        <input type="checkbox" name="BackToEdit" />{'Back to edit'|i18n( 'design/admin/content/edit' )}
+    {/section}
+    <input class="button" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" />
+    <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/admin/content/edit' )}" title="{'Store the contents of the draft that is being edited and continue editing. Use this button to periodically save your work while editing.'|i18n( 'design/admin/content/edit' )}" />
+    <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
+    <input type="hidden" name="DiscardConfirm" value="1" />
+</div>
+{* DESIGN: Control bar END *}</div></div></div></div></div></div>
+</div>
+
 </div>
 
 
-</div>
-</div>
+{include uri='design:content/edit_relations.tpl'}
 
-<div class="rightcol-position">
-<div class="rightcol">
 
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></div></div>
-<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
-</div>
+{* Locations window. *}
+{* section show=eq( ezini( 'EditSettings', 'EmbedNodeAssignmentHandling', 'content.ini' ), 'enabled' ) *}
+{section show=or( ezpreference( 'admin_edit_show_locations' ),
+                  count( $invalid_node_assignment_list )|gt(0) )}
+    {* We never allow changes to node assignments if the object has been published/archived.
+       This is controlled by the $location_ui_enabled variable. *}
+    {include uri='design:content/edit_locations.tpl'}
+{section-else}
+    {* This disables all node assignment checking in content/edit *}
+    <input type="hidden" name="UseNodeAssigments" value="0" />
+{/section}
 
 </div>
 
-<!-- ZONE CONTENT: END -->
-
+<!-- Maincontent END -->
+</div>
+<div class="break"></div>
+</div></div>
 
 </form>
+
+
+
+
+{literal}
+<script language="JavaScript" type="text/javascript">
+<!--
+    window.onload=function()
+    {
+        with( document.editform )
+        {
+            for( var i=0; i<elements.length; i++ )
+            {
+                if( elements[i].type == 'text' )
+                {
+                    elements[i].select();
+                    elements[i].focus();
+                    return;
+                }
+            }
+        }
+    }
+
+    function confirmDiscard( question )
+    {
+        // Disable/bypass the reload-based (plain HTML) confirmation interface.
+        document.editform.DiscardConfirm.value = "0";
+
+        // Ask user if she really wants do it, return this to the handler.
+        return confirm( question );
+    }
+-->
+</script>
+{/literal}

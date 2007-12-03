@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'extension/ezflow/classes/ezmPool.php' );
+include_once( 'extension/ezflow/classes/ezflowpool.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 
 class eZPageBlock
@@ -301,25 +301,25 @@ class eZPageBlock
         // Function attributes
         function getWaitingItems()
         {
-            $waitingItems = ezmPool::waitingItems( $this->id() );
+            $waitingItems = eZFlowPool::waitingItems( $this->id() );
             return $this->merge( $waitingItems, true );
         }
 
         function getValidItems()
         {
-            $validItems = ezmPool::validItems( $this->id() );
+            $validItems = eZFlowPool::validItems( $this->id() );
             return $this->merge( $validItems );
         }
 
         function getValidItemsAsNodes()
         {
-            $validItemsAsNodes = ezmPool::validNodes( $this->id() );
+            $validItemsAsNodes = eZFlowPool::validNodes( $this->id() );
             return $validItemsAsNodes;
         }
 
         function getArchivedItems()
         {
-            $archivedItems = ezmPool::archivedItems( $this->id() );
+            $archivedItems = eZFlowPool::archivedItems( $this->id() );
             return $this->merge( $archivedItems );
         }
 

@@ -6,25 +6,25 @@ class ezmMediaFunctionCollection
 {
     function fetchWaiting( $blockID )
     {
-        $result = array( 'result' => ezmPool::waitingItems( $blockID ) );
+        $result = array( 'result' => eZFlowPool::waitingItems( $blockID ) );
         return $result;
     }
 
     function fetchValid( $blockID )
     {
-        $result = array( 'result' => ezmPool::validItems( $blockID ) );
+        $result = array( 'result' => eZFlowPool::validItems( $blockID ) );
         return $result;
     }
 
     function fetchArchived( $blockID )
     {
-        $result = array( 'result' => ezmPool::archivedItems( $blockID ) );
+        $result = array( 'result' => eZFlowPool::archivedItems( $blockID ) );
         return $result;
     }
 
     function fetchValidNodes( $blockID )
     {
-        $result = array( 'result' => ezmPool::validNodes( $blockID ) );
+        $result = array( 'result' => eZFlowPool::validNodes( $blockID ) );
         return $result;
     }
     

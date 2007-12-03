@@ -8,8 +8,6 @@ div.block-container
 div.block-header
 {
     padding: 0.5em;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
     font-weight: bold;
     background-image: url(../../images/ezpage/block_header_bg.png);
     background-position: left top;
@@ -31,8 +29,6 @@ div.block-content
 
 table.items
 {
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     width: 100%;
@@ -109,8 +105,6 @@ table.items img, table.items input, table.items select
 
 div.block-content div.legend
 {
-    font-size: 11px;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
 }
@@ -150,8 +144,6 @@ div.legend div.history
 div.block-container .button
 {
     border: 1px solid #D8D8D8;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
     background-image: url(../../images/ezpage/button_bg.png);
     background-repeat: center top;
     background-repeat: repeat-x;
@@ -167,14 +159,11 @@ th.tight, td.tight
 
 div.block-container .list
 {
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+
 }
 
 div.block-container .textfield
 {
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
 }
 
 div.block-container div.left
@@ -199,8 +188,7 @@ div.block-container div.blockname .textfield
 
 div.block-container div.block-parameters
 {
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+
 }
 
 div.block-container div.block-parameters div.source
@@ -236,8 +224,6 @@ div.zones
 {
     margin-top: 1em;
     margin-bottom: 1em;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
 }
 div.zones div.zone
 {
@@ -255,8 +241,6 @@ div.zones div.zone div.zone-thumbnail, div.zones div.zone div.zone-label, div.zo
 div.zones .button
 {
     border: 1px solid #D8D8D8;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 11px;
     background-image: url(../../images/ezpage/button_bg.png);
     background-repeat: center top;
     background-repeat: repeat-x;

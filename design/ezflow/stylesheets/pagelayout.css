@@ -480,9 +480,11 @@ div#footer div.border-content
     text-align: center;
     font-size: 0.8em;
     color: #7f7f7f;
+/*
     background-image: url(../images/footer-logo.png);
     background-repeat: no-repeat;
     background-position: 15px 2px;
+*/
 }
 
 div#footer address

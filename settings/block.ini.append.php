@@ -146,7 +146,7 @@ Name=3 items (dynamic)
 NumberOfValidItems=3
 NumberOfArchivedItems=5
 ManualAddingOfItems=disabled
-FetchClass=ezmLatestObjects
+FetchClass=eZFlowLatestObjects
 FetchFixedParameters[]
 FetchFixedParameters[Class]=article
 FetchParameters[]

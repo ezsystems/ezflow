@@ -22,15 +22,12 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-class ezflowInfo
+class eZFlowFetchInterface
 {
-    static function info()
+    function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
     {
-        return array( 'Name' => "eZ Flow",
-                      'Version' => "1.0.0",
-                      'Copyright' => "Copyright (C) 1999-2007 eZ Systems AS",
-                      'License' => "GNU General Public License v2.0"
-                     );
+        return false;
     }
 }
+
 ?>
