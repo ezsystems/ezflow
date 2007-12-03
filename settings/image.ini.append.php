@@ -49,8 +49,8 @@ Filters[]=geometry/crop=195;98;0;0
 [blockgallery1]
 Reference=
 Filters[]
-Filters[]=geometry/scalewidth=127
-Filters[]=geometry/crop=127;85;0;0
+Filters[]=geometry/scalewidth=126
+Filters[]=geometry/crop=126;84;0;0
 
 [imagelarge]
 Reference=
