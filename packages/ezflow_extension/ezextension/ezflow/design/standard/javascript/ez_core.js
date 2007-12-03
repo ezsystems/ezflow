@@ -12,7 +12,7 @@
 */
 
 var ez = {
-    version: 0.7,
+    version: 0.8,
     handlers: [],
     string: {
         trim: function( s )
@@ -23,7 +23,7 @@ var ez = {
         stripTags: function( s )
         {
             // Strip html tags
-			return s.replace(/<\/?[^>]+>/gi, '');
+            return s.replace(/<\/?[^>]+>/gi, '');
         },
         normalize: function( s )
         {
@@ -72,13 +72,17 @@ var ez = {
         {
             // Makes a array out of anything or nothing, split strings by s if present and extends array with native extensions
             var r = [], el;
-            if ( ez.val(obj) )
+            if ( ez.val(obj) || obj === false )
             {
-                if (typeof obj != 'object' && obj.constructor != Object && obj != '[object NodeList]') obj = [obj];
-                for (var i=0; ez.set(el = obj[i]); i++){
-                    ( s !== undefined && typeof el == 'string' ) ? r = r.concat( el.split( s ) ) : r.push( el );
-                }
-                r = (r.length != 0 || obj.length == 0) ? r : [obj];
+                if ( obj != '[object NodeList]' )
+                {
+                    if (typeof obj !== 'object' && obj.constructor != Object) obj = [obj];
+                    else if ( obj && obj.tagName !== undefined ) obj = [obj];
+                    for (var i=0; ez.set(el = obj[i]); i++){
+                        ( s !== undefined && typeof el === 'string' ) ? r = r.concat( el.split( s ) ) : r.push( el );
+                    }
+                    r = (r.length !== 0 || obj.length === 0) ? r : [obj];
+                } else r = obj;
             }
             return ez.array.nativeExtend( r );
         },
@@ -99,7 +103,7 @@ var ez = {
         nativExtensions: {
             indexOf: function(o, s){
                 // javascript 1.6: finds the first index that is like object o, s is optional start index
-                for (var i=s || 0, l = this.length; i < l; i++) if (this[i]==o) return i;
+                for (var i=s || 0, l = this.length; i < l; i++) if (this[i]===o) return i;
                 return -1;
             },
             forEach: function(fn, t){
@@ -108,7 +112,8 @@ var ez = {
             },
             filter: function(fn, t){
                 // javascript 1.6: filter return values of fn that evaluates to true, t optionally overrides 'this'
-                for(var i = 0, r = ez.$c(), l = this.length; i < l; i++) fn.call(t,this[i],i,this) && r.push(this[i]);
+                var r = ez.$c();
+                this.forEach(function( val, i, arr ){ if ( fn.call(t, val, i, arr) ) r.push( val ); });
                 return r;
             },
             map: function(fn, t){
@@ -118,7 +123,7 @@ var ez = {
             }
         },
         eZextensions: function(){
-			// Init function for array eZ extensions
+            // Init function for array eZ extensions
         }
     },
     object: {
@@ -136,41 +141,44 @@ var ez = {
         }
     },
     cookie: {
-        set: function( name, value, days )
+        set: function( name, value, days, path )
         {
-            // Set cookie value by name, if days are not defined cookie will be removed! 
+            // Set cookie value by name
+            // Days will default to 'end of session' and path to '/'
             var date = new Date();
-            date.setTime( date.getTime() + ( ( days || -1 ) * 86400 ) );
-            document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/';
+            date.setTime( date.getTime() + ( ( days || 0 ) * 86400 ) );
+            document.cookie = name + '=' + value + (ez.set(days) ? '; expires=' + date.toUTCString(): '') + '; path='+ (path || '/');
         },
         get: function ( name )
         {
             // Get cookie value by name, or empty string if not found
-            var r = '', name = name + '=', cookArr = document.cookie.split(';'), t;
+            var r = '', n = name + '=', cookArr = document.cookie.split('; '), t;
             for ( var i = 0, l = cookArr.length; i < l; i++ ){
-                t = cookArr[i].trim();
-                if ( t.indexOf(name) == 0 ) r = t.substring( name.length, t.length );
+                t = ez.string.trim( cookArr[i] );
+                if ( t.indexOf( n ) === 0 ) r = t.substring( n.length, t.length );
             }
             return r;
         },
         remove: function( name )
         {
-            // Wrapper function for cookie.set with value = ''
-			ez.cookie.set( name, '' );
+            // Blanks the cookie value and make sure it expired a longe time ago
+            ez.cookie.set( name, '', -5000 );
         }
     },
     element: {
         addEvent: function( el, trigger, handler, t )
         {
             // Method for setting element event
-			// Supports w3c, ie and dom0 event handling
+            // Supports w3c, ie and dom0 event handling
+            // Binds el to the funtion as 'this' or uses
+            // t if defined
             trigger = trigger.replace(/^on/i,'');
-            handler = ez.fn.bindEvent( handler, t || el, el );
+            handler = ez.fn.bindEvent( handler, t || el, el, t || undefied );
             if ( el.addEventListener ) el.addEventListener( trigger, handler, false );
             else if ( el.attachEvent ) el.attachEvent( 'on' + trigger, handler );
             else {
                 var c = el['on' + trigger];
-                if ( typeof c != 'function' ) el['on' + trigger] = handler;
+                if ( typeof c !== 'function' ) el['on' + trigger] = handler;
                 else el['on' + trigger] = function(){ handler(); c()};
             }
             ez.handlers.push( arguments );
@@ -199,18 +207,18 @@ var ez = {
             // Function for extending element with native extensions and ez extensions
             if ( el.ez ) return el;
             el = ez.object.extend( el, ez.element.nativExtensions );
-            return new ez.element.eZextensions( el );;
+            return new ez.element.eZextensions( el );
         },
         getByCSS: function()
         {
             // CSS2 query function, returns a extended array of extended elements
             // Example: arr = ez.$$('div.my_class, input[type=text], img[alt~=went]');
             var args = ez.$c(arguments, ','), d = [document], r = [], atr, ati;
-            if ( args.length === 1 && args[0].ez === 'array') return args[0];
-            else if (typeof args[args.length -1] == 'object') d = args.pop();
+            if ( args.length === 1 && args[0].ez && args[0].ez === 'array') return args[0];
+            if (typeof args[args.length -1] === 'object') d = args.pop();
             args.forEach(function(el){
-                if (typeof el=='string'){
-                    var par = ez.$c( (d.ez ? d.el : d) ); 
+                if (typeof el === 'string'){
+                    var par = ez.$c( (d.ez ? d.el : d) );
                     ez.$c( ez.string.trim( el ), /\s+/ ).forEach(function(str)
                     {
                         var temp = ez.$c(), tag = (str.match(/^(\w+)([.#\[]?)\s?/)) ? RegExp.$1 : '*', id = 0, cn = 0, at = 0;
@@ -224,15 +232,16 @@ var ez = {
                                 if (id && (!i.getAttribute('id') || i.getAttribute('id')!=id)) return;
                                 if (at)
                                 {
-                                  if (atr = ez.fn.stripFn( i.getAttribute(at[0]) ))
+                                  atr = ez.fn.stripFn( i.getAttribute(at[0]) );
+                                  if ( atr )
                                   {
                                     ati = atr.indexOf(at[2]);
-                                    if (at[2]=='');
+                                    if (at[2] == '');
                                     else if (at[1] == '' && atr == at[2]);
-                                    else if (at[1] == '*' && ati != -1);
-                                    else if (at[1] == '~' && (' '+atr+' ').indexOf(' '+at[2]+' ') != -1);
-                                    else if (at[1] == '^' && ati == 0);
-                                    else if (at[1] == '$' && ati == (atr.length-at[2].length) && ati != -1);
+                                    else if (at[1] === '*' && ati !== -1);
+                                    else if (at[1] === '~' && (' '+atr+' ').indexOf(' '+at[2]+' ') !== -1);
+                                    else if (at[1] === '^' && ati === 0);
+                                    else if (at[1] === '$' && ati === (atr.length-at[2].length) && ati !== -1);
                                     else return;
                                   } else return;
                                 }
@@ -255,7 +264,7 @@ var ez = {
             if (a.ez) return a;
             var r = [];
             ez.$c(arguments).forEach(function(el){
-                el = typeof el=='string' ? document.getElementById(el) :  el;
+                el = typeof el === 'string' ? document.getElementById(el) :  el;
                 if (el) r.push( el.ez ? el : ez.element.extend( el ) );
             });
             return r.length > 1  ? ez.array.extend( r ) : r[0] || false;
@@ -263,9 +272,9 @@ var ez = {
         getScroll: function( side, el ) 
         {
             // Get element scroll, and fallback to document if el is not passed
-            var r = 0, el = (el || document.documentElement || document.body), w = (el || window);
-            if ( el.scrollTop ) r = side == 'left' ? el.scrollLeft : el.scrollTop;
-            else if ( typeof w.pageYOffset == 'number' ) r = side == 'left' ? w.pageXOffset : w.pageYOffset;
+            var r = 0, d = (el || document.documentElement || document.body), w = (el || window);
+            if ( d.scrollTop ) r = side === 'left' ? d.scrollLeft : d.scrollTop;
+            else if ( typeof w.pageYOffset === 'number' ) r = side === 'left' ? w.pageXOffset : w.pageYOffset;
             return r;
         },
         nativExtensions: {},
@@ -280,8 +289,10 @@ var ez = {
     ajax: function( o, uri, postBack )
     {
         // Init function for ez.ajax, if uri is specified the call will be done immediately
+        if ( this === ez ) return new ez.ajax( o, uri, postBack );
         this.o = ez.object.extend({method: 'GET'}, o || {}, true);
         if ( uri ) this.load( uri, this.o.postBody || null, postBack );
+        return this;
     },
     fx: {
         // Included set of transition fx's to use with animations
@@ -296,7 +307,7 @@ var ez = {
         // if str is url oC (function) is added as load event on the tag
         var scr = document.createElement('script');
         scr.type = 'text/javascript';
-        if (str.indexOf('.js') != -1)
+        if (str.indexOf('.js') !== -1)
         {
             scr.src = str;
             if (oC) ez.element.addEvent(scr, 'load', oC);
@@ -324,8 +335,8 @@ var ez = {
     },
     val: function(o)
     {
-       // Returns true if the value evaluates to true or 0
-       return !!(o || o == 0);
+       // Returns true if the value evaluates to true or is 0
+       return !!(o || o === 0 );
     },
     pick: function()
     {
@@ -338,7 +349,7 @@ var ez = {
     {
         // Checks if v is a number, if not f is returned (or 0 if !f)
         // t (string) [float|int] specifies if v should be parsed as int or float
-        v = t == 'int' ? parseInt( v ) : parseFloat( v );
+        v = t === 'int' ? parseInt( v ) : parseFloat( v );
         return isNaN( v ) ? f || 0 : v;
     },
     min: function()
@@ -372,7 +383,8 @@ var ez = {
         fontSize: '%',
         display: ''
     },
-    xpath: !!document.evaluate
+    xpath: !!document.evaluate,
+    ie56: false
 };//ez
 
 
@@ -395,7 +407,7 @@ ez.array.eZextensions.prototype = {
         });
         return r;
     }
-}//ez.array.eZExtension.prototype
+};//ez.array.eZExtension.prototype
 
 
 //Properties for the ez.element.eZextensions constructor
@@ -431,14 +443,14 @@ ez.element.eZextensions.prototype = {
             l = l + el.offsetLeft || 0;
             el = el.offsetParent;
         } while (el);
-        return s == 'left' ? l : t;
+        return s === 'left' ? l : t;
     },
     getSize: function( s, offset )
     {
         // Gets the element size for s (string) [width|height]
         // offset (boolean) determines if you want offset or scroll size
         // Example: ez.$('my_el').getSize('width');
-         if (s == 'width') s = (offset) ? this.el.offsetWidth : this.el.scrollWidth;
+         if (s === 'width') s = (offset) ? this.el.offsetWidth : this.el.scrollWidth;
          else s = (offset) ? this.el.offsetHeight : this.el.scrollHeight;
         return s;
     },
@@ -449,10 +461,10 @@ ez.element.eZextensions.prototype = {
        // But make sure you are using the eZ Core Styles to make the
        // different browsers fully agree on the style.. (todo)
        // Example: ez.$('my_el').getStyle('margin');
-       s = s == 'float' ? 'cssFloat' : ez.string.jsCase(s);
+       s = s === 'float' ? 'cssFloat' : ez.string.jsCase(s);
        var el = this.el, r = (document.defaultView) ? document.defaultView.getComputedStyle(el, null) : el.currentStyle;
        r = (r === null) ? el.style[s] : r[s];
-       if (!ez.val( r ) || r == 'auto')
+       if (!ez.val( r ) || r === 'auto')
        {
           switch ( s )
           {
@@ -468,16 +480,22 @@ ez.element.eZextensions.prototype = {
                 break;
             case 'top':
             case 'left':
-                r = this.getStyle('position') == 'relative' ? 0 : this.getPos(s);
+                r = this.getStyle('position') === 'relative' ? 0 : this.getPos(s);
           }
        }
        return r;
+    },
+    hasClass: function( c )
+    {
+        // Removes c (string) from className on this element
+        return (' ' + this.el.className + ' ').indexOf(' '+ c +' ') !== -1;
+
     },
     removeClass: function( c )
     {
         // Removes c (string) from className on this element
         if (this.el.className)
-            this.el.className = ez.$c(this.el.className, ' ').filter(function( cn ){ return (cn != c) ? 1: 0; }).join(' ');
+            this.el.className = ez.$c(this.el.className, ' ').filter(function( cn ){ return (cn !== c) ? 1: 0; }).join(' ');
         return this;
     },
     removeEvent: function(trigger, handler)
@@ -495,6 +513,7 @@ ez.element.eZextensions.prototype = {
     {
         // Shortcut to set multiple styles with object, will also fix case on style names
         // Example: ez.$('my_el').setStyles( {color: '#ff00ff', marginLeft: '10px', 'margin-top': '10px'} );
+        var jsStyle = 0;
         for ( style in styles )
         {
             jsStyle = ez.string.jsCase( style );
@@ -506,11 +525,11 @@ ez.element.eZextensions.prototype = {
     {
         var el = this.el, val = '', ty = el.type;
         if ( ty === undefined || !el.name ) return '';
-        if (ty == 'radio' || ty == 'checkbox')
+        if (ty === 'radio' || ty === 'checkbox')
             val = el.checked ? el.value : '';
-        else if (ty == 'select-one')
+        else if (ty === 'select-one')
             val = ( el.selectedIndex != -1 ) ? el.options[el.selectedIndex].value : '';
-        else if (ty == 'select-multiple')
+        else if (ty === 'select-multiple')
             ez.$c( el.options ).forEach(function(o){ if ( o.selected ) val = o.value; });
         else if ( el.value !== undefined )
             val = el.value;
@@ -539,8 +558,10 @@ ez.element.eZextensions.prototype = {
     {
         // Wrapper function for animate, will toggle animation direction based on previous target value
         // see animate for description on parameters s, t, oc
-        return this.animate(!(this.target || false), s, t, oc);
+        return this.animate(!(this.target), s, t, oc);
     },
+    target: false,
+    timeout: null,
     animate:  function(target, settings, targetSettings, onComplete, clear)
     {
         // Animates the element, all parameters are optional
@@ -554,15 +575,15 @@ ez.element.eZextensions.prototype = {
            clear (boolean): see animationTarget for more info
         */
         target = target || false;
-        if ( this.target != target || !this.timeout )
+        if ( this.target !== target || !this.timeout )
         {
             this.animationStop();
             settings = this.setSettings( settings );
             this.settings.frametime = Math.round(1000 / settings.fps);
-            steps = Math.round( settings.duration / this.settings.frametime );
-            this.step = ez.set(this.target) ? (this.target == target ? this.step : ez.max(steps - this.step, 0)) : 0;
+            var steps = Math.round( settings.duration / this.settings.frametime );
+            this.step = this.target === target ? this.step : ez.max(steps - this.step, 0);
             this.target = target;
-            this.animationTarget( targetSettings || {}, clear );
+            if ( targetSettings ) this.animationTarget( targetSettings, clear );
             this.animationStep( steps, target, onComplete || false );
         }
         return this;
@@ -598,9 +619,9 @@ ez.element.eZextensions.prototype = {
         // Private
         // This is the animation 'engine' and it's is called from .animate()
         // For customcallback pass a function in onComplete (oc) when you call animate
-        if ( target != this.target ) return;
+        if ( target !== this.target ) return;
         var s = this.settings, els = this.el.style, t = s.target, o = s.origin;
-        if (this.step == steps + 1)
+        if (this.step === steps + 1)
         {
             if (target)
             {
@@ -616,13 +637,13 @@ ez.element.eZextensions.prototype = {
             {
                 u = ez.animationAttributes[an] || 0;
                 if (!u) continue;
-                x = u == '%' ? 1 : o[an];
-                y = ((t[an] - x) * (1 - ( pos[an] || pos['def'] )) + x) * (u == '%' ? 100 : 1);
+                x = u === '%' ? 1 : o[an];
+                y = ((t[an] - x) * (1 - ( pos[an] || pos['def'] )) + x) * (u === '%' ? 100 : 1);
                 switch(an)
                 {
                 case 'opacity':
-                    if (els.opacity != undefined) els[an] = (y >= 100) ? '' : y/100;
-                    else if (els.filter != undefined) els.filter = (y >= 100) ? '' : 'alpha(opacity=' + y + ')';
+                    if (els.opacity !== undefined) els[an] = (y >= 100) ? '' : y/100;
+                    else if (els.filter !== undefined) els.filter = (y >= 100) ? '' : 'alpha(opacity=' + y + ')';
                     break;
                 case 'scrollTop':
                 case 'scrollLeft':
@@ -632,7 +653,7 @@ ez.element.eZextensions.prototype = {
                     els[an] = y + u;
                 }
             }
-            if (this.step == 0 && !target)
+            if (this.step === 0 && !target)
             {
                 els.display = o.display || '';
                 if (s.onOrigin) s.onOrigin(this, this.el);
@@ -640,8 +661,18 @@ ez.element.eZextensions.prototype = {
             ++this.step;
             this.timeout = setTimeout( ez.fn.bind( this.animationStep, this, steps, target, oc ),  s.frametime);
         }
-    }//animationStep
-}//ez.element.eZExtension.prototype
+    },//animationStep
+    isChildOfElement: function( parent )
+    {
+        // returns truer if this is a decendant of parent
+        c = this.el.parentNode;
+        do {
+            if ( c === parent) return true;
+            c = c.parentNode;
+        } while ( c );
+        return false;
+    }
+};//ez.element.eZExtension.prototype
 
 
 // Properties for the ez.ajax constructor
@@ -651,19 +682,10 @@ ez.ajax.prototype = {
         // Function for re calling same ajax object with different url (string) and post(string) values
         if (!this.xhr) this.xhr = new XMLHttpRequest();
         this.pb = pB || this.o.postBack;
-        if (0 < this.xhr.readyState < 4)
-        {
-            this.xhr.onreadystatechange = function(){};
-            this.xhr.abort();
-        }
+        if ( this.running ) this.cancel();
+        this.running = true;
         this.xhr.open( (ez.set( post ) ? 'POST' : 'GET'), uri, true);
-        this.xhr.onreadystatechange = ez.fn.bind(function()
-        {
-            if ( this.xhr.readyState != 4 ) return;
-            if ( this.xhr.status == 200 || this.xhr.status == 0 ) this.done();
-            else if ( this.o.onError ) this.o.onError( this.xhr.status, this.xhr.statusText );
-            this.xhr.onreadystatechange = function(){};
-        }, this);
+        this.xhr.onreadystatechange = ez.fn.bind( this.onStateChange, this );
         if ( ez.set( post ) )
         {
             this.xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=' + (this.o.charset || 'iso-8859-1' ));
@@ -673,39 +695,54 @@ ez.ajax.prototype = {
         this.xhr.setRequestHeader('Accept', this.o.accept || 'application/json,application/xml,application/xhtml+xml,text/javascript,text/xml,text/html,*/*');
         this.xhr.send( post || null );
     },
-
+    onStateChange: function()
+    {
+        if ( this.xhr.readyState != 4 || !this.running ) return;
+        this.running = false;
+        if ( this.xhr.status >= 200 && this.xhr.status < 300 ) this.done();
+        else if ( this.o.onError ) this.o.onError.call( this, this.xhr.status, this.xhr.statusText );
+        this.xhr.onreadystatechange = function(){};
+    },
+    cancel: function()
+    {
+        this.running = false;
+        this.xhr.abort();
+        this.xhr.onreadystatechange = function(){};
+        this.xhr = new XMLHttpRequest();
+    },
     done: function()
     {
         // Private function called when ajax call is done. Optional update element, preUpdate and onLoad callBacks.
         var r = this.xhr, o = this.o, el = ((o.update) ? ez.$(o.update) : 0);
         if (el) el.innerHTML = (o.preUpdate)? o.preUpdate(r): r.responseText;
-        if (this.pb) this.pb(r, el);
+        if (this.pb) el ? this.pb(r, el): this.pb(r);
     }
 };//ez.ajax.prototype
 
 
-// Some IE specific functionality
+// Some IE 5 / 6 specific functionality
 if ( window.detachEvent && !window.opera && /MSIE [56]/.test( navigator.userAgent ) )
 {
+    ez.ie56 = true;
     window.attachEvent('onload',function(){
-        // Adds png alpha transparency to older ie browsers
-        // just add pngfix to the class on the images / inputs you want fixed
-        ez.$$(['img.pngfix','input[type=image].pngfix']).forEach(function(o){
-            if ( !/.png$/i.test( o.el.src ) ) return;
+        // Adds png alpha transparency on images and inputs with 'pngfix' class
+        // remember to put transparent.png in same folder as the image we are fixing!!
+        ez.$$('img.pngfix','input[type=image].pngfix').forEach(function(o){
+            if ( !o.el.src || !/.png$/i.test( o.el.src ) ) return;
             var el = o.el, w = el.width, h = el.height;
-            el.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + el.src + "', sizingMethod='scale')";
-            el.src = '';
-            el.height = h;
-            el.width = w;
+            //el.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + el.src + "', sizingMethod='scale')";
+            el.style.filter = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + el.src + '\')'; //, sizingMethod=\'scale\')';
+            el.src = (el.src).substring( 0, (el.src).match( /([^\/\\]*$)/ ).index ) + 'transparent.png';
         });
     });    
     window.attachEvent('onunload',function(){
-        // Automatic cleaning of events in ie 5 and 6 to avoid some event related memory leaks
+        // Automatic cleaning of events to avoid some related memory leaks
         for (var i = 0, l = ez.handlers.length; i < l; i++) ez.handlers[i][0].detachEvent('on'+ez.handlers[i][1], ez.handlers[i][2]);
         ez.handlers = null;
     });
 }
 
+// XMLHttpRequest wrapper for IE 5 / 6
 if (!window.XMLHttpRequest && window.ActiveXObject) var XMLHttpRequest = function(){
     // XMLHttpRequest wrapper for ie browsers that do not support XMLHttpRequest natively
     return ez.activeX(['MSXML2.XMLHTTP.6.0', 'MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP']);
