@@ -10,13 +10,14 @@
      $zone_names = ezini( $attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
 
 <div class="zones float-break">
-
 {foreach ezini( 'General', 'AllowedTypes', 'zone.ini' ) as $allowed_type}
+{if ezini( $allowed_type, 'AvailableForClasses', 'zone.ini' )|contains( $attribute.object.content_class.identifier )}
     <div class="zone">
         <div class="zone-label">{ezini( $allowed_type, 'ZoneTypeName', 'zone.ini' )}</div>
         <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", ezini( $allowed_type, 'ZoneThumbnail', 'zone.ini' ) )|ezimage()} /></div>
         <div class="zone-selector"><input type="radio" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_type}" {if eq( $allowed_type, $attribute.content.zone_layout)}checked="checked"{/if} /></div>
     </div>
+{/if}
 {/foreach}
     <div class="break"></div>
 

@@ -19,6 +19,8 @@ ZoneThumbnail=globalzone_layout.gif
 
 Template=globalzonelayout.tpl
 
+AvailableForClasses[]=global_layout
+
 [2ZonesLayout1]
 ZoneTypeName=2 zones (layout 1)
 
@@ -32,6 +34,8 @@ ZoneThumbnail=2zones_layout1.gif
 
 Template=2zoneslayout1.tpl
 
+AvailableForClasses[]=frontpage
+
 [2ZonesLayout2]
 ZoneTypeName=2 zones (layout 2)
 
@@ -44,6 +48,8 @@ ZoneName[right]=Right zone
 ZoneThumbnail=2zones_layout2.gif
 
 Template=2zoneslayout2.tpl
+
+AvailableForClasses[]=frontpage
 
 [3ZonesLayout1]
 ZoneTypeName=3 zones (layout 1)
@@ -60,6 +66,8 @@ ZoneThumbnail=3zones_layout1.gif
 
 Template=3zoneslayout1.tpl
 
+AvailableForClasses[]=frontpage
+
 [3ZonesLayout2]
 ZoneTypeName=3 zones (layout 2)
 
@@ -74,6 +82,8 @@ ZoneName[bottom]=Bottom zone
 ZoneThumbnail=3zones_layout2.gif
 
 Template=3zoneslayout2.tpl
+
+AvailableForClasses[]=frontpage
 
 [4ZonesLayout1]
 ZoneTypeName=4 zones (layout 1)
@@ -91,4 +101,7 @@ ZoneName[bottomright]=Bottom right zone
 ZoneThumbnail=4zones_layout1.gif
 
 Template=4zoneslayout1.tpl
+
+AvailableForClasses[]=frontpage
+
 */ ?>
