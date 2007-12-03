@@ -362,5 +362,6 @@ YAHOO.timeline.common.updateBlocksCallback =
     failure: function( o )
     {
         YAHOO.timeline.slider.toogleProgressBar();
+        alert( "Timeline was unable to retrieve data from the server, please try again later..." );
     }
 };

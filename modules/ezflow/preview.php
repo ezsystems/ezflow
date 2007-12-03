@@ -434,19 +434,23 @@ foreach ( $zones as $zone )
     }
 }
 
+$httpCharset = eZTextCodec::httpCharset();
+
 $tpl = templateInit();
 $output = '[';
 foreach( $pageBlocks as $pageBlock )
 {
     $output .= '{ \'objectid\':\'' . $pageBlock->attribute('zone_id') . '-' . $pageBlock->attribute('id') . '\', \'xhtml\':\'';
     $tpl->setVariable( 'block', $pageBlock );
-    $output .= htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES );
+    $output .= htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
     $output .= '\'},';
 }
 
 $output .= ']';
 
 $output = str_replace( "\n", "", $output );
+
+header( 'Content-Type: application/json; charset=' . $httpCharset );
 
 echo $output;
 eZExecution::cleanExit();

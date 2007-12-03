@@ -73,13 +73,13 @@ $tpl->setVariable( "current_user", $currentUser );
 $tpl->setVariable( 'ui_context', "" );
 
 $uri = eZURI::instance( eZSys::requestURI() );
-require_once "access.php";
+$GLOBALS['eZRequestedURI'] = $uri;
 
 $access = accessType( $uri,
                       eZSys::hostname(),
                       eZSys::serverPort(),
                       eZSys::indexFile() );
-$access = changeAccess( $access );
+
 $tpl->setVariable( 'access_type', $access );
 $tpl->setVariable( 'uri_string', $uri->uriString() );
 
