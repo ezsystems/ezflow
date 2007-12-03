@@ -29,6 +29,7 @@ include_once( 'kernel/common/template.php' );
 
 
 $Module = $Params["Module"];
+
 if ( isset( $Params['NodeID'] ) )
     $nodeID = $Params['NodeID'];
 
@@ -36,9 +37,15 @@ if ( !$nodeID )
     return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
     
 if ( isset( $Params['LanguageCode'] ) )
+{
     $languageCode = $Params['LanguageCode'];
+}
 else
-    $languageCode = 'eng-GB';
+{
+    $locale = eZLocale::instance();
+    $languageCode = $locale->localeCode();
+}
+
 
 $node = eZContentObjectTreeNode::fetch( $nodeID, $languageCode );
 
