@@ -12,7 +12,6 @@ AllowedTypes[]=Video
 AllowedTypes[]=ItemList
 AllowedTypes[]=MainStory
 AllowedTypes[]=Banner
-AllowedTypes[]=Dynamic3Items
 AllowedTypes[]=TagCloud
 AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
@@ -140,24 +139,6 @@ ViewList[]=banner1
 ViewList[]=banner2
 ViewName[banner1]=Banner (medium)
 ViewName[banner2]=Banner (small)
-
-[Dynamic3Items]
-Name=3 items (dynamic)
-NumberOfValidItems=3
-NumberOfArchivedItems=5
-ManualAddingOfItems=disabled
-FetchClass=eZFlowLatestObjects
-FetchFixedParameters[]
-FetchFixedParameters[Class]=article
-FetchParameters[]
-FetchParametersIsRequired[]
-FetchParameters[Source]=nodeID
-# Single / Multiple
-FetchParametersSelectionType[Source]=single
-# True / False
-FetchParametersIsRequired[Source]=true
-TemplateList[]=3d_items.tpl
-TemplateList[]=3d_list.tpl
 
 [TagCloud]
 Name=Tag cloud

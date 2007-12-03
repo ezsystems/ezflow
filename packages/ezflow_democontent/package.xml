@@ -58,7 +58,7 @@ Company - subtree
     <simple-file key="1cd3f5a3a8ec1093420de99934e9860a" original-path="var/storage/images/conference/news/ez-conference-the-biggest-open-source-cms-conference/1091-1-eng-GB/eZ-Conference-the-biggest-Open-Source-CMS-Conference.jpg" package-path="simplefiles/4d2925bc.jpg"/>
   </simple-files>
   <version>
-    <number>1.3</number>
+    <number>1.0</number>
     <release>0</release>
   </version>
   <licence>GPL</licence>

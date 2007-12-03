@@ -2,6 +2,7 @@
 <package version="3.5.2" development="false" install_type="install">
   <name>ezflow_extension</name>
   <summary>ezflow_extension</summary>
+  <vendor>eZ systems</vendor>
   <type value="extension"/>
   <ezpublish>
     <version>4.0.0</version>
@@ -28,7 +29,7 @@
   </changelog>
   <simple-files/>
   <version>
-    <number>1.3</number>
+    <number>1.0</number>
     <release>0</release>
   </version>
   <licence>GPL</licence>

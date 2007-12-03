@@ -113,7 +113,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $this->addSetting( 'user_siteaccess_list', array_merge( array( $this->setting( 'user_siteaccess') ),
                                                                 $this->setting( 'language_based_siteaccess_list' ) ) );
         $this->addSetting( 'all_siteaccess_list', array_merge( $this->setting( 'user_siteaccess_list' ),
-                                                               array( $this->setting( 'admin_siteaccess' ) ) ) );
+                                                               array( $this->setting( 'admin_siteaccess' ), 'iphone' ) ) );
 
         $this->addSetting( 'access_type', eZSiteInstaller::getParam( $parameters, 'site_type/access_type', '' ) );
         $this->addSetting( 'access_type_value', eZSiteInstaller::getParam( $parameters, 'site_type/access_type_value', '' ) );
