@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-class is-container="false">
+  <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:7:&quot;Infobox&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+  <identifier>infobox</identifier>
+  <remote-id>0b4e8accad5bec5ba2d430acb25c1ff6</remote-id>
+  <object-name-pattern>&lt;header&gt;</object-name-pattern>
+  <remote>
+    <site-url>http://localhost/ezpub390/index.php/</site-url>
+    <url>http://localhost/ezpub390/index.php/class/view/21</url>
+    <groups>
+      <group id="1"
+             name="Content" />
+    </groups>
+    <id>21</id>
+    <created>1168428347</created>
+    <modified>1168428347</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring"
+               required="true"
+               searchable="false"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>211</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:6:&quot;Header&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>header</identifier>
+      <placement>1</placement>
+      <datatype-parameters>
+        <max-length>0</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezimage"
+               required="false"
+               searchable="false"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>212</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:5:&quot;Image&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>image</identifier>
+      <placement>2</placement>
+      <datatype-parameters>
+        <max-size unit-size="mega">0</max-size>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezstring"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>213</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:11:&quot;URL (image)&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>image_url</identifier>
+      <placement>3</placement>
+      <datatype-parameters>
+        <max-length>0</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezxmltext"
+               required="false"
+               searchable="false"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>214</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:7:&quot;Content&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>content</identifier>
+      <placement>4</placement>
+      <datatype-parameters>
+        <text-column-count>10</text-column-count>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezurl"
+               required="false"
+               searchable="false"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>215</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:3:&quot;URL&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>url</identifier>
+      <placement>5</placement>
+      <datatype-parameters />
+    </attribute>
+  </attributes>
+</content-class>

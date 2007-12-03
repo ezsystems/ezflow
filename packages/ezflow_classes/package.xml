@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="3.9.2"
+         development="false"
+         install_type="install">
+  <name>ezflow_classes</name>
+  <summary>ezflow content classes</summary>
+  <description>This package contains definitions of content classes used by the ezflow extension</description>
+  <vendor>eZ systems</vendor>
+  <type value="contentclass" />
+  <ezpublish>
+    <version>3.9.2</version>
+    <named-version>3.9</named-version>
+  </ezpublish>
+  <maintainers>
+    <maintainer>
+      <name>Administrator User</name>
+      <email>nospam@ez.no</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <packaging>
+    <timestamp>1160074602</timestamp>
+    <host>packages.ez.no</host>
+  </packaging>
+  <documents>
+    <document mime-type="text/plain"
+              name="LICENCE" />
+  </documents>
+  <changelog>
+    <entry timestamp="1160074602"
+           person="Administrator User"
+           email="nospam@ez.no"
+           release="1">
+      <change>Creation of package.</change>
+    </entry>
+  </changelog>
+  <simple-files />
+  <version>
+    <number>1.3</number>
+    <release>0</release>
+  </version>
+  <licence>GPL</licence>
+  <state>stable</state>
+  <dependencies>
+    <provides>
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="article" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="article_mainpage" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="article_subpage" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="blog" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="blog_post" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="file" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="product" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="feedback_form" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="frontpage" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="documentation_page" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="infobox" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="multicalendar" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="poll" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="file" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="flash" />
+      <provide type="ezcontentclass" 
+               name="contentclass"
+               value="flash_recorder"/>
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="flash_player"/>
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="global_layout"/>
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="image" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="quicktime" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="windows_media" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="real_video" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="gallery" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="forum" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="forum_topic" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="forum_reply" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="event" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="event_calendar" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="banner" />
+      <provide type="ezcontentclass"
+               name="contentclass"
+               value="forums" />
+    </provides>
+    <requires />
+    <obsoletes />
+    <conflicts />
+  </dependencies>
+  <install>
+    <item type="ezcontentclass"
+          filename="class-article"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-article_mainpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-article_subpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-blog"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-blog_post"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-product"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-feedback_form"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-frontpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-documentation_page"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-infobox"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-multicalendar"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-poll"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-file"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-flash"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass" 
+          filename="class-flash_recorder"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-flash_player"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass" 
+          filename="class-global_layout"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-image"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-quicktime"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-windows_media"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-real_video"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-gallery"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum_topic"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum_reply"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-event"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-event_calendar"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-banner"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forums"
+          sub-directory="ezcontentclass" />
+  </install>
+  <uninstall>
+    <item type="ezcontentclass"
+          filename="class-article"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-article_mainpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-article_subpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-blog"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-blog_post"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-product"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-feedback_form"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-frontpage"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-documentation_page"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-infobox"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-multicalendar"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-poll"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-file"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-flash"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass" 
+          filename="class-flash_recorder"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-flash_player"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass" 
+          filename="class-global_layout"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-image"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-quicktime"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-windows_media"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-real_video"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-gallery"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum_topic"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forum_reply"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-event"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-event_calendar"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-banner"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-forums"
+          sub-directory="ezcontentclass" />
+  </uninstall>
+</package>
