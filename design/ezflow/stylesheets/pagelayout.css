@@ -336,7 +336,7 @@ div#path span.path-separator
 
 div#columns
 {
-   padding: 0 287px 0 14em;
+   padding: 0 284px 0 14em;
 }
 
 div.nosidemenu div#columns
@@ -449,8 +449,8 @@ div.noextrainfo div#main-position
 
 div#extrainfo-position
 {
-    width: 287px;
-    margin-right: -287px;
+    width: 284px;
+    margin-right: -284px;
     float: left;
 }
 

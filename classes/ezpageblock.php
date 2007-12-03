@@ -218,7 +218,6 @@ class eZPageBlock
                         $this->dynamicAttributeFunctions[$name] = $value;
                         break;
                     default
-                        // TODO: warning/error:
                         ;
                     break;
                 }

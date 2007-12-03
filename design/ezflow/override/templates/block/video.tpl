@@ -25,7 +25,7 @@
         <!--
         var flash_id="flash-{$block.zone_id}-{$block.id}";
         
-        var flashStart = '<object type="application/x-shockwave-flash" data={"flash/flash_player.swf"|ezdesign} width="269" height="213">';
+        var flashStart = '<object type="application/x-shockwave-flash" data={"flash/flash_player.swf"|ezdesign} width="266" height="211">';
         var flash = '<param name="movie" value={"flash/flash_player.swf"|ezdesign}  /> ';
         flash = flash + '<param name="scale" value="exactfit" /> ';
         flash = flash + '<param name="allowScriptAccess" value="sameDomain" />';
@@ -39,7 +39,7 @@
         //-->
     </script>
     <noscript>
-    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="269" height="213">
+    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="266" height="211">
         <param name="movie" value="{'flash/flash_player.swf'|ezdesign(no)}" />
         <param name="scale" value="exactfit" />
         <param name="allowScriptAccess" value="sameDomain" />

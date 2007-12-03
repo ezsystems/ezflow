@@ -13,8 +13,8 @@ AliasList[]=imagelarge
 [mainstory1]
 Reference=
 Filters[]
-Filters[]=geometry/scalewidth=465
-Filters[]=geometry/crop=465;393;0;0
+Filters[]=geometry/scalewidth=468
+Filters[]=geometry/crop=468;396;0;0
 
 [mainstory2]
 Reference=
@@ -49,12 +49,12 @@ Filters[]=geometry/crop=195;98;0;0
 [blockgallery1]
 Reference=
 Filters[]
-Filters[]=geometry/scalewidth=125
-Filters[]=geometry/crop=125;83;0;0
+Filters[]=geometry/scalewidth=127
+Filters[]=geometry/crop=127;85;0;0
 
 [imagelarge]
 Reference=
 Filters[]
-Filters[]=geometry/scaledownonly=445;619
+Filters[]=geometry/scaledownonly=448;622
 
 */ ?>

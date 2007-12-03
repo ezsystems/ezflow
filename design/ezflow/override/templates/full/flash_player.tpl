@@ -28,7 +28,7 @@
     
     <script type="text/javascript">
     <!--
-        insertMedia( '<object type="application/x-shockwave-flash"  data="{'flash/flash_player.swf'|ezdesign(no)}"  width="445" height="352"> ');
+        insertMedia( '<object type="application/x-shockwave-flash"  data="{'flash/flash_player.swf'|ezdesign(no)}"  width="448" height="354"> ');
         insertMedia( '<param name="movie" value="{'flash/flash_player.swf'|ezdesign(no)}"  /> ');
         insertMedia( '<param name="scale" value="exactfit" /> ');
         insertMedia( '<param name="allowScriptAccess" value="sameDomain" />');
@@ -40,7 +40,7 @@
     </script>
 
     <noscript>
-    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="445" height="352">
+    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="448" height="354">
         <param name="movie" value="{'flash/flash_player.swf'|ezdesign(no)}" />
         <param name="scale" value="exactfit" />
         <param name="allowScriptAccess" value="sameDomain" />

@@ -376,10 +376,6 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
 
             if ( $nodeChanged )
             {
-                // TODO: Update the persistent view cache for the given node
-
-                // Temporary solution: remove the content cache for the given node:
-                //eZContentCache::cleanup( array( $nodeID ) );
             }
 
             /* CRONJOB CODE: END */
