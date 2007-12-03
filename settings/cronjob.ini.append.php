@@ -4,6 +4,6 @@
 ExtensionDirectories[]=ezflow
 
 [CronjobPart-ezflow]
-Scripts[]=ezmupdate.php
+Scripts[]=ezflowupdate.php
 
 */ ?>

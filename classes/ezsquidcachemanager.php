@@ -2,9 +2,8 @@
 //
 // Created on: <15-Feb-2007 11:25:31 bf>
 //
-// SOFTWARE NAME: eZ publish
-// SOFTWARE RELEASE: 3.9.0
-// BUILD VERSION: 17785
+// SOFTWARE NAME: eZ Flow
+// SOFTWARE RELEASE: 1.0.0
 // COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >

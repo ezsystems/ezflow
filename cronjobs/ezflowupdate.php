@@ -22,13 +22,13 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-$Module = array( "name" => "eZajax Module and Views" );
+include_once( 'extension/ezflow/classes/ezflowoperations.php' );
 
-$ViewList = array();
+if ( !$isQuiet )
+{
+    $cli->output( "Updating ezm_pool" );
+}
 
-$ViewList["search"] = array(
-    "script" => "search.php",
-    'params' => array( 'SearchStr', 'SearchOffset', 'SearchLimit', 'VarName')
-    );
+eZFlowOperations::update();
 
 ?>
