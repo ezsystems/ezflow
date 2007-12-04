@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false">
+    <serialized-name-list>a:2:{s:6:"eng-GB";s:18:"Video/Flash Player";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+    <identifier>flash_player</identifier>
+    <remote-id>20b2ed0982343e6e0a550f7f0c137e06</remote-id>
+    <object-name-pattern>&lt;name&gt;</object-name-pattern>
+    <url-alias-pattern></url-alias-pattern>
+    <remote>
+        <site-url>http://localhost/ezflow/index.php/</site-url>
+        <url>http://localhost/ezflow/index.php/class/view/43</url>
+        <groups>
+            <group id="3" name="Media"/>
+        </groups>
+        <id>43</id>
+        <created>1195740009</created>
+        <modified>1195740009</modified>
+        <creator>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </creator>
+        <modifier>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </modifier>
+    </remote>
+    <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+        <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
+            <remote>
+                <id>327</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+            <identifier>name</identifier>
+            <placement>1</placement>
+            <datatype-parameters>
+                <max-length>0</max-length>
+                <default-string/>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
+            <remote>
+                <id>328</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+            <identifier>description</identifier>
+            <placement>2</placement>
+            <datatype-parameters>
+                <text-column-count>10</text-column-count>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezmedia" required="false" searchable="false" information-collector="false" translatable="true">
+            <remote>
+                <id>329</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"File";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+            <identifier>file</identifier>
+            <placement>3</placement>
+            <datatype-parameters>
+                <max-size unit-size="mega">0</max-size>
+                <type>flash</type>
+            </datatype-parameters>
+        </attribute>
+    </ezcontentclass-attri:attributes>
+</content-class>

@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content-object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/">
+  <object-list xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/">
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="66" name="Home" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="23" ezremote:published="Mon, 19 Nov 2007 13:54:46 GMT" ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" remote_id="8a9c9c761004866fb458d89910f52bee" class_remote_id="e36c458e3e4a81298a0945f53a2c81f4" ezremote:class_identifier="frontpage" ezremote:always_available="1" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="60">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="60" ezremote:status="1" ezremote:created="Wed, 28 Nov 2007 16:50:55 GMT" ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Home">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="247" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Home</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1034" ezremote:identifier="page" name="Layout" type="ezpage">
+              <data-int></data-int>
+              <data-float>0</data-float>
+              <data-text>&lt;?xml version="1.0"?&gt;
+&lt;page&gt;
+  &lt;zone_layout&gt;2ZonesLayout1&lt;/zone_layout&gt;
+  &lt;zone id="id_082188b2a113cc866cbcf6ca6e5ce7d3"&gt;
+    &lt;zone_identifier&gt;left&lt;/zone_identifier&gt;
+    &lt;block id="id_680b73edef7c07d8f3d9de429b4d9b4d"&gt;
+      &lt;name&gt;Main story&lt;/name&gt;
+      &lt;zone_id&gt;082188b2a113cc866cbcf6ca6e5ce7d3&lt;/zone_id&gt;
+      &lt;type&gt;MainStory&lt;/type&gt;
+      &lt;view&gt;main_story1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_e63f50421251d9bead27369cc0132003"&gt;
+      &lt;name&gt;2 news block&lt;/name&gt;
+      &lt;zone_id&gt;082188b2a113cc866cbcf6ca6e5ce7d3&lt;/zone_id&gt;
+      &lt;type&gt;Manual2Items&lt;/type&gt;
+      &lt;view&gt;2_items1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_64b58359594bcf72b7bfbad9529809bb"&gt;
+      &lt;name&gt;eZ Conference 2007&lt;/name&gt;
+      &lt;zone_id&gt;082188b2a113cc866cbcf6ca6e5ce7d3&lt;/zone_id&gt;
+      &lt;type&gt;Gallery&lt;/type&gt;
+      &lt;view&gt;gallery1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_925403b51d26af5c16cddbd684404244"&gt;
+      &lt;name&gt;Ads&lt;/name&gt;
+      &lt;zone_id&gt;082188b2a113cc866cbcf6ca6e5ce7d3&lt;/zone_id&gt;
+      &lt;type&gt;Banner&lt;/type&gt;
+      &lt;view&gt;banner1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_6a4e30ae1c1e43f20f180014dfc25a3a"&gt;
+      &lt;name&gt;Recent News&lt;/name&gt;
+      &lt;zone_id&gt;082188b2a113cc866cbcf6ca6e5ce7d3&lt;/zone_id&gt;
+      &lt;type&gt;ItemList&lt;/type&gt;
+      &lt;view&gt;itemlist2&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+  &lt;/zone&gt;
+  &lt;zone id="id_a111cb7cf30697605c5af970e5eae708"&gt;
+    &lt;zone_identifier&gt;right&lt;/zone_identifier&gt;
+    &lt;block id="id_26aca9f45849e2d37262a87f1d8ad11c"&gt;
+      &lt;name&gt;Conference Video&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;Video&lt;/type&gt;
+      &lt;view&gt;video&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_2b76aa87115151b5ebfb55484d0b826b"&gt;
+      &lt;name&gt;eZ Awards News&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;Manual3Items&lt;/type&gt;
+      &lt;view&gt;3_items1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_6c980674d9d00e41f07f358fb1f98369"&gt;
+      &lt;name&gt;Quick Poll&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;Poll&lt;/type&gt;
+      &lt;view&gt;poll&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;custom_attributes&gt;
+        &lt;poll_node_id&gt;78&lt;/poll_node_id&gt;
+      &lt;/custom_attributes&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_242afd57186dafaf4ae17ae377e41bf4"&gt;
+      &lt;name&gt;Conference Blog&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;ItemList&lt;/type&gt;
+      &lt;view&gt;itemlist1&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_95fe9453e2106dc2f8813b6d6bddb561"&gt;
+      &lt;name&gt;Ads&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;Banner&lt;/type&gt;
+      &lt;view&gt;banner2&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+    &lt;/block&gt;
+    &lt;block id="id_efa560001fcf8b23fc0b6dad7630e6fb"&gt;
+      &lt;name&gt;Tag Cloud&lt;/name&gt;
+      &lt;zone_id&gt;a111cb7cf30697605c5af970e5eae708&lt;/zone_id&gt;
+      &lt;type&gt;TagCloud&lt;/type&gt;
+      &lt;view&gt;tag_cloud&lt;/view&gt;
+      &lt;overflow_id&gt;&lt;/overflow_id&gt;
+      &lt;fetch_params&gt;&lt;/fetch_params&gt;
+      &lt;custom_attributes&gt;
+        &lt;subtree_node_id&gt;2&lt;/subtree_node_id&gt;
+      &lt;/custom_attributes&gt;
+    &lt;/block&gt;
+  &lt;/zone&gt;
+&lt;/page&gt;</data-text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="253" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string></keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Home" node-id="2" remote-id="07cdfd23373b17c6b337251c22b7ea57" sort-field="priority" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="177" name="Global zone" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="44" ezremote:published="Fri, 23 Nov 2007 08:51:10 GMT" ezremote:modified="Fri, 23 Nov 2007 09:01:33 GMT" remote_id="dbf56770d0cb1273f5d056e50c96fbeb" class_remote_id="f0271811b913befa8f062527e909f15e" ezremote:class_identifier="global_layout" ezremote:always_available="1" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="2">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 08:51:40 GMT" ezremote:modified="Fri, 23 Nov 2007 09:01:33 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Global zone">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1167" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Global zone</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1168" ezremote:identifier="page" name="Page" type="ezpage">
+              <data-int></data-int>
+              <data-float>0</data-float>
+              <data-text>&lt;?xml version="1.0"?&gt;
+                &lt;page&gt;
+                &lt;zone_layout&gt;GlobalZoneLayout&lt;/zone_layout&gt;
+                &lt;zone id="id_2b484644d2cca382187b10cc38af4dec"&gt;
+                &lt;zone_identifier&gt;main&lt;/zone_identifier&gt;
+                &lt;block id="id_73191ba0075be7b774a4591831a1e573"&gt;
+                &lt;name&gt;Top stories&lt;/name&gt;
+                &lt;zone_id&gt;2b484644d2cca382187b10cc38af4dec&lt;/zone_id&gt;
+                &lt;type&gt;Manual3Items&lt;/type&gt;
+                &lt;view&gt;3_items1&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;/block&gt;
+                &lt;block id="id_f1c84085df0010f623ab97e521aa598b"&gt;
+                &lt;name&gt;Conference Blog&lt;/name&gt;
+                &lt;zone_id&gt;2b484644d2cca382187b10cc38af4dec&lt;/zone_id&gt;
+                &lt;type&gt;ItemList&lt;/type&gt;
+                &lt;view&gt;itemlist1&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;/block&gt;
+                &lt;/zone&gt;
+                &lt;/page&gt;</data-text>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Global zone" node-id="179" remote-id="c1b5c89e7b760d7a9f2735d66d098bc4" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="157" name="Conference" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="23" ezremote:published="Thu, 22 Nov 2007 12:57:58 GMT" ezremote:modified="Wed, 28 Nov 2007 10:09:01 GMT" remote_id="945b2d3d78653a42d5dbc85a0299aec6" class_remote_id="e36c458e3e4a81298a0945f53a2c81f4" ezremote:class_identifier="frontpage" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="14">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="14" ezremote:status="1" ezremote:created="Wed, 28 Nov 2007 10:08:40 GMT" ezremote:modified="Wed, 28 Nov 2007 10:09:01 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Conference">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1041" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Conference</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1042" ezremote:identifier="page" name="Layout" type="ezpage">
+              <data-int></data-int>
+              <data-float>0</data-float>
+              <data-text>&lt;?xml version="1.0"?&gt;
+                &lt;page&gt;
+                &lt;zone_layout&gt;2ZonesLayout1&lt;/zone_layout&gt;
+                &lt;zone id="id_a9892ba0505f395fed470239e59d3963"&gt;
+                &lt;zone_identifier&gt;left&lt;/zone_identifier&gt;
+                &lt;block id="id_eb5de3c2c968f5106aec83ad85705b68"&gt;
+                &lt;name&gt;Main story&lt;/name&gt;
+                &lt;zone_id&gt;a9892ba0505f395fed470239e59d3963&lt;/zone_id&gt;
+                &lt;type&gt;MainStory&lt;/type&gt;
+                &lt;view&gt;main_story1&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;/block&gt;
+                &lt;block id="id_41a2bdb70727b8743e1585733243c99a"&gt;
+                &lt;name&gt;Top Stories&lt;/name&gt;
+                &lt;zone_id&gt;a9892ba0505f395fed470239e59d3963&lt;/zone_id&gt;
+                &lt;type&gt;Manual3Items&lt;/type&gt;
+                &lt;view&gt;3_items1&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;/block&gt;
+                &lt;/zone&gt;
+                &lt;zone id="id_2c534a9d5a624ccc411592fa15d34b04"&gt;
+                &lt;zone_identifier&gt;right&lt;/zone_identifier&gt;
+                &lt;block id="id_1e0f9e403fdca43b4e7a2a89913d99e1"&gt;
+                &lt;name&gt;Conference Video&lt;/name&gt;
+                &lt;zone_id&gt;2c534a9d5a624ccc411592fa15d34b04&lt;/zone_id&gt;
+                &lt;type&gt;Video&lt;/type&gt;
+                &lt;view&gt;video&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;/block&gt;
+                &lt;block id="id_bc1172a08c6f0b6351240fc0c1764129"&gt;
+                &lt;name&gt;Tag Cloud&lt;/name&gt;
+                &lt;zone_id&gt;2c534a9d5a624ccc411592fa15d34b04&lt;/zone_id&gt;
+                &lt;type&gt;TagCloud&lt;/type&gt;
+                &lt;view&gt;tag_cloud&lt;/view&gt;
+                &lt;overflow_id&gt;&lt;/overflow_id&gt;
+                &lt;fetch_params&gt;&lt;/fetch_params&gt;
+                &lt;custom_attributes&gt;
+                &lt;subtree_node_id&gt;2&lt;/subtree_node_id&gt;
+                &lt;/custom_attributes&gt;
+                &lt;/block&gt;
+                &lt;/zone&gt;
+                &lt;/page&gt;</data-text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1043" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string></keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Conference" node-id="159" remote-id="91b5abe755cf82d1f963912846d40341" sort-field="path" sort-order="1" priority="2"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="158" name="Movies" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="1" ezremote:published="Thu, 22 Nov 2007 13:03:44 GMT" ezremote:modified="Thu, 22 Nov 2007 13:03:44 GMT" remote_id="7222e034b58682076765c6714c892a58" class_remote_id="a3d405b81be900468eb153d774f4f0d2" ezremote:class_identifier="folder" ezremote:always_available="1" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:03:15 GMT" ezremote:modified="Thu, 22 Nov 2007 13:03:44 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Movies">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1044" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Movies</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1045" ezremote:identifier="short_name" name="Short name" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1046" ezremote:identifier="short_description" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1047" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1048" ezremote:identifier="show_children" name="Display sub items" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1049" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string></keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1050" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Movies" node-id="160" parent-node-remote-id="91b5abe755cf82d1f963912846d40341" remote-id="30ea2ba575df231d570b0a7fa0676a7d" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="171" name="eZ Conference video" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="43" ezremote:published="Thu, 22 Nov 2007 14:06:28 GMT" ezremote:modified="Thu, 22 Nov 2007 14:06:28 GMT" remote_id="011f570955bcfdfa6d4cc27d3e304deb" class_remote_id="20b2ed0982343e6e0a550f7f0c137e06" ezremote:class_identifier="flash_player" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 14:05:32 GMT" ezremote:modified="Thu, 22 Nov 2007 14:06:27 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Conference video">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1117" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>eZ Conference video</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1118" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1119" ezremote:identifier="file" name="File" type="ezmedia">
+              <media-file filesize="347667" filename="42c61dca547dd2f0025a43eec31c6911.flv" original-filename="eZ Conference.flv" mime-type="video/x-flv" filekey="b981f34cee08522308f8b194f16a7cd0" width="0" height="0" has-controller="0" controls="" is-autoplay="0" plugins-page="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" quality="high" is-loop="0"/>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Conference video" node-id="173" parent-node-remote-id="30ea2ba575df231d570b0a7fa0676a7d" remote-id="cd41f1ad58cbd4420bdfff61e38d9739" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="159" name="Conference Photos" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="34" ezremote:published="Thu, 22 Nov 2007 13:05:29 GMT" ezremote:modified="Thu, 22 Nov 2007 13:05:29 GMT" remote_id="0c7d9b9261aaef445d8dbc73f5e00530" class_remote_id="6a320cdc3e274841b82fcd63a86f80d1" ezremote:class_identifier="gallery" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:05:13 GMT" ezremote:modified="Thu, 22 Nov 2007 13:05:29 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Conference Photos">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1051" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Conference Photos</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1052" ezremote:identifier="short_description" name="Short description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1053" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1054" ezremote:identifier="image" name="Image" type="ezobjectrelation"/>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Conference Photos" node-id="161" parent-node-remote-id="91b5abe755cf82d1f963912846d40341" remote-id="84851eb062ceb7379e70463f20136f34" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="160" name="Aleksander" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="30" ezremote:published="Thu, 22 Nov 2007 13:10:47 GMT" ezremote:modified="Thu, 22 Nov 2007 13:10:47 GMT" remote_id="183299187235e412265c6f5299b71464" class_remote_id="f6df12aa74e36230eb675f364fccd25a" ezremote:class_identifier="image" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:06:45 GMT" ezremote:modified="Thu, 22 Nov 2007 13:10:46 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Aleksander">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1055" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Aleksander</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1056" ezremote:identifier="caption" name="Caption" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Aleksander and the eZ Awards crowd.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1057" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="fec62479d01eaf007ead850efb59f571" alternative-text="Aleksander"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1058" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Awards</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Aleksander" node-id="162" parent-node-remote-id="84851eb062ceb7379e70463f20136f34" remote-id="da8e4fb7aa15796ff7851414260e176b" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="161" name="eZ Awards entertainment" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="30" ezremote:published="Thu, 22 Nov 2007 13:11:49 GMT" ezremote:modified="Thu, 22 Nov 2007 13:11:49 GMT" remote_id="8b2bd8b1df9e121c13c4190483c0c371" class_remote_id="f6df12aa74e36230eb675f364fccd25a" ezremote:class_identifier="image" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:11:05 GMT" ezremote:modified="Thu, 22 Nov 2007 13:11:49 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Awards entertainment">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1059" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>eZ Awards entertainment</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1060" ezremote:identifier="caption" name="Caption" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The entertainment during the eZ Awards.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1061" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="373d252fe0a16f7c316af9b85cd57dca" alternative-text="Entertainment"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1062" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>Entertainment, eZ Awards</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Awards entertainment" node-id="163" parent-node-remote-id="84851eb062ceb7379e70463f20136f34" remote-id="8b6c547e7aadca95d84862cccf07145e" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="162" name="Partner of the year" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="30" ezremote:published="Thu, 22 Nov 2007 13:13:24 GMT" ezremote:modified="Thu, 22 Nov 2007 13:13:24 GMT" remote_id="0aed2925c541381334472f514f1a1ac5" class_remote_id="f6df12aa74e36230eb675f364fccd25a" ezremote:class_identifier="image" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:12:21 GMT" ezremote:modified="Thu, 22 Nov 2007 13:13:24 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Partner of the year">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1063" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Partner of the year</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1064" ezremote:identifier="caption" name="Caption" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Bertrand and Mariko handing out the partner of the year award.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1065" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="8c8b38ab09c6c9954cc2c5609f4ab922" alternative-text="Partner of the year"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1066" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Awards, Partner</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Partner of the year" node-id="164" parent-node-remote-id="84851eb062ceb7379e70463f20136f34" remote-id="21cc00369585ee6daf09e38e45eca09c" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="163" name="eZ Awards crowd" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="30" ezremote:published="Thu, 22 Nov 2007 13:27:54 GMT" ezremote:modified="Thu, 22 Nov 2007 13:27:54 GMT" remote_id="3254bf3fbd36463f550a586618750b22" class_remote_id="f6df12aa74e36230eb675f364fccd25a" ezremote:class_identifier="image" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:27:04 GMT" ezremote:modified="Thu, 22 Nov 2007 13:27:54 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Awards crowd">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1067" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>eZ Awards crowd</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1068" ezremote:identifier="caption" name="Caption" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The 800 people attending the eZ Awards.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1069" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="26610ae51891bc0db7466aae7c0e42dc" alternative-text="eZ Awards crowd"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1070" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>Audience, eZ Awards</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Awards crowd" node-id="165" parent-node-remote-id="84851eb062ceb7379e70463f20136f34" remote-id="b5d9f2ddd38534c5f01882ffaf3d2179" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="165" name="News" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="1" ezremote:published="Thu, 22 Nov 2007 13:38:59 GMT" ezremote:modified="Thu, 22 Nov 2007 13:38:59 GMT" remote_id="c9d56184bd0245d2cea805c666d20f40" class_remote_id="a3d405b81be900468eb153d774f4f0d2" ezremote:class_identifier="folder" ezremote:always_available="1" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:38:25 GMT" ezremote:modified="Thu, 22 Nov 2007 13:38:59 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="News">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1078" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>News</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1079" ezremote:identifier="short_name" name="Short name" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1080" ezremote:identifier="short_description" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1081" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1082" ezremote:identifier="show_children" name="Display sub items" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1083" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string></keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1084" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="News" node-id="167" parent-node-remote-id="91b5abe755cf82d1f963912846d40341" remote-id="a9ce20abb62ab03dc24ac01287fc59dc" sort-field="published" sort-order="0" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="184" name="Join the eZ Conference 2008!" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Sun, 02 Dec 2007 10:03:22 GMT" ezremote:modified="Sun, 02 Dec 2007 10:05:24 GMT" remote_id="8b1e929be4218e84ee2217e3ed429e71" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="2">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Sun, 02 Dec 2007 10:04:45 GMT" ezremote:modified="Sun, 02 Dec 2007 10:05:23 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Join the eZ Conference 2008!">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1210" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Join the eZ Conference 2008!</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1211" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1212" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1213" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph>You´re invited to the biggest Open Source Content Management conference in Europe! Once again, the annual conference will take place in Skien, Norway in June 2008. Meet with key, international experts in the CMS and Open Source industry and learn more about the business solutions that eZ is bringing to you.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1214" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph>
+                  <line xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The annual eZ Awards are a highlight of the conference, bringing in close to 800 attendees in 2007. The awards will recognize the contribution of the members of the eZ Ecosystem that have consistently been engaged in the business and promoting eZ´s core values. Local and political support makes this awards night a special event in the Grenland area!</line>
+                  <line xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                    <link href="http://ez.no/company/ez_conference_awards/ez_conference_2008">More information on how to register and sponsor is available here</link>
+                    .</line>
+                </paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1215" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1216" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="30757c3f22c4b73eca0baff4f99897c4" alternative-text=""/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1217" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1218" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1219" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1220" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>2008, eZ Awards, eZ Conference</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Join the eZ Conference 2008!" node-id="186" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="ab70df83e76e0431ca56472fe718503d" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="182" name="Site of the Year eZ Award goes to Lagardere" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Fri, 23 Nov 2007 12:12:58 GMT" ezremote:modified="Fri, 23 Nov 2007 12:16:25 GMT" remote_id="db3a1b27300c3af261f800335863a7af" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="3">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="3" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 12:16:03 GMT" ezremote:modified="Fri, 23 Nov 2007 12:16:24 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Site of the Year eZ Award goes to Lagardere">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1192" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Site of the Year eZ Award goes to Lagardere</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1193" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1194" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1195" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Lagardere is the the world´s biggest publisher well known for titles such as Elle, Car&amp;Driver and Paris Match. This France based publisher was the winner for the Site of the Year eZ Award at the 2007 event, for their contribution to the Premiere site.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1196" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                  <line>eZ Systems was proud to announce Lagardere as the winner based on the following criteria:</line>
+                  <ul>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Submitted on ez.no and chosen among the last 12 site of the month winners</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Design, look and feel (value a modern and usable interface)</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Reference value</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">In line with open standards</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Creative use of extensions and integrations</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Technical challenging</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Pushing eZ Publish forwards</paragraph>
+                    </li>
+                  </ul>
+                  <line>Lagardere is known world-wide and they choose to work with eZ Publish for all of their digital content needs.</line>
+                </paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">"It is impressive to see such an international and well-known company count on eZ for their core business functions" says Bård Farstad, CTO of eZ Systems.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1197" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1198" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="063405932633662bf5d523184d7c987f" alternative-text=""/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1199" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1200" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1201" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1202" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ, eZ Awards. Winner, Lagardere, Premiere, Site of the year</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Site of the Year eZ Award goes to Lagardere" node-id="184" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="3ae10fa94918de9a0962972eb56d3865" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="181" name="The eZ Awards 2007 Partner of the Year goes to France" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Fri, 23 Nov 2007 12:03:26 GMT" ezremote:modified="Fri, 23 Nov 2007 12:18:03 GMT" remote_id="07bb95c0ff97b4d8a18292aaec721d67" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="4">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="4" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 12:17:05 GMT" ezremote:modified="Fri, 23 Nov 2007 12:18:03 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="The eZ Awards 2007 Partner of the Year goes to France">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1181" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>The eZ Awards 2007 Partner of the Year goes to France</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1182" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1183" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1184" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The annual eZ Awards conference comprises of many international companies and attendees that come together in Norway to share their information. Every year, eZ Systems recognizes the contribution of key members of the eZ Ecosystem. The wide spread Partner network is the core essence of the open source business model at eZ and recognizing the Partners is an essential part of the eZ Awards.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1185" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                  <line>The Partner of the Year award is a prestigious award granted to the the Partner based on the following criteria:</line>
+                  <ul>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Partner points</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Business collaboration</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Focus on eZ Publish Now and Premium</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Participation on events</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Article production</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Activity in the community</paragraph>
+                    </li>
+                  </ul>
+                </paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The 2007 award went to Ingénieurs &amp; Consultants, and integrator company located in France for their contribution to with eZ Publish projects.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">"It is wonderful to see how Partners really push forward, booking projects and working with customers to earn Partner points and advance through the Partner model" says Bertand Maugain, Global Partner Manager at eZ Systems.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">eZ is pleased to have so many Partners at the top levels of the Partner model.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1186" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1187" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="ca3689f67635c291ae11e6fcd90c6119" alternative-text="Partner of the year"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1188" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1189" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1190" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1191" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>Ecosystem, eZ, eZ Awards, Fun, Partner</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="The eZ Awards 2007 Partner of the Year goes to France" node-id="183" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="fa0902c2b2c641f4cb672425a2de58be" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="175" name="Press and Media mentions at the 2007 eZ Conference" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 15:32:39 GMT" ezremote:modified="Thu, 22 Nov 2007 15:52:13 GMT" remote_id="5277f57bd125425508c94df82714067f" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="2">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 15:51:34 GMT" ezremote:modified="Thu, 22 Nov 2007 15:52:13 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Press and Media mentions at the 2007 eZ Conference">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1153" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Press and Media mentions at the 2007 eZ Conference</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1154" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1155" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1156" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The eZ Conference and Awards 2007 gained excellent visibility and media attention both during and after the event. Prominent speakers and journalists happily boasted about their experience at the conference.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1157" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Some special mentions include:</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">"From my perspective, the conference was both a huge success and a very pleasant experience" - Dag-Erling Smørgrav, Linpro.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">"The eZ Conference this year was a great success, it was basically a three days long celebration of Open Source and for those that didn't attend I must say you really missed out something GREAT!" - Gaia Ajax Widges.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">"eZ Conference is typically quite good about covering information business from three major standpoints: those relevant to business, technology and content management professionals" - CMS WIRE</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">eZ is proud to have had such positive feedback and is looking forward to the 6th annual eZ Conference and Awards in 2008.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1158" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1159" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="1c5c52afeaa4b6ab659af37125243051" alternative-text="eZ Awards show"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1160" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1161" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1162" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1163" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>2007, eZ, eZ Awards, Fun, Media, Press, Show, Social</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Press and Media mentions at the 2007 eZ Conference" node-id="177" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="4e7a0c96591729b6b688186957aab5ee" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="174" name="eZ Conference Hits all Time High for Attendee Participation" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 15:07:49 GMT" ezremote:modified="Thu, 22 Nov 2007 15:49:50 GMT" remote_id="603680038b9b31839ccac87c3ff1ce16" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="3">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="3" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 15:49:20 GMT" ezremote:modified="Thu, 22 Nov 2007 15:49:50 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Conference Hits all Time High for Attendee Participation">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1142" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>eZ Conference Hits all Time High for Attendee Participation</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1143" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1144" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1145" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Skien, Norway: A small coastal town in the south east of Norway is the home to the largest open at comprised of culturally rich settings and activities. The Partner Day networking event was held at Brekkeparken Park, a historical museum park in the center of Skien.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1146" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The eZ Awards were held at the Ibsen House, a cultural auditorium named after the playwrite, Henrik Ibsen. The attendees and sponsors have been steadily rising every year but the 2007 number of attendees sky rocketed. The company hopes to top the 800 mark for the 2008.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1147" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1148" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="76198d281525842f068c947efb25ef6d" alternative-text="eZ Conference attendees"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1149" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1150" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1151" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1152" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ, eZ Awards, eZ Conference, Fun, Social</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Conference Hits all Time High for Attendee Participation" node-id="176" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="a744ef43dbd8d5b8bcff1a3720da20ed" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="173" name="Norwegian Minister Opens the eZ Awards Reception" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 15:02:48 GMT" ezremote:modified="Thu, 22 Nov 2007 15:47:56 GMT" remote_id="b838af9018598fdb478aa52dfa4a9a88" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="2">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 15:47:35 GMT" ezremote:modified="Thu, 22 Nov 2007 15:47:56 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Norwegian Minister Opens the eZ Awards Reception">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1131" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Norwegian Minister Opens the eZ Awards Reception</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1132" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1133" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1134" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Heidi Grande Røys, the Norwegian Minister of Information Technology, opened the eZ Awards night with a speech that explained Norway's commitment to Open Source software and open standards.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1135" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">“Increased use of open source software in the public sector can also provide the basis for increased competence building in society. A culture of sharing software developed “in-house” will benefit organisations, businesses, students and ICT specialists.” Said the Minister as she addressed the attentive audience.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">It was an honor for eZ Systems to welcome such a prominent guest to open the eZ Awards night and the event gained excellent recognition from the media and the community in Grenland.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1136" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1137" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="32f87d6567512605e58093b3f359506a" alternative-text="Norwegian Minister Opens the eZ Awards"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1138" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1139" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1140" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1141" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ, eZ Awards, eZ Conference, Norway</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Norwegian Minister Opens the eZ Awards Reception" node-id="175" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="eb990ca5a65a430d83c99811c6d7a12e" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="172" name="Congratulations eZ Awards 2007 winners" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 14:46:04 GMT" ezremote:modified="Fri, 23 Nov 2007 07:55:44 GMT" remote_id="ee592539036d3bc13813b6207b8b23b4" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="5">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="5" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 07:55:28 GMT" ezremote:modified="Fri, 23 Nov 2007 07:55:44 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Congratulations eZ Awards 2007 winners">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1120" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Congratulations eZ Awards 2007 winners</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1121" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1122" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1123" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The eZ Awards are awarded during the annual eZ Conference. Winners of the eZ Awards have contributed to the eZ Ecosystem in an exceptional way. Giving to the eZ Ecosystem consists not only of code, bug fixes and expertise in technical matters but also includes being actively engaged in daily business, promoting eZ products and services, giving feedback and buying into the eZ values.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1124" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">With the eZ Awards, eZ Systems emphasizes the importance of every contribution, be it small or great. As such, the eZ Awards are a way to reward those who have made the extra effort and who have added value to the overall eZ Ecosystem, proving that business enterprises and community members are serious about applying the full power of eZ products and related expertise.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The Categories and Winners for the 2007 eZ Awards:</paragraph>
+                <section>
+                  <section>
+                    <header>1. The eZ Components Award</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Mikko Koppanen</paragraph>
+                  </section>
+                  <section>
+                    <header>2. Publication of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Indexing Multiple Binary File Types by Jordan Hirsch - Mindshare</paragraph>
+                  </section>
+                  <section>
+                    <header>3. Blogger of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Damien Pobel</paragraph>
+                  </section>
+                  <section>
+                    <header>4. Solution of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Web-Connector for Microsoft Dynamics NAV and SAP by silver solutions</paragraph>
+                  </section>
+                  <section>
+                    <header>5. Community member of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Xavier Dutoit</paragraph>
+                  </section>
+                  <section>
+                    <header>6. Rising Star of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">all2e GmbH</paragraph>
+                  </section>
+                  <section>
+                    <header>7. Partner of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Ingénieurs &amp; Consultants</paragraph>
+                  </section>
+                  <section>
+                    <header>8. Site of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Premiere by Lagardere</paragraph>
+                  </section>
+                  <section>
+                    <header>9. Project of the Year</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Ministry of Defense by Prosodie</paragraph>
+                  </section>
+                  <section>
+                    <header>10. The Honorary Award</header>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Paul Forsyth</paragraph>
+                    <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">eZ Systems would like to congratulate the 2007 winners for their contribution and look forward to the 2008 awards next summer.</paragraph>
+                  </section>
+                </section>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1125" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1126" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="cec1d785a4055a2786cf9e55808ad39d" alternative-text="eZ Awards honorary award"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1127" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1128" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1129" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1130" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ, eZ Awards, eZ Conference, Honorary award</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Congratulations eZ Awards 2007 winners" node-id="174" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="4afdb30d952593808bdd1191b90bd31a" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="166" name="eZ Conference - the biggest Open Source CMS Conference" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 13:43:14 GMT" ezremote:modified="Fri, 23 Nov 2007 11:58:42 GMT" remote_id="223e8d42d68af60319b9f74f370505ea" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="3">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="3" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 11:58:11 GMT" ezremote:modified="Fri, 23 Nov 2007 11:58:41 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Conference - the biggest Open Source CMS Conference">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1085" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>eZ Conference - the biggest Open Source CMS Conference</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1086" ezremote:identifier="short_title" name="Short title" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1087" ezremote:identifier="author" name="Author" type="ezauthor">
+              <ezauthor>
+                <authors>
+                  <author id="0" name="Administrator User" email="nospam@ez.no"/>
+                </authors>
+              </ezauthor>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1088" ezremote:identifier="intro" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The annual eZ Conference is the largest Open Source Content Management event in Europe that welcomes over 500 participants from around the globe. The 2007 event marked the first year that eZ introduced a sponsorship program for its Partners and Customers to gain marketing and business value from the conference.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1089" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">During the 2006 eZ Conference, Partners were given the opportunity to exhibit and after positive feedback from the attendees and the Partners, the sponsorship program was implemented in the same model as most of the large IT conferences around the world.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The sponsorship program aimed to give an affordable entry cost for smaller Partners while also attracting larger Partners offering extensive visibility throughout the conference. As soon as the sponsorship model was announced to the Partners, subscriptions started. As expected the first and most eager to subscribe were the long standing traditional eZ Partners.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                  <line>2007 International Sponsors Included:</line>
+                  <ul>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">IBM</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">WebDeal</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Rackspace</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">VZT</paragraph>
+                    </li>
+                    <li>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">VisionWT</paragraph>
+                    </li>
+                  </ul>
+                </paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">For partners and associated with earlier experience with the eZ Conference it were necessary to explain the great position that the conference have with Open Source CMS and the values that is given to sponsors. IBM used their sponsorship in order to better understand the local Open Source business model. All together almost a dozen of IBM's middle management team were visiting the conference during the two days.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Sponsors on a more regional level were also attracted to the event, for marketing value. Visit Grenland, aimed to get more tourists to the region were the conference was hosted and where the eZ Systems HQ is located. The local university college was represented with a booth, trying to recruit students from abroad.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">“It's amazing to see how this conference has been growing from a small gathering of eZ Publish enthusiasts to a commercial market place like the one we see today” says Jan Aril Sigvartsen from the silver sponsor WebDeal AS. He is one of the few persons that has been attending all five eZ Conferences.</paragraph>
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The creativity displayed by the sponsor booths was inspiring to see, and truly boasted well for the sponsorship program in 2007.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1090" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>0</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1091" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="1cd3f5a3a8ec1093420de99934e9860a" alternative-text="Nexus Consulting"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1092" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1093" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1094" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1095" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Awards, Nexus Consulting</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Conference - the biggest Open Source CMS Conference" node-id="168" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" remote-id="133ae36756580592d703cc347566608d" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="176" name="Will you attend the eZ Conference 2008?" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="27" ezremote:published="Thu, 22 Nov 2007 15:36:31 GMT" ezremote:modified="Thu, 22 Nov 2007 15:36:31 GMT" remote_id="54ddbb6b27e9a0f76a5fb94f5651975d" class_remote_id="232937a3a2eacbbf24e2601aebe16522" ezremote:class_identifier="poll" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 15:35:39 GMT" ezremote:modified="Thu, 22 Nov 2007 15:36:31 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Will you attend the eZ Conference 2008?">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1164" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Will you attend the eZ Conference 2008?</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1165" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1166" ezremote:identifier="question" name="Question" type="ezoption">
+              <ezoption>
+                <name>Will you attend the eZ Conference 2008?</name>
+                <options>
+                  <option id="0" additional_price="0">Yes</option>
+                  <option id="1" additional_price="0">No</option>
+                  <option id="2" additional_price="0">I always attend</option>
+                </options>
+              </ezoption>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Will you attend the eZ Conference 2008?" node-id="178" parent-node-remote-id="91b5abe755cf82d1f963912846d40341" remote-id="4f6ba06a899f17a0a105c2c7132bf5d9" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="178" name="Discussion Forum" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="35" ezremote:published="Fri, 23 Nov 2007 10:17:43 GMT" ezremote:modified="Fri, 23 Nov 2007 10:17:43 GMT" remote_id="216191f7c9cad6bc70a8f78ddbbad1c4" class_remote_id="b241f924b96b267153f5f55904e0675a" ezremote:class_identifier="forum" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 10:17:25 GMT" ezremote:modified="Fri, 23 Nov 2007 10:17:42 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Discussion Forum">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1169" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Discussion Forum</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1170" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Discussion Forum" node-id="180" remote-id="758640d5232be8df97f0f51de83f6275" sort-field="path" sort-order="1" priority="4"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="167" name="Conference Blog" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="19" ezremote:published="Thu, 22 Nov 2007 13:45:53 GMT" ezremote:modified="Thu, 22 Nov 2007 13:45:53 GMT" remote_id="8ce925729d594b0b8ea2f577ec85682a" class_remote_id="3a6f9c1f075b3bf49d7345576b196fe8" ezremote:class_identifier="blog" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:44:25 GMT" ezremote:modified="Thu, 22 Nov 2007 13:45:52 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Conference Blog">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1096" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Conference Blog</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1097" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1098" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Conference</keyword-string>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Conference Blog" node-id="169" remote-id="d62111b215f84eaf560906abb834f2f4" sort-field="path" sort-order="1" priority="5"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="168" name="Honorary Award to Paul Forsyth" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="20" ezremote:published="Thu, 22 Nov 2007 13:47:57 GMT" ezremote:modified="Thu, 22 Nov 2007 13:47:57 GMT" remote_id="93e8957e3bf619490dab2555b81beb87" class_remote_id="7ecb961056b7cbb30f22a91357e0a007" ezremote:class_identifier="blog_post" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:46:33 GMT" ezremote:modified="Thu, 22 Nov 2007 13:47:57 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Honorary Award to Paul Forsyth">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1099" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Honorary Award to Paul Forsyth</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1100" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Tonight, at the eZ Awards 2007 Presentation, Paul Forsyth, Technical Director of Vision With Technology, UK was presented the most prestigious award of the evening. The Honorary award is a yearly award and Paul definitely deserved to win it this year based on his contribution to the eZ Ecosystem. Paul fit the criteria perfectly based on his long standing membership with eZ and his admirable conduct and example to his peers. The Norwegian IT Minister gave Paul his award in front of 800 eZ enthusiasts.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1101" ezremote:identifier="publication_date" name="Publication date" type="ezdatetime">
+              <date_time>Thu, 22 Nov 2007 13:46:00 GMT</date_time>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1102" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1103" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Conference, Honorary award</keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1104" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Honorary Award to Paul Forsyth" node-id="170" parent-node-remote-id="d62111b215f84eaf560906abb834f2f4" remote-id="0ddabdb93136a7553efa79f78a2829c6" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="169" name="eZ Conference in Skien, Norway" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="20" ezremote:published="Thu, 22 Nov 2007 13:49:08 GMT" ezremote:modified="Thu, 22 Nov 2007 13:49:08 GMT" remote_id="d215d3ffde26eba45418051c88d994bd" class_remote_id="7ecb961056b7cbb30f22a91357e0a007" ezremote:class_identifier="blog_post" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:48:27 GMT" ezremote:modified="Thu, 22 Nov 2007 13:49:07 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="eZ Conference in Skien, Norway">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1105" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>eZ Conference in Skien, Norway</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1106" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Who would have thought that a small town in the south of Norway would host the biggest open source content management event in Europe? Well its true, the weather is perfect here in Skien, Norway and the attendees are definitely enjoying the quaint Norwegian city. Getting here was quite the feat, as the closest airport was 45 minutes away. The scenery on the way to Skien was spectacular and made it all worth the trip. The best part of having an international conference in a small town like Skien is that the conference really gets that personal feeling, a feeling that is hard to find, and harder to maintain in a big, bustling major city</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1107" ezremote:identifier="publication_date" name="Publication date" type="ezdatetime">
+              <date_time>Thu, 22 Nov 2007 13:48:00 GMT</date_time>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1108" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1109" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>eZ Conference, Norway, Skien</keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1110" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="eZ Conference in Skien, Norway" node-id="171" parent-node-remote-id="d62111b215f84eaf560906abb834f2f4" remote-id="3efaa7a19f86456738f274ff0cf0a20a" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="170" name="Fun Booths at the eZ Conference 2007" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="20" ezremote:published="Thu, 22 Nov 2007 13:50:16 GMT" ezremote:modified="Thu, 22 Nov 2007 13:50:16 GMT" remote_id="3fbe7c1f2d06551ae99a2b9a1540995a" class_remote_id="7ecb961056b7cbb30f22a91357e0a007" ezremote:class_identifier="blog_post" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Thu, 22 Nov 2007 13:49:23 GMT" ezremote:modified="Thu, 22 Nov 2007 13:50:16 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Fun Booths at the eZ Conference 2007">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1111" ezremote:identifier="title" name="Title" type="ezstring">
+              <text>Fun Booths at the eZ Conference 2007</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1112" ezremote:identifier="body" name="Body" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">At any conference where there are exhibitors, its always great to see the new and creative ways in which companies attract people to the booth. This year at the eZ Conference, some of the highlights included the IBM/VisionWT/WebDeal booth where they put their booth space together and made one large area equipped with two luxury massage chairs and a flat screen TV with targeted messaging. The Nexus booth was giving out free pizza from Dolly Dimples. The eZ booth was by far the sexiest with bar tables and stools, sleek graphics and a booth staff that was friendly and informative.</paragraph>
+              </section>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1113" ezremote:identifier="publication_date" name="Publication date" type="ezdatetime">
+              <date_time>Thu, 22 Nov 2007 13:49:00 GMT</date_time>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1114" ezremote:identifier="unpublish_date" name="Unpublish date" type="ezdatetime"/>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1115" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string>Booths, eZ Conference</keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1116" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Fun Booths at the eZ Conference 2007" node-id="172" parent-node-remote-id="d62111b215f84eaf560906abb834f2f4" remote-id="615f89362abdc7f949bf294054ec96af" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="179" name="Live Video" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="1" ezremote:published="Fri, 23 Nov 2007 10:59:08 GMT" ezremote:modified="Fri, 23 Nov 2007 10:59:08 GMT" remote_id="cd38f59df767ec0544b3cddf7554fee1" class_remote_id="a3d405b81be900468eb153d774f4f0d2" ezremote:class_identifier="folder" ezremote:always_available="1" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 10:57:49 GMT" ezremote:modified="Fri, 23 Nov 2007 10:59:07 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Live Video">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1171" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Live Video</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1172" ezremote:identifier="short_name" name="Short name" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1173" ezremote:identifier="short_description" name="Summary" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1174" ezremote:identifier="description" name="Description" type="ezxmltext">
+              <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1175" ezremote:identifier="show_children" name="Display sub items" type="ezboolean">
+              <value>1</value>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1176" ezremote:identifier="tags" name="Tags" type="ezkeyword">
+              <keyword-string></keyword-string>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1177" ezremote:identifier="publish_date" name="Publish date" type="ezdatetime"/>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Live Video" node-id="181" remote-id="599cf4849d01d9d9c73f0142519fe465" sort-field="path" sort-order="1" priority="6"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="180" name="Record Live Video" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="42" ezremote:published="Fri, 23 Nov 2007 11:00:25 GMT" ezremote:modified="Fri, 23 Nov 2007 11:00:25 GMT" remote_id="492a2be33646a2bf2489260ac7dac8ca" class_remote_id="e349c947fd306299418be35b07b9a940" ezremote:class_identifier="flash_recorder" ezremote:always_available="0" initial_language="eng-GB">
+      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="1">
+        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="1" ezremote:status="1" ezremote:created="Fri, 23 Nov 2007 11:00:05 GMT" ezremote:modified="Fri, 23 Nov 2007 11:00:25 GMT" initial_language="eng-GB">
+          <ezobject:object-translation language="eng-GB" object_name="Record Live Video">
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1178" ezremote:identifier="name" name="Name" type="ezstring">
+              <text>Record Live Video</text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1179" ezremote:identifier="stream_server" name="Stream server" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1180" ezremote:identifier="file_server" name="File server" type="ezstring">
+              <text></text>
+            </ezobject:attribute>
+          </ezobject:object-translation>
+          <ezobject:node-assignment-list>
+            <node-assignment is-main-node="1" name="Record Live Video" node-id="182" parent-node-remote-id="599cf4849d01d9d9c73f0142519fe465" remote-id="a3ce9193bf6d8a275e072617d1f2c327" sort-field="path" sort-order="1" priority="0"/>
+          </ezobject:node-assignment-list>
+        </ezobject:version>
+      </ezobject:version-list>
+    </ezremote:object>
+  </object-list>
+  <site-access-list>
+    <site-access>eng</site-access>
+  </site-access-list>
+  <top-node-list>
+    <top-node node-id="2" remote-id="07cdfd23373b17c6b337251c22b7ea57">Home</top-node>
+    <top-node node-id="179" remote-id="c1b5c89e7b760d7a9f2735d66d098bc4">Global zone</top-node>
+    <top-node node-id="159" remote-id="91b5abe755cf82d1f963912846d40341">Conference</top-node>
+    <top-node node-id="180" remote-id="758640d5232be8df97f0f51de83f6275">Discussion Forum</top-node>
+    <top-node node-id="169" remote-id="d62111b215f84eaf560906abb834f2f4">Conference Blog</top-node>
+    <top-node node-id="181" remote-id="599cf4849d01d9d9c73f0142519fe465">Live Video</top-node>
+  </top-node-list>
+</content-object>

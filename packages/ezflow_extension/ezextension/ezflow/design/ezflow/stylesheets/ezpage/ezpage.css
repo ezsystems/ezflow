@@ -1,0 +1,267 @@
+/* BLOCK EDIT: START */
+
+div.block-container
+{
+    margin-bottom: 0.5em;
+}
+
+div.block-header
+{
+    padding: 0.5em;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    background-image: url(../../images/ezpage/block_header_bg.png);
+    background-position: left top;
+    background-repeat: repeat-x;
+    border-left: 1px solid #D8D8D8;
+    border-right: 1px solid #D8D8D8;
+    border-top: 1px solid #D8D8D8;
+    color: #000000;
+}
+
+div.block-content
+{
+    border: 1px solid #D8D8D8;
+    padding: 0.5em;
+    background-image: url(../../images/ezpage/block_content_bg.png);
+    background-position: left bottom;
+    background-repeat: repeat-x;
+}
+
+table.items
+{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+table.queue
+{
+    margin-bottom: 0;
+}
+
+table.online
+{
+    margin-bottom: 0;
+}
+
+table.items td
+{
+    padding: 0.25em;
+}
+
+table.items td.time
+{
+    text-align: right;
+    padding-right: 0.75em;
+}
+
+table.queue tr
+{
+    background-color:#F4F4F4;
+}
+
+table.online tr
+{
+    background-color: #E9F1F4;
+}
+
+table.history tr
+{
+    background-color: #F4F2E9;
+}
+
+table.history td.status
+{
+    font-style: italic;
+}
+
+table.items td.handler
+{
+    cursor: move;
+}
+
+table.items tr.empty td
+{
+    padding: 0.75em;
+    text-align: center;
+}
+
+table.items tr.rotation td
+{
+    text-align: right;
+    padding-right: 0.75em;
+    vertical-align: middle;
+}
+
+table.items tr.spacer td
+{
+    height: 6px;
+}
+
+table.items img, table.items input, table.items select
+{
+    vertical-align: middle;
+}
+
+div.block-content div.legend
+{
+    font-size: 11px;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+div.legend div.queue
+{
+    background-color:#F4F4F4;
+    height: 13px;
+    padding: 0 4px 0 4px;
+    display: inline;
+    border: 1px solid #D4D4D4;
+    margin-right: 0.25em;
+}
+
+div.legend div.online
+{
+    background-color: #E9F1F4;
+    height: 13px;
+    padding: 0 4px 0 4px;
+    display: inline;
+    border: 1px solid #C4D9E1;
+    margin-left: 0.5em;
+    margin-right: 0.25em;
+}
+
+div.legend div.history
+{
+    background-color: #F4F2E9;
+    height: 13px;
+    padding: 0 4px 0 4px;
+    display: inline;
+    border: 1px solid #E0DBC0;
+    margin-left: 0.5em;
+    margin-right: 0.25em;
+}
+
+div.block-container .button
+{
+    border: 1px solid #D8D8D8;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-image: url(../../images/ezpage/button_bg.png);
+    background-repeat: center top;
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    padding: 0.15em 0.5em 0.2em 0.5em;
+    cursor: pointer;
+}
+
+th.tight, td.tight
+{
+    width:1%;
+}
+
+div.block-container .list
+{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+div.block-container .textfield
+{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+div.block-container div.left
+{
+    float: left;
+    clear: left;
+    width: 49%;
+}
+
+div.block-container div.right
+{
+    float: right;
+    clear: right;
+    width: 49%;
+    text-align: right;
+}
+
+div.block-container div.blockname .textfield
+{
+    margin-bottom: 0.5em;
+}
+
+div.block-container div.block-parameters
+{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+div.block-container div.block-parameters div.source
+{
+    padding-top: 0.25em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.float-break:after
+{
+    content: "-";
+    height: 0;
+    visibility: hidden;
+    display: block; 
+    clear: both; 
+}
+
+.float-break
+{
+    height: 1%;
+}
+
+.break
+{
+    clear: both;
+}
+
+/* BLOCK EDIT: END */
+
+/* ZONE LAYOUT: START */
+div.zones
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+div.zones div.zone
+{
+    margin-bottom: 0.5em;
+    margin-right: 0.75em;
+    float: left;
+}
+
+div.zones div.zone div.zone-thumbnail, div.zones div.zone div.zone-label, div.zones div.zone div.zone-selector
+{
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+div.zones .button
+{
+    border: 1px solid #D8D8D8;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-image: url(../../images/ezpage/button_bg.png);
+    background-repeat: center top;
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+    padding: 0.15em 0.5em 0.2em 0.5em;
+    cursor: pointer;
+}
+/* ZONE LAYOUT: END */

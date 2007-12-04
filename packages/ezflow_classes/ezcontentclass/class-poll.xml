@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-class is-container="false">
+  <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Poll&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+  <identifier>poll</identifier>
+  <remote-id>232937a3a2eacbbf24e2601aebe16522</remote-id>
+  <object-name-pattern>&lt;name&gt;</object-name-pattern>
+  <remote>
+    <site-url>http://localhost/ezpub390/index.php/</site-url>
+    <url>http://localhost/ezpub390/index.php/class/view/37</url>
+    <groups>
+      <group id="1"
+             name="Content" />
+    </groups>
+    <id>37</id>
+    <created>1169220053</created>
+    <modified>1169220164</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring"
+               required="true"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>287</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Name&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>name</identifier>
+      <placement>1</placement>
+      <datatype-parameters>
+        <max-length>0</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezxmltext"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>288</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:11:&quot;Description&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>description</identifier>
+      <placement>2</placement>
+      <datatype-parameters>
+        <text-column-count>10</text-column-count>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezoption"
+               required="true"
+               searchable="false"
+               information-collector="true"
+               translatable="true">
+      <remote>
+        <id>289</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:8:&quot;Question&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <identifier>question</identifier>
+      <placement>3</placement>
+      <datatype-parameters>
+        <default-value></default-value>
+      </datatype-parameters>
+    </attribute>
+  </attributes>
+</content-class>
