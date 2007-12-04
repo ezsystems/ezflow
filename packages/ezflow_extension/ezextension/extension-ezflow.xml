@@ -20,7 +20,7 @@
   <file name="ezflowupdate.php" path="/cronjobs" md5sum="5aee444d211b4f9509ef6ea8e2376ec9"/>
   <file name="datatypes" md5sum="" type="dir"/>
   <file name="ezpage" path="/datatypes" md5sum="" type="dir"/>
-  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="b6c651a5c1e8e36907926b846ba47ec7"/>
+  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="e9c246d280045a72e5cd9d87d713c6d0"/>
   <file name="design" md5sum="" type="dir"/>
   <file name="admin" path="/design" md5sum="" type="dir"/>
   <file name="images" path="/design/admin" md5sum="" type="dir"/>
@@ -309,7 +309,7 @@
   <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="11c301be3d476f45c8cbb1e23ba3eafa"/>
   <file name="ezpage" path="/design/ezflow/stylesheets" md5sum="" type="dir"/>
   <file name="ezpage.css" path="/design/ezflow/stylesheets/ezpage" md5sum="c56245d53d792b26b18a59479ab2a20b"/>
-  <file name="pagelayout.css" path="/design/ezflow/stylesheets" md5sum="81e338a111c8fb088de9d78d81bb3002"/>
+  <file name="pagelayout.css" path="/design/ezflow/stylesheets" md5sum="aa07efe5bd26384ff4813e46a6ccc31f"/>
   <file name="timeline" path="/design/ezflow/stylesheets" md5sum="" type="dir"/>
   <file name="timeline.css" path="/design/ezflow/stylesheets/timeline" md5sum="8cb2c961c6d2622aa7928fba04ce50c7"/>
   <file name="templates" path="/design/ezflow" md5sum="" type="dir"/>
@@ -333,12 +333,12 @@
   <file name="timeline" path="/design/ezflow/templates" md5sum="" type="dir"/>
   <file name="timeline.tpl" path="/design/ezflow/templates/timeline" md5sum="f5a0e71986326c2df53ef5a00586bf8f"/>
   <file name="zone" path="/design/ezflow/templates" md5sum="" type="dir"/>
-  <file name="2zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="6280e2ca0c83a9d239e18405f1e285be"/>
-  <file name="2zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="6280e2ca0c83a9d239e18405f1e285be"/>
-  <file name="3zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="9484f5217d68d19f13068b2b28eed0d0"/>
-  <file name="3zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="9484f5217d68d19f13068b2b28eed0d0"/>
-  <file name="4zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="1856fca2ee8d97ec6fd54f3d14b9e986"/>
-  <file name="globalzonelayout.tpl" path="/design/ezflow/templates/zone" md5sum="fe0cde57b894d4785592e25bfeb0bfc4"/>
+  <file name="2zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="05fee2dd0338629f7b95453d1ab8003b"/>
+  <file name="2zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="05fee2dd0338629f7b95453d1ab8003b"/>
+  <file name="3zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="5ba475ba52275ee1fa2bd38b4c017c46"/>
+  <file name="3zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="5ba475ba52275ee1fa2bd38b4c017c46"/>
+  <file name="4zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="09ca4c614de986b8eeb277de7b66957c"/>
+  <file name="globalzonelayout.tpl" path="/design/ezflow/templates/zone" md5sum="dc1049e24ca67ca6c9dfb98c895b52a7"/>
   <file name="iphone" path="/design" md5sum="" type="dir"/>
   <file name="images" path="/design/iphone" md5sum="" type="dir"/>
   <file name="bluebutton.png" path="/design/iphone/images" md5sum="23f51c3c8b38871b5f7e04db2bacd38c"/>
@@ -392,7 +392,7 @@
   <file name="element-beta-min.js" path="/design/standard/javascript/element" md5sum="bb6d86f1b55308d31da9eeb909abbec2"/>
   <file name="element-beta.js" path="/design/standard/javascript/element" md5sum="aed415dad10dfc8fd6a5e8ca79a0035c"/>
   <file name="README" path="/design/standard/javascript/element" md5sum="874324ec422da5e813bc9e504661299a"/>
-  <file name="ez_core.js" path="/design/standard/javascript" md5sum="027e419971b5cdc31f47618d71fac357"/>
+  <file name="ez_core.js" path="/design/standard/javascript" md5sum="ef90a806237a78042502cec0cceca2de"/>
   <file name="tabview" path="/design/standard/javascript" md5sum="" type="dir"/>
   <file name="README" path="/design/standard/javascript/tabview" md5sum="c6fdadff27fc8e92aba562653eaa82e8"/>
   <file name="tabview.js" path="/design/standard/javascript/tabview" md5sum="b3d3325ba34eb294bf99c47a47398a5f"/>
@@ -423,7 +423,7 @@
   <file name="content" path="/design/standard/templates" md5sum="" type="dir"/>
   <file name="datatype" path="/design/standard/templates/content" md5sum="" type="dir"/>
   <file name="edit" path="/design/standard/templates/content/datatype" md5sum="" type="dir"/>
-  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="72565bd2f216a42fc19624d22db1dd1d"/>
+  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="4aa559812fc62bb5bdfead1c52a1bfa8"/>
   <file name="view" path="/design/standard/templates/content/datatype" md5sum="" type="dir"/>
   <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/view" md5sum="c078857e88e74c273ed93162dca05fbf"/>
   <file name="page" path="/design/standard/templates" md5sum="" type="dir"/>
@@ -442,29 +442,30 @@
   <file name="functioncollection.php" path="/modules/ezflow" md5sum="d3f90df301153280f51f7b25f4ddf267"/>
   <file name="function_definition.php" path="/modules/ezflow" md5sum="eda5988992edeab68949dddeed1f6298"/>
   <file name="module.php" path="/modules/ezflow" md5sum="53ab7b5570bc551e2b4c75b6d26826a9"/>
-  <file name="preview.php" path="/modules/ezflow" md5sum="e0a95d5e31cb0613905ba64ee9a6a152"/>
+  <file name="preview.php" path="/modules/ezflow" md5sum="41efcd36c9ec9b15059b1493dbd97d93"/>
   <file name="request.php" path="/modules/ezflow" md5sum="86b95aaf9c97e5790a44b56f1973de2d"/>
-  <file name="timeline.php" path="/modules/ezflow" md5sum="9b995363405c327cefe00065b1d954ce"/>
+  <file name="timeline.php" path="/modules/ezflow" md5sum="d65e2816e0fb1b1f9bb81ba030a60976"/>
   <file name="zone.php" path="/modules/ezflow" md5sum="4b55a9f9f3cd3b7c42d93cba891608d7"/>
   <file name="flash" path="/modules" md5sum="" type="dir"/>
   <file name="embed.php" path="/modules/flash" md5sum="ac9f84e6c72d77495b7af14c53ee6335"/>
   <file name="module.php" path="/modules/flash" md5sum="a74ca8c87ae70f56380b27a488ea87e1"/>
   <file name="settings" md5sum="" type="dir"/>
-  <file name="block.ini.append.php" path="/settings" md5sum="cee19db788dc9ed1be70de3ed4864313"/>
+  <file name="block.ini.append.php" path="/settings" md5sum="6b17abb6ab3c0052896efba0093dd261"/>
   <file name="browse.ini.append.php" path="/settings" md5sum="a78fd34756dc42dbcee2a077e3f5f4f3"/>
   <file name="content.ini.append.php" path="/settings" md5sum="2ba3114dfb04ba9a84b596cddcd72a1f"/>
   <file name="cronjob.ini.append.php" path="/settings" md5sum="958f2bd404f8e437d14750e6550846ed"/>
   <file name="design.ini.append.php" path="/settings" md5sum="c7c956c1c8b53c77b2a1ed70a32e9345"/>
   <file name="image.ini.append.php" path="/settings" md5sum="b78ff836a964077d6674c0f9221ce7fd"/>
   <file name="module.ini.append.php" path="/settings" md5sum="134d47b913963134c90366b5eb17051a"/>
-  <file name="site.ini.append.php" path="/settings" md5sum="4f61e9604e02d1fa5131a77e6c83ef2b"/>
+  <file name="site.ini.append.php" path="/settings" md5sum="47cff798ea1518be3d867cce69e72c7f"/>
   <file name="siteaccess" path="/settings" md5sum="" type="dir"/>
   <file name="iphone" path="/settings/siteaccess" md5sum="" type="dir"/>
   <file name="image.ini.append.php" path="/settings/siteaccess/iphone" md5sum="5d87d9e4d4e784b8e3845a9d3f5b4408"/>
   <file name="override.ini.append.php" path="/settings/siteaccess/iphone" md5sum="559f9e13a765f3178335f480479af50b"/>
   <file name="site.ini.append.php" path="/settings/siteaccess/iphone" md5sum="ae57c6f7130a2f75ba5a2c691f905a51"/>
   <file name="squid.ini.append.php" path="/settings" md5sum="952c27f829b9ae4141d8846c37103440"/>
-  <file name="zone.ini.append.php" path="/settings" md5sum="e9e29e912866bfafba73584ba25fe82b"/>
+  <file name="upload.ini.append.php" path="/settings" md5sum="6c5ff2b2e142e24212e46e1308ea71b2"/>
+  <file name="zone.ini.append.php" path="/settings" md5sum="338fba54ccc30614658046ab9609923d"/>
   <file name="sql" md5sum="" type="dir"/>
   <file name="democontent.sql" path="/sql" md5sum="f8a60cbcfc69aebf8783e310ae942018"/>
   <file name="mysql.sql" path="/sql" md5sum="980d214e3a82b1beef8caca001278346"/>

@@ -6,6 +6,8 @@
     <div id="address-{$block.zone_id}-{$block.id}">
     {block_view_gui block=$block}
     </div>
+{else}
+    {skip}
 {/if}
     {delimiter}
         <div class="block-separator"></div>

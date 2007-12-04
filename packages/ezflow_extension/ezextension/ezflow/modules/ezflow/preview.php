@@ -408,10 +408,6 @@ foreach ( $zones as $zone )
 {
     foreach ( $zone->attribute('blocks') as $block )
     {
-        $tmpBlock = $db->arrayQuery( 'SELECT * FROM ' . $blockTMPTable . ' WHERE id=\'' . $block->attribute('id') . '\'' );
-
-        $pageBlock = new eZPageBlock( null, $tmpBlock[0] );
-
         $validNodes = $db->arrayQuery( "SELECT *
                                         FROM $poolTMPTable, ezcontentobject_tree
                                         WHERE $poolTMPTable.block_id='" . $block->attribute('id') . "'
@@ -419,6 +415,11 @@ foreach ( $zones as $zone )
                                           AND $poolTMPTable.ts_hidden=0
                                           AND ezcontentobject_tree.node_id = $poolTMPTable.node_id
                                         ORDER BY $poolTMPTable.priority DESC" );
+        if( count( $validNodes ) )
+        {
+        $tmpBlock = $db->arrayQuery( 'SELECT * FROM ' . $blockTMPTable . ' WHERE id=\'' . $block->attribute('id') . '\'' );
+
+        $pageBlock = new eZPageBlock( null, $tmpBlock[0] );
 
         $validNodesObjects = array();
         foreach( $validNodes as $node )
@@ -432,6 +433,7 @@ foreach ( $zones as $zone )
         $pageBlock->setAttribute( 'custom_attributes', $block->attribute( 'custom_attributes' ) );
 
         $pageBlocks[] = $pageBlock;
+        }
     }
 }
 
