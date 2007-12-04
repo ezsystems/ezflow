@@ -1,0 +1,140 @@
+{def $valid_nodes = $block.valid_nodes}
+
+<!-- BLOCK: START -->
+<div class="block-type-4items">
+
+<div class="columns-two">
+<div class="col-1">
+<div class="col-content">
+
+
+<div class="border-box border-box-style3">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-content">
+
+<!-- BLOCK CONTENT: START -->
+
+<div class="class-article">
+
+    <div class="attribute-header">
+        <h2><a href={$valid_nodes[0].url_alias|ezurl()}>{$valid_nodes[0].name}</a></h2>
+    </div>
+
+    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[0].data_map.image image_class=articlethumbnail}</div>
+
+    <div class="attribute-short">
+        {attribute_view_gui attribute=$valid_nodes[0].data_map.intro}
+    </div>
+
+</div>
+
+<!-- BLOCK CONTENT: END -->
+
+</div>
+</div>
+
+
+</div>
+</div>
+<div class="col-2">
+<div class="col-content">
+
+<div class="border-box border-box-style3">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-content">
+
+<!-- BLOCK CONTENT: START -->
+
+<div class="class-article">
+
+    <div class="attribute-header">
+        <h2><a href={$valid_nodes[1].url_alias|ezurl()}>{$valid_nodes[1].name}</a></h2>
+    </div>
+
+    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[1].data_map.image image_class=articlethumbnail}</div>
+
+    <div class="attribute-short">
+        {attribute_view_gui attribute=$valid_nodes[1].data_map.intro}
+    </div>
+
+</div>
+
+<!-- BLOCK CONTENT: END -->
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<br />
+
+<div class="columns-two">
+<div class="col-1">
+<div class="col-content">
+
+
+<div class="border-box border-box-style3">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-content">
+
+<!-- BLOCK CONTENT: START -->
+
+<div class="class-article">
+
+    <div class="attribute-header">
+        <h2><a href={$valid_nodes[2].url_alias|ezurl()}>{$valid_nodes[2].name}</a></h2>
+    </div>
+
+    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[2].data_map.image image_class=articlethumbnail}</div>
+
+    <div class="attribute-short">
+        {attribute_view_gui attribute=$valid_nodes[3].data_map.intro}
+    </div>
+
+</div>
+
+<!-- BLOCK CONTENT: END -->
+
+
+</div>
+</div>
+
+
+</div>
+</div>
+<div class="col-2">
+<div class="col-content">
+
+<div class="border-box border-box-style3">
+<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+<div class="border-content">
+
+<!-- BLOCK CONTENT: START -->
+
+<div class="class-article">
+
+    <div class="attribute-header">
+        <h2><a href={$valid_nodes[3].url_alias|ezurl()}>{$valid_nodes[3].name}</a></h2>
+    </div>
+
+    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[3].data_map.image image_class=articlethumbnail}</div>
+
+    <div class="attribute-short">
+        {attribute_view_gui attribute=$valid_nodes[3].data_map.intro}
+    </div>
+
+</div>
+
+<!-- BLOCK CONTENT: END -->
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+<!-- BLOCK: END -->

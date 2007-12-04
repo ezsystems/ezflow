@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-class is-container="true">
+  <name>Event calendar</name>
+  <identifier>event_calendar</identifier>
+  <remote-id>020cbeb6382c8c89dcec2cd406fb47a8</remote-id>
+  <object-name-pattern>&lt;short_title|title&gt;</object-name-pattern>
+  <remote>
+    <site-url>http://localhost/ezpl/index.php/</site-url>
+    <url>http://localhost/ezpl/index.php/class/view/31</url>
+    <groups>
+      <group id="1"
+             name="Content" />
+    </groups>
+    <id>31</id>
+    <created>1155797400</created>
+    <modified>1165920019</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring"
+               required="true"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>251</id>
+      </remote>
+      <name>Full Title</name>
+      <identifier>title</identifier>
+      <placement>1</placement>
+      <datatype-parameters>
+        <max-length>65</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezstring"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>252</id>
+      </remote>
+      <name>Short Title</name>
+      <identifier>short_title</identifier>
+      <placement>2</placement>
+      <datatype-parameters>
+        <max-length>25</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezselection"
+               required="true"
+               searchable="false"
+               information-collector="false"
+               translatable="false">
+      <remote>
+        <id>253</id>
+      </remote>
+      <name>View</name>
+      <identifier>view</identifier>
+      <placement>3</placement>
+      <datatype-parameters>
+        <options>
+          <option id="0"
+                  name="Calendar" />
+          <option id="1"
+                  name="Program" />
+        </options>
+        <is-multiselect>0</is-multiselect>
+      </datatype-parameters>
+    </attribute>
+  </attributes>
+</content-class>

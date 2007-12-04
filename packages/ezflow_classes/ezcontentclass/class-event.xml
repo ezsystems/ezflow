@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-class is-container="false">
+  <name>Event</name>
+  <identifier>event</identifier>
+  <remote-id>563cb5edc2adfd2b240efa456c81525f</remote-id>
+  <object-name-pattern>&lt;short_title|title&gt;</object-name-pattern>
+  <remote>
+    <site-url>http://localhost/ezpl/index.php/</site-url>
+    <url>http://localhost/ezpl/index.php/class/view/30</url>
+    <groups>
+      <group id="1"
+             name="Content" />
+    </groups>
+    <id>30</id>
+    <created>1155796872</created>
+    <modified>1158834137</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>246</id>
+      </remote>
+      <name>Full title</name>
+      <identifier>title</identifier>
+      <placement>1</placement>
+      <datatype-parameters>
+        <max-length>55</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezstring"
+               required="true"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>247</id>
+      </remote>
+      <name>Short title</name>
+      <identifier>short_title</identifier>
+      <placement>2</placement>
+      <datatype-parameters>
+        <max-length>19</max-length>
+        <default-string />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezxmltext"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>262</id>
+      </remote>
+      <name>Text</name>
+      <identifier>text</identifier>
+      <placement>3</placement>
+      <datatype-parameters>
+        <text-column-count>10</text-column-count>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezkeyword"
+               required="false"
+               searchable="true"
+               information-collector="false"
+               translatable="true">
+      <remote>
+        <id>269</id>
+      </remote>
+      <name>Category</name>
+      <identifier>category</identifier>
+      <placement>4</placement>
+      <datatype-parameters />
+    </attribute>
+    <attribute datatype="ezdatetime"
+               required="true"
+               searchable="false"
+               information-collector="false"
+               translatable="false">
+      <remote>
+        <id>249</id>
+      </remote>
+      <name>From Time</name>
+      <identifier>from_time</identifier>
+      <placement>5</placement>
+      <datatype-parameters>
+        <default-value type="current-date" />
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezdatetime"
+               required="false"
+               searchable="false"
+               information-collector="false"
+               translatable="false">
+      <remote>
+        <id>250</id>
+      </remote>
+      <name>To Time</name>
+      <identifier>to_time</identifier>
+      <placement>6</placement>
+      <datatype-parameters>
+        <default-value type="empty" />
+      </datatype-parameters>
+    </attribute>
+  </attributes>
+</content-class>

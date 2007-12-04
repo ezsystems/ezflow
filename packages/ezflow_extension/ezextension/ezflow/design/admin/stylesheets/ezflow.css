@@ -1,0 +1,27 @@
+div#maincontent div#container div.block
+{
+    margin:0pt;
+    padding:0.5em;
+}
+
+div#maincontent div#container div.block
+{
+    padding-left:0pt;
+    padding-right:0pt;
+}
+
+/* SEARCH BOX: START */
+
+.date-range-selection
+{
+    visibility: visible;
+    display:none;
+}
+
+.search-results .block .item-title
+{
+    font-weight: bold;
+}
+
+
+/* SEARCH BOX: END */
