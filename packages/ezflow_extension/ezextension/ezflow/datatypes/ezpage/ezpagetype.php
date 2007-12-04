@@ -525,7 +525,7 @@ class eZPageType extends eZDataType
                             $zone =& $page->getZone( $params[1] );
                             $block =& $zone->getBlock( $params[2] );
 
-                            $blockINI =& eZINI::instance( 'block.ini' );
+                            $blockINI = eZINI::instance( 'block.ini' );
 
                             $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
 
