@@ -429,6 +429,7 @@ foreach ( $zones as $zone )
         $pageBlock->setAttribute( 'valid_nodes', $validNodesObjects );
         $pageBlock->setAttribute( 'view', $block->attribute( 'view' ) );
         $pageBlock->setAttribute( 'type', $block->attribute( 'type' ) );
+        $pageBlock->setAttribute( 'custom_attributes', $block->attribute( 'custom_attributes' ) );
 
         $pageBlocks[] = $pageBlock;
     }
