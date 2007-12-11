@@ -5,8 +5,8 @@
 {def $valid_node = $block.valid_nodes[0]}
 
 {* Define default settings for the broadcaster flash *}
-{def $width=269
-     $height=213
+{def $width=266
+     $height=211
      $flash='flash/streaming.swf'|ezdesign(no)
      $fileserver=$valid_node.object.data_map.file_server.content
      $streamserver=$valid_node.object.data_map.stream_server.content
