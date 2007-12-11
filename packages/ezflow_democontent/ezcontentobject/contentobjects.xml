@@ -1119,6 +1119,9 @@
             <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1180" ezremote:identifier="file_server" name="File server" type="ezstring">
               <text></text>
             </ezobject:attribute>
+            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1224" ezremote:identifier="key" name="Key" type="ezstring">
+              <text>ThisIsTheDefaultKeyChangeMe</text>
+            </ezobject:attribute>
           </ezobject:object-translation>
           <ezobject:node-assignment-list>
             <node-assignment is-main-node="1" name="Record Live Video" node-id="182" parent-node-remote-id="599cf4849d01d9d9c73f0142519fe465" remote-id="a3ce9193bf6d8a275e072617d1f2c327" sort-field="path" sort-order="1" priority="0"/>
