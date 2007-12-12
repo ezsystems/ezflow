@@ -81,10 +81,7 @@ class eZRed5StreamListOperator
         $key = $namedParameters['key'];
         $timeout = 8;
         
-        // Remove last element (the filename) from the URL.
-        $red5BaseURL = substr( $red5ListURL, 0, strrpos( $red5ListURL, "/" ) );
-        
-        if ( !$red5ListURL or !$key or !$red5ListURL )
+        if ( !$red5ListURL or !$key )
             return "";
 
         $remoteHandle = fopen( $this->buildURL( array( $red5ListURL, "flash_video_list.php", '?key=' . $key ) ), "r" );
@@ -120,7 +117,7 @@ class eZRed5StreamListOperator
             $dotPositon = strrpos( $file, "." );
             $name = substr( $file, 0, $dotPositon );
             
-            $absoluteURL = $this->buildURL( array( $red5BaseURL, $file ) );
+            $absoluteURL = $this->buildURL( array( $red5ListURL, $file ) );
             $returnArray[$name] = array( "filename" => $file, 
                                           "absoluteURL" => $absoluteURL );
         }
