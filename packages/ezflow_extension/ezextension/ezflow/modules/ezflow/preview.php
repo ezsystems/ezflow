@@ -287,7 +287,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                     foreach( $items as $item )
                                     {
                                         $objectID = $item['object_id'];
-                                        $nodeID = $item['node_id'];
+                                        $itemNodeID = $item['node_id'];
                                         // Check if the object_id is not already in the new block
                                         $duplicityCheck = $db->arrayQuery( "SELECT object_id
                                                                     FROM $poolTMPTable
@@ -301,7 +301,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                         else
                                         {
                                             $db->query( "INSERT INTO $poolTMPTable(block_id,object_id,node_id,ts_publication,priority)
-                                                 VALUES ('$overflowID',$objectID,$nodeID,$time,$priority)" );
+                                                 VALUES ('$overflowID',$objectID,$itemNodeID,$time,$priority)" );
                                             $priority++;
                                         }
                                     }

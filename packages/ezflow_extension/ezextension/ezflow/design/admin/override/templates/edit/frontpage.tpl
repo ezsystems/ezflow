@@ -183,7 +183,7 @@ function ezajaxSearchPostBack( r )
    {
        for (var i = 0, l = search.length; i < l; i++)
        {
-      temp += '<div class="block"><div class="item-title">{/literal}{literal} ' + search[i].name + '<\/div><div class="item-published-date">' + unixtimetodate( search[i].published ) +'<\/div><div class="item-selector"><input type="checkbox" value="' + search[i].id + '" name="SelectedObjectIDArray[]" /><\/div><\/div>';
+      temp += '<div class="block"><div class="item-title">{/literal}{literal} ' + search[i].name + '<\/div><div class="item-published-date">[' + search[i].class_name + '] ' + unixtimetodate( search[i].published ) +'<\/div><div class="item-selector"><input type="checkbox" value="' + search[i].id + '" name="SelectedObjectIDArray[]" /><\/div><\/div>';
        }
        ezajaxSearchDisplay.el.innerHTML = temp;
        ezajaxSearchObjectSpans = ez.$$('span', ezajaxSearchDisplay);
