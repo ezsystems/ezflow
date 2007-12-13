@@ -115,6 +115,7 @@ class JsonContent
             $ret['parent_node_id'] = $node->attribute( 'parent_node_id' );
             $ret['url_alias'] = $node->attribute( 'url_alias' );
             $ret['depth'] = $node->attribute( 'depth' );
+            $ret['class_name'] = $node->attribute( 'class_name' );
         }
         
         $ret['modified'] = $obj->attribute( 'modified' );

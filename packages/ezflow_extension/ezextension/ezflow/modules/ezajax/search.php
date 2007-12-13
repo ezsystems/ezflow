@@ -137,15 +137,12 @@ else if ( $http->hasPostVariable( 'SearchTimestamp' ) && $http->postVariable( 'S
 
 $searchList = eZSearch::search( $searchStr, $param );
 
-
 $r = '[]';
 if ($searchList  && count($searchList["SearchResult"]) > 0)
 {
 	$jsonObj = new JsonContent();
 	$r = $jsonObj->encode( $searchList["SearchResult"] );
 }
-
-
 
 echo $varName . '{SearchResult:' . $r . ",\nSearchCount:" . $searchList['SearchCount'] .
      ",\nSearchOffset:" . $searchOffset . ",\nSearchLimit:" . $searchLimit;
