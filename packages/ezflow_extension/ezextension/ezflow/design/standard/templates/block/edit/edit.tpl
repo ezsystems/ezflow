@@ -37,10 +37,15 @@
     <div class="left">
 
     {def $is_dynamic = false()
+         $is_custom = false()
          $fetch_params = unserialize( $block.fetch_params )}
 
-    {if eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' )}
+    {if and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
+             ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' ) )}
         {set $is_dynamic = true()}
+    {elseif and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
+             ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
+        {set $is_custom = true()}
     {/if}
 
     {if $is_dynamic}
@@ -51,50 +56,44 @@
         <label>{$fetch_parameter}:</label> <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
         {/if}
         {/foreach}
-
-        {foreach ezini( $block.type, 'CustomAttributes', 'block.ini' ) as $custom_attrib}
-
+    {elseif $is_custom}
+        {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
+        {foreach $custom_attributes as $custom_attrib}
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
-
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 <input class="button" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="Choose source" />
             {else}
-
+                <label>{$custom_attrib}:</label> <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
             {/if}
-
             {undef $use_browse_mode}
-
         {/foreach}
     {else}
         <input class="button" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="Add item" />
     {/if}
     </div>
     <div class="right source">
-    {if $is_dynamic}
-
-    {if is_set( $fetch_params['Source'] )}
-    {if is_array( $fetch_params['Source'] )}
-        {foreach $fetch_params['Source'] as $source}
-            {$source}
-        {/foreach}
-    {else}
-        {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
-
-        {$source_node.name} [{$source_node.object.content_class.name}]
-
-        {undef $source_node}
-    {/if}
-    {/if}
-
-    {if is_set( $block.custom_attributes )}
+    {if and( $is_dynamic, is_set( $fetch_params['Source'] ) )}
+        {if is_array( $fetch_params['Source'] )}
+            {foreach $fetch_params['Source'] as $source}
+                {$source}
+            {/foreach}
+        {else}
+            {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
+            {$source_node.name} [{$source_node.object.content_class.name}]
+            {undef $source_node}
+        {/if}
+    {elseif and( $is_custom, is_set( $block.custom_attributes ) )}
+        {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
         {foreach $block.custom_attributes as $custom_attrib => $value}
-            {$custom_attrib} : {$value}
+            {if eq( $use_browse_mode[$custom_attrib], 'true' )}
+                {fetch( 'content', 'node', hash( 'node_id', $value ) ).name}
+            {/if}
         {/foreach}
-    {/if}
     {/if}
     </div>
 </div>
 
+{if $is_custom|not}
 <table border="0" cellspacing="1" class="items queue" id="z:{$zone_id}_b:{$block_id}_q">
     {if $block.waiting|count()}
     {foreach $block.waiting as $item sequence array( 'bglight', 'bgdark') as $style}
@@ -175,6 +174,6 @@
         <div class="queue">&nbsp;</div> Queue: {$block.waiting|count()} <div class="online">&nbsp;</div> Online: {$block.valid|count()} <div class="history">&nbsp;</div> History: {$block.archived|count()}
     </div>
 </div>
-
+{/if}
 </div>
 </div>

@@ -83,11 +83,7 @@ class eZPageType extends eZDataType
     function fetchObjectAttributeHTTPInput( $http, $base, $contentObjectAttribute )
     {
         $page = $contentObjectAttribute->content();
-
-        //var_dump($_POST);
-
         $blockINI = eZINI::instance( 'block.ini' );
-
 
         if ( $http->hasPostVariable( $base . '_ezpage_block_fetch_param_' . $contentObjectAttribute->attribute( 'id' ) ) )
         {
@@ -113,6 +109,29 @@ class eZPageType extends eZDataType
             }
         }
 
+        if ( $http->hasPostVariable( $base . '_ezpage_block_custom_attribute_' . $contentObjectAttribute->attribute( 'id' ) ) )
+        {
+            $blockFetchParams = $http->postVariable( $base . '_ezpage_block_custom_attribute_' . $contentObjectAttribute->attribute( 'id' ) );
+
+            foreach ( $blockFetchParams as $zoneID => $blocks )
+            {
+                $zone =& $page->getZone( $zoneID );
+
+                foreach ( $blocks as $blockID => $params )
+                {
+                    $block =& $zone->getBlock( $blockID );
+
+                    $customAttributes = $block->attribute( 'custom_attributes' );
+
+                    foreach ( $params as $param => $value )
+                    {
+                        $customAttributes[$param] = $value;
+                    }
+
+                    $block->setAttribute( 'custom_attributes', $customAttributes );
+                }
+            }
+        }
 
         if ( $http->hasPostVariable( $base . '_ezpage_block_view_' . $contentObjectAttribute->attribute( 'id' ) ) )
         {
