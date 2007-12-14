@@ -3,15 +3,13 @@
          development="false"
          install_type="install">
   <name>ezflow_democontent</name>
-  <summary>Home, News and Events, Products, Partner, Community, Knowledge Base, Company</summary>
-  <description>This package contains the following nodes :
-Home - subtree
-News and Events - subtree
-Products - subtree
-Partner - subtree
-Community - subtree
-Knowledge Base - subtree
-Company - subtree
+  <summary>Home, Conference, Discussion Forum, Conference Blog, Live Video</summary>
+  <description>This package contains the following nodes:
+Home - node
+Conference - subtree
+Discussion Forum - subtree
+Conference Blog - subtree
+Live Video - subtree
 </description>
   <vendor>eZ systems</vendor>
   <type value="contentobject" />
