@@ -1,3 +1,14 @@
+{def $is_dynamic = false()
+     $is_custom = false()
+     $fetch_params = unserialize( $block.fetch_params )}
+
+{if and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
+         ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' ) )}
+    {set $is_dynamic = true()}
+{elseif and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
+             ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
+    {set $is_custom = true()}
+{/if}
 <div class="block-container">
 
 <div class="block-header float-break">
@@ -15,6 +26,7 @@
     <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name}" size="35" />
     </div>
     <div class="right">
+    {if $is_custom|not}
         <select class="list" name="ContentObjectAttribute_ezpage_block_overflow_{$attribute.id}[{$zone_id}][{$block_id}]">
             <option value="">Overflow</option>
             {foreach $zone.blocks as $index => $overflow_block}
@@ -24,6 +36,7 @@
             <option value="{$overflow_block.id}" {if eq( $overflow_block.id, $block.overflow_id )}selected="selected"{/if}>{$index|inc}. {if is_set( $overflow_block.name )}{$overflow_block.name}{else}{ezini( $overflow_block.type, 'Name', 'block.ini' )}{/if}</option>
             {/foreach}
         </select>
+     {/if}
         <select class="list" name="ContentObjectAttribute_ezpage_block_view_{$attribute.id}[{$zone_id}][{$block_id}]">
         {def $view_name = ezini( $block.type, 'ViewName', 'block.ini' )}
         {foreach ezini( $block.type, 'ViewList', 'block.ini' ) as $view}
@@ -35,19 +48,6 @@
 
 <div class="block-parameters float-break">
     <div class="left">
-
-    {def $is_dynamic = false()
-         $is_custom = false()
-         $fetch_params = unserialize( $block.fetch_params )}
-
-    {if and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
-             ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' ) )}
-        {set $is_dynamic = true()}
-    {elseif and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
-             ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
-        {set $is_custom = true()}
-    {/if}
-
     {if $is_dynamic}
         {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
         {if eq( $fetch_parameter, 'Source' )}
