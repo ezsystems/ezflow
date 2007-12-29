@@ -44,7 +44,7 @@
         <param name="scale" value="exactfit" />
         <param name="allowScriptAccess" value="sameDomain" />
         <param name="allowFullScreen" value="true" />
-        <param name="flashvars" value="moviepath={$flash_var}" />
+        <param name="flashvars" value="{$flash_var}" />
         <param name="wmode" value="opaque" />
         <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
     </object>
