@@ -44,8 +44,24 @@ if ( isset( $output ) )
         case 'xhtml':
             echo $tpl->fetch( 'design:page/block.tpl' );
             break;
+        case 'json':
+            $output = '[ {';
+            
+            foreach ( $block->attributes() as $attr )
+            {
+                if ( in_array( $attr, array( 'waiting', 'valid', 'valid_nodes', 'archived' ) ) )
+                    continue;
+
+                $out .= '\'' . $attr . '\':\'' . $block->attribute( $attr ) . '\', ';
+            }
+            $out .= '\'html\':\'' . htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES ) . '\', ';
+            $out .= '} ]';
+                        
+            $out = str_replace( "\n", "", $out );
+            echo $out;
+            break;
         case 'xml':
-            $dom = domxml_new_doc( '1.0' );
+            $dom = new DOMDocument( '1.0', 'utf-8' );
             $dom->formatOutput = true;
 
             $items = eZFlowPool::validItems( $blockID );
@@ -53,10 +69,12 @@ if ( isset( $output ) )
             {
                 $block->addItem( new eZPageBlockItem( $item, true ) );
             }
-            
+
+            $block->setAttribute( 'xhtml', $tpl->fetch( 'design:page/block.tpl' ) );
+
             $blockElement = $block->toXML( $dom );
-            $dom->append_child( $blockElement );
-            echo $dom->dump_mem( true );
+            $dom->appendChild( $blockElement );
+            echo $dom->saveXML();
             break;
         default:
             echo $tpl->fetch( 'design:page/block.tpl' );
