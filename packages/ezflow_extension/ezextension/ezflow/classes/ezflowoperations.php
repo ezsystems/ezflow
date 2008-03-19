@@ -362,22 +362,22 @@ class eZFlowOperations
                                     $priority = 0;
                                     foreach( $items as $item )
                                     {
-                                        $objectID = $item['object_id'];
-                                        $nodeID = $item['node_id'];
+                                        $itemObjectID = $item['object_id'];
+                                        $itemNodeID = $item['node_id'];
                                         // Check if the object_id is not already in the new block
                                         $duplicityCheck = $db->arrayQuery( "SELECT object_id
                                                                     FROM ezm_pool
                                                                     WHERE block_id='$overflowID'
-                                                                      AND object_id=$objectID
+                                                                      AND object_id=$itemObjectID
                                                                     LIMIT 1" );
                                         if ( $duplicityCheck )
                                         {
-                                            eZDebug::writeNotice( "Object $objectID is already available in the block $overflowID.", 'eZ Flow Update Cronjob' );
+                                            eZDebug::writeNotice( "Object $itemObjectID is already available in the block $overflowID.", 'eZ Flow Update Cronjob' );
                                         }
                                         else
                                         {
                                             $db->query( "INSERT INTO ezm_pool(block_id,object_id,node_id,ts_publication,priority)
-                                                 VALUES ('$overflowID',$objectID,$nodeID,$time,$priority)" );
+                                                 VALUES ('$overflowID',$itemObjectID,$itemNodeID,$time,$priority)" );
                                             $priority++;
                                         }
                                     }
