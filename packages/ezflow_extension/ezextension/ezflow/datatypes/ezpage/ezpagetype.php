@@ -671,12 +671,10 @@ class eZPageType extends eZDataType
                         {
                             $blockID = $block->attribute( 'id' );
                             $blockType = $block->attribute( 'type' );
-                            $escapedBlockType = $db->escapeString( $blockType );
                             $action = $block->attribute( 'action' );
                             $fetchParams = $block->attribute( 'fetch_params' );
                             $zoneID = $block->attribute( 'zone_id' );
                             $blockName = $block->attribute( 'name' );
-                            $escapedBlockName = $db->escapeString( $blockName );
 
                             switch ( $action )
                             {
@@ -708,10 +706,10 @@ class eZPageType extends eZDataType
                                         $db->query( "INSERT INTO ezm_block ( id, zone_id, name, node_id, overflow_id, block_type, fetch_params, rotation_type, rotation_interval )
                                                                     VALUES ( '" . $blockID . "',
                                                                              '" . $zoneID . "',
-                                                                             '" . $escapedBlockName . "',
+                                                                             '" . $blockName . "',
                                                                              '" . $nodeID . "',
                                                                              '" . $overflowID . "',
-                                                                             '" . $escapedBlockType . "',
+                                                                             '" . $blockType . "',
                                                                              '" . $fetchParams . "',
                                                                              '" . $rotationType . "',
                                                                              '" . $rotationInterval . "' )" );
@@ -734,7 +732,7 @@ class eZPageType extends eZDataType
                                     if ( $block->hasAttribute( 'overflow_id' ) )
                                     $overflowID = $block->attribute( 'overflow_id' );
 
-                                    $db->query( "UPDATE ezm_block SET name='" . $escapedBlockName . "',
+                                    $db->query( "UPDATE ezm_block SET name='" . $blockName . "',
                                                                       overflow_id='" . $overflowID . "',
                                                                       fetch_params='" . $fetchParams . "',
                                                                       rotation_type='" . $rotationType . "',
