@@ -1,5 +1,11 @@
 Changes from 1.0-1 to 1.0-2
 
+*Bugs*
+
 - Fixed bug #012565: DB transaction error on ez flow
 - Fixed bug #012681: eZFlow - Content Cache not cleared when using ezflow cronjobs
 - Fixed bug #012164: PHP notice during installation.
+
+*Enhancements*
+
+- Implemented enhancement #012879: Adjust ezflow footer message to 2008
