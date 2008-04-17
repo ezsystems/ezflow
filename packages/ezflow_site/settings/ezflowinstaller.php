@@ -1,11 +1,9 @@
 <?php
 //
-// Created on: <13-Nov-2006 15:00:00 dl>
-//
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-// SOFTWARE NAME: eZ publish
-// SOFTWARE RELEASE: 3.9.x
-// COPYRIGHT NOTICE: Copyright (C) 1999-2006 eZ systems AS
+// SOFTWARE NAME: eZ Flow
+// SOFTWARE RELEASE: 1.1.0
+// COPYRIGHT NOTICE: Copyright (C) 1999-2008 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -31,7 +29,7 @@ include_once( 'kernel/classes/datatypes/ezmatrix/ezmatrixdefinition.php' );
 
 class eZFlownInstaller extends eZSiteInstaller
 {
-    const MAJOR_VERSION = 1.0;
+    const MAJOR_VERSION = 1.1;
     const MINOR_VERSION = 0;
 
     function eZFlownInstaller( $parameters = false )
