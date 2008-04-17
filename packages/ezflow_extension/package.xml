@@ -2,6 +2,7 @@
 <package version="3.5.2" development="false" install_type="install">
   <name>ezflow_extension</name>
   <summary>ezflow_extension</summary>
+  <description>ezflow extension</description>
   <vendor>eZ systems</vendor>
   <type value="extension"/>
   <ezpublish>
