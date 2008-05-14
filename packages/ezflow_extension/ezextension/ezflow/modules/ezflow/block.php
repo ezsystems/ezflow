@@ -28,14 +28,14 @@ include_once( 'extension/ezflow/classes/ezpageblock.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 include_once( 'kernel/common/template.php' );
 
-$module =& $Params['Module'];
+$module = $Params['Module'];
 
 $blockID = $Params['BlockID'];
 $output = $Params['Output'];
 
 $block = eZPageBlock::fetch( $blockID );
 
-$tpl =& templateInit();
+$tpl = templateInit();
 
 $tpl->setVariable('block', $block );
 

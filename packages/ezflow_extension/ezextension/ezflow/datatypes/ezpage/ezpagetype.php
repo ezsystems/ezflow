@@ -523,7 +523,7 @@ class eZPageType extends eZDataType
                             if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
                             $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
 
-                            $blockINI =& eZINI::instance( 'block.ini' );
+                            $blockINI = eZINI::instance( 'block.ini' );
 
                             $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
 

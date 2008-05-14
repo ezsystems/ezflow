@@ -36,7 +36,7 @@ $zoneID = $blockParams['z'];
 $blockID = $blockParams['b'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
-$page =& $contentObjectAttribute->content();
+$page = $contentObjectAttribute->content();
 $zone =& $page->getZone( $zoneID );
 $block =& $zone->getBlock( $blockID );
 

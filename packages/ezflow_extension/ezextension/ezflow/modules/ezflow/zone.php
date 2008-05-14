@@ -26,7 +26,7 @@
 
 include_once( 'kernel/common/template.php' );
 
-$module =& $Params["Module"];
+$module = $Params["Module"];
 $contentObjectAttributeID = $Params['ContentObjectAttributeID'];
 $version = $Params['Version'];
 $zoneID = $Params['ZoneID'];
