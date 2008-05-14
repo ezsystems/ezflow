@@ -77,7 +77,7 @@ class eZRed5StreamListOperator
     /*!
         Executes the PHP function for the operator cleanup and modifies \a $operatorValue.
     */
-    function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
+   function modify( $tpl, $operatorName, $operatorParameters, $rootNamespace, $currentNamespace, &$operatorValue, $namedParameters )
     {
         $red5ListURL = $namedParameters['fileserver'];
         $key = $namedParameters['key'];
