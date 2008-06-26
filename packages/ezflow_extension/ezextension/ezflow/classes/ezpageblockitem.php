@@ -38,7 +38,7 @@ class eZPageBlockItem
         }
     }
 
-    function toXML( $dom )
+    public function toXML( $dom )
     {
         if ( !$this->XMLStorable )
         {
@@ -71,7 +71,7 @@ class eZPageBlockItem
         return $itemNode;
     }
 
-    static function createFromXML( $node )
+    public static function createFromXML( $node )
     {
         $newObj = new eZPageBlockItem();
 
@@ -92,22 +92,22 @@ class eZPageBlockItem
         return $newObj;
     }
 
-    function attributes()
+    public function attributes()
     {
         return array_keys( $this->attributes );
     }
 
-    function hasAttribute( $name )
+    public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
-    function setAttribute( $name, $value )
+    public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
 
-    public function attribute( $name )
+    public public function attribute( $name )
     {
         if ( $this->hasAttribute( $name ) )
         {
@@ -120,20 +120,19 @@ class eZPageBlockItem
         }
     }
 
-    function toBeRemoved()
+    public function toBeRemoved()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'remove';
     }
 
-    function toBeModified()
+    public function toBeModified()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'modify';
     }
 
-    function toBeAdded()
+    public function toBeAdded()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
 }
-
 ?>

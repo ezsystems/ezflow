@@ -34,7 +34,7 @@ class eZPageZone
             $this->attributes['name'] = $name;
     }
 
-    function toXML( $dom )
+    public function toXML( $dom )
     {
         $zoneNode = $dom->createElement( 'zone' );
         foreach ( $this->attributes as $attrName => $attrValue )
@@ -69,7 +69,7 @@ class eZPageZone
         return $zoneNode;
     }
 
-    static function createFromXML( $node )
+    public static function createFromXML( $node )
     {
         $newObj = new eZPageZone();
 
@@ -105,13 +105,13 @@ class eZPageZone
         return $newObj;
     }
 
-    function addBlock( $block )
+    public function addBlock( $block )
     {
         $this->attributes['blocks'][] = $block;
         return $block;
     }
 
-    function moveBlockUp( $currentIndex )
+    public function moveBlockUp( $currentIndex )
     {
         $array =& $this->attributes['blocks'];
 
@@ -131,7 +131,7 @@ class eZPageZone
         return true;
     }
 
-    function moveBlockDown( $currentIndex )
+    public function moveBlockDown( $currentIndex )
     {
         $array =& $this->attributes['blocks'];
 
@@ -151,38 +151,42 @@ class eZPageZone
         return true;
     }
 
-    function removeBlock( $id )
+    public function removeBlock( $id )
     {
         unset( $this->attributes['blocks'][$id] );
     }
 
-    function getName()
+    public function getName()
     {
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
-    function getBlockCount()
+    public function getBlockCount()
     {
         return isset( $this->attributes['blocks'] ) ? count( $this->attributes['blocks'] ) : 0;
     }
 
-    function getBlock( $id )
+    public function getBlock( $id )
     {
-        $block = $this->attributes['blocks'][$id];
+        $block = null;
+
+        if ( isset( $this->attributes['blocks'][$id] ) )
+            $block = $this->attributes['blocks'][$id];
+
         return $block;
     }
 
-    function attributes()
+    public function attributes()
     {
         return array_keys( $this->attributes );
     }
 
-    function hasAttribute( $name )
+    public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
-    function setAttribute( $name, $value )
+    public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
@@ -200,7 +204,7 @@ class eZPageZone
         }
     }
 
-    function removeProcessed()
+    public function removeProcessed()
     {
         if ( $this->hasAttribute( 'action' ) )
         {
@@ -225,17 +229,17 @@ class eZPageZone
         return $this;
     }
 
-    function toBeRemoved()
+    public function toBeRemoved()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'remove';
     }
 
-    function toBeModified()
+    public function toBeModified()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'modify';
     }
 
-    function toBeAdded()
+    public function toBeAdded()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
