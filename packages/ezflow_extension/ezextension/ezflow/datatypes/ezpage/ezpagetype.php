@@ -93,12 +93,13 @@ class eZPageType extends eZDataType
 
             foreach ( $blockFetchParams as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $params )
                 {
-                    $block =& $zone->getBlock( $blockID );
-
+                    $block = $zone->getBlock( $blockID );
+                    $fetchParams = array();
+                    
                     $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
 
                     foreach ( $params as $param => $value )
@@ -117,11 +118,11 @@ class eZPageType extends eZDataType
 
             foreach ( $blockFetchParams as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $params )
                 {
-                    $block =& $zone->getBlock( $blockID );
+                    $block = $zone->getBlock( $blockID );
 
                     $customAttributes = $block->attribute( 'custom_attributes' );
 
@@ -142,11 +143,11 @@ class eZPageType extends eZDataType
 
             foreach ( $blockViewArray as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $view )
                 {
-                    $block =& $zone->getBlock( $blockID );
+                    $block = $zone->getBlock( $blockID );
                     $block->setAttribute( 'view', $view );
 
                 }
@@ -159,11 +160,11 @@ class eZPageType extends eZDataType
 
             foreach ( $blockOverflowArray as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $overflowBlockID )
                 {
-                    $block =& $zone->getBlock( $blockID );
+                    $block = $zone->getBlock( $blockID );
                     $block->setAttribute( 'overflow_id', $overflowBlockID );
                 }
             }
@@ -176,11 +177,11 @@ class eZPageType extends eZDataType
 
             foreach ( $blockNameArray as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $blockName )
                 {
-                    $block =& $zone->getBlock( $blockID );
+                    $block = $zone->getBlock( $blockID );
                     $block->setAttribute( 'name', $blockName );
                 }
             }
@@ -193,15 +194,15 @@ class eZPageType extends eZDataType
 
             foreach ( $itemTSPublishedValueArray as $zoneID => $blocks )
             {
-                $zone =& $page->getZone( $zoneID );
+                $zone = $page->getZone( $zoneID );
 
                 foreach ( $blocks as $blockID => $itemTSPublishedValueIDs )
                 {
-                    $block =& $zone->getBlock( $blockID );
+                    $block = $zone->getBlock( $blockID );
 
                     if ( $block->getItemCount() > 0 )
                     {
-                        $items =& $block->attribute( 'items' );
+                        $items = $block->attribute( 'items' );
 
                         foreach ( $items as $index => $item )
                         {
@@ -211,27 +212,9 @@ class eZPageType extends eZDataType
                                 {
                                     if ( $item->attribute( 'object_id' ) == $objectID )
                                     {
-                                        //$itemTSPublishedUnitArray = $http->postVariable( $base . '_ezpage_item_ts_published_unit_' . $contentObjectAttribute->attribute( 'id' ) );
-                                        /*
-                                         switch ( $itemTSPublishedUnitArray[$zoneID][$blockID][$objectID] )
-                                         {
-                                         case 1:
-                                         $item->setAttribute( 'ts_publication', time() + $value );
-                                         $block->attributes['items'][$index] = $item;
-                                         break;
-                                         case 2:
-                                         $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
-                                         $block->attributes['items'][$index] = $item;
-                                         break;
-                                         }
-                                         */
-
                                         $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
-                                        $block->attributes['items'][$index] = $item;
-
                                         unset( $itemTSPublishedValueIDs[$objectID] );
                                     }
-
                                 }
                             }
                         }
@@ -241,7 +224,7 @@ class eZPageType extends eZDataType
                     {
                         if ( $value != '' )
                         {
-                            $item =& $block->addItem( new eZPageBlockItem() );
+                            $item = $block->addItem( new eZPageBlockItem() );
                             $item->setAttribute( 'action', 'modify' );
                             $item->setAttribute( 'object_id', $objectID );
 
@@ -262,8 +245,6 @@ class eZPageType extends eZDataType
 
             }
         }
-
-        //var_dump($page);
 
         $contentObjectAttribute->setContent( $page );
 
@@ -317,28 +298,23 @@ class eZPageType extends eZDataType
                     $page->setAttribute( 'zone_layout', $zoneAllowedType );
 
                     if ( $page->getZoneCount() > 0)
-                    $page->removeZones();
+                        $page->removeZones();
 
                     $zoneINI = eZINI::instance( 'zone.ini' );
 
-                    foreach ( $zoneINI->variable( $zoneAllowedType, 'Zones' ) as $zone )
+                    foreach ( $zoneINI->variable( $zoneAllowedType, 'Zones' ) as $zoneIdentifier )
                     {
-                        $newZone =& $page->addZone( new eZPageZone() );
-                        $newZone->setAttribute( 'id', md5( microtime() . $page->getZoneCount() ) );
-                        $newZone->setAttribute( 'zone_identifier', $zone );
-                        $newZone->setAttribute( 'action', 'add' );
+                        $zone = $page->addZone( new eZPageZone() );
+                        $zone->setAttribute( 'id', md5( microtime() . $page->getZoneCount() ) );
+                        $zone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                        $zone->setAttribute( 'action', 'add' );
                     }
-
-                    $contentObjectAttribute->setContent( $page );
-                    $contentObjectAttribute->store();
                 }
                 break;
-
             case 'set_rotation':
-
                 $page = $contentObjectAttribute->content();
-                $zone =& $page->getZone( $params[1] );
-                $block =& $zone->getBlock( $params[2] );
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
                 $rotationValue = $http->postVariable( 'RotationValue_' . $params[2] );
                 $rotationUnit = $http->postVariable( 'RotationUnit_' . $params[2] );
@@ -384,123 +360,102 @@ class eZPageType extends eZDataType
                                                              'value' => $rotationValue,
                                                              'unit' => $rotationUnit ) );
                 }
-
-                $contentObjectAttribute->setContent( $page );
-                $contentObjectAttribute->store();
                 break;
+            case 'remove_block':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                        case 'remove_block':
+                if ( $block->toBeAdded() )
+                {
+                    $zone->removeBlock( $params[2] );
+                }
+                else
+                {
+                    $block->setAttribute( 'action', 'remove' );
+                }
+                break;
+            case 'new_block':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
 
-                            $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-                            $block =& $zone->getBlock( $params[2] );
+                if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_block_type_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] ) )
+                    $blockType = $http->postVariable( 'ContentObjectAttribute_ezpage_block_type_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] );
 
-                            if ( $block->toBeAdded() )
+                if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_block_name_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] ) )
+                    $blockName = $http->postVariable( 'ContentObjectAttribute_ezpage_block_name_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] );
+
+                $block = $zone->addBlock( new eZPageBlock( $blockName ) );
+                $block->setAttribute( 'action', 'add' );
+                $block->setAttribute( 'id', md5( microtime() . $zone->getBlockCount() ) );
+                $block->setAttribute( 'zone_id', $zone->attribute( 'id' ) );
+                $block->setAttribute( 'type', $blockType );
+                break;
+            case 'move_block_up':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $zone->moveBlockUp( $params[2] );
+                break;
+            case 'move_block_down':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $zone->moveBlockDown( $params[2] );
+                break;
+            case 'new_item':
+                if ( $http->hasPostVariable( 'SelectedObjectIDArray' ) )
+                {
+                    if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
+                    {
+                        $selectedObjectIDArray = $http->postVariable( 'SelectedObjectIDArray' );
+
+                        $page = $contentObjectAttribute->content();
+                        $zone = null;
+                        $block = null;
+
+                        if( isset( $params[1] ) )
+                            $zone = $page->getZone( $params[1] );
+
+                            if ( $zone )
+                                $block = $zone->getBlock( $params[2] );
+                                    
+                            if ( $block )
                             {
-                                $zone->removeBlock( $params[2] );
-                            }
-                            else
-                            {
-                                $block->setAttribute( 'action', 'remove' );
-                            }
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
-                            break;
-
-                        case 'new_block':
-
-                            $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-
-                            if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_block_type_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] ) )
-                            $blockType = $http->postVariable( 'ContentObjectAttribute_ezpage_block_type_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] );
-
-                            if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_block_name_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] ) )
-                            $blockName = $http->postVariable( 'ContentObjectAttribute_ezpage_block_name_' . $contentObjectAttribute->attribute( 'id' ) . '_' . $params[1] );
-
-                            $block =& $zone->addBlock( new eZPageBlock( $blockName ) );
-                            $block->setAttribute( 'action', 'add' );
-                            $block->setAttribute( 'id', md5( microtime() . $zone->getBlockCount() ) );
-                            $block->setAttribute( 'zone_id', $zone->attribute( 'id' ) );
-                            $block->setAttribute( 'type', $blockType );
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
-                            break;
-
-                        case 'move_block_up':
-
-                            $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-                            $zone->moveBlockUp( $params[2] );
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
-                            break;
-
-                        case 'move_block_down':
-
-                            $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-                            $zone->moveBlockDown( $params[2] );
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
-                            break;
-
-                        case 'new_item':
-
-                            if ( $http->hasPostVariable( 'SelectedObjectIDArray' ) )
-                            {
-                                if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
+                                if ( $block->getItemCount() > 0 )
                                 {
-                                    $selectedObjectIDArray = $http->postVariable( 'SelectedObjectIDArray' );
-
-                                    $page = $contentObjectAttribute->content();
-                                    $zone =& $page->getZone( $params[1] );
-                                    $block =& $zone->getBlock( $params[2] );
-
-                                    if ( $block->getItemCount() > 0 )
+                                    foreach ( $block->attribute( 'items' ) as $itemID => $item )
                                     {
-                                        foreach ( $block->attribute( 'items' ) as $itemID => $item )
+                                        foreach ( $selectedObjectIDArray as $index => $objectID )
                                         {
-                                            foreach ( $selectedObjectIDArray as $index => $objectID )
+                                            if ( $item->attribute( 'object_id' ) == $objectID )
                                             {
-                                                if ( $item->attribute( 'object_id' ) == $objectID )
+                                                if ( $item->toBeRemoved() )
                                                 {
-                                                    if ( $item->toBeRemoved() )
-                                                    {
-                                                        $block->removeItem( $itemID );
-                                                        unset( $selectedObjectIDArray[$index] );
-                                                    }
-                                                }
+                                                    $block->removeItem( $itemID );
+                                                    unset( $selectedObjectIDArray[$index] );
+                                                 }
                                             }
                                         }
                                     }
+                                }
 
-                                    foreach ( $selectedObjectIDArray as $index => $objectID )
-                                    {
-                                        $item =& $block->addItem( new eZPageBlockItem() );
-                                        $node = eZContentObjectTreeNode::fetchByContentObjectID( $objectID );
-                                        $object = $node[0]->object();
-                                        $nodeID = $node[0]->attribute( 'node_id' );
+                                foreach ( $selectedObjectIDArray as $index => $objectID )
+                                {
+                                    $item = $block->addItem( new eZPageBlockItem() );
+                                    $node = eZContentObjectTreeNode::fetchByContentObjectID( $objectID );
+                                    $object = $node[0]->object();
+                                    $nodeID = $node[0]->attribute( 'node_id' );
 
-                                        $item->setAttribute( 'object_id', $objectID );
-                                        $item->setAttribute( 'node_id', $nodeID );
-                                        $item->setAttribute( 'priority', $block->getItemCount() );
-                                        $item->setAttribute( 'ts_publication', time() );
-                                        $item->setAttribute( 'action', 'add' );
-                                    }
-
-                                    $contentObjectAttribute->setContent( $page );
-                                    $contentObjectAttribute->store();
+                                    $item->setAttribute( 'object_id', $objectID );
+                                    $item->setAttribute( 'node_id', $nodeID );
+                                    $item->setAttribute( 'priority', $block->getItemCount() );
+                                    $item->setAttribute( 'ts_publication', time() );
+                                    $item->setAttribute( 'action', 'add' );
                                 }
                             }
-
-                            break;
-
-                        case 'new_item_browse':
+                        }
+                    }
+                    break;
+            case 'new_item_browse':
                             include_once( 'kernel/classes/ezcontentbrowse.php' );
                             $module =& $parameters['module'];
                             $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
@@ -517,8 +472,8 @@ class eZPageType extends eZDataType
                         case 'new_source':
                             $page = $contentObjectAttribute->content();
 
-                            $zone =& $page->getZone( $params[1] );
-                            $block =& $zone->getBlock( $params[2] );
+                            $zone = $page->getZone( $params[1] );
+                            $block = $zone->getBlock( $params[2] );
 
                             if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
                             $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
@@ -533,9 +488,6 @@ class eZPageType extends eZDataType
                             $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray ) );
 
                             $block->setAttribute( 'fetch_params', $serializedParams );
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
                             break;
 
                         case 'new_source_browse':
@@ -543,8 +495,8 @@ class eZPageType extends eZDataType
 
                             $page = $contentObjectAttribute->content();
 
-                            $zone =& $page->getZone( $params[1] );
-                            $block =& $zone->getBlock( $params[2] );
+                            $zone = $page->getZone( $params[1] );
+                            $block = $zone->getBlock( $params[2] );
 
                             $blockINI = eZINI::instance( 'block.ini' );
 
@@ -566,8 +518,8 @@ class eZPageType extends eZDataType
 
                         case 'custom_attribute':
                             $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-                            $block =& $zone->getBlock( $params[2] );
+                            $zone = $page->getZone( $params[1] );
+                            $block = $zone->getBlock( $params[2] );
 
                             if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
                             {
@@ -580,7 +532,6 @@ class eZPageType extends eZDataType
 
                                 $block->setAttribute( 'custom_attributes', $customAttributes );
                             }
-
                             break;
 
                         case 'custom_attribute_browse':
@@ -601,8 +552,8 @@ class eZPageType extends eZDataType
                         case 'remove_item':
 
                             $page = $contentObjectAttribute->content();
-                            $zone =& $page->getZone( $params[1] );
-                            $block =& $zone->getBlock( $params[2] );
+                            $zone = $page->getZone( $params[1] );
+                            $block = $zone->getBlock( $params[2] );
 
                             $deleteItemIDArray = $http->postVariable( 'DeleteItemIDArray' );
 
@@ -630,14 +581,11 @@ class eZPageType extends eZDataType
 
                             foreach ( $deleteItemIDArray as $deleteItemID )
                             {
-                                $item =& $block->addItem( new eZPageBlockItem() );
+                                $item = $block->addItem( new eZPageBlockItem() );
                                 $item->setAttribute( 'object_id', $deleteItemID );
                                 $item->setAttribute( 'action', 'remove' );
                             }
 
-
-                            $contentObjectAttribute->setContent( $page );
-                            $contentObjectAttribute->store();
                             break;
 
                         default:
@@ -665,7 +613,6 @@ class eZPageType extends eZDataType
                             foreach ( $zone->attribute( 'blocks' ) as $index => $block )
                             {
                                 $block->setAttribute( 'action', 'remove' );
-                                $zone->attributes['blocks'][$index] = $block;
                             }
                         }
 
@@ -802,6 +749,7 @@ class eZPageType extends eZDataType
         }
 
         $page->removeProcessed();
+
         $contentObjectAttribute->content( $page );
         $contentObjectAttribute->store();
     }

@@ -26,17 +26,17 @@
 
 class eZPage
 {
-    var $attributes = array();
+    private $attributes = array();
 
-    function eZPage( $name = null )
+    function __construct( $name = null )
     {
         if ( isset( $name ) )
-        $this->attributes['name'] = $name;
+            $this->attributes['name'] = $name;
     }
 
-    function toXML()
+    public function toXML()
     {
-        $dom = new DOMDocument( );
+        $dom = new DOMDocument( '1.0', 'utf-8' );
         $dom->formatOutput = true;
         $success = $dom->loadXML('<page />');
 
@@ -70,14 +70,13 @@ class eZPage
         return $dom->saveXML();
     }
 
-    static function createFromXML( $source )
+    public static function createFromXML( $source )
     {
         $newObj = new eZPage();
 
         if ( $source )
         {
-            //$dom = domxml_open_mem( $source );
-            $dom = new DOMDOcument();
+            $dom = new DOMDocument( '1.0', 'utf-8' );
             $success = $dom->loadXML( $source );
             $root = $dom->documentElement;
 
@@ -85,8 +84,8 @@ class eZPage
             {
                 if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'zone' )
                 {
-                    $zoneNode =& eZPageZone::createFromXML( $node );
-                    $newObj->attributes['zones'][] =& $zoneNode;
+                    $zoneNode = eZPageZone::createFromXML( $node );
+                    $newObj->attributes['zones'][] = $zoneNode;
                 }
                 elseif ( $node->nodeType == XML_ELEMENT_NODE )
                 {               
@@ -106,93 +105,91 @@ class eZPage
         return $newObj;
     }
 
-    function &addZone( $zone )
+    public function addZone( $zone )
     {
-        $this->attributes['zones'][] =& $zone;
+        $this->attributes['zones'][] = $zone;
         return $zone;
     }
 
-    function &getZone( $id )
+    public function getZone( $id )
     {
-        $zone =& $this->attributes['zones'][$id];
+        $zone = null;
+        
+        if( isset( $this->attributes['zones'][$id] ) )
+            $zone = $this->attributes['zones'][$id];
+        
         return $zone;
     }
 
-    function getName()
+    public function getName()
     {
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
-    function removeZone( $id )
+    public function removeZone( $id )
     {
-        $zone =& $this->getZone( $id );
-
-        if ( $zone->toBeAdded() )
-        {
-            unset( $this->attributes['zones'][$id] );
-        }
-        else
-        {
-            $zone->setAttribute( 'action', 'remove' );
-        }
+       unset( $this->attributes['zones'][$id] );
     }
 
-    function removeZones()
+    public function removeZones()
     {
         foreach( $this->attributes['zones'] as $index => $zone )
         {
             if ( $zone->toBeAdded() )
-            {
-                unset( $this->attributes['zones'] );
-            }
+                $this->removeZone( $index );
             else
-            {
                 $zone->setAttribute( 'action', 'remove' );
-                $this->attributes['zones'][$index] = $zone;
-            }
         }
     }
 
-    function getZoneCount()
+    public function getZoneCount()
     {
         return isset( $this->attributes['zones'] ) ? count( $this->attributes['zones'] ) : 0;
     }
 
-    function attributes()
+    public function attributes()
     {
-
         return array_keys( $this->attributes );
     }
 
-    function hasAttribute( $name )
+    public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
-    function setAttribute( $name, $value )
+    public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
 
-    function &attribute( $name )
+    public function attribute( $name )
     {
-        return $this->attributes[$name];
+        if ( $this->hasAttribute( $name ) )
+        {
+            return $this->attributes[$name];
+        }
+        else
+        {
+            $value = null;
+            return $value;
+        }
     }
 
-    function removeProcessed()
+    public function removeProcessed()
     {
+        if ( $this->hasAttribute( 'action' ) )
+        {
+            unset( $this->attributes['action'] );
+        }
+        
         if ( $this->getZoneCount() > 0 )
         {
             foreach ( $this->attributes['zones'] as $index => $zone )
             {
                 if ( $zone->toBeRemoved() )
-                {
-                    unset( $this->attributes['zones'][$index] );
-                }
+                    $this->removeZone($index);
                 else
-                {
-                    $this->attributes['zones'][$index] = $zone->removeProcessed();
-                }
+                    $zone->removeProcessed();
             }
         }
     }

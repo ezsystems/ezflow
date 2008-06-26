@@ -397,18 +397,21 @@ else
     //error
 }
 
+$tpl = templateInit();
+$httpCharset = eZTextCodec::httpCharset();
 $node = eZContentObjectTreeNode::fetch( $nodeID );
 $dataMap = $node->dataMap();
-$page = $dataMap['page'];
-$pageContent = $page->attribute('content');
+$page = $dataMap['page']->attribute('content');
 
-$zones =& $pageContent->attribute('zones');
-
-$pageBlocks = array();
-
+$zones = $page->attribute('zones');
+$output = '[';
 foreach ( $zones as $zone )
 {
-    foreach ( $zone->attribute('blocks') as $block )
+    $blocks = $zone->attribute('blocks');
+    if( !$blocks )
+        continue;
+
+    foreach ( $blocks as $block )
     {
         $validNodes = $db->arrayQuery( "SELECT *
                                         FROM $poolTMPTable, ezcontentobject_tree
@@ -417,42 +420,25 @@ foreach ( $zones as $zone )
                                           AND $poolTMPTable.ts_hidden=0
                                           AND ezcontentobject_tree.node_id = $poolTMPTable.node_id
                                         ORDER BY $poolTMPTable.priority DESC" );
+
         if( count( $validNodes ) )
         {
-        $tmpBlock = $db->arrayQuery( 'SELECT * FROM ' . $blockTMPTable . ' WHERE id=\'' . $block->attribute('id') . '\'' );
-
-        $pageBlock = new eZPageBlock( null, $tmpBlock[0] );
-
-        $validNodesObjects = array();
-        foreach( $validNodes as $node )
-        {
-            $nodeID = $node['node_id'];
-            $validNodesObjects[] = eZContentObjectTreeNode::fetch( $nodeID );
+            $validNodesObjects = array();
+            foreach( $validNodes as $validNode )
+            {
+                $validNodeID = $validNode['node_id'];
+                $validNodesObjects[] = eZContentObjectTreeNode::fetch( $validNodeID );
+            }
+            $block->setAttribute( 'valid_nodes', $validNodesObjects );
         }
-        $pageBlock->setAttribute( 'valid_nodes', $validNodesObjects );
-        $pageBlock->setAttribute( 'view', $block->attribute( 'view' ) );
-        $pageBlock->setAttribute( 'type', $block->attribute( 'type' ) );
-        $pageBlock->setAttribute( 'custom_attributes', $block->attribute( 'custom_attributes' ) );
-
-        $pageBlocks[] = $pageBlock;
-        }
+        
+        $output .= '{ \'objectid\':\'' . $block->attribute('zone_id') . '-' . $block->attribute('id') . '\', \'xhtml\':\'';
+        $tpl->setVariable( 'block', $block );
+        $output .= htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
+        $output .= '\'},';
     }
 }
-
-$httpCharset = eZTextCodec::httpCharset();
-
-$tpl = templateInit();
-$output = '[';
-foreach( $pageBlocks as $pageBlock )
-{
-    $output .= '{ \'objectid\':\'' . $pageBlock->attribute('zone_id') . '-' . $pageBlock->attribute('id') . '\', \'xhtml\':\'';
-    $tpl->setVariable( 'block', $pageBlock );
-    $output .= htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
-    $output .= '\'},';
-}
-
 $output .= ']';
-
 $output = str_replace( "\n", "", $output );
 
 header( 'Content-Type: application/json; charset=' . $httpCharset );

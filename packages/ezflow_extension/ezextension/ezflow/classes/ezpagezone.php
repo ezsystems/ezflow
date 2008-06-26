@@ -26,9 +26,9 @@
 
 class eZPageZone
 {
-    var $attributes = array();
+    private $attributes = array();
 
-    function eZPageZone( $name = null )
+    function __construct( $name = null )
     {
         if ( isset( $name ) )
             $this->attributes['name'] = $name;
@@ -69,7 +69,7 @@ class eZPageZone
         return $zoneNode;
     }
 
-    static function &createFromXML( $node )
+    static function createFromXML( $node )
     {
         $newObj = new eZPageZone();
 
@@ -93,8 +93,8 @@ class eZPageZone
         {
             if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'block' )
             {
-                $blockNode =& eZPageBlock::createFromXML( $node );
-                $newObj->attributes['blocks'][] =& $blockNode;
+                $blockNode = eZPageBlock::createFromXML( $node );
+                $newObj->attributes['blocks'][] = $blockNode;
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE )
             {
@@ -105,9 +105,9 @@ class eZPageZone
         return $newObj;
     }
 
-    function &addBlock( $block )
+    function addBlock( $block )
     {
-        $this->attributes['blocks'][] =& $block;
+        $this->attributes['blocks'][] = $block;
         return $block;
     }
 
@@ -166,15 +166,14 @@ class eZPageZone
         return isset( $this->attributes['blocks'] ) ? count( $this->attributes['blocks'] ) : 0;
     }
 
-    function &getBlock( $id )
+    function getBlock( $id )
     {
-        $block =& $this->attributes['blocks'][$id];
+        $block = $this->attributes['blocks'][$id];
         return $block;
     }
 
     function attributes()
     {
-
         return array_keys( $this->attributes );
     }
 
@@ -188,9 +187,17 @@ class eZPageZone
         $this->attributes[$name] = $value;
     }
 
-    function &attribute( $name )
+    public function attribute( $name )
     {
-        return $this->attributes[$name];
+        if ( $this->hasAttribute( $name ) )
+        {
+            return $this->attributes[$name];
+        }
+        else
+        {
+            $value = null;
+            return $value;
+        }
     }
 
     function removeProcessed()
@@ -210,7 +217,7 @@ class eZPageZone
                 }
                 else
                 {
-                    $this->attributes['blocks'][$index] = $block->removeProcessed();
+                    $block->removeProcessed();
                 }
             }
         }

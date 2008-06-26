@@ -37,8 +37,8 @@ $blockID = $blockParams['b'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
 $page = $contentObjectAttribute->content();
-$zone =& $page->getZone( $zoneID );
-$block =& $zone->getBlock( $blockID );
+$zone = $page->getZone( $zoneID );
+$block = $zone->getBlock( $blockID );
 
 $items = array();
 
@@ -57,7 +57,7 @@ foreach( $_POST['Items'] as $key => $item )
             }
             else
             {
-                $tmpItem =& $block->addItem( new eZPageBlockItem() );
+                $tmpItem = $block->addItem( new eZPageBlockItem() );
                 $tmpItem->setAttribute( 'priority', $key + 1 );
                 $tmpItem->setAttribute( 'object_id', $blockItem->attribute( 'object_id' ) );
                 $tmpItem->setAttribute( 'ts_publication', $blockItem->attribute( 'ts_publication' ) );

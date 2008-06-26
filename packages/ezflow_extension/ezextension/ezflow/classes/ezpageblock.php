@@ -29,17 +29,15 @@ include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 
 class eZPageBlock
 {
-    var $attributes = array();
-    var $dynamicAttributeFunctions = array(
-        'waiting' => 'getWaitingItems',
-        'valid' => 'getValidItems',
-        'valid_nodes' => 'getValidItemsAsNodes',
-        'archived' => 'getArchivedItems',
-        'view_template' => 'viewTemplate',
-        'edit_template' => 'editTemplate'
-        );
+    private $attributes = array();
+    private $dynamicAttributeFunctions = array( 'waiting' => 'getWaitingItems',
+                                                'valid' => 'getValidItems',
+                                                'valid_nodes' => 'getValidItemsAsNodes',
+                                                'archived' => 'getArchivedItems',
+                                                'view_template' => 'viewTemplate',
+                                                'edit_template' => 'editTemplate' );
 
-        function eZPageBlock( $name = null, $row = null )
+    function __construct( $name = null, $row = null )
         {
             if ( isset( $name ) )
             $this->attributes['name'] = $name;
@@ -53,9 +51,9 @@ class eZPageBlock
             return $this->attributes['id'];
         }
 
-        function &addItem( $item )
+        function addItem( $item )
         {
-            $this->attributes['items'][] =& $item;
+            $this->attributes['items'][] = $item;
             return $item;
         }
 
@@ -126,7 +124,7 @@ class eZPageBlock
             return $blockNode;
         }
 
-        static function &createFromXML( $node )
+        static function createFromXML( $node )
         {
             $newObj = new eZPageBlock();
 
@@ -150,8 +148,8 @@ class eZPageBlock
             {
                 if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'item' )
                 {
-                    $blockItemNode =& eZPageBlockItem::createFromXML( $node );
-                    $newObj->attributes['items'][] =& $blockItemNode;
+                    $blockItemNode = eZPageBlockItem::createFromXML( $node );
+                    $newObj->attributes['items'][] = $blockItemNode;
                 }
                 elseif ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'rotation' )
                 {
@@ -194,9 +192,13 @@ class eZPageBlock
             return isset( $this->attributes['items'] ) ? count( $this->attributes['items'] ) : 0;
         }
 
-        function &getItem( $id )
+        function getItem( $id )
         {
-            $item =& $this->attributes['items'][$id];
+            $item = null;
+
+            if ( isset( $this->attributes['items'][$id] ) )
+                $item = $this->attributes['items'][$id];
+
             return $item;
         }
 
@@ -230,7 +232,7 @@ class eZPageBlock
             }
         }
 
-        function &attribute( $name )
+        function attribute( $name )
         {
             if ( isset( $this->dynamicAttributeFunctions[$name] ) )
             {
@@ -246,7 +248,15 @@ class eZPageBlock
             }
             else
             {
-                return $this->attributes[$name];
+                if ( $this->hasAttribute( $name ) )
+                {
+                    return $this->attributes[$name];
+                }
+                else
+                {
+                    $value = null;
+                    return $value;
+                }
             }
         }
 
@@ -316,7 +326,7 @@ class eZPageBlock
                 }
             }
 
-            usort( $itemObjects, array( &$this, 'sortItems' ) );
+            usort( $itemObjects, array( $this, 'sortItems' ) );
 
             return $itemObjects;
         }
@@ -375,13 +385,13 @@ class eZPageBlock
 
         function sortItems( $a, $b )
         {
-            if ( $a->attributes['ts_publication'] == $b->attributes['ts_publication'] )
+            if ( $a->attribute('ts_publication') == $b->attribute('ts_publication') )
             {
-                if ( $a->attributes['priority'] > $b->attributes['priority'] )
+                if ( $a->attribute('priority') > $b->attribute('priority') )
                 {
                     return 1;
                 }
-                else if ( $a->attributes['priority'] < $b->attributes['priority'] )
+                else if ( $a->attribute('priority') < $b->attribute('priority') )
                 {
                     return -1;
                 }
@@ -390,7 +400,7 @@ class eZPageBlock
                     return 0;
                 }
             }
-            else if ( $a->attributes['ts_publication'] > $b->attributes['ts_publication'] )
+            else if ( $a->attribute('ts_publication') > $b->attribute('ts_publication') )
             {
                 return 1;
             }

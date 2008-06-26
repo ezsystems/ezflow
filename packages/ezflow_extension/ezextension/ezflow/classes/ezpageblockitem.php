@@ -26,10 +26,10 @@
 
 class eZPageBlockItem
 {
-    var $attributes = array();
-    var $XMLStorable;
+    private $attributes = array();
+    private $XMLStorable;
 
-    function eZPageBlockItem( $row = false, $xmlStorable = true )
+    function __construct( $row = false, $xmlStorable = true )
     {
         $this->XMLStorable = $xmlStorable;
         if ( $row && is_array( $row ) )
@@ -51,27 +51,27 @@ class eZPageBlockItem
         {
             switch ( $attrName )
             {
-            	case 'id':
-            		$itemNode->setAttribute( 'id', $attrValue );
-            		break;
+                case 'id':
+                    $itemNode->setAttribute( 'id', $attrValue );
+                    break;
 
                 case 'action':
-            		$itemNode->setAttribute( 'action', $attrValue );
-            		break;
+                    $itemNode->setAttribute( 'action', $attrValue );
+                    break;
 
-            	default:
-            	    $node = $dom->createElement( $attrName );
+                default:
+                    $node = $dom->createElement( $attrName );
                     $nodeValue = $dom->createTextNode( $attrValue );
                     $node->appendChild( $nodeValue );
                     $itemNode->appendChild( $node );
-            		break;
+                    break;
             }
         }
 
         return $itemNode;
     }
 
-    static function &createFromXML( $node )
+    static function createFromXML( $node )
     {
         $newObj = new eZPageBlockItem();
 
@@ -107,10 +107,17 @@ class eZPageBlockItem
         $this->attributes[$name] = $value;
     }
 
-    function &attribute( $name )
-
+    public function attribute( $name )
     {
-        return $this->attributes[$name];
+        if ( $this->hasAttribute( $name ) )
+        {
+            return $this->attributes[$name];
+        }
+        else
+        {
+            $value = null;
+            return $value;
+        }
     }
 
     function toBeRemoved()

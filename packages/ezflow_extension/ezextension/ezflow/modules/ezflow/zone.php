@@ -33,7 +33,7 @@ $zoneID = $Params['ZoneID'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
 $page = $contentObjectAttribute->content();
-$zone =& $page->getZone( $zoneID );
+$zone = $page->getZone( $zoneID );
 
 $tpl = templateInit();
 
