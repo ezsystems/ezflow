@@ -100,7 +100,36 @@
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}" class="{if $item.ts_publication|lt($current_time)}tbp{/if}">
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
         <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" class="handler">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
-        <td class="time">{$item.ts_publication|l10n( 'shortdatetime' )} ( {if $item.ts_publication|lt( $current_time )}0{else}{$item.ts_publication|sub( $current_time )|datetime( 'custom', '%i:%s' )}{/if} min left ) <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="" size="3" /> <img src="{'ezpage/clock_ico.gif'|ezimage(no)}" /></td>
+        <td class="time">
+            {$item.ts_publication|l10n( 'shortdatetime' )}
+                {if $item.ts_publication|lt( $current_time )|not()}
+                    (
+                    {def $time_diff = $item.ts_publication|sub( $current_time )
+                         $days = $time_diff|div( '86400' )|floor()
+                         $hours = $time_diff|mod( '86400' )|div( '3600' )|floor()
+                         $minutes = $time_diff|mod( '86400' )|mod( '3600' )|div( '60' )|floor()
+                         $seconds = $time_diff|mod( '86400' )|mod( '3600' )|mod( '60' )|round()}
+                         
+                     {if $days|gt( '0' )}
+                         {$days} d 
+                     {/if}
+                         
+                     {if $hours|gt( '0' )}
+                         {$hours} h 
+                     {/if}
+                         
+                     {if $minutes|gt( '0' )}
+                         {$minutes} m 
+                     {/if}
+                         
+                     {if $seconds|gt( '0' )}
+                         {$seconds} s left
+                     {/if}
+                    )
+                {/if}
+            <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="" size="3" />
+            <img src="{'ezpage/clock_ico.gif'|ezimage(no)}" />
+        </td>
     </tr>
     {/foreach}
     {else}
