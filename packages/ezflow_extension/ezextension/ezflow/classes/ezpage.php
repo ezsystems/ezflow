@@ -176,7 +176,15 @@ class eZPage
 
     function &attribute( $name )
     {
-        return $this->attributes[$name];
+        if ( $this->hasAttribute( $name ) )
+        {
+            return $this->attributes[$name];
+        }
+        else
+        {
+            $value = null;
+            return $value;
+        }
     }
 
     function removeProcessed()
