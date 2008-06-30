@@ -38,9 +38,9 @@ class eZPageType extends eZDataType
     /*!
      Constructor
      */
-    function eZPageType()
+    function __construct()
     {
-        $this->eZDataType( self::DATA_TYPE_STRING, "Layout" );
+        parent::__construct( self::DATA_TYPE_STRING, "Layout" );
     }
 
     function hasObjectAttributeContent( $contentObjectAttribute )

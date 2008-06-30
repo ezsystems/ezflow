@@ -97,9 +97,11 @@ function addBlock( object, id )
     {/if}
     {set $zone_id = $index}
     <optgroup label="{$zone_name[$zone.zone_identifier]}">
+        {if and( is_set( $zone.blocks ), $zone.blocks|count() )}
         {foreach $zone.blocks as $index => $block}
         <option value="{$zone_id}-{$index}">{$index|inc}: {ezini( $block.type, 'Name', 'block.ini' )}</option>
         {/foreach}
+        {/if}
     </optgroup>
     {/foreach}
 </select>
