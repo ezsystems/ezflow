@@ -456,140 +456,122 @@ class eZPageType extends eZDataType
                     }
                     break;
             case 'new_item_browse':
-                            include_once( 'kernel/classes/ezcontentbrowse.php' );
-                            $module =& $parameters['module'];
-                            $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
+                $module =& $parameters['module'];
+                $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
 
-                            eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockItem',
-                                                'browse_custom_action' =>
-                            array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
+                eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockItem',
+                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
-                            $module );
-                            break;
-                        case 'new_source':
-                            $page = $contentObjectAttribute->content();
+                                                'cancel_page' => $redirectionURI ), $module );
+                break;
+            case 'new_source':
+                $page = $contentObjectAttribute->content();
 
-                            $zone = $page->getZone( $params[1] );
-                            $block = $zone->getBlock( $params[2] );
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                            if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
-                            $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
+                if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
+                    $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
 
-                            $blockINI = eZINI::instance( 'block.ini' );
+                $blockINI = eZINI::instance( 'block.ini' );
 
-                            $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
 
-                            if ( $fetchParametersSelectionType['Source'] == 'single' )
-                            $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray[0] ) );
-                            else
-                            $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray ) );
+                if ( $fetchParametersSelectionType['Source'] == 'single' )
+                    $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray[0] ) );
+                else
+                    $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray ) );
 
-                            $block->setAttribute( 'fetch_params', $serializedParams );
-                            break;
+                $block->setAttribute( 'fetch_params', $serializedParams );
+                break;
+            case 'new_source_browse':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                        case 'new_source_browse':
-                            include_once( 'kernel/classes/ezcontentbrowse.php' );
+                $blockINI = eZINI::instance( 'block.ini' );
 
-                            $page = $contentObjectAttribute->content();
+                $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
 
-                            $zone = $page->getZone( $params[1] );
-                            $block = $zone->getBlock( $params[2] );
-
-                            $blockINI = eZINI::instance( 'block.ini' );
-
-                            $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
-
-                            $module =& $parameters['module'];
-                            $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
+                $module =& $parameters['module'];
+                $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
 
-                            eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockSource',
+                eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockSource',
                                                 'selection' => $fetchParametersSelectionType['Source'],
-                                                'browse_custom_action' =>
-                            array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_source-' . $params[1] . '-' . $params[2] . ']',
+                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_source-' . $params[1] . '-' . $params[2] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
-                            $module );
-                            break;
+                                                'cancel_page' => $redirectionURI ), $module );
+                break;
+            case 'custom_attribute':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                        case 'custom_attribute':
-                            $page = $contentObjectAttribute->content();
-                            $zone = $page->getZone( $params[1] );
-                            $block = $zone->getBlock( $params[2] );
+                if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
+                {
+                    if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
+                    {
+                        $selectedNodeIDArray = $http->postVariable ('SelectedNodeIDArray' );
+                        $customAttributes[$params[3]] = $selectedNodeIDArray[0];
+                    }
 
-                            if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
-                            {
-                                if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
-                                {
-                                    $selectedNodeIDArray = $http->postVariable ('SelectedNodeIDArray' );
-
-                                    $customAttributes[$params[3]] = $selectedNodeIDArray[0];
-                                }
-
-                                $block->setAttribute( 'custom_attributes', $customAttributes );
-                            }
-                            break;
-
-                        case 'custom_attribute_browse':
-                            include_once( 'kernel/classes/ezcontentbrowse.php' );
-                            $module =& $parameters['module'];
-                            $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
+                    $block->setAttribute( 'custom_attributes', $customAttributes );
+                }
+                break;
+            case 'custom_attribute_browse':
+                $module =& $parameters['module'];
+                $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
 
-                            eZContentBrowse::browse( array( 'action_name' => 'CustomAttributeBrowse',
-                                                'browse_custom_action' =>
-                            array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_custom_attribute-' . $params[1] . '-' . $params[2] . '-' . $params[3] . ']',
+                eZContentBrowse::browse( array( 'action_name' => 'CustomAttributeBrowse',
+                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_custom_attribute-' . $params[1] . '-' . $params[2] . '-' . $params[3] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
-                            $module );
-                            break;
+                                                'cancel_page' => $redirectionURI ), $module );
+                break;
+            case 'remove_item':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                        case 'remove_item':
+                $deleteItemIDArray = $http->postVariable( 'DeleteItemIDArray' );
 
-                            $page = $contentObjectAttribute->content();
-                            $zone = $page->getZone( $params[1] );
-                            $block = $zone->getBlock( $params[2] );
-
-                            $deleteItemIDArray = $http->postVariable( 'DeleteItemIDArray' );
-
-                            if ( $block->getItemCount() > 0 )
+                if ( $block->getItemCount() > 0 )
+                {
+                    foreach ( $block->attribute( 'items' ) as $itemID => $item )
+                    {
+                        foreach ( $deleteItemIDArray as $index => $deleteItemID )
+                        {
+                            if ( $item->attribute( 'object_id' ) == $deleteItemID )
                             {
-                                foreach ( $block->attribute( 'items' ) as $itemID => $item )
+                                if ( $item->toBeAdded() )
                                 {
-                                    foreach ( $deleteItemIDArray as $index => $deleteItemID )
-                                    {
-                                        if ( $item->attribute( 'object_id' ) == $deleteItemID )
-                                        {
-                                            if ( $item->toBeAdded() )
-                                            {
-                                                $block->removeItem( $itemID );
-                                                unset( $deleteItemIDArray[$index] );
-                                            }
-                                            elseif( $item->toBeModified() )
-                                            {
-                                                $block->removeItem( $itemID );
-                                            }
-                                        }
-                                    }
+                                    $block->removeItem( $itemID );
+                                    unset( $deleteItemIDArray[$index] );
                                 }
-                            }
+                                elseif( $item->toBeModified() )
+                                {
+                                    $block->removeItem( $itemID );
+                                }
+                             }
+                         }
+                     }
+                 }
 
-                            foreach ( $deleteItemIDArray as $deleteItemID )
-                            {
-                                $item = $block->addItem( new eZPageBlockItem() );
-                                $item->setAttribute( 'object_id', $deleteItemID );
-                                $item->setAttribute( 'action', 'remove' );
-                            }
+                 foreach ( $deleteItemIDArray as $deleteItemID )
+                 {
+                     $item = $block->addItem( new eZPageBlockItem() );
+                     $item->setAttribute( 'object_id', $deleteItemID );
+                     $item->setAttribute( 'action', 'remove' );
+                 }
 
-                            break;
-
-                        default:
-                            break;
+                 break;
+            default:
+            break;
         }
     }
 
