@@ -85,7 +85,7 @@ class eZPage
                 if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'zone' )
                 {
                     $zoneNode = eZPageZone::createFromXML( $node );
-                    $newObj->attributes['zones'][] = $zoneNode;
+                    $newObj->addZone( $zoneNode );
                 }
                 elseif ( $node->nodeType == XML_ELEMENT_NODE )
                 {               
@@ -105,18 +105,18 @@ class eZPage
         return $newObj;
     }
 
-    public function addZone( $zone )
+    public function addZone( eZPageZone $zone )
     {
         $this->attributes['zones'][] = $zone;
         return $zone;
     }
 
-    public function getZone( $id )
+    public function getZone( $index )
     {
         $zone = null;
         
-        if( isset( $this->attributes['zones'][$id] ) )
-            $zone = $this->attributes['zones'][$id];
+        if( isset( $this->attributes['zones'][$index] ) )
+            $zone = $this->attributes['zones'][$index];
         
         return $zone;
     }
@@ -126,9 +126,10 @@ class eZPage
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
-    public function removeZone( $id )
+    public function removeZone( $index )
     {
-       unset( $this->attributes['zones'][$id] );
+        $zones =& $this->attributes['zones'];
+        $zones = array_splice( $zones, $index, 1 );
     }
 
     public function removeZones()

@@ -86,7 +86,7 @@ class eZPageBlockItem
         foreach ( $node->childNodes as $node )
         {
             if ( $node->nodeType == XML_ELEMENT_NODE )
-            $newObj->attributes[$node->nodeName] = $node->nodeValue;
+                $newObj->attributes[$node->nodeName] = $node->nodeValue;
         }
 
         return $newObj;

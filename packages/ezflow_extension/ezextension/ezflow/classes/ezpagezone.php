@@ -94,7 +94,7 @@ class eZPageZone
             if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'block' )
             {
                 $blockNode = eZPageBlock::createFromXML( $node );
-                $newObj->attributes['blocks'][] = $blockNode;
+                $newObj->addBlock( $blockNode );
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE )
             {
@@ -105,7 +105,7 @@ class eZPageZone
         return $newObj;
     }
 
-    public function addBlock( $block )
+    public function addBlock( eZPageBlock $block )
     {
         $this->attributes['blocks'][] = $block;
         return $block;
@@ -151,9 +151,10 @@ class eZPageZone
         return true;
     }
 
-    public function removeBlock( $id )
+    public function removeBlock( $index )
     {
-        unset( $this->attributes['blocks'][$id] );
+        $blocks =& $this->attributes['blocks'];
+        $blocks = array_splice( $blocks, $index, 1 );
     }
 
     public function getName()
@@ -166,12 +167,12 @@ class eZPageZone
         return isset( $this->attributes['blocks'] ) ? count( $this->attributes['blocks'] ) : 0;
     }
 
-    public function getBlock( $id )
+    public function getBlock( $index )
     {
         $block = null;
 
-        if ( isset( $this->attributes['blocks'][$id] ) )
-            $block = $this->attributes['blocks'][$id];
+        if ( isset( $this->attributes['blocks'][$index] ) )
+            $block = $this->attributes['blocks'][$index];
 
         return $block;
     }

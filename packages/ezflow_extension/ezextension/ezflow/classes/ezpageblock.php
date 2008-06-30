@@ -51,7 +51,7 @@ class eZPageBlock
         return $this->attributes['id'];
     }
 
-    public function addItem( $item )
+    public function addItem( eZPageBlockItem $item )
     {
         $this->attributes['items'][] = $item;
         return $item;
@@ -149,7 +149,7 @@ class eZPageBlock
             if ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'item' )
             {
                 $blockItemNode = eZPageBlockItem::createFromXML( $node );
-                $newObj->attributes['items'][] = $blockItemNode;
+                $newObj->addItem( $blockItemNode );
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'rotation' )
             {
@@ -177,9 +177,10 @@ class eZPageBlock
         return $newObj;
     }
 
-    public function removeItem( $id )
+    public function removeItem( $index )
     {
-        unset( $this->attributes['items'][$id] );
+        $items =& $this->attributes['items'];
+        $items = array_splice( $items, $index, 1 );
     }
 
     public function getName()
@@ -192,12 +193,12 @@ class eZPageBlock
         return isset( $this->attributes['items'] ) ? count( $this->attributes['items'] ) : 0;
     }
 
-    public function getItem( $id )
+    public function getItem( $index )
     {
         $item = null;
 
-        if ( isset( $this->attributes['items'][$id] ) )
-            $item = $this->attributes['items'][$id];
+        if ( isset( $this->attributes['items'][$index] ) )
+            $item = $this->attributes['items'][$index];
 
         return $item;
     }
