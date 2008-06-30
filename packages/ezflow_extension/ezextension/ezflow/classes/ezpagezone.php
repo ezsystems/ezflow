@@ -80,11 +80,11 @@ class eZPageZone
                 if ( $attr->name == 'id' )
                 {
                     $value = explode( '_', $attr->value );
-                    $newObj->attributes[$attr->name] = $value[1];
+                    $newObj->setAttribute( $attr->name, $value[1] );
                 }
                 else
                 {
-                    $newObj->attributes[$attr->name] = $attr->value;
+                    $newObj->setAttribute( $attr->name, $attr->value );
                 }
             }
         }
@@ -98,7 +98,7 @@ class eZPageZone
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE )
             {
-                $newObj->attributes[$node->nodeName] = $node->nodeValue;
+                $newObj->setAttribute( $node->nodeName, $node->nodeValue );
             }
         }
 

@@ -88,8 +88,8 @@ class eZPage
                     $newObj->addZone( $zoneNode );
                 }
                 elseif ( $node->nodeType == XML_ELEMENT_NODE )
-                {               
-                    $newObj->attributes[$node->nodeName] = $node->nodeValue;
+                {
+                    $newObj->setAttribute( $node->nodeName, $node->nodeValue );
                 }
             }
 
@@ -97,7 +97,7 @@ class eZPage
             {
                 foreach ( $root->attributes as $attr )
                 {
-                    $newObj->attributes[$attr->name] = $attr->value;
+                    $newObj->setAttribute( $attr->name, $attr->value );
                 }
             }
         }

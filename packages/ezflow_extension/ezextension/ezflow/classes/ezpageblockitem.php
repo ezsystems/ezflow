@@ -79,14 +79,14 @@ class eZPageBlockItem
         {
             foreach ( $node->attributes as $attr )
             {
-                $newObj->attributes[$attr->name] = $attr->value;
+                $newObj->setAttribute( $attr->name, $attr->value );
             }
         }
 
         foreach ( $node->childNodes as $node )
         {
             if ( $node->nodeType == XML_ELEMENT_NODE )
-                $newObj->attributes[$node->nodeName] = $node->nodeValue;
+                $newObj->setAttribute( $node->nodeName, $node->nodeValue );
         }
 
         return $newObj;

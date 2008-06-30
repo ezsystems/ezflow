@@ -135,11 +135,11 @@ class eZPageBlock
                 if ( $attr->name == 'id' )
                 {
                     $value = explode( '_', $attr->value );
-                    $newObj->attributes[$attr->name] = $value[1];
+                    $newObj->setAttribute( $attr->name, $value[1] );
                 }
                 else
                 {
-                    $newObj->attributes[$attr->name] = $attr->value;
+                    $newObj->setAttribute( $attr->name, $attr->value );
                 }
             }
         }
@@ -153,24 +153,32 @@ class eZPageBlock
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'rotation' )
             {
+                $attrValue = array();
+
                 foreach ( $node->childNodes as $subNode )
                 {
                     if ( $subNode->nodeType == XML_ELEMENT_NODE )
-                    $newObj->attributes[$node->nodeName][$subNode->nodeName] = $subNode->nodeValue;
+                        $attrValue[$subNode->nodeName] = $subNode->nodeValue;
                 }
+
+                $newObj->setAttribute( $node->nodeName, $attrValue );
             }
             elseif ( $node->nodeType == XML_ELEMENT_NODE && $node->nodeName == 'custom_attributes' )
             {
+                $attrValue = array();
+
                 foreach ( $node->childNodes as $subNode )
                 {
                     if ( $subNode->nodeType == XML_ELEMENT_NODE )
-                    $newObj->attributes[$node->nodeName][$subNode->nodeName] = $subNode->nodeValue;
+                        $attrValue[$subNode->nodeName] = $subNode->nodeValue;
                 }
+
+                $newObj->setAttribute( $node->nodeName, $attrValue );
             }
             else
             {
                 if ( $node->nodeType == XML_ELEMENT_NODE )
-                $newObj->attributes[$node->nodeName] = $node->nodeValue;
+                    $newObj->setAttribute( $node->nodeName, $node->nodeValue );
             }
         }
 
