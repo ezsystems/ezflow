@@ -227,18 +227,7 @@ class eZPageType extends eZDataType
                             $item = $block->addItem( new eZPageBlockItem() );
                             $item->setAttribute( 'action', 'modify' );
                             $item->setAttribute( 'object_id', $objectID );
-
-                            $itemTSPublishedUnitArray = $http->postVariable( $base . '_ezpage_item_ts_published_unit_' . $contentObjectAttribute->attribute( 'id' ) );
-
-                            switch ( $itemTSPublishedUnitArray[$zoneID][$blockID][$objectID] )
-                            {
-                                case 1:
-                                    $item->setAttribute( 'ts_publication', time() + $value );
-                                    break;
-                                case 2:
-                                    $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
-                                    break;
-                            }
+                            $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
                         }
                     }
                 }
