@@ -7,6 +7,7 @@ Changes from 1.0-1 to 1.0-2
 - Fixed bug #012164: PHP notice during installation.
 - Fixed bug #012882: Proper license headers for ezflow
 - Fixed bug #013022: PHP reference usage in ezflow extension
+- Fixed bug #013043: New global layout object javascript issue
 
 *Enhancements*
 
