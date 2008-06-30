@@ -73,7 +73,10 @@ function getCookie( cookieName )
 var activeTabIndex = getCookie( 'eZPageActiveTabIndex' );
 if ( activeTabIndex )
 {ldelim}
-    tabView.set( 'activeIndex',  activeTabIndex );
+    if ( tabView.getTab( activeTabIndex ) )
+        tabView.set( 'activeIndex',  activeTabIndex );
+    else
+        tabView.set( 'activeIndex', 0 );
 {rdelim}
 else
 {ldelim}
