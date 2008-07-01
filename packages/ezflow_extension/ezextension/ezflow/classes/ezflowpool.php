@@ -26,6 +26,13 @@
 
 class eZFlowPool
 {
+    /**
+     * Return waiting items for block with given $blockID
+     * 
+     * @static
+     * @param string $blockID
+     * @return array
+     */
     static function waitingItems( $blockID )
     {
         $db = eZDB::instance();
@@ -38,6 +45,13 @@ class eZFlowPool
         return $queue;
     }
 
+    /**
+     * Return valid items for block with given $blockID
+     * 
+     * @static
+     * @param string $blockID
+     * @return array
+     */
     static function validItems( $blockID )
     {
         $db = eZDB::instance();
@@ -50,6 +64,14 @@ class eZFlowPool
         return $valid;
     }
 
+    /**
+     * Return valid items for block with given $blockID
+     * 
+     * @static
+     * @param string $blockID
+     * @param bool $asObject
+     * @return array(eZContentObjectTreeNode)
+     */
     static function validNodes( $blockID, $asObject = true )
     {
         include_once( 'kernel/classes/ezcontentobjecttreenode.php' );
@@ -78,6 +100,13 @@ class eZFlowPool
         }
     }
 
+    /**
+     * Return archived items for block with given $blockID
+     * 
+     * @static
+     * @param string $blockID
+     * @return array
+     */
     static function archivedItems( $blockID )
     {
         $db = eZDB::instance();
