@@ -160,7 +160,7 @@ class eZFlownInstaller extends eZSiteInstaller
                                           '_params' => array( 'src_node' => array( 'name' => "eZ publish" ),
                                                               'dst_node' => array( 'name' => "Home" ) ) ),
                                    array( '_function' => 'removeContentObject',
-                                          '_params' => array( 'name' => 'eZ publish' ) ),
+                                          '_params' => array( 'name' => 'eZ Publish' ) ),
                                    array( '_function' => 'removeClassAttribute',
                                           '_params' => array( 'class_id' => $this->setting( 'template_look_class_id' ),
                                                               'attribute_identifier' => 'id' ) ),
