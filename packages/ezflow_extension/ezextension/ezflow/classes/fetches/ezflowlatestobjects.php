@@ -25,11 +25,10 @@
 //
 
 include_once( 'extension/ezflow/classes/ezflowfetchinterface.php' );
-//include_once( 'kernel/classes/ezcontentobjecttreenode.php' );
 
-class eZFlowLatestObjects extends eZFlowFetchInterface
+class eZFlowLatestObjects implements eZFlowFetchInterface
 {
-    function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
+    public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
     {
         if ( isset( $parameters['Source'] ) )
         {

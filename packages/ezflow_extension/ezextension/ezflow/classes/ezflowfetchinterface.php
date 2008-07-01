@@ -24,12 +24,16 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-class eZFlowFetchInterface
+interface eZFlowFetchInterface
 {
-    function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
-    {
-        return false;
-    }
+    /**
+     * Fetches and returns content
+     *
+     * @param array $parameters
+     * @param integer $publishedAfter
+     * @param integer $publishedBeforeOrAt
+     */
+    public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt );
 }
 
 ?>

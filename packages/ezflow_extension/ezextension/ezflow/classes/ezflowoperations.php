@@ -62,7 +62,7 @@ class eZFlowOperations
         @include_once( "extension/ezflow/classes/fetches/$fetchClass.php" );
         $fetchInstance = new $fetchClass();
 
-        if ( !is_subclass_of( $fetchInstance, 'eZFlowFetchInterface' ) )
+        if ( !( $fetchInstance instanceof eZFlowFetchInterface ) )
         {
             eZDebug::writeWarning( "Can't create an instance of the $fetchClass class", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
             return false;
