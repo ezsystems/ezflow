@@ -11,6 +11,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #012792: eZFlow : null timestamp when setting publication time on a waiting item
 - Fixed bug #012873: eZTemplate: No such attribute for object(eZPageBlock): fetch_params
 - Fixed bug #012783: eZFlow : Elapsed time of the queue list is incorrect
+- Fixed bug #013067: ezflow: Datatype does not support class/content packages
 
 *Enhancements*
 
