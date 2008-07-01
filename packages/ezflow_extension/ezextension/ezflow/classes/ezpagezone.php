@@ -28,13 +28,24 @@ class eZPageZone
 {
     private $attributes = array();
 
+    /**
+     * Constructor
+     * 
+     * @param string $name
+     */
     function __construct( $name = null )
     {
         if ( isset( $name ) )
             $this->attributes['name'] = $name;
     }
 
-    public function toXML( $dom )
+    /**
+     * Creates DOMElement with zone data
+     * 
+     * @param DOMDocument $dom
+     * @return DOMElement
+     */
+    public function toXML( DOMDocument $dom )
     {
         $zoneNode = $dom->createElement( 'zone' );
         foreach ( $this->attributes as $attrName => $attrValue )
@@ -69,7 +80,13 @@ class eZPageZone
         return $zoneNode;
     }
 
-    public static function createFromXML( $node )
+    /**
+     * Creates and return eZPageZone object from given XML
+     * 
+     * @param DOMElement $node
+     * @return eZPageZone
+     */
+    public static function createFromXML( DOMElement $node )
     {
         $newObj = new eZPageZone();
 
@@ -105,12 +122,24 @@ class eZPageZone
         return $newObj;
     }
 
+    /**
+     * Add new $block to eZPageZone object
+     * 
+     * @param eZPageBlock $block
+     * @return eZPageBlock
+     */
     public function addBlock( eZPageBlock $block )
     {
         $this->attributes['blocks'][] = $block;
         return $block;
     }
 
+    /**
+     * Move current block position up 
+     * 
+     * @param integer $currentIndex
+     * @return bool
+     */
     public function moveBlockUp( $currentIndex )
     {
         $array =& $this->attributes['blocks'];
@@ -131,6 +160,12 @@ class eZPageZone
         return true;
     }
 
+    /**
+     * Move current block position down 
+     * 
+     * @param integer $currentIndex
+     * @return bool
+     */
     public function moveBlockDown( $currentIndex )
     {
         $array =& $this->attributes['blocks'];
@@ -151,22 +186,43 @@ class eZPageZone
         return true;
     }
 
+    /**
+     * Remove block with given $index from eZPageZone object
+     * 
+     * @param integer $index
+     */
     public function removeBlock( $index )
     {
         $blocks =& $this->attributes['blocks'];
         $blocks = array_splice( $blocks, $index, 1 );
     }
 
+    /**
+     * Return eZPageZone name attribute
+     * 
+     * @return string
+     */
     public function getName()
     {
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
+    /**
+     * Return total block count
+     * 
+     * @return integer
+     */
     public function getBlockCount()
     {
         return isset( $this->attributes['blocks'] ) ? count( $this->attributes['blocks'] ) : 0;
     }
 
+    /**
+     * Return eZPageBlock object by given $index
+     * 
+     * @return eZPageBlock
+     * @param integer $index
+     */
     public function getBlock( $index )
     {
         $block = null;
@@ -177,21 +233,44 @@ class eZPageZone
         return $block;
     }
 
+    /**
+     * Return attributes names
+     * 
+     * @return array(string)
+     */
     public function attributes()
     {
         return array_keys( $this->attributes );
     }
 
+    /**
+     * Checks if attribute with given $name exists
+     *  
+     * @param string $name
+     * @return bool
+     */
     public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
+    /**
+     * Set attribute with given $name to $value
+     * 
+     * @param string $name
+     * @param mixed $value
+     */
     public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
 
+    /**
+     * Return value of attribute with given $name
+     * 
+     * @return mixed
+     * @param string $name
+     */
     public function attribute( $name )
     {
         if ( $this->hasAttribute( $name ) )
@@ -205,6 +284,12 @@ class eZPageZone
         }
     }
 
+    /**
+     * Cleanup processed objects, removes action attribute
+     * removes all blocks marked with "remove" action
+     * 
+     * @return eZPageZone
+     */
     public function removeProcessed()
     {
         if ( $this->hasAttribute( 'action' ) )
@@ -230,16 +315,31 @@ class eZPageZone
         return $this;
     }
 
+    /**
+     * Checks if current zone is to be removed
+     * 
+     * @return bool
+     */
     public function toBeRemoved()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'remove';
     }
 
+    /**
+     * Checks if current zone is to be modified
+     * 
+     * @return bool
+     */
     public function toBeModified()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'modify';
     }
 
+    /**
+     * Checks if current zone is to be added
+     * 
+     * @return bool
+     */
     public function toBeAdded()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';

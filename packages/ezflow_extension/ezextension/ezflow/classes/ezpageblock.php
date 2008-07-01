@@ -37,6 +37,12 @@ class eZPageBlock
                                                 'view_template' => 'viewTemplate',
                                                 'edit_template' => 'editTemplate' );
 
+    /**
+     * Constructor
+     * 
+     * @param string $name
+     * @param array $row
+     */
     function __construct( $name = null, $row = null )
     {
         if ( isset( $name ) )
@@ -46,18 +52,35 @@ class eZPageBlock
             $this->attributes = $row;
     }
 
+    /**
+     * Return object ID
+     * 
+     * @return string
+     */
     public function id()
     {
-        return $this->attributes['id'];
+        return $this->attribute( 'id' );
     }
 
+    /**
+     * Add new $item to eZPageBlock object
+     * 
+     * @return eZPageBlockItem
+     * @param eZPageBlockItem $item
+     */
     public function addItem( eZPageBlockItem $item )
     {
         $this->attributes['items'][] = $item;
         return $item;
     }
 
-    public function toXML( $dom )
+    /**
+     * Creates DOMElement with block data
+     * 
+     * @param DOMDocument $dom
+     * @return DOMElement
+     */
+    public function toXML( DOMDocument $dom )
     {
         $blockNode = $dom->createElement( 'block' );
 
@@ -119,12 +142,16 @@ class eZPageBlock
             }
         }
 
-
-
         return $blockNode;
     }
 
-    public static function createFromXML( $node )
+    /**
+     * Creates and return eZPageBlock object from given XML
+     * 
+     * @param DOMElement $node
+     * @return eZPageBlock
+     */
+    public static function createFromXML( DOMElement $node )
     {
         $newObj = new eZPageBlock();
 
@@ -185,22 +212,43 @@ class eZPageBlock
         return $newObj;
     }
 
+    /**
+     * Remove eZPageBlockItem object by given $index
+     *
+     * @param integer $index
+     */
     public function removeItem( $index )
     {
         $items =& $this->attributes['items'];
         $items = array_splice( $items, $index, 1 );
     }
 
+    /**
+     * Return eZPageBlock name attribute
+     *
+     * @return string
+     */
     public function getName()
     {
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
+    /**
+     * Return total item count
+     *
+     * @return integer
+     */
     public function getItemCount()
     {
         return isset( $this->attributes['items'] ) ? count( $this->attributes['items'] ) : 0;
     }
 
+    /**
+     * Return eZPageBlockItem object by given $index
+     *
+     * @param integer $index
+     * @return eZPageBlockItem
+     */
     public function getItem( $index )
     {
         $item = null;
@@ -211,16 +259,33 @@ class eZPageBlock
         return $item;
     }
 
+    /**
+     * Return attributes names
+     * 
+     * @return array(string)
+     */
     public function attributes()
     {
         return array_merge( array_keys( $this->attributes ), array_keys( $this->dynamicAttributeFunctions ) );
     }
 
+    /**
+     * Checks if attribute with given $name exists
+     *  
+     * @param string $name
+     * @return bool
+     */
     public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) ) || isset( $this->dynamicAttributeFunctions[$name] );
     }
 
+    /**
+     * Set attribute with given $name to $value
+     * 
+     * @param string $name
+     * @param mixed $value
+     */
     public function setAttribute( $name, $value )
     {
         if ( isset( $this->dynamicAttributeFunctions[$name] ) )
@@ -240,6 +305,12 @@ class eZPageBlock
         }
     }
 
+    /**
+     * Return value of attribute with given $name
+     * 
+     * @return mixed
+     * @param string $name
+     */
     public function attribute( $name )
     {
         if ( isset( $this->dynamicAttributeFunctions[$name] ) )
@@ -268,6 +339,12 @@ class eZPageBlock
         }
     }
 
+    /**
+     * Cleanup processed objects, removes action attribute
+     * removes all items marked with "remove" action
+     *
+     * @return eZPageBlock
+     */
     public function removeProcessed()
     {
         if ( $this->hasAttribute( 'action' ) )
@@ -283,6 +360,13 @@ class eZPageBlock
         return $this;
     }
 
+    /**
+     * Fetches block from database be given $blockID
+     *
+     * @param string $blockID
+     * @param bool $asObject
+     * @return eZPageBlock
+     */
     public function fetch( $blockID, $asObject = true )
     {
         $db = eZDB::instance();
@@ -299,6 +383,13 @@ class eZPageBlock
         }
     }
 
+    /**
+     * Merges existing object items with those coming from database
+     *
+     * @param array $items
+     * @param bool $mergeAdded
+     * @return array(eZPageBlockItem)
+     */
     protected function merge( $items, $mergeAdded = false )
     {
         $itemObjects = array();
@@ -337,58 +428,109 @@ class eZPageBlock
         return $itemObjects;
     }
 
-    // Function attributes
+    /**
+     * Fetches waiting items and do merge with those already available
+     *
+     * @return array(eZPageBlockItem)
+     */
     protected function getWaitingItems()
     {
         $waitingItems = eZFlowPool::waitingItems( $this->id() );
         return $this->merge( $waitingItems, true );
     }
 
+    /**
+     * Fetches valid items and do merge with those already available
+     *
+     * @return array(eZPageBlockItem)
+     */
     protected function getValidItems()
     {
         $validItems = eZFlowPool::validItems( $this->id() );
         return $this->merge( $validItems );
     }
 
+    /**
+     * Fetches valid items
+     *
+     * @return array(eZPageBlockItem)
+     */
     public function getValidItemsAsNodes()
     {
         $validItemsAsNodes = eZFlowPool::validNodes( $this->id() );
         return $validItemsAsNodes;
     }
 
+    /**
+     * Fetches archived items and do merge with those already available
+     *
+     * @return array(eZPageBlockItem)
+     */
     protected function getArchivedItems()
     {
         $archivedItems = eZFlowPool::archivedItems( $this->id() );
         return $this->merge( $archivedItems );
     }
 
+    /**
+     * Return view template string
+     *
+     * @return string
+     */
     public function viewTemplate()
     {
         $template = 'view';
         return $template;
     }
 
+    /**
+     * Return edit template string
+     *
+     * @return string
+     */
     public function editTemplate()
     {
         $template = 'edit';
         return $template;
     }
 
+    /**
+     * Checks if current block is to be removed
+     * 
+     * @return bool
+     */
     public function toBeRemoved()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'remove';
     }
 
+    /**
+     * Checks if current block is to be modified
+     * 
+     * @return bool
+     */
     public function toBeModified()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'modify';
     }
 
+    /**
+     * Checks if current block is to be added
+     * 
+     * @return bool
+     */
     public function toBeAdded()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
 
+    /**
+     * Sorting items based on the ts_publication and priority attributes
+     *
+     * @param eZPageBlockItem $a
+     * @param eZPageBlockItem $b
+     * @return integer
+     */
     public function sortItems( $a, $b )
     {
         if ( $a->attribute('ts_publication') == $b->attribute('ts_publication') )

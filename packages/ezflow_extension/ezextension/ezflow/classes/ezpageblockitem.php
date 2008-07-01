@@ -29,6 +29,12 @@ class eZPageBlockItem
     private $attributes = array();
     private $XMLStorable;
 
+    /**
+     * Constructor
+     *
+     * @param array $row
+     * @param bool $xmlStorable
+     */
     function __construct( $row = false, $xmlStorable = true )
     {
         $this->XMLStorable = $xmlStorable;
@@ -38,7 +44,13 @@ class eZPageBlockItem
         }
     }
 
-    public function toXML( $dom )
+    /**
+     * Creates DOMElement with item data
+     *
+     * @param DOMDocument $dom
+     * @return DOMElement
+     */
+    public function toXML( DOMDocument $dom )
     {
         if ( !$this->XMLStorable )
         {
@@ -71,7 +83,13 @@ class eZPageBlockItem
         return $itemNode;
     }
 
-    public static function createFromXML( $node )
+    /**
+     * Creates and return eZPageBlockItem object from given XML
+     *
+     * @param DOMElement $node
+     * @return eZPageBlockItem
+     */
+    public static function createFromXML( DOMElement $node )
     {
         $newObj = new eZPageBlockItem();
 
@@ -92,21 +110,44 @@ class eZPageBlockItem
         return $newObj;
     }
 
+    /**
+     * Return attributes names
+     * 
+     * @return array(string)
+     */
     public function attributes()
     {
         return array_keys( $this->attributes );
     }
 
+    /**
+     * Checks if attribute with given $name exists
+     *  
+     * @param string $name
+     * @return bool
+     */
     public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
+    /**
+     * Set attribute with given $name to $value
+     * 
+     * @param string $name
+     * @param mixed $value
+     */
     public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
 
+    /**
+     * Return value of attribute with given $name
+     * 
+     * @return mixed
+     * @param string $name
+     */
     public public function attribute( $name )
     {
         if ( $this->hasAttribute( $name ) )
@@ -120,16 +161,31 @@ class eZPageBlockItem
         }
     }
 
+    /**
+     * Checks if current item is to be removed
+     * 
+     * @return bool
+     */
     public function toBeRemoved()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'remove';
     }
 
+    /**
+     * Checks if current item is to be modified
+     * 
+     * @return bool
+     */
     public function toBeModified()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'modify';
     }
 
+    /**
+     * Checks if current item is to be added
+     * 
+     * @return bool
+     */
     public function toBeAdded()
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';

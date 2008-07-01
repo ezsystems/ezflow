@@ -28,12 +28,22 @@ class eZPage
 {
     private $attributes = array();
 
+    /**
+     * Constructor
+     * 
+     * @param string $name
+     */
     function __construct( $name = null )
     {
         if ( isset( $name ) )
             $this->attributes['name'] = $name;
     }
 
+    /**
+     * Dumps object structure into XML type string
+     * 
+     * @return string
+     */
     public function toXML()
     {
         $dom = new DOMDocument( '1.0', 'utf-8' );
@@ -70,6 +80,12 @@ class eZPage
         return $dom->saveXML();
     }
 
+    /**
+     * Creates object structure from given XML type string
+     * 
+     * @param string $source
+     * @return eZPage
+     */
     public static function createFromXML( $source )
     {
         $newObj = new eZPage();
@@ -105,12 +121,24 @@ class eZPage
         return $newObj;
     }
 
+    /**
+     * Adds new $zone to the eZPage object
+     * 
+     * @param eZPageZone $zone
+     * @return eZPageZone
+     */
     public function addZone( eZPageZone $zone )
     {
         $this->attributes['zones'][] = $zone;
         return $zone;
     }
 
+    /**
+     * Return zone object by given index
+     * 
+     * @param integer $index
+     * @return eZPageZone
+     */
     public function getZone( $index )
     {
         $zone = null;
@@ -121,17 +149,32 @@ class eZPage
         return $zone;
     }
 
+    /**
+     * Return eZPage name attribute
+     * 
+     * @return string
+     */
     public function getName()
     {
         return isset( $this->attributes['name'] ) ? $this->attributes['name'] : null;
     }
 
+    /**
+     * Remove zone from eZPage object by given index
+     * 
+     * @param integer $index
+     */
     public function removeZone( $index )
     {
         $zones =& $this->attributes['zones'];
         $zones = array_splice( $zones, $index, 1 );
     }
 
+    /**
+     * Remove zones from eZPage object with action "add" or set action to
+     * "remove" for zones which already presists
+     * 
+     */
     public function removeZones()
     {
         foreach( $this->attributes['zones'] as $index => $zone )
@@ -143,26 +186,54 @@ class eZPage
         }
     }
 
+    /**
+     * Return total zone count
+     * 
+     * @return integer
+     */
     public function getZoneCount()
     {
         return isset( $this->attributes['zones'] ) ? count( $this->attributes['zones'] ) : 0;
     }
 
+    /**
+     * Return attributes names
+     * 
+     * @return array(string)
+     */
     public function attributes()
     {
         return array_keys( $this->attributes );
     }
 
+    /**
+     * Checks if attribute with given $name exists
+     *  
+     * @param string $name
+     * @return bool
+     */
     public function hasAttribute( $name )
     {
         return in_array( $name, array_keys( $this->attributes ) );
     }
 
+    /**
+     * Set attribute with given $name to $value
+     * 
+     * @param string $name
+     * @param mixed $value
+     */
     public function setAttribute( $name, $value )
     {
         $this->attributes[$name] = $value;
     }
 
+    /**
+     * Return value of attribute with given $name
+     * 
+     * @return mixed
+     * @param string $name
+     */
     public function attribute( $name )
     {
         if ( $this->hasAttribute( $name ) )
@@ -176,6 +247,11 @@ class eZPage
         }
     }
 
+    /**
+     * Cleanup processed objects, removes action attribute
+     * removes all zones marked with "remove" action
+     *  
+     */
     public function removeProcessed()
     {
         if ( $this->hasAttribute( 'action' ) )
