@@ -29,7 +29,15 @@ class eZFlowOperations
     const ROTATION_SIMPLE = 1;
     const ROTATION_RANDOM = 2;
 
-    static function updateBlockPoolByBlockID( $blockID, $publishedBeforeOrAt = false )
+    /**
+     * Update block pool for block with given $blockID
+     * 
+     * @static
+     * @param string $blockID
+     * @param integer $publishedBeforeOrAt
+     * @return integer
+     */
+    public static function updateBlockPoolByBlockID( $blockID, $publishedBeforeOrAt = false )
     {
         $db = eZDB::instance();
         $blockINI = eZINI::instance( 'block.ini' );
@@ -109,7 +117,13 @@ class eZFlowOperations
         return count( $newItems );
     }
 
-    static function update()
+    /**
+     * Do all time based operations on block pool such as rotation, updating
+     * the queue, overflow as well as executes fetch interfaces.
+     * 
+     * @static
+     */
+    public static function update()
     {
         include_once( 'kernel/classes/ezcontentcache.php' );
 
