@@ -733,6 +733,35 @@ class eZPageType extends eZDataType
         return true;
     }
 
+    function toString( $contentObjectAttribute )
+    {
+        return $contentObjectAttribute->attribute( 'data_text' );
+    }
+
+    function fromString( $contentObjectAttribute, $string )
+    {
+        return $contentObjectAttribute->setAttribute( 'data_text', $string );
+    }
+
+    function serializeContentObjectAttribute( $package, $objectAttribute )
+    {
+        $node = $this->createContentObjectAttributeDOMNode( $objectAttribute );
+
+        $dom = new DOMDocument( '1.0', 'utf-8' );
+        $success = $dom->loadXML( $objectAttribute->attribute( 'data_text' ) );
+
+        $importedRoot = $node->ownerDocument->importNode( $dom->documentElement, true );
+        $node->appendChild( $importedRoot );
+
+        return $node;
+    }
+
+    function unserializeContentObjectAttribute( $package, $objectAttribute, $attributeNode )
+    {
+        $rootNode = $attributeNode->getElementsByTagName( 'ezpage' )->item( 0 );
+        $xmlString = $rootNode ? $rootNode->ownerDocument->saveXML( $rootNode ) : '';
+        $objectAttribute->setAttribute( 'data_text', $xmlString );
+    }
 }
 
 eZDataType::register( eZPageType::DATA_TYPE_STRING, "ezpagetype" );
