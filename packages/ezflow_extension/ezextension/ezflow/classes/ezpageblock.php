@@ -148,6 +148,7 @@ class eZPageBlock
     /**
      * Creates and return eZPageBlock object from given XML
      * 
+     * @static
      * @param DOMElement $node
      * @return eZPageBlock
      */
@@ -361,7 +362,7 @@ class eZPageBlock
     }
 
     /**
-     * Fetches block from database be given $blockID
+     * Fetches block from database by given $blockID
      *
      * @param string $blockID
      * @param bool $asObject

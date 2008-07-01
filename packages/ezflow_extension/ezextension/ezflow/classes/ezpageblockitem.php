@@ -86,6 +86,7 @@ class eZPageBlockItem
     /**
      * Creates and return eZPageBlockItem object from given XML
      *
+     * @static
      * @param DOMElement $node
      * @return eZPageBlockItem
      */

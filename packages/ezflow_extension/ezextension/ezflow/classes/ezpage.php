@@ -83,6 +83,7 @@ class eZPage
     /**
      * Creates object structure from given XML type string
      * 
+     * @static
      * @param string $source
      * @return eZPage
      */

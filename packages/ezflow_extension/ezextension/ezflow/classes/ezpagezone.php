@@ -83,6 +83,7 @@ class eZPageZone
     /**
      * Creates and return eZPageZone object from given XML
      * 
+     * @static
      * @param DOMElement $node
      * @return eZPageZone
      */
