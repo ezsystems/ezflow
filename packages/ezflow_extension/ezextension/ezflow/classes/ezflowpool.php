@@ -74,7 +74,11 @@ class eZFlowPool
      */
     static function validNodes( $blockID, $asObject = true )
     {
-        include_once( 'kernel/classes/ezcontentobjecttreenode.php' );
+        if ( isset( $GLOBALS['eZFlowPool'] ) === false )
+            $GLOBALS['eZFlowPool'] = array();
+
+        if ( isset( $GLOBALS['eZFlowPool'][$blockID] ) )
+            return $GLOBALS['eZFlowPool'][$blockID];
 
         $db = eZDB::instance();
         $validNodes = $db->arrayQuery( "SELECT *
@@ -84,14 +88,25 @@ class eZFlowPool
                                           AND ezm_pool.ts_hidden=0
                                           AND ezcontentobject_tree.node_id = ezm_pool.node_id
                                         ORDER BY ezm_pool.priority DESC" );
-        if ( $asObject )
+
+        if ( $asObject && count( $validNodes ) > 0 )
         {
             $validNodesObjects = array();
+            $nodeIDs = array();
+            
             foreach( $validNodes as $node )
             {
-                $nodeID = $node['node_id'];
-                $validNodesObjects[] = eZContentObjectTreeNode::fetch( $nodeID );
+                $nodeIDs[] = $node['node_id'];
             }
+            
+
+            $validNodesObjects = eZContentObjectTreeNode::fetch( $nodeIDs );
+
+            if ( !is_array( $validNodesObjects ) )
+                $validNodesObjects = array( $validNodesObjects );
+            
+            $GLOBALS['eZFlowPool'][$blockID] = $validNodesObjects;
+
             return $validNodesObjects;
         }
         else
