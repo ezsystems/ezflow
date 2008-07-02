@@ -17,34 +17,37 @@ AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
 
 #[Example]
-## Name of the block type as shown in the editorial interface.
-#Name=Fetch Name Shown In Editorial Interface
-## How many items are valid, as the new ones are being added, the oldest ones
-## are moved to archive (or moved to another block) so that in any moment,
-## max. NumberOfValidItems are valid.
-#NumberOfValidItems=10
-#NumberOfArchivedItems=5
-#ManualAddingOfItems=disabled
-#TTL=86400
-#FetchClass=ezmExample
-#FetchFixedParameters[]
-#FetchFixedParameters[Class]=article;folder
-#FetchFixedParameters[...]=...
-#FetchParameters[]
-#FetchParametersIsRequired[]
-FetchParameters[Source]=NodeID
-#FetchParametersIsRequired[Source]=true
+# Name of the block type as shown in the editorial interface.
+# Name=Fetch Name Shown In Editorial Interface
+# How many items are valid, as the new ones are being added, the oldest ones
+# are moved to archive (or moved to another block) so that in any moment,
+# max. NumberOfValidItems are valid.
+# NumberOfValidItems=10
+# NumberOfArchivedItems=5
+# ManualAddingOfItems=disabled
+# TTL=86400
+# FetchClass=ezmExample
+# FetchFixedParameters[]
+# FetchFixedParameters[Class]=article;folder
+# FetchFixedParameters[...]=...
+# FetchParameters[]
+# FetchParametersIsRequired[]
+# FetchParameters[Source]=NodeID
+# FetchParametersIsRequired[Source]=true
 # single / multiple
-FetchParametersSelectionType[Source]=single
+# FetchParametersSelectionType[Source]=single
 # true / false
-FetchParametersIsRequired[Source]=true
-#FetchParameters[...]=string
-#FetchParameters[...]=integer
-#CustomAttributes[]=node_id
-#UseBrowseMode[node_id]=true
-#ViewList[]=variation1
-#ViewName[variation1]=Main sotry 1
+# FetchParametersIsRequired[Source]=true
+# FetchParameters[...]=string
+# FetchParameters[...]=integer
+# CustomAttributes[]=node_id
+# UseBrowseMode[node_id]=true
+# ViewList[]=variation1
+# ViewName[variation1]=Main sotry 1
 #
+# Used by browse mode for manual block,
+# possibility to limit block items to specific class
+# AllowedClasses[]=article
 
 [Manual2Items]
 Name=2 items (Manual)

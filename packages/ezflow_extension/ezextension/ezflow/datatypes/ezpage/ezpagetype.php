@@ -448,8 +448,19 @@ class eZPageType extends eZDataType
                 $module =& $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
 
-                eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockItem',
+                $type = $block->attribute( 'type' );
+                $blockINI = eZINI::instance( 'block.ini' );
+                $classArray = false;
+
+                if( $blockINI->hasVariable( $type, 'AllowedClasses' ) )
+                    $classArray = $blockINI->variable( $type, 'AllowedClasses' );
+
+                eZContentBrowse::browse( array( 'class_array' => $classArray,
+                                                'action_name' => 'AddNewBlockItem',
                                                 'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
