@@ -445,7 +445,7 @@ class eZPageType extends eZDataType
                     }
                     break;
             case 'new_item_browse':
-                $module =& $parameters['module'];
+                $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
                 $page = $contentObjectAttribute->content();
@@ -495,7 +495,7 @@ class eZPageType extends eZDataType
 
                 $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
 
-                $module =& $parameters['module'];
+                $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
 
@@ -523,7 +523,7 @@ class eZPageType extends eZDataType
                 }
                 break;
             case 'custom_attribute_browse':
-                $module =& $parameters['module'];
+                $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
 
@@ -708,6 +708,9 @@ class eZPageType extends eZDataType
                                         case 'modify':
                                             $db->query( "UPDATE ezm_pool SET ts_publication='" . $item->attribute( 'ts_publication' ) . "'
                                                                 WHERE object_id='" . $item->attribute( 'object_id' ) . "'" );
+
+                                            $db->query( "UPDATE ezm_pool SET priority='" . $item->attribute( 'priority' ) . "'
+                                                            WHERE object_id='" . $item->attribute( 'object_id' ) . "' AND block_id='$blockID'" );
                                             break;
                                     }
                                 }
