@@ -35,14 +35,22 @@ include_once( 'extension/ezflow/classes/ezsquidcachemanager.php' );
 class eZPageType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezpage';
-    /*!
-     Constructor
+
+    /**
+     * Constructor
+     *
      */
     function __construct()
     {
         parent::__construct( self::DATA_TYPE_STRING, "Layout" );
     }
 
+    /**
+     * Checks if contentobject attribute has content
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return bool
+     */
     function hasObjectAttributeContent( $contentObjectAttribute )
     {
         $page = $contentObjectAttribute->content();
@@ -50,37 +58,58 @@ class eZPageType extends eZDataType
         return count( $zones ) > 0;
     }
 
-    /*!
-     Validates all variables given on content class level
-     \return EZ_INPUT_VALIDATOR_STATE_ACCEPTED or EZ_INPUT_VALIDATOR_STATE_INVALID if
-     the values are accepted or not
+    /**
+     * Validates all variables given on content class level
+     * return eZInputValidator::STATE_ACCEPTED or eZInputValidator::STATE_INVALID if
+     * the values are accepted or not
+     * 
+     * @param eZHTTPTool $http
+     * @param string $base
+     * @param eZContentClassAttribute $classAttribute
+     * @return int
      */
     function validateClassAttributeHTTPInput( $http, $base, $classAttribute )
     {
         return eZInputValidator::STATE_ACCEPTED;
     }
 
-    /*!
-     Fetches all variables inputed on content class level
-     \return true if fetching of class attributes are successfull, false if not
+    /**
+     * Fetches all variables inputed on content class level
+     * return true if fetching of class attributes are successfull, false if not
+     * 
+     * @param eZHTTPTool $http
+     * @param string $base
+     * @param eZContentClassAttribute $classAttribute
+     * @return bool
      */
     function fetchClassAttributeHTTPInput( $http, $base, $classAttribute )
     {
         return true;
     }
-    /*!
-     Validates input on content object level
-     \return EZ_INPUT_VALIDATOR_STATE_ACCEPTED or EZ_INPUT_VALIDATOR_STATE_INVALID if
-     the values are accepted or not
+
+    /**
+     * Validates input on content object level
+     * return eZInputValidator::STATE_ACCEPTED or eZInputValidator::STATE_INVALID if
+     * the values are accepted or not
+     *
+     * @param eZHTTPTool $http
+     * @param string $base
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return int
      */
     function validateObjectAttributeHTTPInput( $http, $base, $contentObjectAttribute )
     {
         return eZInputValidator::STATE_ACCEPTED;
     }
 
-    /*!
-     Fetches all variables from the object
-     \return true if fetching of class attributes are successfull, false if not
+    /**
+     * Fetches all variables from the object
+     * return true if fetching of object attributes are successfull, false if not
+     *
+     * @param eZHTTPTool $http
+     * @param string $base
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return bool
      */
     function fetchObjectAttributeHTTPInput( $http, $base, $contentObjectAttribute )
     {
@@ -240,14 +269,22 @@ class eZPageType extends eZDataType
         return true;
     }
 
+    /**
+     * Stores the datatype data to the database which is related to the object attribute.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     */
     function storeObjectAttribute( $contentObjectAttribute )
     {
         $page = $contentObjectAttribute->content();
         $contentObjectAttribute->setAttribute( 'data_text', $page->toXML() );
     }
 
-    /*!
-     Returns the content.
+    /**
+     * Returns the content data for the given content object attribute.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return eZPage
      */
     function objectAttributeContent( $contentObjectAttribute )
     {
@@ -257,22 +294,37 @@ class eZPageType extends eZDataType
         return $page;
     }
 
-    /*!
-     Returns the meta data used for storing search indeces.
+    /**
+     * Returns the meta data used for storing search indeces.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return string
      */
     function metaData( $contentObjectAttribute )
     {
         return $contentObjectAttribute->attribute( 'data_text' );
     }
 
-    /*!
-     Returns the value as it will be shown if this attribute is used in the object name pattern.
+    /**
+     * Returns the value as it will be shown if this attribute is used in the object name pattern.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param string $name
+     * @return string
      */
     function title( $contentObjectAttribute, $name = null  )
     {
         return '';
     }
 
+    /**
+     * Executes a custom action for an object attribute which was defined on the web page.
+     *
+     * @param eZHTTPTool $http
+     * @param string $action
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param array $parameters
+     */
     function customObjectAttributeHTTPAction( $http, $action, $contentObjectAttribute, $parameters )
     {
         $params = explode( '-', $action );
@@ -575,6 +627,14 @@ class eZPageType extends eZDataType
         }
     }
 
+    /**
+     * Performs necessary actions with attribute data after object is published,
+     * it means that you have access to published nodes.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param eZContentObject $contentObject
+     * @param array(eZContentObjectTreeNode) $publishedNodes
+     */
     function onPublish( $contentObjectAttribute, $contentObject, $publishedNodes )
     {
         $db = eZDB::instance();
@@ -739,24 +799,46 @@ class eZPageType extends eZDataType
         $contentObjectAttribute->store();
     }
 
-    /*!
-     \return true if the datatype can be indexed
+    /**
+     * return true if the datatype can be indexed
+     *
+     * @return bool
      */
     function isIndexable()
     {
         return true;
     }
 
+    /**
+     * return string representation of an contentobjectattribute data for simplified export.
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return string
+     */
     function toString( $contentObjectAttribute )
     {
         return $contentObjectAttribute->attribute( 'data_text' );
     }
 
+    /**
+     * Set contentobject attribute data from $string
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param string $string
+     * @return bool
+     */
     function fromString( $contentObjectAttribute, $string )
     {
         return $contentObjectAttribute->setAttribute( 'data_text', $string );
     }
 
+    /**
+     * Return a DOM representation of the content object attribute
+     *
+     * @param eZPackage $package
+     * @param eZContentObjectAttribute $objectAttribute
+     * @return DOMElement
+     */
     function serializeContentObjectAttribute( $package, $objectAttribute )
     {
         $node = $this->createContentObjectAttributeDOMNode( $objectAttribute );
@@ -770,6 +852,13 @@ class eZPageType extends eZDataType
         return $node;
     }
 
+    /**
+     * Unserailize contentobject attribute
+     *
+     * @param eZPackage $package
+     * @param eZContentObjectAttribute $objectAttribute
+     * @param DOMElement $attributeNode
+     */
     function unserializeContentObjectAttribute( $package, $objectAttribute, $attributeNode )
     {
         $rootNode = $attributeNode->getElementsByTagName( 'ezpage' )->item( 0 );
