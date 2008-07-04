@@ -12,6 +12,7 @@ Changes from 1.0-1 to 1.0-2
 - Fixed bug #012873: eZTemplate: No such attribute for object(eZPageBlock): fetch_params
 - Fixed bug #012783: eZFlow : Elapsed time of the queue list is incorrect
 - Fixed bug #013067: ezflow: Datatype does not support class/content packages
+- Fixed bug #013305: quick search of ezflow is not working with ezfind extension
 
 *Enhancements*
 
