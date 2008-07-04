@@ -28,11 +28,22 @@
 
 class eZSquidCacheManager
 {
-    /*!
-        Purges the given URL on the Squid server. The relative URL is passed. 
-        E.g. /en/products/url_alias_for_page
-    */
-    static function purgeURL( $url )
+    /**
+     * Constructor
+     *
+     */
+    function __construct()
+    {
+    }
+
+    /**
+     * Purges the given URL on the Squid server. The relative URL is passed. 
+     * E.g. /en/products/url_alias_for_page
+     * 
+     * @static
+     * @param string $url
+     */
+    public static function purgeURL( $url )
     {
 
         $ini = eZINI::instance( 'squid.ini' );
@@ -74,7 +85,13 @@ class eZSquidCacheManager
         fclose( $fp );
       }
 
-      static function isEnabled()
+      /**
+       * Checks if Squid pruge cache is enabled for object publish action
+       * 
+       * @static
+       * @return bool
+       */
+      public static function isEnabled()
       {
           $ini = eZINI::instance( 'squid.ini' );
           
@@ -87,6 +104,6 @@ class eZSquidCacheManager
               return false;
           }
       }
-
 }
+
 ?>
