@@ -30,21 +30,26 @@
 // using the php json extension included in php 5.2 and 
 // higher or fallback to php version if not present
 
-
-include_once( 'lib/ezutils/classes/ezini.php' );
-
-
 class JsonContent
 {
-    
-    function JsonContent( )
+    /**
+     * Constructor
+     *
+     */
+    function __construct()
     {
     }
     
-    /*
-     Function for encoding content object(s) or node(s) to simplified
-     json objects and later also xml on php5
-    */
+
+    /**
+     * Function for encoding content object(s) or node(s) to simplified
+     * json objects and later also xml on php5
+     * 
+     * @param mixed $obj
+     * @param array $params
+     * @param string $type
+     * @return string
+     */
     function encode( $obj, $params = array(), $type = 'json' )
     {
         if ( !$obj ) return '';
@@ -63,14 +68,18 @@ class JsonContent
         }
         return $this->json_encode( $ret );
     }
-    
-    /*
-      Function for simplifying a content object or node 
-    */
+
+    /**
+     * Function for simplifying a content object or node
+     *
+     * @param mixed $obj
+     * @param array $params
+     * @return array
+     */
     function simplify( $obj, $params = array() )
     {
         if ( !$obj ) return '';
-        
+
         $params = array_merge( array(
                             'dataMap' => array(), // collection of identifiers you want to load, load all with array('all')
                             'dataMapType' => array(), //if you want to filter datamap by type
@@ -88,16 +97,20 @@ class JsonContent
         
         $ret       = array();
         $atr_array = array();
-        $objClass  = strtolower( get_class( $obj ) );
-        
-        if ( $objClass == 'ezcontentobject')
+
+        if ( $obj instanceof  eZContentObject )
         {
             $node = $obj->attribute( 'main_node' );
         }
-        elseif ( $objClass == 'ezcontentobjecttreenode' ) 
+        elseif ( $obj instanceof eZContentObjectTreeNode ) 
         {
             $node = $obj;
             $obj  = $obj->attribute( 'object' );
+        }
+        elseif( $obj instanceof eZFindResultNode )
+        {
+            $obj  = $obj->attribute( 'object' );
+            $node = $obj->attribute( 'main_node' );
         }
         else
         {
@@ -170,14 +183,17 @@ class JsonContent
         return $ret;
     }
     
-    
-    /*
-     * @author      Michal Migurski <mike-json@teczno.com>
-     * @author      Matt Knapp <mdknapp[at]gmail[dot]com>
-     * @author      Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
-     * @copyright   2005 Michal Migurski
-     * @license     http://www.freebsd.org/copyright/freebsd-license.html
-     * @link        http://pear.php.net/pepr/pepr-proposal-show.php?id=198
+    /**
+     * Returns the JSON representation of a value
+     * 
+     * @param mixed
+     * @author Michal Migurski <mike-json@teczno.com>
+     * @author Matt Knapp <mdknapp[at]gmail[dot]com>
+     * @author Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
+     * @copyright 2005 Michal Migurski
+     * @license http://www.freebsd.org/copyright/freebsd-license.html
+     * @link http://pear.php.net/pepr/pepr-proposal-show.php?id=198
+     * @return string
     */
     function json_encode( $var )
     {
@@ -336,14 +352,13 @@ class JsonContent
         }
     }
     
-   /** function name_value
+   /**
     * array-walking function for use in generating JSON-formatted name-value pairs
-    *
-    * @param    string  $name   name of key to use
-    * @param    mixed   $value  reference to an array element to be encoded
-    *
-    * @return   string  JSON-formatted name-value pair, like '"name":value'
-    * @access   private
+    * 
+    * @param string $name
+    * @param mixed $value
+    * @access private
+    * @return string
     */
     function name_value($name, $value)
     {

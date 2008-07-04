@@ -43,7 +43,7 @@
 
 
 include_once( 'kernel/classes/ezsearch.php' );
-include_once( 'extension/ezflow/classes/json_content.php' );
+include_once( 'extension/ezflow/classes/ezjsoncontent.php' );
 
 $http = eZHTTPTool::instance();
 $debug = false;
