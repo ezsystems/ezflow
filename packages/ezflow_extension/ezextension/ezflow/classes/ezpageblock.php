@@ -324,8 +324,6 @@ class eZPageBlock
                 }
             }
 
-            usort( $itemObjects, array( &$this, 'sortItems' ) );
-
             return $itemObjects;
         }
 
@@ -333,7 +331,10 @@ class eZPageBlock
         function getWaitingItems()
         {
             $waitingItems = eZFlowPool::waitingItems( $this->id() );
-            return $this->merge( $waitingItems, true );
+            $merged = $this->merge( $waitingItems, true );
+            usort( $merged, array( $this, 'sortItems' ) );
+            
+            return $merged;
         }
 
         function getValidItems()

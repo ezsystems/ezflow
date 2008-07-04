@@ -95,6 +95,7 @@
 
 {if $is_custom|not}
 <table border="0" cellspacing="1" class="items queue" id="z:{$zone_id}_b:{$block_id}_q">
+    <tbody>
     {if $block.waiting|count()}
     {foreach $block.waiting as $item sequence array( 'bglight', 'bgdark') as $style}
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}" class="{if $item.ts_publication|lt($current_time)}tbp{/if}">
@@ -137,13 +138,15 @@
          <td colspan="3">Queue: no items.</td>
      </tr>
      {/if}
+     </tbody>
 </table>
 <table border="0" cellspacing="1" class="items online" id="z:{$zone_id}_b:{$block_id}_o">
+    <tbody>
     {if $block.valid|count()}
     {foreach $block.valid as $item sequence array( 'bglight', 'bgdark') as $style}
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}">
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
-        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" colspan="2">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
+        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" colspan="2" class="handler">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
     </tr>
     {/foreach}
     {else}
@@ -193,6 +196,7 @@
         <td colspan="3">History: no items.</td>
     </tr>
     {/if}
+    </tbody>
 </table>
 
 <div class="block-controls float-break">
