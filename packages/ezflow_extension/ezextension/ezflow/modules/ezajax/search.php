@@ -43,7 +43,7 @@
 
 
 include_once( 'kernel/classes/ezsearch.php' );
-include_once( 'extension/ezflow/classes/ezjsoncontent.php' );
+include_once( 'extension/ezflow/classes/ezflowajaxcontent.php' );
 
 $http = eZHTTPTool::instance();
 $debug = false;
@@ -140,8 +140,7 @@ $searchList = eZSearch::search( $searchStr, $param );
 $r = '[]';
 if ($searchList  && count($searchList["SearchResult"]) > 0)
 {
-	$jsonObj = new JsonContent();
-	$r = $jsonObj->encode( $searchList["SearchResult"] );
+	$r = eZFlowAjaxContent::nodeEncode( $searchList["SearchResult"] );
 }
 
 echo $varName . '{SearchResult:' . $r . ",\nSearchCount:" . $searchList['SearchCount'] .
