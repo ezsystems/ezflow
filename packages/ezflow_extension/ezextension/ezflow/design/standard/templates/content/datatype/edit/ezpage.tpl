@@ -108,13 +108,18 @@ YAHOO.example.DDApp = {ldelim}
     {if and( is_set( $zone.blocks ), $zone.blocks|count() )}
     {foreach $zone.blocks as $block_id => $block}
         new YAHOO.util.DDTarget("z:{$zone_id}_b:{$block_id}_q");
+        new YAHOO.util.DDTarget("z:{$zone_id}_b:{$block_id}_o");
 
         {foreach $block.waiting as $item}
             dd{$zone_id}{$block_id}{$item.object_id} = new YAHOO.example.DDList("z:{$zone_id}_b:{$block_id}_i:{$item.object_id}");
 
             dd{$zone_id}{$block_id}{$item.object_id}.setHandleElId("z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h");
         {/foreach}
+        {foreach $block.valid as $item}
+            dd{$zone_id}{$block_id}{$item.object_id} = new YAHOO.example.DDList("z:{$zone_id}_b:{$block_id}_i:{$item.object_id}");
 
+            dd{$zone_id}{$block_id}{$item.object_id}.setHandleElId("z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h");
+        {/foreach}
     {/foreach}
     {/if}
 {/foreach}
@@ -183,16 +188,16 @@ YAHOO.extend(YAHOO.example.DDList, YAHOO.util.DDProxy, {
         var url;
         var tableBody = srcEl.parentNode;
         var postData = "";
-        var items = tableBody.getElementsByTagName("tr");
-        for (i=0;i<items.length;i=i+1) {
+        var items = Dom.getElementsByClassName("handler", "td", tableBody);
+        for (i=0;i<items.length;i++) {
             postData += "Items%5B%5D=" + items[i].id + "&";
         }
 
         var tableID = tableBody.parentNode.id;
 {/literal}
-        postData += 'Block=' + tableID + '&ContentObjectAttributeID=' + {$attribute.id} + '&Version=' + {$attribute.version};
+        postData += "Block=" + tableID + "&ContentObjectAttributeID=" + {$attribute.id} + "&Version=" + {$attribute.version};
         url = "{'/ezflow/request'|ezurl(no)}";
-        YAHOO.util.Connect.asyncRequest( 'POST', url, false, postData );
+        YAHOO.util.Connect.asyncRequest( 'POST', url, '', postData );
 {literal}
 
     },
@@ -214,9 +219,16 @@ YAHOO.extend(YAHOO.example.DDList, YAHOO.util.DDProxy, {
             // the negative space (the area of the list without any list items)
             if (!region.intersect(pt)) {
                 var destEl = Dom.get(id);
+                var srcEl = this.getEl();
                 var destDD = DDM.getDDById(id);
-                destEl.appendChild(this.getEl());
-                destDD.isEmpty = false;
+                var srcTargetID = srcEl.parentNode.parentNode.id;
+                var destTargetID = destEl.parentNode.parentNode.id;
+                
+                if(srcTargetID == destTargetID) {
+                    destEl.appendChild(this.getEl());
+                    destDD.isEmpty = false;
+                }
+                
                 DDM.refreshCache();
             }
 
@@ -241,10 +253,13 @@ YAHOO.extend(YAHOO.example.DDList, YAHOO.util.DDProxy, {
     
         var srcEl = this.getEl();
         var destEl = Dom.get(id);
+        var srcTargetID = srcEl.parentNode.parentNode.id;
+        var destTargetID = destEl.parentNode.parentNode.id;
 
         // We are only concerned with list items, we ignore the dragover
         // notifications for the list.
-        if (destEl.nodeName.toLowerCase() == "tr") {
+        if (destEl.nodeName.toLowerCase() == "tr" && 
+            srcTargetID == destTargetID) {
             var orig_p = srcEl.parentNode;
             var p = destEl.parentNode;
 

@@ -766,11 +766,16 @@ class eZPageType extends eZDataType
                                             break;
 
                                         case 'modify':
-                                            $db->query( "UPDATE ezm_pool SET ts_publication='" . $item->attribute( 'ts_publication' ) . "'
+                                            if ( $item->hasAttribute( 'ts_publication' ) )
+                                            {
+                                                $db->query( "UPDATE ezm_pool SET ts_publication='" . $item->attribute( 'ts_publication' ) . "'
                                                                 WHERE object_id='" . $item->attribute( 'object_id' ) . "'" );
-
-                                            $db->query( "UPDATE ezm_pool SET priority='" . $item->attribute( 'priority' ) . "'
-                                                            WHERE object_id='" . $item->attribute( 'object_id' ) . "' AND block_id='$blockID'" );
+                                            }
+                                            if ( $item->hasAttribute( 'priority' ) )
+                                            {
+                                                $db->query( "UPDATE ezm_pool SET priority='" . $item->attribute( 'priority' ) . "'
+                                                                WHERE object_id='" . $item->attribute( 'object_id' ) . "'" );
+                                            }
                                             break;
                                     }
                                 }

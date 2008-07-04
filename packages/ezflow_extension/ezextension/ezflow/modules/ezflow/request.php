@@ -27,48 +27,94 @@
 include_once( 'extension/ezflow/classes/ezflowpool.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
 
-$contentObjectAttributeID = $_POST['ContentObjectAttributeID'];
-$version = $_POST['Version'];
+$http = eZHTTPTool::instance();
 
-$blockParams = createParamsFromStr( $_POST['Block'] );
+if ( $http->hasPostVariable( 'ContentObjectAttributeID' ) )
+    $contentObjectAttributeID = $http->postVariable( 'ContentObjectAttributeID' );
 
-$zoneID = $blockParams['z'];
-$blockID = $blockParams['b'];
+if ( $http->hasPostVariable( 'Version' ) )
+    $version = $http->postVariable( 'Version' );
+
+if ( $http->hasPostVariable( 'Items' ) )
+    $items = $http->postVariable( 'Items' );
+
+if ( $http->hasPostVariable( 'Block' ) )
+    $blockParams = createParamsFromStr( $http->postVariable( 'Block' ) );
+
+if ( isset( $blockParams['z'] ) )
+    $zoneID = $blockParams['z'];
+if ( isset( $blockParams['b'] ) )
+    $blockID = $blockParams['b'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
-$page = $contentObjectAttribute->content();
-$zone = $page->getZone( $zoneID );
-$block = $zone->getBlock( $blockID );
 
-$items = array();
+if ( $contentObjectAttribute )
+    $page = $contentObjectAttribute->content();
+if ( $page )
+    $zone = $page->getZone( $zoneID );
+if ( $zone )
+    $block = $zone->getBlock( $blockID );
 
-foreach( $_POST['Items'] as $key => $item )
+$validCount = count( $block->attribute('valid') );
+
+foreach( $items as $key => $item )
 {
     $itemParams = createParamsFromStr( $item );
 
-    foreach( $block->getWaitingItems() as $blockItem )
+    if( array_key_exists( 'o', $blockParams ) )
     {
-        if( $blockItem->attribute( 'object_id' ) == $itemParams['i'] )
+        foreach( $block->attribute('valid') as $blockItem )
         {
-            if( $blockItem->toBeAdded() )
+            if( $blockItem->attribute( 'object_id' ) == $itemParams['i'] )
             {
-                $blockItem->setAttribute( 'priority', $key + 1 );
-                $items[] = $blockItem;
+                $validCount -= 1;
+                $create = true;
+                
+                if( $block->getItemCount() > 0 )
+                {
+                    foreach( $block->attribute( 'items' ) as $modItem )
+                    {
+                        if( $modItem->toBeModified() && 
+                            $blockItem->attribute( 'object_id' ) == $modItem->attribute( 'object_id' ) )
+                        {
+                            $modItem->setAttribute( 'priority', $validCount );
+                            $create = false;
+                        }
+                    }
+                }
+                
+                if( $create )
+                {
+                    $tmpItem = $block->addItem( new eZPageBlockItem() );
+                    $tmpItem->setAttribute( 'priority', $validCount );
+                    $tmpItem->setAttribute( 'object_id', $blockItem->attribute( 'object_id' ) );
+                    $tmpItem->setAttribute( 'action', 'modify' );
+                }
             }
-            else
+        }
+    }
+    else
+    {
+       foreach( $block->attribute('waiting') as $blockItem )
+        {
+            if( $blockItem->attribute( 'object_id' ) == $itemParams['i'] )
             {
-                $tmpItem = $block->addItem( new eZPageBlockItem() );
-                $tmpItem->setAttribute( 'priority', $key + 1 );
-                $tmpItem->setAttribute( 'object_id', $blockItem->attribute( 'object_id' ) );
-                $tmpItem->setAttribute( 'ts_publication', $blockItem->attribute( 'ts_publication' ) );
-                $tmpItem->setAttribute( 'action', 'modify' );
-                $items[] = $tmpItem;
+                if( $blockItem->toBeAdded() )
+                {
+                    $blockItem->setAttribute( 'priority', $key + 1 );
+                }
+                else
+                {
+                    $tmpItem = $block->addItem( new eZPageBlockItem() );
+                    $tmpItem->setAttribute( 'priority', $key + 1 );
+                    $tmpItem->setAttribute( 'object_id', $blockItem->attribute( 'object_id' ) );
+                    $tmpItem->setAttribute( 'ts_publication', $blockItem->attribute( 'ts_publication' ) );
+                    $tmpItem->setAttribute( 'action', 'modify' );
+                }
             }
         }
     }
 }
-
-$block->setAttribute( 'items', $items );
 
 $contentObjectAttribute->setContent( $page );
 $contentObjectAttribute->store();

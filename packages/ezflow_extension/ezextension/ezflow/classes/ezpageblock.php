@@ -424,8 +424,6 @@ class eZPageBlock
             }
         }
 
-        usort( $itemObjects, array( $this, 'sortItems' ) );
-
         return $itemObjects;
     }
 
@@ -437,7 +435,10 @@ class eZPageBlock
     protected function getWaitingItems()
     {
         $waitingItems = eZFlowPool::waitingItems( $this->id() );
-        return $this->merge( $waitingItems, true );
+        $merged = $this->merge( $waitingItems, true );
+        usort( $merged, array( $this, 'sortItems' ) ); 
+        
+        return $merged;
     }
 
     /**
@@ -454,7 +455,7 @@ class eZPageBlock
     /**
      * Fetches valid items
      *
-     * @return array(eZPageBlockItem)
+     * @return array(eZContentObjectTreeNode)
      */
     public function getValidItemsAsNodes()
     {
