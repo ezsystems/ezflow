@@ -99,6 +99,11 @@ class JsonContent
             $node = $obj;
             $obj  = $obj->attribute( 'object' );
         }
+        elseif ( $objClass == 'ezfindresultnode' )
+        {
+            $obj  = $obj->attribute( 'object' );
+            $node = $obj;
+        }
         else
         {
             return ''; // Other passed objects are not supported
