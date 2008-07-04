@@ -92,19 +92,13 @@ class eZFlowPool
         if ( $asObject && count( $validNodes ) > 0 )
         {
             $validNodesObjects = array();
-            $nodeIDs = array();
-            
+
             foreach( $validNodes as $node )
             {
-                $nodeIDs[] = $node['node_id'];
+                $nodeID = $node['node_id'];
+                $validNodesObjects[] = eZContentObjectTreeNode::fetch( $nodeID );
             }
-            
 
-            $validNodesObjects = eZContentObjectTreeNode::fetch( $nodeIDs );
-
-            if ( !is_array( $validNodesObjects ) )
-                $validNodesObjects = array( $validNodesObjects );
-            
             $GLOBALS['eZFlowPool'][$blockID] = $validNodesObjects;
 
             return $validNodesObjects;
