@@ -128,7 +128,7 @@ YAHOO.ez.BlockDDApp = function() {
         
         init: function() {
             this.initCfg();
-            Event.onContentReady("zone-content-container", this.initDragHandlers);
+            Event.onAvailable("zone-content-container", this.initDragHandlers, null, null, true);
         },
         
         initDragHandlers: function() {
