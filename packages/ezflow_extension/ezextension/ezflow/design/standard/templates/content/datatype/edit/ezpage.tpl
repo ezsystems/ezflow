@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/logger/logger-min.js"></script>
 <script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/cookie/cookie-beta-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/blockddapp.js"|ezdesign} type="text/javascript" language="javascript"></script>
