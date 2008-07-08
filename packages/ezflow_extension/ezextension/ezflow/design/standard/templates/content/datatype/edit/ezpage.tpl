@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/logger/logger-min.js"></script>
 <script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/cookie/cookie-beta-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/blockddapp.js"|ezdesign} type="text/javascript" language="javascript"></script>
@@ -55,13 +56,8 @@ else {
     tabView.set( 'activeIndex', 0 );
 }
 
-tabView.on( 'activeTabChange', function(e) {
-    var tabIndex = tabView.getTabIndex( e.newValue );
-    YAHOO.util.Cookie.set( 'eZPageActiveTabIndex', tabIndex );
-});
-
 var tabs = tabView.get("tabs");
-for( var i = 0; i < tabs.length; i += 1 ) {
+for( var i = 0; i < tabs.length; i++ ) {
     tabs[i].on("dataLoadedChange", function(e) {
         YAHOO.ez.BlockDDApp.cfg = {
 {/literal} 
@@ -74,6 +70,11 @@ for( var i = 0; i < tabs.length; i += 1 ) {
     });
 }
 
+tabView.on("activeTabChange", function(e) {
+    var tabIndex = tabView.getTabIndex( e.newValue );
+    YAHOO.util.Cookie.set("eZPageActiveTabIndex", tabIndex);
+});
+
 tabView.appendTo('zone-tabs-container');
 
 function confirmDiscard( question )
@@ -81,5 +82,6 @@ function confirmDiscard( question )
     // Ask user if he really wants to do it.
     return confirm( question );
 }
+
 {/literal}
 </script>

@@ -128,13 +128,13 @@ YAHOO.ez.BlockDDApp = function() {
         
         init: function() {
             this.initCfg();
-            Event.onAvailable("zone-content-container", this.initDragHandlers, null, null, true);
+            Event.onContentReady("zone-tabs-container", this.initDragHandlers, this, true);
         },
         
         initDragHandlers: function() {
-            var qTable = Dom.getElementsByClassName("queue", "table", "zone-content-container");
-            var oTable = Dom.getElementsByClassName("online", "table", "zone-content-container");
-        
+            var qTable = Dom.getElementsByClassName("queue", "table", "zone-tabs-container");
+            var oTable = Dom.getElementsByClassName("online", "table", "zone-tabs-container");
+
             for(var i = 0; i < qTable.length; i+=1) {
                 new YAHOO.util.DDTarget(qTable[i].id);
                 var qItems = Dom.getElementsByClassName("handler", "td", qTable[i].id);

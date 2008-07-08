@@ -1,4 +1,3 @@
-<div id="zone-content-container">
 <div class="block">
     <label>Block name:</label>
     <input type="text" value="" name="ContentObjectAttribute_ezpage_block_name_{$attribute.id}_{$zone_id}" size="70" class="halfbox" />
@@ -22,4 +21,3 @@
         {block_edit_gui block=$block block_id=$index current_time=currentdate() zone_id=$zone_id attribute=$attribute zone=$zone}
     {/if}
 {/foreach}
-</div>
