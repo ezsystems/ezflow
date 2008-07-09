@@ -16,6 +16,10 @@
     <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_new_block-{$zone_id}]" value="Add block" />
 </div>
 
+<div class="block">
+    <a class="trigger expand-all" href="#" title="">Expand</a> | <a class="trigger collapse-all" href="#" title="">Collapse</a>
+</div>
+
 {foreach $zone.blocks as $index => $block}
     {if ne( $block.action, 'remove' )}
         {block_edit_gui block=$block block_id=$index current_time=currentdate() zone_id=$zone_id attribute=$attribute zone=$zone}

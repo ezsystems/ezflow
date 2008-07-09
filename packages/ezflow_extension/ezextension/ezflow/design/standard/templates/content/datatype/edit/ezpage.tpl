@@ -1,6 +1,6 @@
 <script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/cookie/cookie-beta-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
-<script src={"javascript/blockddapp.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script src={"javascript/blocktools.js"|ezdesign} type="text/javascript" language="javascript"></script>
 <script src={"javascript/tabview/tabview-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
 
 {def $zone_id = ''
@@ -58,14 +58,17 @@ else {
 var tabs = tabView.get("tabs");
 for( var i = 0; i < tabs.length; i++ ) {
     tabs[i].on("dataLoadedChange", function(e) {
-        YAHOO.ez.BlockDDApp.cfg = {
+        YAHOO.util.Event.onContentReady("zone-tabs-container", function() {
+            YAHOO.ez.BlockDD.cfg = {
 {/literal} 
-        url: "{'ezflow/request'|ezurl('no')}",
-        attributeid: {$attribute.id},
-        version: {$attribute.version}
+            url: "{'ezflow/request'|ezurl('no')}",
+            attributeid: {$attribute.id},
+            version: {$attribute.version}
 {literal} 
-        };
-        YAHOO.ez.BlockDDApp.init();
+            };
+            YAHOO.ez.BlockDD.init();
+            YAHOO.ez.BlockCollapse.init();
+        });
     });
 }
 

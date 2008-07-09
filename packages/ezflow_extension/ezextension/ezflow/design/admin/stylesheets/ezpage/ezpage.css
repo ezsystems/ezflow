@@ -10,9 +10,7 @@ div.block-header
     padding: 0.25em;
     font-weight: bold;
     background-color: #BFBFB7;
-    border-left: 1px solid #D8D8D8;
-    border-right: 1px solid #D8D8D8;
-    border-top: 1px solid #D8D8D8;
+    border: 1px solid #D8D8D8;
     color: #000000;
 }
 
@@ -20,8 +18,39 @@ div.block-content
 {
     border-left: 1px solid #D8D8D8;
     border-right: 1px solid #D8D8D8;
-    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
     padding: 0.5em;
+}
+
+em.trigger
+{
+    vertical-align: middle;
+    margin-right: 0.5em;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    width: 15px;
+    float: left;
+}
+
+em.expand
+{
+    background-image: url(../../images/ezpage/expand.gif);
+}
+
+em.collapse
+{
+    background-image: url(../../images/ezpage/collapse.gif);
+}
+
+div.collapsed
+{
+    display: none;
+}
+
+div.expanded
+{
+    display: block;
 }
 
 table.items

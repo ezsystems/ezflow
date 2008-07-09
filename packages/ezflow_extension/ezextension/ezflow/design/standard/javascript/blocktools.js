@@ -1,6 +1,6 @@
 YAHOO.namespace("ez");
 
-YAHOO.ez.BlockDDApp = function() {
+YAHOO.ez.BlockDD = function() {
 
     var cfg = {};
     var Dom = YAHOO.util.Dom;
@@ -128,7 +128,7 @@ YAHOO.ez.BlockDDApp = function() {
         
         init: function() {
             this.initCfg();
-            Event.onContentReady("zone-tabs-container", this.initDragHandlers, this, true);
+            this.initDragHandlers();
         },
         
         initDragHandlers: function() {
@@ -160,4 +160,153 @@ YAHOO.ez.BlockDDApp = function() {
         cfg: {}
     };
 
+}();
+
+YAHOO.ez.BlockCollapse = function(){
+    var Dom = YAHOO.util.Dom,
+        Event = YAHOO.util.Event,
+        Cookie = YAHOO.util.Cookie;
+
+    var getTriggers = function() {
+        var emTriggers = Dom.getElementsByClassName( "trigger", "em", "zone-tabs-container" );
+        var aTriggers = Dom.getElementsByClassName( "trigger", "a", "zone-tabs-container" );
+        var triggers = emTriggers.concat(aTriggers);
+
+        return triggers;
+    };
+    
+    var exec = function() {
+        var triggers = getTriggers();
+
+        for( var i = 0; i < triggers.length; i++ ) {
+            var triggerEl = triggers[i];
+            
+            setTriggerEvent(triggerEl);
+            
+            if(triggerEl.nodeName.toLowerCase() == "em") {
+                updateBlockView(triggerEl);
+            }
+        }
+    };
+    
+    var setTriggerEvent = function(o) {
+        Event.purgeElement(o);
+        Event.on(o, "click", triggerAction, o, true);
+    };
+
+    var getBlockContainer = function(o) {
+        var currentEl = o;
+        var isContainer = false;
+        
+        while(!isContainer) {
+            if( Dom.hasClass(currentEl, "block-container") ) {
+                isContainer = true;
+            }
+            else {
+                currentEl = currentEl.parentNode;
+            }
+        }
+        
+        return currentEl;
+    }
+
+    var getCollapsedEl = function(o) {
+        var blockContainer = getBlockContainer(o);
+        var collapsedEl = Dom.getElementsByClassName("collapsed", "div", blockContainer)[0];
+        
+        return collapsedEl;
+    };
+    
+    var getExpandedEl = function(o) {
+        var blockContainer = getBlockContainer(o);
+        var expandedEl = Dom.getElementsByClassName("expanded", "div", blockContainer)[0];
+        
+        return expandedEl;
+    };
+    
+    var getBlockID = function(o) {
+        var blockContainer = getBlockContainer(o);
+        var id = blockContainer.id;
+        
+        return id;
+    };
+    
+    var expandBlock = function(o) {
+        Dom.replaceClass(o,"expand", "collapse" );
+
+        var collapsedEl = getCollapsedEl(o);
+
+        if(collapsedEl) {
+            Dom.replaceClass( collapsedEl, "collapsed", "expanded" );
+        }
+        
+        Cookie.setSub("eZPageBlockState", getBlockID(o), "1" );
+    };
+    
+    var collapseBlock = function(o) {
+        Dom.replaceClass( o, "collapse", "expand" );
+            
+        var expandedEl = getExpandedEl(o);
+            
+        if(expandedEl) {
+            Dom.replaceClass( expandedEl, "expanded", "collapsed" );
+        }
+        
+        Cookie.setSub("eZPageBlockState", getBlockID(o), "0" );
+    }
+    
+    var updateBlockView = function(o) {
+        var id = getBlockID(o);
+        
+        var state = Cookie.getSub("eZPageBlockState", id);
+        
+        if(state == "1") {
+            expandBlock(o);
+        }
+    };
+    
+    var expandAll = function() {
+        var triggers = getTriggers();
+        
+        for( var i = 0; i < triggers.length; i++ ) {
+            var triggerEl = triggers[i];
+            
+            if(triggerEl.nodeName.toLowerCase() == "em") {
+                expandBlock(triggerEl);
+            }
+        }
+    };
+    
+    var collapseAll = function() {
+        var triggers = getTriggers();
+        
+        for( var i = 0; i < triggers.length; i++ ) {
+            var triggerEl = triggers[i];
+            
+            if(triggerEl.nodeName.toLowerCase() == "em") {
+                collapseBlock(triggerEl);
+            }
+        }
+    };
+    
+    var triggerAction = function(e, triggerEl) {
+        if( Dom.hasClass( triggerEl, "expand" ) ) {
+            expandBlock(triggerEl);
+        }
+        else if( Dom.hasClass( triggerEl, "collapse" ) ) {
+            collapseBlock(triggerEl);
+        }
+        else if( Dom.hasClass( triggerEl, "expand-all" ) ) {
+            expandAll();
+        }
+        else if( Dom.hasClass( triggerEl, "collapse-all" ) ) {
+            collapseAll();
+        }
+    };
+
+    return {
+        init: function() {
+            exec();
+        }
+    };
 }();

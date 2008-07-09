@@ -9,17 +9,17 @@
              ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
     {set $is_custom = true()}
 {/if}
-<div class="block-container">
+<div id="{$block.id}" class="block-container">
 
 <div class="block-header float-break">
     <div class="left">
-    {ezini( $block.type, 'Name', 'block.ini' )}
+        <em class="trigger expand"></em> {ezini( $block.type, 'Name', 'block.ini' )}
     </div>
     <div class="right">
         <input type="image" src="{'ezpage/block_up.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_up-{$zone_id}-{$block_id}]" /> <input type="image" src="{'ezpage/block_down.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_down-{$zone_id}-{$block_id}]" /> <input type="image" src="{'ezpage/block_del.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_remove_block-{$zone_id}-{$block_id}]" value="Remove" onclick="return confirmDiscard( 'Are you sure you want to remove this block?' );" />
     </div>
 </div>
-<div class="block-content">
+<div class="block-content collapsed">
 
 <div class="block-controls float-break">
     <div class="left blockname">

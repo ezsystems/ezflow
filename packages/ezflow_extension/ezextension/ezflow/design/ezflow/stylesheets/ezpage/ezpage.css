@@ -14,19 +14,50 @@ div.block-header
     background-image: url(../../images/ezpage/block_header_bg.png);
     background-position: left top;
     background-repeat: repeat-x;
-    border-left: 1px solid #D8D8D8;
-    border-right: 1px solid #D8D8D8;
-    border-top: 1px solid #D8D8D8;
+    border: 1px solid #D8D8D8;
     color: #000000;
 }
 
 div.block-content
 {
-    border: 1px solid #D8D8D8;
+    border-left: 1px solid #D8D8D8;
+    border-right: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
     padding: 0.5em;
     background-image: url(../../images/ezpage/block_content_bg.png);
     background-position: left bottom;
     background-repeat: repeat-x;
+}
+
+em.trigger
+{
+    vertical-align: middle;
+    margin-right: 0.5em;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    width: 15px;
+    float: left;
+}
+
+em.expand
+{
+    background-image: url(../../images/ezpage/expand.gif);
+}
+
+em.collapse
+{
+    background-image: url(../../images/ezpage/collapse.gif);
+}
+
+div.collapsed
+{
+    display: none;
+}
+
+div.expanded
+{
+    display: block;
 }
 
 table.items
