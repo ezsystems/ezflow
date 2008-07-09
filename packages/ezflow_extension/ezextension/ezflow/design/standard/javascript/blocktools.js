@@ -182,8 +182,8 @@ YAHOO.ez.BlockCollapse = function(){
             var triggerEl = triggers[i];
             
             setTriggerEvent(triggerEl);
-            
-            if(triggerEl.nodeName.toLowerCase() == "em") {
+
+            if(triggerEl.nodeName.toLowerCase() === "em") {
                 updateBlockView(triggerEl);
             }
         }
@@ -257,9 +257,9 @@ YAHOO.ez.BlockCollapse = function(){
     
     var updateBlockView = function(o) {
         var id = getBlockID(o);
-        
+
         var state = Cookie.getSub("eZPageBlockState", id);
-        
+
         if(state == "1") {
             expandBlock(o);
         }
