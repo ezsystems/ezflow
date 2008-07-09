@@ -168,7 +168,7 @@ class eZPage
     public function removeZone( $index )
     {
         $zones =& $this->attributes['zones'];
-        $zones = array_splice( $zones, $index, 1 );
+        array_splice( $zones, $index, 1 );
     }
 
     /**

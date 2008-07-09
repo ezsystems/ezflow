@@ -195,7 +195,7 @@ class eZPageZone
     public function removeBlock( $index )
     {
         $blocks =& $this->attributes['blocks'];
-        $blocks = array_splice( $blocks, $index, 1 );
+        array_splice( $blocks, $index, 1 );
     }
 
     /**

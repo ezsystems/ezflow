@@ -221,7 +221,7 @@ class eZPageBlock
     public function removeItem( $index )
     {
         $items =& $this->attributes['items'];
-        $items = array_splice( $items, $index, 1 );
+        array_splice( $items, $index, 1 );
     }
 
     /**
