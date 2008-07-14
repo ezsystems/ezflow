@@ -62,7 +62,7 @@ class eZPageType extends eZDataType
      * Validates all variables given on content class level
      * return eZInputValidator::STATE_ACCEPTED or eZInputValidator::STATE_INVALID if
      * the values are accepted or not
-     * 
+     *
      * @param eZHTTPTool $http
      * @param string $base
      * @param eZContentClassAttribute $classAttribute
@@ -76,7 +76,7 @@ class eZPageType extends eZDataType
     /**
      * Fetches all variables inputed on content class level
      * return true if fetching of class attributes are successfull, false if not
-     * 
+     *
      * @param eZHTTPTool $http
      * @param string $base
      * @param eZContentClassAttribute $classAttribute
@@ -128,7 +128,7 @@ class eZPageType extends eZDataType
                 {
                     $block = $zone->getBlock( $blockID );
                     $fetchParams = array();
-                    
+
                     $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
 
                     foreach ( $params as $param => $value )
@@ -458,7 +458,7 @@ class eZPageType extends eZDataType
 
                             if ( $zone )
                                 $block = $zone->getBlock( $params[2] );
-                                    
+
                             if ( $block )
                             {
                                 if ( $block->getItemCount() > 0 )
@@ -868,7 +868,7 @@ class eZPageType extends eZDataType
      */
     function unserializeContentObjectAttribute( $package, $objectAttribute, $attributeNode )
     {
-        $rootNode = $attributeNode->getElementsByTagName( 'ezpage' )->item( 0 );
+        $rootNode = $attributeNode->childNodes->item( 0 );
         $xmlString = $rootNode ? $rootNode->ownerDocument->saveXML( $rootNode ) : '';
         $objectAttribute->setAttribute( 'data_text', $xmlString );
     }
