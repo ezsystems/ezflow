@@ -157,7 +157,7 @@ class eZFlownInstaller extends eZSiteInstaller
                                    array( '_function' => 'updateTemplateLookObjectAttributes',
                                           '_params' => array() ),
                                    array( '_function' => 'swapNodes',
-                                          '_params' => array( 'src_node' => array( 'name' => "eZ publish" ),
+                                          '_params' => array( 'src_node' => array( 'name' => "eZ Publish" ),
                                                               'dst_node' => array( 'name' => "Home" ) ) ),
                                    array( '_function' => 'removeContentObject',
                                           '_params' => array( 'name' => 'eZ Publish' ) ),
@@ -611,7 +611,7 @@ class eZFlownInstaller extends eZSiteInstaller
                                                                         'data_type_string' => 'ezdatetime',
                                                                         'default_value' => 0 ) ) ) );
         $db->commit();
-
+var_dump($db->databaseName());
         // hack for images/binaryfiles
         // need to set siteaccess to have correct placement(VarDir) for files in SetupWizard
         $ini = eZINI::instance();
@@ -629,13 +629,23 @@ class eZFlownInstaller extends eZSiteInstaller
         $extensionPackage = eZPackage::fetch( 'ezflow_extension', false, false, false );
         if ( is_object( $extensionPackage ) )
         {
-            $sqlFile = 'mysql.sql';
-            $path = $extensionPackage->path() . '/ezextension/ezflow/sql';
+            switch( $db->databaseName() )
+            {
+                case 'mysql':
+                    $sqlFile = 'mysql.sql';
+                    $path = $extensionPackage->path() . '/ezextension/ezflow/sql/mysql';
+                    break;
+                case 'postgresql':
+                    $sqlFile = 'postgresql.sql';
+                    $path = $extensionPackage->path() . '/ezextension/ezflow/sql/postgresql';
+                    break;
+            }
 
             $res = $db->insertFile( $path, $sqlFile, false );
             if ( $res )
             {
                 $sqlFile = 'democontent.sql';
+                $path = $extensionPackage->path() . '/ezextension/ezflow/sql/common';
                 $res = $db->insertFile( $path, $sqlFile, false );
                 if ( !$res )
                 {

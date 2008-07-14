@@ -1,10 +1,5 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
--- 
--- `ezm_block`
--- 
-
-INSERT INTO `ezm_block` (`id`, `zone_id`, `name`, `node_id`, `overflow_id`, `last_update`, `block_type`, `fetch_params`, `rotation_type`, `rotation_interval`, `is_removed`) VALUES 
+INSERT INTO ezm_block (id, zone_id, name, node_id, overflow_id, last_update, block_type, fetch_params, rotation_type, rotation_interval, is_removed) VALUES 
 ('1e0f9e403fdca43b4e7a2a89913d99e1', '2c534a9d5a624ccc411592fa15d34b04', 'Conference Video', 61, '', 1196690213, 'Video', '', 0, 0, 0),
 ('242afd57186dafaf4ae17ae377e41bf4', 'a111cb7cf30697605c5af970e5eae708', 'Conference Blog', 2, '', 1196690213, 'ItemList', '', 0, 0, 0),
 ('26aca9f45849e2d37262a87f1d8ad11c', 'a111cb7cf30697605c5af970e5eae708', 'Conference Video', 2, '', 1196690213, 'Video', '', 0, 0, 0),
@@ -23,11 +18,7 @@ INSERT INTO `ezm_block` (`id`, `zone_id`, `name`, `node_id`, `overflow_id`, `las
 ('efa560001fcf8b23fc0b6dad7630e6fb', 'a111cb7cf30697605c5af970e5eae708', 'Tag Cloud', 2, '', 1196690213, 'TagCloud', '', 0, 0, 0),
 ('f1c84085df0010f623ab97e521aa598b', '2b484644d2cca382187b10cc38af4dec', 'Conference Blog', 60, '', 1196690213, 'ItemList', '', 0, 0, 0);
 
--- 
--- `ezm_pool`
--- 
-
-INSERT INTO `ezm_pool` (`block_id`, `object_id`, `node_id`, `priority`, `ts_publication`, `ts_visible`, `ts_hidden`, `rotation_until`, `moved_to`) VALUES 
+INSERT INTO ezm_pool (block_id, object_id, node_id, priority, ts_publication, ts_visible, ts_hidden, rotation_until, moved_to) VALUES 
 ('1e0f9e403fdca43b4e7a2a89913d99e1', 61, 63, 1, 1196687862, 1196687869, 0, 0, NULL),
 ('242afd57186dafaf4ae17ae377e41bf4', 79, 81, 1, 1196687059, 1196687079, 0, 0, NULL),
 ('242afd57186dafaf4ae17ae377e41bf4', 80, 82, 2, 1196687059, 1196687079, 0, 0, NULL),

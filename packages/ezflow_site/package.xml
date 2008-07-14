@@ -6,7 +6,7 @@
   <name>ezflow_site</name>
   <summary>eZ Flow</summary>
   <description>The eZ Flow extension to eZ Publish enables editors to build complex page layouts and pre-plan the publication schedule to ensure a constant flow of rich content.</description>
-  <vendor>eZ Systems</vendor>
+  <vendor>eZ systems</vendor>
   <type value="site" />
   <ezpublish>
     <version>4.1.0</version>
