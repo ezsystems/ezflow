@@ -838,7 +838,7 @@ class eZPageType extends eZDataType
 
     function unserializeContentObjectAttribute( $package, $objectAttribute, $attributeNode )
     {
-        $rootNode = $attributeNode->getElementsByTagName( 'ezpage' )->item( 0 );
+        $rootNode = $attributeNode->childNodes->item( 0 );
         $xmlString = $rootNode ? $rootNode->ownerDocument->saveXML( $rootNode ) : '';
         $objectAttribute->setAttribute( 'data_text', $xmlString );
     }
