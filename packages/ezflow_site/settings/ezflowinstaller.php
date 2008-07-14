@@ -611,7 +611,7 @@ class eZFlownInstaller extends eZSiteInstaller
                                                                         'data_type_string' => 'ezdatetime',
                                                                         'default_value' => 0 ) ) ) );
         $db->commit();
-var_dump($db->databaseName());
+
         // hack for images/binaryfiles
         // need to set siteaccess to have correct placement(VarDir) for files in SetupWizard
         $ini = eZINI::instance();
