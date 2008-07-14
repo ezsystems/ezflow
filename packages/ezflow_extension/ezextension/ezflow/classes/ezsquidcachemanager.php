@@ -37,9 +37,9 @@ class eZSquidCacheManager
     }
 
     /**
-     * Purges the given URL on the Squid server. The relative URL is passed. 
+     * Purges the given URL on the Squid server. The relative URL is passed.
      * E.g. /en/products/url_alias_for_page
-     * 
+     *
      * @static
      * @param string $url
      */
@@ -70,7 +70,7 @@ class eZSquidCacheManager
         {
             print( "Error purging cache" );
              $response = 0;
-        }        
+        }
 
         $rawResponse = "";
         // fetch the SOAP response
@@ -87,15 +87,17 @@ class eZSquidCacheManager
 
       /**
        * Checks if Squid pruge cache is enabled for object publish action
-       * 
+       *
        * @static
        * @return bool
        */
       public static function isEnabled()
       {
           $ini = eZINI::instance( 'squid.ini' );
-          
-          if ( $ini->variable( 'Squid', 'PurgeCacheOnPublish' ) == 'enabled' )
+
+          if ( $ini->hasSection( 'Squid' )
+                && $ini->hasVariable( 'Squid', 'PurgeCacheOnPublish' )
+                    && $ini->variable( 'Squid', 'PurgeCacheOnPublish' ) == 'enabled' )
           {
               return true;
           }
