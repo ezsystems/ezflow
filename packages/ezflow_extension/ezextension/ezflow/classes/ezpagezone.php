@@ -30,7 +30,7 @@ class eZPageZone
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      */
     function __construct( $name = null )
@@ -41,7 +41,7 @@ class eZPageZone
 
     /**
      * Creates DOMElement with zone data
-     * 
+     *
      * @param DOMDocument $dom
      * @return DOMElement
      */
@@ -82,7 +82,7 @@ class eZPageZone
 
     /**
      * Creates and return eZPageZone object from given XML
-     * 
+     *
      * @static
      * @param DOMElement $node
      * @return eZPageZone
@@ -125,7 +125,7 @@ class eZPageZone
 
     /**
      * Add new $block to eZPageZone object
-     * 
+     *
      * @param eZPageBlock $block
      * @return eZPageBlock
      */
@@ -136,8 +136,8 @@ class eZPageZone
     }
 
     /**
-     * Move current block position up 
-     * 
+     * Move current block position up
+     *
      * @param integer $currentIndex
      * @return bool
      */
@@ -162,8 +162,8 @@ class eZPageZone
     }
 
     /**
-     * Move current block position down 
-     * 
+     * Move current block position down
+     *
      * @param integer $currentIndex
      * @return bool
      */
@@ -189,18 +189,17 @@ class eZPageZone
 
     /**
      * Remove block with given $index from eZPageZone object
-     * 
+     *
      * @param integer $index
      */
     public function removeBlock( $index )
     {
-        $blocks =& $this->attributes['blocks'];
-        array_splice( $blocks, $index, 1 );
+        unset( $this->attributes['blocks'][$index] );
     }
 
     /**
      * Return eZPageZone name attribute
-     * 
+     *
      * @return string
      */
     public function getName()
@@ -210,7 +209,7 @@ class eZPageZone
 
     /**
      * Return total block count
-     * 
+     *
      * @return integer
      */
     public function getBlockCount()
@@ -220,7 +219,7 @@ class eZPageZone
 
     /**
      * Return eZPageBlock object by given $index
-     * 
+     *
      * @return eZPageBlock
      * @param integer $index
      */
@@ -236,7 +235,7 @@ class eZPageZone
 
     /**
      * Return attributes names
-     * 
+     *
      * @return array(string)
      */
     public function attributes()
@@ -246,7 +245,7 @@ class eZPageZone
 
     /**
      * Checks if attribute with given $name exists
-     *  
+     *
      * @param string $name
      * @return bool
      */
@@ -257,7 +256,7 @@ class eZPageZone
 
     /**
      * Set attribute with given $name to $value
-     * 
+     *
      * @param string $name
      * @param mixed $value
      */
@@ -268,7 +267,7 @@ class eZPageZone
 
     /**
      * Return value of attribute with given $name
-     * 
+     *
      * @return mixed
      * @param string $name
      */
@@ -288,7 +287,7 @@ class eZPageZone
     /**
      * Cleanup processed objects, removes action attribute
      * removes all blocks marked with "remove" action
-     * 
+     *
      * @return eZPageZone
      */
     public function removeProcessed()
@@ -318,7 +317,7 @@ class eZPageZone
 
     /**
      * Checks if current zone is to be removed
-     * 
+     *
      * @return bool
      */
     public function toBeRemoved()
@@ -328,7 +327,7 @@ class eZPageZone
 
     /**
      * Checks if current zone is to be modified
-     * 
+     *
      * @return bool
      */
     public function toBeModified()
@@ -338,7 +337,7 @@ class eZPageZone
 
     /**
      * Checks if current zone is to be added
-     * 
+     *
      * @return bool
      */
     public function toBeAdded()

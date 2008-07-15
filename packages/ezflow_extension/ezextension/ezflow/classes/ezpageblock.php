@@ -39,7 +39,7 @@ class eZPageBlock
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array $row
      */
@@ -54,7 +54,7 @@ class eZPageBlock
 
     /**
      * Return object ID
-     * 
+     *
      * @return string
      */
     public function id()
@@ -64,7 +64,7 @@ class eZPageBlock
 
     /**
      * Add new $item to eZPageBlock object
-     * 
+     *
      * @return eZPageBlockItem
      * @param eZPageBlockItem $item
      */
@@ -76,7 +76,7 @@ class eZPageBlock
 
     /**
      * Creates DOMElement with block data
-     * 
+     *
      * @param DOMDocument $dom
      * @return DOMElement
      */
@@ -147,7 +147,7 @@ class eZPageBlock
 
     /**
      * Creates and return eZPageBlock object from given XML
-     * 
+     *
      * @static
      * @param DOMElement $node
      * @return eZPageBlock
@@ -220,8 +220,7 @@ class eZPageBlock
      */
     public function removeItem( $index )
     {
-        $items =& $this->attributes['items'];
-        array_splice( $items, $index, 1 );
+        unset( $this->attributes['items'][$index] );
     }
 
     /**
@@ -262,7 +261,7 @@ class eZPageBlock
 
     /**
      * Return attributes names
-     * 
+     *
      * @return array(string)
      */
     public function attributes()
@@ -272,7 +271,7 @@ class eZPageBlock
 
     /**
      * Checks if attribute with given $name exists
-     *  
+     *
      * @param string $name
      * @return bool
      */
@@ -283,7 +282,7 @@ class eZPageBlock
 
     /**
      * Set attribute with given $name to $value
-     * 
+     *
      * @param string $name
      * @param mixed $value
      */
@@ -308,7 +307,7 @@ class eZPageBlock
 
     /**
      * Return value of attribute with given $name
-     * 
+     *
      * @return mixed
      * @param string $name
      */
@@ -372,7 +371,7 @@ class eZPageBlock
     {
         $db = eZDB::instance();
         $row = $db->arrayQuery( "SELECT * FROM ezm_block WHERE id='$blockID'" );
-        
+
         if ( $asObject )
         {
             $block = new eZPageBlock( null, $row[0] );
@@ -436,8 +435,8 @@ class eZPageBlock
     {
         $waitingItems = eZFlowPool::waitingItems( $this->id() );
         $merged = $this->merge( $waitingItems, true );
-        usort( $merged, array( $this, 'sortItems' ) ); 
-        
+        usort( $merged, array( $this, 'sortItems' ) );
+
         return $merged;
     }
 
@@ -498,7 +497,7 @@ class eZPageBlock
 
     /**
      * Checks if current block is to be removed
-     * 
+     *
      * @return bool
      */
     public function toBeRemoved()
@@ -508,7 +507,7 @@ class eZPageBlock
 
     /**
      * Checks if current block is to be modified
-     * 
+     *
      * @return bool
      */
     public function toBeModified()
@@ -518,7 +517,7 @@ class eZPageBlock
 
     /**
      * Checks if current block is to be added
-     * 
+     *
      * @return bool
      */
     public function toBeAdded()
