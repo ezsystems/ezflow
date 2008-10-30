@@ -344,6 +344,17 @@ class eZPageZone
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
+
+    public function __clone()
+    {
+        $this->attributes['id'] = md5( (string)microtime() . (string)mt_rand() );
+        $this->attributes['action'] = 'add';
+
+        foreach ( $this->attributes['blocks'] as $i => $block )
+        {
+            $this->attributes['blocks'][$i] = clone $block;
+        }
+    }
 }
 
 ?>

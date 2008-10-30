@@ -872,6 +872,28 @@ class eZPageType extends eZDataType
         $xmlString = $rootNode ? $rootNode->ownerDocument->saveXML( $rootNode ) : '';
         $objectAttribute->setAttribute( 'data_text', $xmlString );
     }
+
+    function initializeObjectAttribute( $contentObjectAttribute, $currentVersion, $originalContentObjectAttribute )
+    {
+        if ( $currentVersion != false )
+        {
+            $contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
+            $originalContentObjectID = $originalContentObjectAttribute->attribute( 'contentobject_id' );
+
+            if ( $contentObjectID != $originalContentObjectID )
+            {
+                $page = $originalContentObjectAttribute->content();
+                $clonedPage = clone $page;
+                $contentObjectAttribute->setContent( $clonedPage );
+                $contentObjectAttribute->store();
+            }
+            else
+            {
+                $dataText = $originalContentObjectAttribute->attribute( 'data_text' );
+                $contentObjectAttribute->setAttribute( 'data_text', $dataText );
+            }
+        }
+    }
 }
 
 eZDataType::register( eZPageType::DATA_TYPE_STRING, "ezpagetype" );

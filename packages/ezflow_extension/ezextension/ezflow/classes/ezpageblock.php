@@ -558,6 +558,30 @@ class eZPageBlock
             return -1;
         }
     }
+
+    public function __clone()
+    {
+        $oldBlockID = $this->attributes['id'];
+
+        $this->attributes['id'] = md5( (string)microtime() . (string)mt_rand() );
+        $this->attributes['action'] = 'add';
+
+        include_once( 'extension/ezflow/classes/ezflowpoolitem.php' );
+        $oldItems = eZPersistentObject::fetchObjectList( eZFlowPoolItem::definition(), null, array( 'block_id' => $oldBlockID ) );
+
+        foreach ( $oldItems as $oldItem )
+        {
+            $attrs = array(
+                'object_id' => $oldItem->attribute( 'object_id' ),
+                'node_id' => $oldItem->attribute( 'node_id' ),
+                'priority' => $oldItem->attribute( 'priority' ),
+                'ts_publication' => $oldItem->attribute( 'ts_publication' ),
+                'action' => 'add'
+            );
+            $newPageBlockItem = new eZPageBlockItem( $attrs );
+            $this->addItem( $newPageBlockItem );
+        }
+    }
 }
 
 ?>
