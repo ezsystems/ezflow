@@ -15,6 +15,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #013305: quick search of ezflow is not working with ezfind extension
 - Fixed bug #012361: Fatal error during setup wizard last step
 - Fixed bug #012875: Errors in debug output on "Finished" setup of setup wizard when using ezflow site package
+- Fixed bug #013551: eZFLow - Copying objects does not work properly
 
 *Enhancements*
 
