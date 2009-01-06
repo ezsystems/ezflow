@@ -98,11 +98,12 @@
     <tbody>
     {if $block.waiting|count()}
     {foreach $block.waiting as $item sequence array( 'bglight', 'bgdark') as $style}
+    {def $item_object = fetch( 'content', 'object', hash( 'object_id', $item.object_id ) )}
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}" class="{if $item.ts_publication|lt($current_time)}tbp{/if}">
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
-        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" class="handler">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
+        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" class="handler">{$item_object.name|wash()}</td>
         <td class="time">
-            {$item.ts_publication|l10n( 'shortdatetime' )}
+            <span class="ts-publication">{$item.ts_publication|l10n( 'shortdatetime' )}</span>
                 {if $item.ts_publication|lt( $current_time )|not()}
                     (
                     {def $time_diff = $item.ts_publication|sub( $current_time )
@@ -128,10 +129,11 @@
                      {/if}
                     )
                 {/if}
-            <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="" size="3" />
-            <img src="{'ezpage/clock_ico.gif'|ezimage(no)}" />
+            <input type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="" />
+            <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
         </td>
     </tr>
+    {undef $item_object}
     {/foreach}
     {else}
      <tr class="empty">

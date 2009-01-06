@@ -1,7 +1,12 @@
-<script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
-<script src={"javascript/cookie/cookie-beta-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
-<script src={"javascript/blocktools.js"|ezdesign} type="text/javascript" language="javascript"></script>
-<script src={"javascript/tabview/tabview-min.js"|ezdesign} type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/utilities/utilities.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/cookie/cookie-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/tabview/tabview-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/get/get-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/button/button-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/container/container-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/calendar/calendar-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"javascript/blocktools.js"|ezdesign}></script>
+<script type="text/javascript" src={"javascript/scheduledialog.js"|ezdesign}></script>
 
 {def $zone_id = ''
      $block_id = ''
@@ -13,7 +18,7 @@
 {if ezini( $allowed_type, 'AvailableForClasses', 'zone.ini' )|contains( $attribute.object.content_class.identifier )}
     <div class="zone">
         <div class="zone-label">{ezini( $allowed_type, 'ZoneTypeName', 'zone.ini' )}</div>
-        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", ezini( $allowed_type, 'ZoneThumbnail', 'zone.ini' ) )|ezimage()} /></div>
+        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", ezini( $allowed_type, 'ZoneThumbnail', 'zone.ini' ) )|ezimage()} alt="{ezini( $allowed_type, 'ZoneTypeName', 'zone.ini' )}" /></div>
         <div class="zone-selector"><input type="radio" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_type}" {if eq( $allowed_type, $attribute.content.zone_layout)}checked="checked"{/if} /></div>
     </div>
 {/if}
@@ -27,6 +32,26 @@
 
 <div id="zone-tabs-container"></div>
 <script type="text/javascript">
+var handlerData = {ldelim}
+{rdelim};
+
+var successHandler = function(oData) {ldelim}
+{rdelim};
+
+var aURLs = [
+    "{'lib/yui/2.6.0/build/assets/skins/sam/calendar.css'|ezdesign( 'no' )}",
+    "{'lib/yui/2.6.0/build/assets/skins/sam/button.css'|ezdesign( 'no' )}",
+    "{'lib/yui/2.6.0/build/assets/skins/ezflow/tabview.css'|ezdesign( 'no' )}",
+    "{'lib/yui/2.6.0/build/assets/skins/sam/container.css'|ezdesign( 'no' )}",
+    "{'stylesheets/scheduledialog.css'|ezdesign( 'no' )}",
+    "{'stylesheets/ezpage/ezpage.css'|ezdesign( 'no' )}"
+];
+
+YAHOO.util.Get.css(aURLs, {ldelim}
+                onSuccess: successHandler,
+                data:   handlerData
+{rdelim});
+
 var tabView = new YAHOO.widget.TabView();
 
 {foreach $attribute.content.zones as $index => $zone}
@@ -68,6 +93,7 @@ for( var i = 0; i < tabs.length; i++ ) {
             };
             YAHOO.ez.BlockDD.init();
             YAHOO.ez.BlockCollapse.init();
+            YAHOO.ez.sheduleDialog.init();
         });
     });
 }

@@ -24,8 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'extension/ezflow/classes/ezflowoperations.php' );
-
 if ( !$isQuiet )
 {
     $cli->output( "Updating ezm_pool" );

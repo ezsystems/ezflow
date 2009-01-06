@@ -24,9 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'extension/ezflow/classes/ezflowpool.php' );
-include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
-
 class eZPageBlock
 {
     private $attributes = array();
@@ -559,6 +556,11 @@ class eZPageBlock
         }
     }
 
+    /**
+     * Method executed when an object copy is created 
+     * by using the clone keyword
+     *
+     */
     public function __clone()
     {
         $oldBlockID = $this->attributes['id'];
@@ -566,7 +568,6 @@ class eZPageBlock
         $this->attributes['id'] = md5( (string)microtime() . (string)mt_rand() );
         $this->attributes['action'] = 'add';
 
-        include_once( 'extension/ezflow/classes/ezflowpoolitem.php' );
         $oldItems = eZPersistentObject::fetchObjectList( eZFlowPoolItem::definition(), null, array( 'block_id' => $oldBlockID ) );
 
         foreach ( $oldItems as $oldItem )

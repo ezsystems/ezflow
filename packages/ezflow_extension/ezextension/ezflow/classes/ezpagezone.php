@@ -345,6 +345,11 @@ class eZPageZone
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
 
+    /**
+     * Method executed when an object copy is created 
+     * by using the clone keyword
+     *
+     */
     public function __clone()
     {
         $this->attributes['id'] = md5( (string)microtime() . (string)mt_rand() );

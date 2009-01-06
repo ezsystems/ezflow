@@ -271,6 +271,11 @@ class eZPage
         }
     }
 
+    /**
+     * Method executed when an object copy is created 
+     * by using the clone keyword
+     *
+     */
     public function __clone()
     {
         foreach ( $this->attributes['zones'] as $i => $zone )

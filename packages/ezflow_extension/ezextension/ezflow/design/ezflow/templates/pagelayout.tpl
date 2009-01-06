@@ -45,12 +45,6 @@
     {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_file}
     @import url({concat( 'stylesheets/', $css_file )|ezdesign});
     {/foreach}
-
-    {if is_set( $display_timeline_sider )}
-        @import url({"stylesheets/calendar/yui-calendar.css"|ezdesign(no)});
-        @import url({"stylesheets/timeline/timeline.css"|ezdesign(no)});
-    {/if}
-    
 </style>
 <link rel="stylesheet" type="text/css" href={"stylesheets/print.css"|ezdesign} media="print" />
 <!-- IE conditional comments; for bug fixes for different IE versions -->
@@ -61,7 +55,7 @@
 {/foreach}
 </head>
 
-<body {if is_set( $display_timeline_sider )}class="yui-skin-sam"{/if}>
+<body class="yui-skin-sam yui-skin-ezflow">
 
 <!-- Complete page area: START -->
 

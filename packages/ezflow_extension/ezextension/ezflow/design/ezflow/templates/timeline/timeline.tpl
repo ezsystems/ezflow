@@ -1,10 +1,27 @@
 {* Dependencies *}
-<script src={"javascript/prototype.js"|ezdesign} type="text/javascript"></script>
-<script src={"javascript/utilities/utilities.js"|ezdesign} type="text/javascript" language="javascript"></script>
-<script src={"javascript/slider/slider-min.js"|ezdesign} type="text/javascript"></script>
-<script src={"javascript/calendar/calendar-min.js"|ezdesign} type="text/javascript"></script>
-<script src={"javascript/timeline/timeline.js"|ezdesign} type="text/javascript"></script>
+<script type="text/javascript"src={"javascript/prototype.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/utilities/utilities.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/slider/slider-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/calendar/calendar-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/get/get-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"javascript/timeline/timeline.js"|ezdesign}></script>
+<script type="text/javascript">
+var handlerData = {ldelim}
+{rdelim};
 
+var successHandler = function(oData) {ldelim}
+{rdelim};
+
+var aURLs = [
+    "{'lib/yui/2.6.0/build/assets/skins/sam/calendar.css'|ezdesign( 'no' )}",
+    "{'stylesheets/timeline/timeline.css'|ezdesign( 'no' )}"
+];
+
+YAHOO.util.Get.css(aURLs, {ldelim}
+                onSuccess: successHandler,
+                data:   handlerData
+{rdelim});
+</script>
 {def $past_precision_hours=2 
      $past_filler_hours=4
      $past_precision_position_px=92

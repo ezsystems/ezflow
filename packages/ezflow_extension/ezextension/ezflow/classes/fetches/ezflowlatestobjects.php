@@ -24,8 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'extension/ezflow/classes/ezflowfetchinterface.php' );
-
 class eZFlowLatestObjects implements eZFlowFetchInterface
 {
     public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )

@@ -24,14 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'extension/ezflow/classes/ezpage.php' );
-include_once( 'extension/ezflow/classes/ezpagezone.php' );
-include_once( 'extension/ezflow/classes/ezpageblock.php' );
-include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
-include_once( 'extension/ezflow/classes/ezflowpool.php' );
-include_once( 'extension/ezflow/classes/ezflowoperations.php' );
-include_once( 'extension/ezflow/classes/ezsquidcachemanager.php' );
-
 class eZPageType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezpage';
@@ -241,7 +233,7 @@ class eZPageType extends eZDataType
                                 {
                                     if ( $item->attribute( 'object_id' ) == $objectID )
                                     {
-                                        $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
+                                        $item->setAttribute( 'ts_publication', $value );
                                         unset( $itemTSPublishedValueIDs[$objectID] );
                                     }
                                 }
@@ -256,7 +248,7 @@ class eZPageType extends eZDataType
                             $item = $block->addItem( new eZPageBlockItem() );
                             $item->setAttribute( 'action', 'modify' );
                             $item->setAttribute( 'object_id', $objectID );
-                            $item->setAttribute( 'ts_publication', time() + ( $value * 60 ) );
+                            $item->setAttribute( 'ts_publication', $value );
                         }
                     }
                 }
@@ -873,6 +865,13 @@ class eZPageType extends eZDataType
         $objectAttribute->setAttribute( 'data_text', $xmlString );
     }
 
+    /**
+     * Initialize contentobject attribute content
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param integer $currentVersion
+     * @param eZContentObjectAttribute $originalContentObjectAttribute
+     */
     function initializeObjectAttribute( $contentObjectAttribute, $currentVersion, $originalContentObjectAttribute )
     {
         if ( $currentVersion != false )
