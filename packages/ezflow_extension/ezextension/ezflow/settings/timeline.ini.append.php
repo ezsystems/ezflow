@@ -1,0 +1,6 @@
+<?php /*
+
+[TimelineSettings]
+AvailableForClasses[]=frontpage
+
+*/ ?>

@@ -57,7 +57,7 @@ YAHOO.ez.sheduleDialog = function() {
                               buttons : [ { text:"Store", handler:handleDialogSubmit, isDefault:true },
                                       { text:"Cancel", handler:handleDialogCancel } ]
                             });
-            
+
             var body = "<div class=\"object-left\">";
                 body += "<div class=\"block\">";
                 body += "<div class=\"element\"><label>Month:</label><input id=\"schedule-dialog-month\" type=\"text\" value=\"\" class=\"schedule-dialog-input\" /></div>";

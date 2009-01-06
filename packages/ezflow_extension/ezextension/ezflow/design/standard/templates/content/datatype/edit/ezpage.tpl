@@ -32,11 +32,14 @@
 
 <div id="zone-tabs-container"></div>
 <script type="text/javascript">
-var handlerData = {ldelim}
-{rdelim};
+{literal}
+var body = YAHOO.util.Dom.getElementsBy(function(){ return true }, "body");
+YAHOO.util.Dom.addClass(body, "yui-skin-sam yui-skin-ezflow");
 
-var successHandler = function(oData) {ldelim}
-{rdelim};
+var handlerData = {};
+var successHandler = function(oData) {};
+
+{/literal}
 
 var aURLs = [
     "{'lib/yui/2.6.0/build/assets/skins/sam/calendar.css'|ezdesign( 'no' )}",
