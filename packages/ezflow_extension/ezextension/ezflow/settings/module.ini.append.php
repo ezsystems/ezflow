@@ -3,7 +3,8 @@
 [ModuleSettings]
 ExtensionRepositories[]=ezflow
 
+ModuleList[]=ezajax
 ModuleList[]=ezflow
-ModuleList[]=page
+ModuleList[]=flash
 
 */ ?>
