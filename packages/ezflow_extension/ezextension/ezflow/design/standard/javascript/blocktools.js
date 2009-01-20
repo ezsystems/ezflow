@@ -302,6 +302,7 @@ YAHOO.ez.BlockCollapse = function(){
         else if( Dom.hasClass( triggerEl, "collapse-all" ) ) {
             collapseAll();
         }
+        Event.preventDefault(e);
     };
 
     return {
