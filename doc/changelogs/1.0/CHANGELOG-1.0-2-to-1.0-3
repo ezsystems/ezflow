@@ -4,3 +4,8 @@ Changes from 1.0-2 to 1.0-3
 
 - Fixed bug #013884: eZFlow - The datatype's "has_content" function is not correct (patch by Rune Langseid)
   (Merged from ezflow 1.1 trunk rev. 3487)
+
+*Enhancements*
+
+- Implemented enhancement #013379: Allow ezflow blocks to have 0 archived items
+  (Merged from ezflow 1.1 trunk rev. 3489)
