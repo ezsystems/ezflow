@@ -17,6 +17,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #012875: Errors in debug output on "Finished" setup of setup wizard when using ezflow site package
 - Fixed bug #013551: eZFLow - Copying objects does not work properly
 - Fixed bug #014277: Incorrect ezflow ModuleList setting
+- Fixed bug #013851: Clicking Collapse or Expand makes browser jump to the top of the page
 
 *Enhancements*
 
@@ -24,3 +25,5 @@ Changes from 1.0-0 to 1.1-0
 - Implemented enhancement #013288: Add possibility to filter content classes in browse mode for manual blocks when adding items
 - Implemented enhancement #012894: We can't change the priority of articles in a block manual validated. and the order is contrary between front and BO
 - Implemented enhancement #013054: eZ Publish/ Webin does not support table summary and caption as required by WAI
+- Implemented enhancement #014303: Improved publishing schedule
+- Implemented enhancement #014304: Expanding and collapsing blocks while editing
