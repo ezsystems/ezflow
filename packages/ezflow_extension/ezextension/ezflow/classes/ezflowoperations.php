@@ -425,7 +425,7 @@ class eZFlowOperations
 
                     // Compare this number to the given and remove the oldest ones
                     $numberOfArchivedItems = $ini->variable( $block['block_type'], 'NumberOfArchivedItems' );
-                    if ( !$numberOfArchivedItems )
+                    if ( $numberOfArchivedItems < 0 )
                     {
                         $numberOfArchivedItems = 50;
                         eZDebug::writeWarning( 'Number of archived items for ' . $block['block_type'] .
