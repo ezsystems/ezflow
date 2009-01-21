@@ -454,8 +454,17 @@ class eZPageType extends eZDataType
                                     $selectedObjectIDArray = $http->postVariable( 'SelectedObjectIDArray' );
 
                                     $page = $contentObjectAttribute->content();
-                                    $zone =& $page->getZone( $params[1] );
+                                    
+                                    if( isset( $params[1] ) )
+                                        $zone =& $page->getZone( $params[1] );
+                                    
+                                    if( !isset( $params[2] ) || !$zone instanceof eZPageZone )
+                                        return false;
+
                                     $block =& $zone->getBlock( $params[2] );
+
+                                    if ( !isset( $block ) || !$block instanceof eZPageBlock )
+                                        return false;
 
                                     if ( $block->getItemCount() > 0 )
                                     {
