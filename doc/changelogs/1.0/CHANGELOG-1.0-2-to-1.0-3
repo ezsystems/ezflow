@@ -6,6 +6,7 @@ Changes from 1.0-2 to 1.0-3
   (Merged from ezflow 1.1 trunk rev. 3487)
 - Fixed bug #013875: installation of ezflow does not add to any role the ezflow/* permissions, but those are needed
   (Merged from ezflow 1.1 trunk rev. 3494)
+- Fixed bug #013521: Call to a member function getBlock - eZ Flow
 
 *Enhancements*
 
