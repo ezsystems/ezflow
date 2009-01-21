@@ -440,18 +440,43 @@ div.block div.right /* Floats elements to the right in a block */
     clear: right;
 }
 
-div.object-left /* Used for floating images and other content elements to the left inside other content */
+p.text-left, td.text-left, th.text-left, *.text-left
+{
+    text-align: left;
+}
+
+p.text-right, td.text-right, th.text-right, *.text-right
+{
+    text-align: right;
+}
+
+p.text-center, td.text-center, th.text-center, *.text-center
+{
+    text-align: center;
+}
+
+p.text-justify, td.text-justify, th.text-justify, *.text-justify
+{
+    text-align: justify;
+}
+
+div.object-left, table.object-left /* Used for floating images and other content elements to the left inside other content */
 {
     margin: 0.25em 0.25em 0.25em 0;
     float: left;
     clear: left;
 }
 
-div.object-right /* Used for floating images and other content elements to the right inside other content */
+div.object-right, table.object-right /* Used for floating images and other content elements to the right inside other content */
 {
     margin: 0.25em 0 0.25em 0.25em;
     float: right;
     clear: right;
+}
+
+div.object-center, table.object-center
+{
+    margin: 0.25em auto 0.25em auto;
 }
 
 .float-break

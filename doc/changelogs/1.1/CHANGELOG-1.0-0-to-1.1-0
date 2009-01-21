@@ -30,3 +30,4 @@ Changes from 1.0-0 to 1.1-0
 - Implemented enhancement #014303: Improved publishing schedule
 - Implemented enhancement #014304: Expanding and collapsing blocks while editing
 - Implemented enhancement #013379: Allow ezflow blocks to have 0 archived items
+- Implemented enhancement #013860: Add align support for paragraphs in ezxml for OE5
