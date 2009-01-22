@@ -17,35 +17,15 @@
 
 <!-- BLOCK CONTENT: START -->
 
-<div class="class-article">
+{foreach $valid_nodes as $valid_node}
 
-    <div class="attribute-header">
-        <h2><a href={$valid_nodes[0].url_alias|ezurl()}>{$valid_nodes[0].name}</a></h2>
-    </div>
+{node_view_gui view='block_item' image_class='block2items1' content_node=$valid_node}
 
-    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[0].data_map.image image_class=block2items1}</div>
-
-    <div class="attribute-short">
-        {attribute_view_gui attribute=$valid_nodes[0].data_map.intro}
-    </div>
-
-</div>
-
+{delimiter}
 <div class="separator"></div>
+{/delimiter}
 
-<div class="class-article">
-
-    <div class="attribute-header">
-        <h2><a href={$valid_nodes[1].url_alias|ezurl()}>{$valid_nodes[1].name}</a></h2>
-    </div>
-
-    <div class="attribute-image">{attribute_view_gui attribute=$valid_nodes[1].data_map.image image_class=block2items1}</div>
-
-    <div class="attribute-short">
-        {attribute_view_gui attribute=$valid_nodes[1].data_map.intro}
-    </div>
-
-</div>
+{/foreach}
 
 <!-- BLOCK CONTENT: END -->
 
@@ -64,3 +44,5 @@
 
 </div>
 <!-- BLOCK: END -->
+
+{undef $valid_nodes}

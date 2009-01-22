@@ -37,7 +37,7 @@
 <div class="col-content">
 
     <div class="attribute-header">
-        <h2><a href="{$valid_node.url_alias|ezurl(no)}">{$valid_node.name}</a></h2>
+        <h2><a href="{$valid_node.url_alias|ezurl(no)}">{$valid_node.name|wash()}</a></h2>
     </div>
 
     <div class="attribute-short">
@@ -54,3 +54,5 @@
 </div>
 </div>
 <!-- BLOCK: END -->
+
+{undef $valid_node}

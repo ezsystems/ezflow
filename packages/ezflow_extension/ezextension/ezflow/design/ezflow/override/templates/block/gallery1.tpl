@@ -9,7 +9,7 @@
 
 <div class="block">
     <div class="left">
-        <h2>{$block.name}</h2>
+        <h2>{$block.name|wash()}</h2>
     </div>
     <div class="right">
     {*
@@ -57,7 +57,7 @@
     {if $valid_nodes[0].data_map.caption.has_content}
         {attribute_view_gui attribute=$valid_nodes[0].data_map.caption}
     {else}
-        <p>{$valid_nodes[0].name}</p>
+        <p>{$valid_nodes[0].name|wash()}</p>
     {/if}
 </div>
 
@@ -90,7 +90,7 @@
     {if $valid_nodes[1].data_map.caption.has_content}
         {attribute_view_gui attribute=$valid_nodes[1].data_map.caption}
     {else}
-        <p>{$valid_nodes[1].name}</p>
+        <p>{$valid_nodes[1].name|wash()}</p>
     {/if}
 </div>
 
@@ -124,7 +124,7 @@
     {if $valid_nodes[2].data_map.caption.has_content}
         {attribute_view_gui attribute=$valid_nodes[2].data_map.caption}
     {else}
-        <p>{$valid_nodes[2].name}</p>
+        <p>{$valid_nodes[2].name|wash()}</p>
     {/if}
 </div>
 
@@ -150,3 +150,5 @@
 
 </div>
 <!-- BLOCK: END -->
+
+{undef $valid_nodes}

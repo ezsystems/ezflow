@@ -10,8 +10,10 @@
     <div class="trans-background">&nbsp;</div>
 
     <div class="attribute-link">
-        <a href="{$valid_node.url_alias|ezurl(no)}">{$valid_node.name}</a>
+        <a href="{$valid_node.url_alias|ezurl(no)}">{$valid_node.name|wash()}</a>
     </div>
 </div>
 
 <!-- BLOCK: END -->
+
+{undef $valid_node}
