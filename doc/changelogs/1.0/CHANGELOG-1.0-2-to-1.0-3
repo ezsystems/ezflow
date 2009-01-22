@@ -12,3 +12,5 @@ Changes from 1.0-2 to 1.0-3
 
 - Implemented enhancement #013379: Allow ezflow blocks to have 0 archived items
   (Merged from ezflow 1.1 trunk rev. 3489)
+- Implemented enhancement #014316: Default template takes too much ressources
+  (Merged from ezflow 1.1 trunk rev. 3512, 3513)

@@ -1,16 +1,14 @@
-{def $valid_node = $block.valid_nodes[0]}
+{def $flash_node = $block.valid_nodes[0]
+     $siteurl = concat( "http://", ezini( 'SiteSettings', 'SiteURL' ) )  
+     $attribute_file = $flash_node.data_map.file
+     $video = concat("content/download/", $attribute_file.contentobject_id, "/", $attribute_file.content.contentobject_attribute_id)|ezurl(no)
+     $flash_var = concat( "moviepath=", $video )}
 
 <div class="block-type-video">
 
 <div class="attribute-header">
-    <h2>{$block.name}</h2>
+    <h2>{$block.name|wash()}</h2>
 </div>
-
-
-{def $siteurl=concat( "http://", ezini( 'SiteSettings', 'SiteURL' ) )  
-     $attribute_file=$valid_node.data_map.file
-     $video=concat("content/download/", $attribute_file.contentobject_id, "/", $attribute_file.content.contentobject_attribute_id)|ezurl(no)
-     $flash_var=concat( "moviepath=", $video )}
 
      {* Embed URL, which URL to retrieve the embed code from. *}
      {set $flash_var=$flash_var|append( "&amp;embedurl=", concat( $siteurl, "/flash/embed/", $valid_node.object.id ) )}
@@ -52,3 +50,5 @@
     
     </div>
 </div>
+
+{undef}
