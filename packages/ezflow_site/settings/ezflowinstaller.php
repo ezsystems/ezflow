@@ -30,7 +30,7 @@ include_once( 'kernel/classes/datatypes/ezmatrix/ezmatrixdefinition.php' );
 class eZFlownInstaller extends eZSiteInstaller
 {
     const MAJOR_VERSION = 1.0;
-    const MINOR_VERSION = 0;
+    const MINOR_VERSION = 3;
 
     function eZFlownInstaller( $parameters = false )
     {
