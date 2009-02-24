@@ -1,0 +1,6 @@
+Changes from 1.0-3 to 1.0-4
+
+*Bugs*
+
+- Fixed bug #014521: Default block.ini clearing the list of [General]AllowedTypes[]
+  (Merged from trunk ezflow (1.1) rev.3625)
