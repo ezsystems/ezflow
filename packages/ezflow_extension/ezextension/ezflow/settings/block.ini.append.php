@@ -1,7 +1,6 @@
 <?php /*
 
 [General]
-AllowedTypes[]
 #AllowedTypes[]=Example
 AllowedTypes[]=Manual2Items
 AllowedTypes[]=Manual3Items
