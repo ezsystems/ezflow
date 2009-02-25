@@ -1,6 +1,5 @@
-  <!-- Footer area: START -->
   <div id="footer">
-  <div id="page-width7">
+
   <div class="border-box border-box-style2">
   <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
   <div class="border-ml"><div class="border-mr"><div class="border-mc">
@@ -19,6 +18,9 @@
   </div></div></div>
   <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
   </div>
+  
+  </div>
+  
   </div>
   </div>
-  <!-- Footer area: END -->
+  <!-- Content area: END -->

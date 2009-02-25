@@ -25,10 +25,10 @@
 //
 
 /**
- * eZUnserialize class impelement unserialize tpl operator methods
+ * eZJSON class impelement json tpl operator methods
  * 
  */
-class eZUnserialize
+class eZJSON
 {
     /**
      * Constructor
@@ -45,7 +45,7 @@ class eZUnserialize
      */
     public function operatorList()
     {
-        return array( 'unserialize' );
+        return array( 'json' );
     }
 
     /**
@@ -54,9 +54,9 @@ class eZUnserialize
      * 
      * @return bool
      */
-    public function namedParameterPerOperator()
+    function namedParameterPerOperator()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -68,9 +68,7 @@ class eZUnserialize
      */
     public function namedParameterList()
     {
-        return array( 'unserialize' => array( 'params' => array( 'type' => 'string',
-                                                                           'required' => true,
-                                                                           'default' => '' ) ) );
+        return array();
     }
 
     /**
@@ -86,16 +84,11 @@ class eZUnserialize
      */
     public function modify( $tpl, $operatorName, $operatorParameters, $rootNamespace, $currentNamespace, &$operatorValue, $namedParameters )
     {
-        $params = $namedParameters['params'];
-
         switch ( $operatorName )
         {
-            case 'unserialize':
+            case 'json':
             {
-                if ( $params )
-                    $operatorValue = unserialize( $params );
-                else
-                    $operatorValue = false;
+                $operatorValue = eZFlowAjaxContent::jsonEncode( $operatorValue );
             } break;
         }
     }

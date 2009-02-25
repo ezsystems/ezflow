@@ -85,4 +85,12 @@ $FunctionList['block'] = array( 'name' => 'block',
                                               'type' => 'string',
                                               'required' => true ),
                                    ) );
+
+$FunctionList['allowed_zones'] = array( 'name' => 'allowed_zones',
+                                      'operation_types' => array( 'read' ),
+                                      'call_method' => array( 'include_file' => 'extension/ezflow/modules/ezflow/functioncollection.php',
+                                                              'class' => 'eZFlowFunctionCollection',
+                                                              'method' => 'fetchAllowedZones' ),
+                                      'parameter_type' => 'standard',
+                                      'parameters' => array() );
 ?>

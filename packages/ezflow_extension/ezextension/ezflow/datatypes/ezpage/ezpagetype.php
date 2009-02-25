@@ -333,22 +333,85 @@ class eZPageType extends eZDataType
             case 'new_zone_layout':
                 if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_zone_allowed_type_' . $contentObjectAttribute->attribute( 'id' ) ) )
                 {
-                    $page = $contentObjectAttribute->content();
-                    $zoneAllowedType = $http->postVariable( 'ContentObjectAttribute_ezpage_zone_allowed_type_' . $contentObjectAttribute->attribute( 'id' ) );
-                    $page->setAttribute( 'zone_layout', $zoneAllowedType );
-
-                    if ( $page->getZoneCount() > 0)
-                        $page->removeZones();
+                    $zoneMap = array();
+                    if ( $http->hasPostVariable( 'ContentObjectAttribute_ezpage_zone_map' ) )
+                        $zoneMap = $http->postVariable( 'ContentObjectAttribute_ezpage_zone_map' );
 
                     $zoneINI = eZINI::instance( 'zone.ini' );
+                    $page = $contentObjectAttribute->content();
+                    $zoneAllowedType = $http->postVariable( 'ContentObjectAttribute_ezpage_zone_allowed_type_' . $contentObjectAttribute->attribute( 'id' ) );
+                    
+                    if ( $zoneAllowedType == $page->attribute('zone_layout') )
+                        return false;
+                    
+                    $allowedZones = $zoneINI->variable( $zoneAllowedType, 'Zones' );
+                    $allowedZonesCount = count( $allowedZones );
+                    
+                    $page->setAttribute( 'zone_layout', $zoneAllowedType );
+                    $existingZoneCount = $page->getZoneCount();
+                    
+                    $zoneCountDiff = 0;
+                    if ( $allowedZonesCount < $existingZoneCount )
+                        $zoneCountDiff = $existingZoneCount - $allowedZonesCount;
 
-                    foreach ( $zoneINI->variable( $zoneAllowedType, 'Zones' ) as $zoneIdentifier )
+                    if ( count( $zoneMap ) > 0 )
                     {
-                        $zone = $page->addZone( new eZPageZone() );
-                        $zone->setAttribute( 'id', md5( microtime() . $page->getZoneCount() ) );
-                        $zone->setAttribute( 'zone_identifier', $zoneIdentifier );
-                        $zone->setAttribute( 'action', 'add' );
+                        foreach( $page->attribute( 'zones' ) as $zoneIndex => $zone )
+                        {
+                            $zoneMapKey = array_search( $zone->attribute( 'zone_identifier' ), $zoneMap );
+
+                            if ( $zoneMapKey )
+                            {
+                                $zone->setAttribute( 'action', 'modify' );
+                                $zone->setAttribute( 'zone_identifier', $zoneMapKey );
+                            }
+                            else
+                            {
+                                if ( $zone->toBeAdded() )
+                                    $page->removeZone( $zoneIndex );
+                                else
+                                    $zone->setAttribute( 'action', 'remove' );
+                            }
+                        }
                     }
+                    else
+                    {
+                        foreach ( $allowedZones as $index => $zoneIdentifier )
+                        {
+                            $existingZone = $page->getZone($index);
+                        
+                            if ( $existingZone instanceof eZPageZone )
+                            {
+                                $existingZone->setAttribute( 'action', 'modify' );
+                                $existingZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                            }
+                            else
+                            {
+                                $newZone = $page->addZone( new eZPageZone() );
+                                $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $page->getZoneCount() ) );
+                                $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                                $newZone->setAttribute( 'action', 'add' );
+                            }
+                        }
+
+                        if ( $zoneCountDiff > 0 )
+                        {
+                            while ( $zoneCountDiff != 0 )
+                            {
+                                $existingZoneIndex = $existingZoneCount - $zoneCountDiff;
+                                $existingZone = $page->getZone( $existingZoneIndex );
+                    
+                                if ( $existingZone->toBeAdded() )
+                                    $page->removeZone( $existingZoneIndex );
+                                else
+                                    $existingZone->setAttribute( 'action', 'remove' );
+                    
+                                $zoneCountDiff -= 1;
+                            }
+                        }
+                    }
+                    
+                    $page->sortZones();
                 }
                 break;
             case 'set_rotation':
@@ -427,7 +490,7 @@ class eZPageType extends eZDataType
 
                 $block = $zone->addBlock( new eZPageBlock( $blockName ) );
                 $block->setAttribute( 'action', 'add' );
-                $block->setAttribute( 'id', md5( microtime() . $zone->getBlockCount() ) );
+                $block->setAttribute( 'id', md5( mt_rand() . microtime() . $zone->getBlockCount() ) );
                 $block->setAttribute( 'zone_id', $zone->attribute( 'id' ) );
                 $block->setAttribute( 'type', $blockType );
                 break;
@@ -789,14 +852,12 @@ class eZPageType extends eZDataType
 
         eZFlowOperations::update();
 
-        if ( eZSquidCacheManager::isEnabled() )
+
+        foreach ( $publishedNodes as $node )
         {
-            foreach ( $publishedNodes as $node )
-            {
-                $url = $node->attribute( 'path_identification_string' );
-                eZURI::transformURI( $url, false, 'full' );
-                eZSquidCacheManager::purgeURL( $url );
-            }
+            $url = $node->attribute( 'path_identification_string' );
+            eZURI::transformURI( $url, false, 'full' );
+            eZHTTPCacheManager::execute( $url );
         }
 
         $page->removeProcessed();

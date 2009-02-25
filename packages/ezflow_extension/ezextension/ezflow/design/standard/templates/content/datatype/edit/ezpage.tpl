@@ -5,36 +5,50 @@
 <script type="text/javascript" src={"lib/yui/2.6.0/build/button/button-min.js"|ezdesign}></script>
 <script type="text/javascript" src={"lib/yui/2.6.0/build/container/container-min.js"|ezdesign}></script>
 <script type="text/javascript" src={"lib/yui/2.6.0/build/calendar/calendar-min.js"|ezdesign}></script>
+<script type="text/javascript" src={"lib/yui/2.6.0/build/json/json.js"|ezdesign}></script>
 <script type="text/javascript" src={"javascript/blocktools.js"|ezdesign}></script>
+<script type="text/javascript" src={"javascript/zonetools.js"|ezdesign}></script>
 <script type="text/javascript" src={"javascript/scheduledialog.js"|ezdesign}></script>
-
 {def $zone_id = ''
      $block_id = ''
      $item_id = ''
-     $zone_names = ezini( $attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
+     $zone_names = ezini( $attribute.content.zone_layout, 'ZoneName', 'zone.ini' )
+     $allowed_zones = fetch('ezflow', 'allowed_zones')}
 
+<div id="page-datatype-container" class="yui-skin-sam yui-skin-ezflow">
 <div class="zones float-break">
-{foreach ezini( 'General', 'AllowedTypes', 'zone.ini' ) as $allowed_type}
-{if ezini( $allowed_type, 'AvailableForClasses', 'zone.ini' )|contains( $attribute.object.content_class.identifier )}
+{foreach $allowed_zones as $allowed_zone}
+{if $allowed_zone['classes']|contains( $attribute.object.content_class.identifier )}
     <div class="zone">
-        <div class="zone-label">{ezini( $allowed_type, 'ZoneTypeName', 'zone.ini' )}</div>
-        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", ezini( $allowed_type, 'ZoneThumbnail', 'zone.ini' ) )|ezimage()} alt="{ezini( $allowed_type, 'ZoneTypeName', 'zone.ini' )}" /></div>
-        <div class="zone-selector"><input type="radio" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_type}" {if eq( $allowed_type, $attribute.content.zone_layout)}checked="checked"{/if} /></div>
+        <div class="zone-label">{$allowed_zone['name']}</div>
+        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", $allowed_zone['thumbnail'] )|ezimage()} alt="$allowed_zone['name']" /></div>
+        <div class="zone-selector">
+            <input type="radio" class="zone-type-selector" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_zone['type']}" {if eq( $allowed_zone['type'], $attribute.content.zone_layout)}checked="checked"{/if} />
+        </div>
     </div>
 {/if}
 {/foreach}
     <div class="break"></div>
 
-    <div class="block">
-        <input class="button" type="submit" onclick="return confirmDiscard( 'Are you sure you want to change zone layout? Existing structure will be destroyed!' );" name="CustomActionButton[{$attribute.id}_new_zone_layout]" value="Set layout" />
+    <div id="zone-map-container" class="hidden float-break">
+        <div id="zone-map-type"></div>
+        <p>{'The total number of zones in the new layout is less than the number of zones in the previous layout. Therefore, you must map the previous zones to new zones. Unmapped zones will be removed!'|i18n( 'design/standard/datatype/ezpage' )}</p>
+        <div id="zone-map-placeholder"></div>
     </div>
+
+    <div class="block">
+        <input id="set-zone-layout" class="button" type="submit" name="CustomActionButton[{$attribute.id}_new_zone_layout]" value="{'Set layout'|i18n( 'design/standard/datatype/ezpage' )}" />
+    </div>
+    <input type="hidden" class="current-zone-count" name="ContentObjectAttribute_ezpage_zone_count_{$attribute.id}" value="{$attribute.content.zones|count()}" />
 </div>
 
 <div id="zone-tabs-container"></div>
+</div>
 <script type="text/javascript">
+YAHOO.ez.ZoneLayout.cfg = {ldelim} 'allowedzones': '{$allowed_zones|json()}',
+                                   'zonelayout': '{$attribute.content.zone_layout}' {rdelim};
+YAHOO.ez.ZoneLayout.init();
 {literal}
-var body = YAHOO.util.Dom.getElementsBy(function(){ return true }, "body");
-YAHOO.util.Dom.addClass(body, "yui-skin-sam yui-skin-ezflow");
 
 var handlerData = {};
 var successHandler = function(oData) {};

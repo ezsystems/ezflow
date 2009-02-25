@@ -2020,3 +2020,23 @@ div.columns-four div.col-4 div.col-content
 }
 
 /* COLUMNS: END */
+
+/* FEEDBACK: START */
+
+div.feedback
+{
+    background-image: url(../images/feedback_bg_general.png);
+    background-repeat: repeat-x;
+    padding: 1.25em 0.5em 1em 0.5em;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 1.25em;
+}
+
+div.feedback h2
+{
+    color: #000000;
+    font-weight: normal;
+}
+
+/* FEEDBACK: END */

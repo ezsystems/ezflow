@@ -26,19 +26,11 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-class eZSquidCacheManager
+class eZSquidCacheManager implements eZHTTPCacheManagerInterface
 {
     /**
-     * Constructor
-     *
-     */
-    function __construct()
-    {
-    }
-
-    /**
-     * Purges the given URL on the Squid server. The relative URL is passed.
-     * E.g. /en/products/url_alias_for_page
+     * Purges the given URL on the Squid server. The full URL is passed.
+     * E.g. http://www.example.com/en/products/url_alias_for_page
      *
      * @static
      * @param string $url

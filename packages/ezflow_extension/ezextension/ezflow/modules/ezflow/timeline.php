@@ -72,6 +72,9 @@ $httpCharset = eZTextCodec::httpCharset();
 $locale = eZLocale::instance();
 $languageCode = $locale->httpLocaleCode();
 
+$nodeResult['content_info']['persistent_variable'] = array( 'extra_template_list' => array( 'timeline.tpl' ),
+                                                            'pagestyle_css_classes' => array( 'yui-skin-sam', 'yui-skin-ezflow' ) );
+
 $site = array( 'title' => $ini->variable( 'SiteSettings', 'SiteName' ),
                'design' => $ini->variable( 'DesignSettings', 'SiteDesign' ),
                'http_equiv' => array( 'Content-Type' => 'text/html; charset=' . $httpCharset,
@@ -93,7 +96,7 @@ $tpl->setVariable( 'access_type', $access );
 $tpl->setVariable( 'uri_string', $uri->uriString() );
 
 $tpl->setVariable( "site", $site );
-$tpl->setVariable( "timeline_cache_key", $cacheKey );
+$tpl->setVariable( "extra_cache_key", $cacheKey );
 $tpl->setVariable( "module_result", $nodeResult );
 $tpl->setVariable( "node", $node );
 $tpl->setVariable( "display_timeline_sider", true );

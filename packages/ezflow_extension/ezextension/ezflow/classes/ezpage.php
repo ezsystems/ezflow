@@ -272,6 +272,31 @@ class eZPage
     }
 
     /**
+     * Sorting zones array according to the INI file configuration.
+     *  
+     */
+    public function sortZones()
+    {
+        $ini = eZINI::instance('zone.ini');
+        $zones = $ini->variable( $this->attribute('zone_layout'), 'Zones' );
+
+        $sortedZones = array();
+        foreach( $zones as $zone )
+        {
+            foreach( $this->attribute('zones') as $zoneObj )
+            {
+                if( !( $zoneObj instanceof eZPageZone ) )
+                    continue;
+
+                if ( $zone == $zoneObj->attribute('zone_identifier') )
+                    $sortedZones[] = $zoneObj;
+            }
+        }
+
+        $this->setAttribute( 'zones', $sortedZones );
+    }
+
+    /**
      * Method executed when an object copy is created 
      * by using the clone keyword
      *

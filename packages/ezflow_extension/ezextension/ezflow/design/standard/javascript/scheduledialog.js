@@ -137,7 +137,8 @@ YAHOO.ez.sheduleDialog = function() {
 
             Dialog.setBody(body);
             Dialog.body.id = "schedule-dialog-container";
-            Dialog.render(document.body);
+            var datatypeContainer = Dom.get('page-datatype-container');
+            Dialog.render(datatypeContainer);
         }
 
         var handlers = getHandlers();

@@ -1,0 +1,6 @@
+<?php /*
+
+[HTTPCacheHandlers]
+Handlers[]=eZSquidCacheManager
+
+*/ ?>

@@ -33,66 +33,14 @@
 <div class="col-1">
 <div class="col-content">
 
-<!-- BORDER BOX STYLE 1: START -->
-
-<div class="border-box border-box-style1">
-<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
-<div class="border-ml"><div class="border-mr"><div class="border-mc">
-<div class="border-content">
-
-<!-- BOX CONTENT: START -->
-
-    <div class="attribute-image">{attribute_view_gui href=$valid_nodes[0].url_alias|ezurl() attribute=$valid_nodes[0].data_map.image image_class=blockgallery1}</div>
-
-<!-- BOX CONTENT: END -->
-
-</div>
-</div></div></div>
-<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
-</div>
-
-<!-- BORDER BOX STYLE 1: END -->
-
-<div class="attribute-caption">
-    {if $valid_nodes[0].data_map.caption.has_content}
-        {attribute_view_gui attribute=$valid_nodes[0].data_map.caption}
-    {else}
-        <p>{$valid_nodes[0].name|wash()}</p>
-    {/if}
-</div>
+{node_view_gui view='block_item' image_class='blockgallery1' content_node=$valid_nodes[0]}
 
 </div>
 </div>
 <div class="col-2">
 <div class="col-content">
 
-<!-- BORDER BOX STYLE 1: START -->
-
-<div class="border-box border-box-style1">
-<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
-<div class="border-ml"><div class="border-mr"><div class="border-mc">
-<div class="border-content">
-
-<!-- BOX CONTENT: START -->
-
-    <div class="attribute-image">{attribute_view_gui href=$valid_nodes[1].url_alias|ezurl() attribute=$valid_nodes[1].data_map.image image_class=blockgallery1}</div>
-
-<!-- BOX CONTENT: END -->
-
-</div>
-</div></div></div>
-<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
-</div>
-
-<!-- BORDER BOX STYLE 1: END -->
-
-<div class="attribute-caption">
-    {if $valid_nodes[1].data_map.caption.has_content}
-        {attribute_view_gui attribute=$valid_nodes[1].data_map.caption}
-    {else}
-        <p>{$valid_nodes[1].name|wash()}</p>
-    {/if}
-</div>
+{node_view_gui view='block_item' image_class='blockgallery1' content_node=$valid_nodes[1]}
 
 </div>
 </div>
@@ -100,33 +48,7 @@
 <div class="col-3">
 <div class="col-content">
 
-<!-- BORDER BOX STYLE 1: START -->
-
-<div class="border-box border-box-style1">
-<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
-<div class="border-ml"><div class="border-mr"><div class="border-mc">
-<div class="border-content">
-
-<!-- BOX CONTENT: START -->
-
-    <div class="attribute-image">{attribute_view_gui href=$valid_nodes[2].url_alias|ezurl() attribute=$valid_nodes[2].data_map.image image_class=blockgallery1}</div>
-
-<!-- BOX CONTENT: END -->
-
-</div>
-</div></div></div>
-<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
-</div>
-
-<!-- BORDER BOX STYLE 1: END -->
-
-<div class="attribute-caption">
-    {if $valid_nodes[2].data_map.caption.has_content}
-        {attribute_view_gui attribute=$valid_nodes[2].data_map.caption}
-    {else}
-        <p>{$valid_nodes[2].name|wash()}</p>
-    {/if}
-</div>
+{node_view_gui view='block_item' image_class='blockgallery1' content_node=$valid_nodes[2]}
 
 </div>
 </div>
@@ -138,8 +60,6 @@
 </div></div></div>
 <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
 </div>
-
-
 
 <!-- BLOCK BORDER INSIDE: END -->
 

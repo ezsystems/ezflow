@@ -24,19 +24,48 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
+/**
+ * eZRed5StreamListOperator class impelement red5list tpl operator methods
+ * 
+ */
 class eZRed5StreamListOperator
 {
-    /*!
-        Return an array with the template operator name.
-    */
+    /**
+     * Constructor
+     * 
+     */
+    function __construct()
+    {
+    }
+
+    /**
+     * Return an array with the template operator name.
+     * 
+     * @return array
+     */
     function operatorList()
     {
         return array( 'red5list' );
     }
 
-    /*!
-        See eZTemplateOperator::namedParameterList
-    */
+    /**
+     * Return true to tell the template engine that the parameter list exists per operator type,
+     * this is needed for operator classes that have multiple operators.
+     * 
+     * @return bool
+     */
+    public function namedParameterPerOperator()
+    {
+        return true;
+    }
+
+    /**
+     * Returns an array of named parameters, this allows for easier retrieval
+     * of operator parameters. This also requires the function modify() has an extra
+     * parameter called $namedParameters.
+     * 
+     * @return array
+     */
     function namedParameterList()
     {
         return array( 'fileserver' => array( 'type' => 'string',
@@ -47,9 +76,12 @@ class eZRed5StreamListOperator
                                       'default' => "" ) );
     }
 
-    /*!
-        Stitch together parts of an URL and avoid double slashes (/).
-    */
+    /**
+     * Stitch together parts of an URL and avoid double slashes (/).
+     * 
+     * @param array $urlPartsArray
+     * @return string
+     */
     function buildURL( $urlPartsArray )
     {
         $url = "";
@@ -71,12 +103,20 @@ class eZRed5StreamListOperator
                 $url .= "/" . $urlPart;
             }   
         }
-        return $url;        
+        return $url;
     }
-    
-    /*!
-        Executes the PHP function for the operator cleanup and modifies \a $operatorValue.
-    */
+
+    /**
+     * Executes the PHP function for the operator cleanup and modifies $operatorValue.
+     * 
+     * @param eZTemplate $tpl
+     * @param string $operatorName
+     * @param array $operatorParameters
+     * @param string $rootNamespace
+     * @param string $currentNamespace
+     * @param mixed $operatorValue
+     * @param array $namedParameters
+     */
    function modify( $tpl, $operatorName, $operatorParameters, $rootNamespace, $currentNamespace, &$operatorValue, $namedParameters )
     {
         $red5ListURL = $namedParameters['fileserver'];

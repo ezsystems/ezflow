@@ -16,7 +16,7 @@
         <em class="trigger expand"></em> {ezini( $block.type, 'Name', 'block.ini' )}
     </div>
     <div class="right">
-        <input type="image" src="{'ezpage/block_up.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_up-{$zone_id}-{$block_id}]" /> <input type="image" src="{'ezpage/block_down.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_down-{$zone_id}-{$block_id}]" /> <input type="image" src="{'ezpage/block_del.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_remove_block-{$zone_id}-{$block_id}]" value="Remove" onclick="return confirmDiscard( 'Are you sure you want to remove this block?' );" />
+        <input type="image" src="{'ezpage/block_up.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_up-{$zone_id}-{$block_id}]" alt="{'Move up'|i18n( 'design/standard/block/edit' )}" title="{'Move up'|i18n( 'design/standard/block/edit' )}" /> <input type="image" src="{'ezpage/block_down.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_down-{$zone_id}-{$block_id}]" alt="{'Move down'|i18n( 'design/standard/block/edit' )}" title="{'Move down'|i18n( 'design/standard/block/edit' )}" /> <input type="image" src="{'ezpage/block_del.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_remove_block-{$zone_id}-{$block_id}]" title="{'Remove'|i18n( 'design/standard/block/edit' )}" alt="{'Remove'|i18n( 'design/standard/block/edit' )}" value="{'Remove'|i18n( 'design/standard/block/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to remove this block?'|i18n( 'design/standard/block/edit' )}' );" />
     </div>
 </div>
 <div class="block-content collapsed">
@@ -28,7 +28,7 @@
     <div class="right">
     {if $is_custom|not}
         <select class="list" name="ContentObjectAttribute_ezpage_block_overflow_{$attribute.id}[{$zone_id}][{$block_id}]">
-            <option value="">Overflow</option>
+            <option value="">{'Set overflow'|i18n( 'design/standard/block/edit' )}</option>
             {foreach $zone.blocks as $index => $overflow_block}
                 {if eq( $overflow_block.id, $block.id )}
                     {skip}
@@ -61,7 +61,7 @@
         {foreach $custom_attributes as $custom_attrib}
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
-                <input class="button" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="Choose source" />
+                <input class="button" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
             {else}
                 <label>{$custom_attrib}:</label> <input class="textfield" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
             {/if}
@@ -113,31 +113,31 @@
                          $seconds = $time_diff|mod( '86400' )|mod( '3600' )|mod( '60' )|round()}
                          
                      {if $days|gt( '0' )}
-                         {$days} d 
+                         {$days} {'d'|i18n( 'design/standard/block/edit' )}
                      {/if}
                          
                      {if $hours|gt( '0' )}
-                         {$hours} h 
+                         {$hours} {'h'|i18n( 'design/standard/block/edit' )}
                      {/if}
                          
                      {if $minutes|gt( '0' )}
-                         {$minutes} m 
+                         {$minutes} {'m'|i18n( 'design/standard/block/edit' )}
                      {/if}
                          
                      {if $seconds|gt( '0' )}
-                         {$seconds} s left
+                         {$seconds} {'s'|i18n( 'design/standard/block/edit' )} {'left'|i18n( 'design/standard/block/edit' )}
                      {/if}
                     )
                 {/if}
-            <input type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="" />
-            <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
+            <input type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="{$item.ts_publication}" />
+            <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" alt="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
         </td>
     </tr>
     {undef $item_object}
     {/foreach}
     {else}
      <tr class="empty">
-         <td colspan="3">Queue: no items.</td>
+         <td colspan="3">{'Queue: no items.'|i18n( 'design/standard/block/edit' )}</td>
      </tr>
      {/if}
      </tbody>
@@ -153,19 +153,19 @@
     {/foreach}
     {else}
     <tr class="empty">
-        <td colspan="3">Online: no items.</td>
+        <td colspan="3">{'Online: no items.'|i18n( 'design/standard/block/edit' )}</td>
     </tr>
     {/if}
     <tr class="rotation">
-        <td colspan="3">Rotation: <input class="textfield" type="text" name="RotationValue_{$block_id}" value="{$block.rotation.value}" size="5" />
+        <td colspan="3">{'Rotation:'|i18n( 'design/standard/block/edit' )} <input class="textfield" type="text" name="RotationValue_{$block_id}" value="{$block.rotation.value}" size="5" />
             <select class="list" name="RotationUnit_{$block_id}">
-                <option value="1" {if eq( $block.rotation.unit, 1 )}selected="selected"{/if}>sec</option>
-                <option value="2" {if eq( $block.rotation.unit, 2 )}selected="selected"{/if}>min</option>
-                <option value="3" {if eq( $block.rotation.unit, 3 )}selected="selected"{/if}>hour</option>
-                <option value="4" {if eq( $block.rotation.unit, 4 )}selected="selected"{/if}>day</option>
+                <option value="1" {if eq( $block.rotation.unit, 1 )}selected="selected"{/if}>{'sec'|i18n( 'design/standard/block/edit' )}</option>
+                <option value="2" {if eq( $block.rotation.unit, 2 )}selected="selected"{/if}>{'min'|i18n( 'design/standard/block/edit' )}</option>
+                <option value="3" {if eq( $block.rotation.unit, 3 )}selected="selected"{/if}>{'hour'|i18n( 'design/standard/block/edit' )}</option>
+                <option value="4" {if eq( $block.rotation.unit, 4 )}selected="selected"{/if}>{'day'|i18n( 'design/standard/block/edit' )}</option>
             </select>
 
-        Shuffle <input type="checkbox" {if eq( $block.rotation.type, 2 )}checked="checked"{/if} name="RotationShuffle_{$block_id}" /> <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_set_rotation-{$zone_id}-{$block_id}]" value="Set" /></td>
+        {'Shuffle'|i18n( 'design/standard/block/edit' )} <input type="checkbox" {if eq( $block.rotation.type, 2 )}checked="checked"{/if} name="RotationShuffle_{$block_id}" /> <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_set_rotation-{$zone_id}-{$block_id}]" value="{'Set'|i18n( 'design/standard/block/edit' )}" /></td>
     </tr>
 </table>
 <table border="0" cellspacing="1" class="items history" id="z:{$zone_id}_b:{$block_id}_h">
@@ -176,7 +176,7 @@
         <td>{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
         <td class="status">
             {if ne( $item.moved_to , '' )}
-                Moved to:
+                {'Moved to:'|i18n( 'design/standard/block/edit' )}
 
                 {foreach $zone.blocks as $index => $dest_block}
                 {if eq( $dest_block.id, $item.moved_to )}
@@ -188,14 +188,14 @@
                 {/if}
                 {/foreach}
             {else}
-                Not visible
+                {'Not visible'|i18n( 'design/standard/block/edit' )}
             {/if}
         </td>
     </tr>
     {/foreach}
     {else}
     <tr class="empty">
-        <td colspan="3">History: no items.</td>
+        <td colspan="3">{'History: no items.'|i18n( 'design/standard/block/edit' )}</td>
     </tr>
     {/if}
     </tbody>
@@ -203,10 +203,10 @@
 
 <div class="block-controls float-break">
     <div class="left">
-        <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_remove_item-{$zone_id}-{$block_id}]" value="Remove selected" />
+        <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_remove_item-{$zone_id}-{$block_id}]" value="{'Remove selected'|i18n( 'design/standard/block/edit' )}" />
     </div>
     <div class="right legend">
-        <div class="queue">&nbsp;</div> Queue: {$block.waiting|count()} <div class="online">&nbsp;</div> Online: {$block.valid|count()} <div class="history">&nbsp;</div> History: {$block.archived|count()}
+        <div class="queue">&nbsp;</div> {'Queue:'|i18n( 'design/standard/block/edit' )} {$block.waiting|count()} <div class="online">&nbsp;</div> {'Online:'|i18n( 'design/standard/block/edit' )} {$block.valid|count()} <div class="history">&nbsp;</div> {'History:'|i18n( 'design/standard/block/edit' )} {$block.archived|count()}
     </div>
 </div>
 {/if}

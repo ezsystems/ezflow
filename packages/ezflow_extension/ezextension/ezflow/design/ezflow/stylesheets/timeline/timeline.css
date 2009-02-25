@@ -73,7 +73,8 @@ div#slider-container
 
 div#ezflow-timeline
 {
-    margin: 20px 30px 15px 30px;
+    padding: 20px 30px 15px 30px;
+    background-color: #FFFFFF;
 }
 
 body.yui-skin-sam

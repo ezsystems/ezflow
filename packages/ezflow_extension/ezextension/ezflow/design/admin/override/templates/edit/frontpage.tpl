@@ -15,7 +15,7 @@
 
 
 <div class="block">
-    <label>Search phrase</label>
+    <label>{'Search phrase'|i18n( 'design/admin/content/edit' )}</label>
     <input class="textfield" type="text" name="SearchStr" value="" onkeypress="return ezajaxSearchEnter(event)" />
     <input name="SearchOffset" type="hidden" value="0"  />
     <input name="SearchLimit" type="hidden" value="10"  />
@@ -27,7 +27,7 @@
 
 {*
 <div class="block">
-    <label>Section to search</label>
+    <label>{'Section to search'|i18n( 'design/admin/content/edit' )}</label>
     <select name="SearchSectionID" multiple="multiple">
         {foreach fetch( 'content', 'section_list' ) as $section}
             <option value="{$section.id}">{$section.name}</option>
@@ -36,10 +36,10 @@
 </div>
 
 <div class="block date-range">
-    <label>Date range</label>
-    <input name="SearchDate" type="radio" value="1" onclick="javascript:showDateRange(this);" /> Past day <input name="SearchDate" type="radio" value="2" onclick="javascript:showDateRange(this);" /> Past week <br />
-    <input name="SearchDate" type="radio" value="3" onclick="javascript:showDateRange(this);" /> Past month <input name="SearchDate" type="radio" value="4" onclick="javascript:showDateRange(this);" /> Past 3 months <br />
-    <input name="SearchDate" type="radio" value="5" onclick="javascript:showDateRange(this);" /> Past year
+    <label>{'Date range'|i18n( 'design/admin/content/edit' )}</label>
+    <input name="SearchDate" type="radio" value="1" onclick="javascript:showDateRange(this);" /> {'Past day'|i18n( 'design/admin/content/edit' )} <input name="SearchDate" type="radio" value="2" onclick="javascript:showDateRange(this);" /> {'Past week'|i18n( 'design/admin/content/edit' )} <br />
+    <input name="SearchDate" type="radio" value="3" onclick="javascript:showDateRange(this);" /> {'Past month'|i18n( 'design/admin/content/edit' )} <input name="SearchDate" type="radio" value="4" onclick="javascript:showDateRange(this);" /> {'Past 3 months'|i18n( 'design/admin/content/edit' )} <br />
+    <input name="SearchDate" type="radio" value="5" onclick="javascript:showDateRange(this);" /> {'Past year'|i18n( 'design/admin/content/edit' )}
 </div>
 *}
 <div class="block date-range-selection">
@@ -86,7 +86,7 @@ function addBlock( object, id )
 <div class="block">
 <label>{'Select block'|i18n( 'design/admin/content/edit' )}</label>
 <select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
-<option>Select:</option>
+<option>{'Select:'|i18n( 'design/admin/content/edit' )}</option>
 {def $zone_id = ''
      $zone_name = ezini( $content_attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
     {foreach $content_attribute.content.zones as $index => $zone}

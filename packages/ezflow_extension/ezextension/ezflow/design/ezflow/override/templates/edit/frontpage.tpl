@@ -22,15 +22,15 @@
 <div id="ajaxsearchbox" class="tab-container">
 
 <div class="block">
-    <label>Search phrase</label>
+    <label>{'Search phrase'|i18n( 'design/ezflow/edit/frontpage' )}</label>
     <input class="textfield" type="text" name="SearchStr" value="" onkeypress="return ezajaxSearchEnter(event)" />
     <input name="SearchOffset" type="hidden" value="0"  />
     <input name="SearchLimit" type="hidden" value="10"  />
-    <input class="serach-button" type="image" src={"search_button.gif"|ezimage} name="SearchButton" onclick="return ezajaxSearchPost();" value="" />
+    <input class="serach-button" type="image" src={"search_button.gif"|ezimage} name="SearchButton" onclick="return ezajaxSearchPost();" value="" alt="{'Search'|i18n( 'design/ezflow/edit/frontpage' )}" title="{'Search'|i18n( 'design/ezflow/edit/frontpage' )}" />
 </div>
 {*
 <div class="block">
-    <label>Section to search</label>
+    <label>{'Section to search'|i18n( 'design/ezflow/edit/frontpage' )}</label>
     <select name="SearchSectionID" multiple="multiple">
         {foreach fetch( 'content', 'section_list' ) as $section}
             <option value="{$section.id}">{$section.name}</option>
@@ -39,10 +39,10 @@
 </div>
 
 <div class="block date-range">
-    <label>Date range</label>
-    <input name="SearchDate" type="radio" value="1" onclick="javascript:showDateRange(this);" /> Past day <input name="SearchDate" type="radio" value="2" onclick="javascript:showDateRange(this);" /> Past week <br />
-    <input name="SearchDate" type="radio" value="3" onclick="javascript:showDateRange(this);" /> Past month <input name="SearchDate" type="radio" value="4" onclick="javascript:showDateRange(this);" /> Past 3 months <br />
-    <input name="SearchDate" type="radio" value="5" onclick="javascript:showDateRange(this);" /> Past year
+    <label>{'Date range'|i18n( 'design/ezflow/edit/frontpage' )}</label>
+    <input name="SearchDate" type="radio" value="1" onclick="javascript:showDateRange(this);" /> {'Past day'|i18n( 'design/ezflow/edit/frontpage' )} <input name="SearchDate" type="radio" value="2" onclick="javascript:showDateRange(this);" /> {'Past week'|i18n( 'design/ezflow/edit/frontpage' )} <br />
+    <input name="SearchDate" type="radio" value="3" onclick="javascript:showDateRange(this);" /> {'Past month'|i18n( 'design/ezflow/edit/frontpage' )} <input name="SearchDate" type="radio" value="4" onclick="javascript:showDateRange(this);" /> {'Past 3 months'|i18n( 'design/ezflow/edit/frontpage' )} <br />
+    <input name="SearchDate" type="radio" value="5" onclick="javascript:showDateRange(this);" /> {'Past year'|i18n( 'design/ezflow/edit/frontpage' )}
 </div>
 *}
 <div class="block date-range-selection">
@@ -69,7 +69,7 @@
 </div>
 
 <div class="block search-results">
-    <span class="header">Results</span>
+    <span class="header">{'Results'|i18n( 'design/ezflow/edit/frontpage' )}</span>
     <div id="ajaxsearchresult" style="overflow: hidden">
 </div>
 
@@ -88,7 +88,7 @@ function addBlock( object, id )
 </script>
 <p>
 <select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
-<option>Select:</option>
+<option>{'Select:'|i18n( 'design/ezflow/edit/frontpage' )}</option>
 {def $zone_id = ''
      $zone_name = ezini( $content_attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
     {foreach $content_attribute.content.zones as $index => $zone}
@@ -106,7 +106,7 @@ function addBlock( object, id )
     {/foreach}
 </select>
 </p>
-<input id="addtoblock" class="button" type="submit" name="CustomActionButton[{$content_attribute.id}_new_item]" value="Add to block" />
+<input id="addtoblock" class="button" type="submit" name="CustomActionButton[{$content_attribute.id}_new_item]" value="{'Add to block'|i18n( 'design/ezflow/edit/frontpage' )}" />
 {/if}
 {/foreach}
 
@@ -229,7 +229,7 @@ function ezajaxSearchClick( el, obj, i )
 <div class="content-edit">
 
     <div class="attribute-header">
-        <h1 class="long">{'Edit %1 - %2'|i18n( 'design/ezwebin/content/edit', , array( $class.name|wash, $object.name|wash ) )}</h1>
+        <h1 class="long">{'Edit %1 - %2'|i18n( 'design/ezflow/edit/frontpage', , array( $class.name|wash, $object.name|wash ) )}</h1>
     </div>
 
     <div class="attribute-language">
@@ -247,13 +247,13 @@ function ezajaxSearchClick( el, obj, i )
 
         {def $from_language_object = $object.languages[$from_language]}
 
-        {'Translating content from %from_lang to %to_lang'|i18n( 'design/ezwebin/content/edit',, hash(
+        {'Translating content from %from_lang to %to_lang'|i18n( 'design/ezflow/edit/frontpage',, hash(
             '%from_lang', concat( $from_language_object.name, '&nbsp;<img src="', $from_language_object.locale|flag_icon, '" style="vertical-align: middle;" alt="', $from_language_object.locale, '" />' ),
             '%to_lang', concat( $translation_list[$language_index].locale.intl_language_name, '&nbsp;<img src="', $translation_list[$language_index].language_code|flag_icon, '" style="vertical-align: middle;" alt="', $translation_list[$language_index].language_code, '" />' ) ) )}
 
     {else}
 
-        {'Content in %language'|i18n( 'design/ezwebin/content/edit',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
+        {'Content in %language'|i18n( 'design/ezflow/edit/frontpage',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
 
     {/if}
     </div>
@@ -263,9 +263,9 @@ function ezajaxSearchClick( el, obj, i )
     {include uri='design:content/edit_attribute.tpl'}
 
     <div class="buttonblock">
-    <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezwebin/content/edit' )}" />
+    <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/ezflow/edit/frontpage' )}" />
+    <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/ezflow/edit/frontpage' )}" />
+    <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezflow/edit/frontpage' )}" />
     <input type="hidden" name="DiscardConfirm" value="0" />
     <input type="hidden" name="RedirectIfDiscarded" value="{ezhttp( 'LastAccessesURI', 'session' )}" />
     <input type="hidden" name="RedirectURIAfterPublish" value="{ezhttp( 'LastAccessesURI', 'session' )}" />
