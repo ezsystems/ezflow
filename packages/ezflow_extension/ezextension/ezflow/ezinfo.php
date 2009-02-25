@@ -28,10 +28,10 @@ class ezflowInfo
 {
     static function info()
     {
-        return array( 'Name' => "eZ Flow",
-                      'Version' => "1.1.0alpha2",
-                      'Copyright' => "Copyright (C) 1999-2009 eZ Systems AS",
-                      'License' => "GNU General Public License v2.0"
+        return array( 'Name' => 'eZ Flow',
+                      'Version' => '1.1.0beta1',
+                      'Copyright' => 'Copyright (C) 1999-' . date('Y') . ' eZ Systems AS',
+                      'License' => 'GNU General Public License v2.0'
                      );
     }
 }
