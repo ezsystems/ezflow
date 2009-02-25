@@ -276,7 +276,7 @@
     <div id="extrainfo-position">
       <div id="extrainfo">
           <!-- Extra content: START -->
-          {if $current_node_id}
+          {if and( $current_node_id, $pagestyle|contains('noextrainfo')|not() )}
             {include uri='design:parts/extra_info.tpl'}
           {/if}
           <!-- Extra content: END -->
