@@ -38,6 +38,89 @@ class eZPageType extends eZDataType
     }
 
     /**
+     * Initialize contentobject attribute content
+     *
+     * @param eZContentObjectAttribute $contentObjectAttribute
+     * @param integer $currentVersion
+     * @param eZContentObjectAttribute $originalContentObjectAttribute
+     */
+    function initializeObjectAttribute( $contentObjectAttribute, $currentVersion, $originalContentObjectAttribute )
+    {
+        if ( $currentVersion != false )
+        {
+            $contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
+            $originalContentObjectID = $originalContentObjectAttribute->attribute( 'contentobject_id' );
+
+            if ( $contentObjectID != $originalContentObjectID )
+            {
+                $page = $originalContentObjectAttribute->content();
+                $clonedPage = clone $page;
+                $contentObjectAttribute->setContent( $clonedPage );
+                $contentObjectAttribute->store();
+            }
+            else
+            {
+                $dataText = $originalContentObjectAttribute->attribute( 'data_text' );
+                $contentObjectAttribute->setAttribute( 'data_text', $dataText );
+            }
+        }
+        else
+        {
+            $contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
+            $defaultLayout = $contentClassAttribute->attribute( "data_text1" );
+            $zoneINI = eZINI::instance( 'zone.ini' );
+            $page = new eZPage();
+            $zones = array();
+            if ( $defaultLayout !== '' )
+            {
+                if ( $zoneINI->hasVariable( $defaultLayout, 'Zones' ) )
+                    $zones = $zoneINI->variable( $defaultLayout, 'Zones' );
+
+                $page->setAttribute( 'zone_layout', $defaultLayout );
+                foreach ( $zones as $zoneIdentifier )
+                {
+                    $newZone = $page->addZone( new eZPageZone() );
+                    $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $page->getZoneCount() ) );
+                    $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                    $newZone->setAttribute( 'action', 'add' );
+                }
+            }
+            else
+            {
+                $allowedZones = $zoneINI->variable( 'General', 'AllowedTypes' );
+                $availableForClasses = array();
+                $class = eZContentClass::fetch( $contentClassAttribute->attribute( 'contentclass_id' ) );
+
+                foreach ( $allowedZones as $allowedZone )
+                {
+                    if ( $zoneINI->hasVariable( $allowedZone, 'AvailableForClasses' ) )
+                        $availableForClasses = $zoneINI->variable( $allowedZone, 'AvailableForClasses' );
+                    
+                    if ( in_array( $class->attribute( 'identifier' ), $availableForClasses ) )
+                    {
+                        if ( $zoneINI->hasVariable( $allowedZone, 'Zones' ) )
+                            $zones = $zoneINI->variable( $allowedZone, 'Zones' );
+                            
+                        $page->setAttribute( 'zone_layout', $allowedZone );
+                        foreach ( $zones as $zoneIdentifier )
+                        {
+                            $newZone = $page->addZone( new eZPageZone() );
+                            $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $page->getZoneCount() ) );
+                            $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                            $newZone->setAttribute( 'action', 'add' );
+                        }
+
+                        break;
+                    }
+                    else
+                        continue;
+                }
+            }
+            $contentObjectAttribute->setContent( $page );
+        }
+    }
+
+    /**
      * Checks if contentobject attribute has content
      *
      * @param eZContentObjectAttribute $contentObjectAttribute
@@ -83,6 +166,11 @@ class eZPageType extends eZDataType
      */
     function fetchClassAttributeHTTPInput( $http, $base, $classAttribute )
     {
+        if ( $http->hasPostVariable( $base . '_ezpage_default_layout_' . $classAttribute->attribute( 'id' ) ) )
+        {
+            $defaultLayout = $http->postVariable( $base . '_ezpage_default_layout_' . $classAttribute->attribute( 'id' ) );
+            $classAttribute->setAttribute( 'data_text1', $defaultLayout );
+        }
         return true;
     }
 
@@ -931,35 +1019,6 @@ class eZPageType extends eZDataType
         $rootNode = $attributeNode->childNodes->item( 0 );
         $xmlString = $rootNode ? $rootNode->ownerDocument->saveXML( $rootNode ) : '';
         $objectAttribute->setAttribute( 'data_text', $xmlString );
-    }
-
-    /**
-     * Initialize contentobject attribute content
-     *
-     * @param eZContentObjectAttribute $contentObjectAttribute
-     * @param integer $currentVersion
-     * @param eZContentObjectAttribute $originalContentObjectAttribute
-     */
-    function initializeObjectAttribute( $contentObjectAttribute, $currentVersion, $originalContentObjectAttribute )
-    {
-        if ( $currentVersion != false )
-        {
-            $contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
-            $originalContentObjectID = $originalContentObjectAttribute->attribute( 'contentobject_id' );
-
-            if ( $contentObjectID != $originalContentObjectID )
-            {
-                $page = $originalContentObjectAttribute->content();
-                $clonedPage = clone $page;
-                $contentObjectAttribute->setContent( $clonedPage );
-                $contentObjectAttribute->store();
-            }
-            else
-            {
-                $dataText = $originalContentObjectAttribute->attribute( 'data_text' );
-                $contentObjectAttribute->setAttribute( 'data_text', $dataText );
-            }
-        }
     }
 }
 

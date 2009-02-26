@@ -20,10 +20,10 @@
 {foreach $allowed_zones as $allowed_zone}
 {if $allowed_zone['classes']|contains( $attribute.object.content_class.identifier )}
     <div class="zone">
-        <div class="zone-label">{$allowed_zone['name']}</div>
-        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", $allowed_zone['thumbnail'] )|ezimage()} alt="$allowed_zone['name']" /></div>
+        <div class="zone-label">{$allowed_zone['name']|wash()}</div>
+        <div class="zone-thumbnail"><img src={concat( "ezpage/thumbnails/", $allowed_zone['thumbnail'] )|ezimage()} alt="{$allowed_zone['name']|wash()}" /></div>
         <div class="zone-selector">
-            <input type="radio" class="zone-type-selector" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_zone['type']}" {if eq( $allowed_zone['type'], $attribute.content.zone_layout)}checked="checked"{/if} />
+            <input type="radio" class="zone-type-selector" name="ContentObjectAttribute_ezpage_zone_allowed_type_{$attribute.id}" value="{$allowed_zone['type']}" {if eq( $allowed_zone['type'], $attribute.content.zone_layout )}checked="checked"{/if} />
         </div>
     </div>
 {/if}
