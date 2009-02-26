@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension name="ezflow">
   <file name="autoloads" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezred5streamlist.php" path="/autoloads" md5sum="af0eef851e70d1deebd4aeca1c9731fe"/>
-  <file name="eztemplateautoload.php" path="/autoloads" md5sum="85233512aa608723d1deea612ed38886"/>
-  <file name="ezunserialize.php" path="/autoloads" md5sum="f5ac5fe4a74394f554b68c296f6b06a7"/>
+  <file name="ezjson.php" path="/autoloads" md5sum="a286c0369fd98d3a9ffcc3270a5d37e3"/>
+  <file name="ezred5streamlist.php" path="/autoloads" md5sum="fdb6b9a28343cf75172cd51dc703f48c"/>
+  <file name="eztemplateautoload.php" path="/autoloads" md5sum="2448cdc1e334137c71e377dbb38722ea"/>
+  <file name="ezunserialize.php" path="/autoloads" md5sum="fcc7f39bc444f7fc00f2832bdf1999c7"/>
   <file name="classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflowajaxcontent.php" path="/classes" md5sum="76de92660418ed3cbb12a2a2141f0d88"/>
   <file name="ezflowblock.php" path="/classes" md5sum="3f58ff1bf35e6336534cf3c45fe25a91"/>
@@ -11,18 +12,20 @@
   <file name="ezflowoperations.php" path="/classes" md5sum="0871c0deb64405182b1dde9f14b23715"/>
   <file name="ezflowpool.php" path="/classes" md5sum="c35ebdc36cfb3b046eee8173744db156"/>
   <file name="ezflowpoolitem.php" path="/classes" md5sum="3ebb258c5c7cdb9bde0086e08d9771e1"/>
-  <file name="ezpage.php" path="/classes" md5sum="7aa8605bfbfc2ba3e90348dce4023bde"/>
+  <file name="ezhttpcachemanager.php" path="/classes" md5sum="16f25d2653c8f494d17b521d4db76a59"/>
+  <file name="ezhttpcachemanagerinterface.php" path="/classes" md5sum="3aee7ed9a48df0450e2405fb7ce29494"/>
+  <file name="ezpage.php" path="/classes" md5sum="3f224b4e018768330c2fff79f7406e31"/>
   <file name="ezpageblock.php" path="/classes" md5sum="a570f82e77df46209fa1e598f4fab5e7"/>
   <file name="ezpageblockitem.php" path="/classes" md5sum="3e83fe48315c8c663cd30770e836c347"/>
   <file name="ezpagezone.php" path="/classes" md5sum="5a9c11b09a6f7f883f0c63fcd8b6e853"/>
-  <file name="ezsquidcachemanager.php" path="/classes" md5sum="b23bd6c5ff3fc76aafc9aa2fbdaaef06"/>
+  <file name="ezsquidcachemanager.php" path="/classes" md5sum="c82512f7f2333840f2af4b96b789f3bf"/>
   <file name="fetches" path="/classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflowlatestobjects.php" path="/classes/fetches" md5sum="2a8a58a80dad15b5e1b0ab95a969a7b8"/>
   <file name="cronjobs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflowupdate.php" path="/cronjobs" md5sum="1b32b60ef1fd33f55be2542d0abee5de"/>
   <file name="datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage" path="/datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="c0816ded8fb0f6184861bc94fc5f1a63"/>
+  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="cc5f444403928bfb447cbf6ab18e2888"/>
   <file name="design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="admin" path="/design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="images" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -36,7 +39,7 @@
   <file name="override" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="templates" path="/design/admin/override" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="edit" path="/design/admin/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="frontpage.tpl" path="/design/admin/override/templates/edit" md5sum="fc5c779bc01f0ee0f083c0ef2bec0045"/>
+  <file name="frontpage.tpl" path="/design/admin/override/templates/edit" md5sum="71b083afd8bc2544039ce69e5d511e81"/>
   <file name="stylesheets" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflow.css" path="/design/admin/stylesheets" md5sum="0746021e006f6bb9d857cec62cac12c1"/>
   <file name="ezpage" path="/design/admin/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -221,6 +224,8 @@
   <file name="clock_ico.gif" path="/design/ezflow/images/ezpage" md5sum="467a9f62f1b99d17f9d1f0bc0a890645"/>
   <file name="collapse.gif" path="/design/ezflow/images/ezpage" md5sum="3c50b5e7d627f050e017cbac73dc2e3c"/>
   <file name="expand.gif" path="/design/ezflow/images/ezpage" md5sum="96b38a727c9d807234c9a133e8d08dd0"/>
+  <file name="feedback_bg.png" path="/design/ezflow/images" md5sum="b597e7dfa3722c3990537e31d89590d3"/>
+  <file name="feedback_bg_general.png" path="/design/ezflow/images" md5sum="63e0e0883094340b120762537d6a058a"/>
   <file name="footer-logo.png" path="/design/ezflow/images" md5sum="294036015779ef2d7ba619e9cf5b4ddf"/>
   <file name="icons" path="/design/ezflow/images" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="tip_icon.gif" path="/design/ezflow/images/icons" md5sum="8dd9290255c0be84298d3dceb206f8f8"/>
@@ -282,7 +287,7 @@
   <file name="banner1.tpl" path="/design/ezflow/override/templates/block" md5sum="35590a5ff4ba8bdb7bd02c9ab23d21f2"/>
   <file name="banner2.tpl" path="/design/ezflow/override/templates/block" md5sum="a9976952c5eb916dd882131edafdc97f"/>
   <file name="flash_recorder.tpl" path="/design/ezflow/override/templates/block" md5sum="4a26330902d8a56e6d2c3b9bb2745dae"/>
-  <file name="gallery1.tpl" path="/design/ezflow/override/templates/block" md5sum="e0e5b46dbb79b38fc4e886129f14b34b"/>
+  <file name="gallery1.tpl" path="/design/ezflow/override/templates/block" md5sum="ec6c7ddd743d3602badae0fff9880e66"/>
   <file name="gallery_gmap.tpl" path="/design/ezflow/override/templates/block" md5sum="dadc55ecd15f98abdf1b0de317a6c805"/>
   <file name="itemlist1.tpl" path="/design/ezflow/override/templates/block" md5sum="24c37a68e1fb86989c939a5bf8cecc75"/>
   <file name="itemlist2.tpl" path="/design/ezflow/override/templates/block" md5sum="f147e861b7cafac9a77e382e7f377e78"/>
@@ -295,8 +300,9 @@
   <file name="video.tpl" path="/design/ezflow/override/templates/block" md5sum="ff6820c93cd3c1eb48293c5261dbffb6"/>
   <file name="block_item" path="/design/ezflow/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="article.tpl" path="/design/ezflow/override/templates/block_item" md5sum="3a78d80dcb9b6d5f51717b3059b91757"/>
+  <file name="image.tpl" path="/design/ezflow/override/templates/block_item" md5sum="96a678ebbb29ea3a8a77b9ea084400d5"/>
   <file name="edit" path="/design/ezflow/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="frontpage.tpl" path="/design/ezflow/override/templates/edit" md5sum="adfadb9b3f6a2f0b608418eecdbdb4c4"/>
+  <file name="frontpage.tpl" path="/design/ezflow/override/templates/edit" md5sum="a35ede0e837695ee0bbbe67aa9640f1c"/>
   <file name="full" path="/design/ezflow/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="flash_player.tpl" path="/design/ezflow/override/templates/full" md5sum="2fa8b86552aaaf4c64812346a4b12519"/>
   <file name="flash_recorder.tpl" path="/design/ezflow/override/templates/full" md5sum="0aa6c09d98746e5b85f7ba1866b6894b"/>
@@ -306,33 +312,24 @@
   <file name="ie5.css" path="/design/ezflow/stylesheets/browsers" md5sum="713ac758aeedd38a8e5b23fbeb203e61"/>
   <file name="ie7lte.css" path="/design/ezflow/stylesheets/browsers" md5sum="38e2df7e4b44c16b71eac35cb01be0a9"/>
   <file name="core.css" path="/design/ezflow/stylesheets" md5sum="4f8619f22d166fdb0e6a827da62f54c8"/>
-  <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="ee538b64df6c1e6a0bbdd9bf7e15724a"/>
+  <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="02a132fb916fd3653b84e57fffc8a0f8"/>
   <file name="ezpage" path="/design/ezflow/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.css" path="/design/ezflow/stylesheets/ezpage" md5sum="4fdeba7fafb88ec765386b534b987922"/>
-  <file name="pagelayout.css" path="/design/ezflow/stylesheets" md5sum="1a2085ea16fa6bea971dddb5264a6847"/>
+  <file name="ezpage.css" path="/design/ezflow/stylesheets/ezpage" md5sum="66c2f515d0695d23e2e34a507d7cb948"/>
+  <file name="pagelayout.css" path="/design/ezflow/stylesheets" md5sum="2df6aa2d8ad2f87b89fafdf9e05ddc55"/>
   <file name="timeline" path="/design/ezflow/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="timeline.css" path="/design/ezflow/stylesheets/timeline" md5sum="e7fc8e9b7116b3354b34b8b909af2f25"/>
+  <file name="timeline.css" path="/design/ezflow/stylesheets/timeline" md5sum="671e27b8dd040edcfe4c58c85230c65b"/>
   <file name="templates" path="/design/ezflow" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="class" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="datatype" path="/design/ezflow/templates/class" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="edit" path="/design/ezflow/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.tpl" path="/design/ezflow/templates/class/datatype/edit" md5sum="d41d8cd98f00b204e9800998ecf8427e"/>
-  <file name="view" path="/design/ezflow/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.tpl" path="/design/ezflow/templates/class/datatype/view" md5sum="fa421fb041c14d1c3d5eafbf6c6189b0"/>
+  <file name="extra" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="timeline.tpl" path="/design/ezflow/templates/extra" md5sum="f6d5875d6e4fe6f41ec867c300687dfe"/>
   <file name="flash_demo.tpl" path="/design/ezflow/templates" md5sum="73172088bee1519bed2c3e503ce3a037"/>
-  <file name="menu" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="double_top.tpl" path="/design/ezflow/templates/menu" md5sum="8c222bd9ef5da27e7294755156f6f758"/>
-  <file name="page_footer.tpl" path="/design/ezflow/templates" md5sum="58a77d4541295085721d05f5bbf535d9"/>
-  <file name="pagelayout.tpl" path="/design/ezflow/templates" md5sum="74ecd1868187a9979e7d847d0fbd00f1"/>
+  <file name="page_footer.tpl" path="/design/ezflow/templates" md5sum="8fe9bfffb4ee8b3f9d4ec9ee4f6c7257"/>
+  <file name="page_header.tpl" path="/design/ezflow/templates" md5sum="9142b7ff564dc2fc45dfac0f20d21331"/>
   <file name="parts" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="extra_info.tpl" path="/design/ezflow/templates/parts" md5sum="92ac1104ab20d8dab379e5e9dcdaab11"/>
   <file name="flash_player.tpl" path="/design/ezflow/templates/parts" md5sum="43c236b877acf39ec7ee7d0cb943a8b9"/>
   <file name="flash_player_embed_code.tpl" path="/design/ezflow/templates/parts" md5sum="de4cd8aca92e3166674087bcf396e19c"/>
-  <file name="path.tpl" path="/design/ezflow/templates/parts" md5sum="c1fec50d78860959a9aef5bd99670d3a"/>
   <file name="websitetoolbar" path="/design/ezflow/templates/parts" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="timeline.tpl" path="/design/ezflow/templates/parts/websitetoolbar" md5sum="319be445a9daa4a73aa422794ea235a1"/>
-  <file name="timeline" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="timeline.tpl" path="/design/ezflow/templates/timeline" md5sum="f6d5875d6e4fe6f41ec867c300687dfe"/>
   <file name="zone" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="2zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="c67da5134b4b3fb4254fe3873cd9cba1"/>
   <file name="2zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="c67da5134b4b3fb4254fe3873cd9cba1"/>
@@ -385,7 +382,8 @@
   <file name="javascript" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="blocktools.js" path="/design/standard/javascript" md5sum="3b7418b9ddfcc377f86f19457b0030c7"/>
   <file name="ez_core.js" path="/design/standard/javascript" md5sum="811233d21cdfbed738dde806ab191a98"/>
-  <file name="scheduledialog.js" path="/design/standard/javascript" md5sum="4cfbeef21f555e1d84e5a9b08c423b9c"/>
+  <file name="scheduledialog.js" path="/design/standard/javascript" md5sum="3a6e2c75dc548c415836a9bd537756e7"/>
+  <file name="zonetools.js" path="/design/standard/javascript" md5sum="96208db7032859114b93aa90e7d20eb3"/>
   <file name="lib" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="yui" path="/design/standard/lib" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="2.6.0" path="/design/standard/lib/yui" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -412,6 +410,11 @@
   <file name="cookie-min.js" path="/design/standard/lib/yui/2.6.0/build/cookie" md5sum="78c17c0c937d8341472438751159c8c4"/>
   <file name="get" path="/design/standard/lib/yui/2.6.0/build" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="get-min.js" path="/design/standard/lib/yui/2.6.0/build/get" md5sum="90d9bc3a038661ab6526afd5a8438ec7"/>
+  <file name="json" path="/design/standard/lib/yui/2.6.0/build" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="json-debug.js" path="/design/standard/lib/yui/2.6.0/build/json" md5sum="d2b9b26cb9c768fbaad06a4f390196ba"/>
+  <file name="json-min.js" path="/design/standard/lib/yui/2.6.0/build/json" md5sum="9ec5ab3666beaceeeef7cf3da8d77cc1"/>
+  <file name="json.js" path="/design/standard/lib/yui/2.6.0/build/json" md5sum="d2b9b26cb9c768fbaad06a4f390196ba"/>
+  <file name="README" path="/design/standard/lib/yui/2.6.0/build/json" md5sum="6728960f3cd6a51dfe9a8190641b948d"/>
   <file name="slider" path="/design/standard/lib/yui/2.6.0/build" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="slider-min.js" path="/design/standard/lib/yui/2.6.0/build/slider" md5sum="57e744599bbd8dd77c5f91801ba0767f"/>
   <file name="tabview" path="/design/standard/lib/yui/2.6.0/build" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -423,45 +426,54 @@
   <file name="templates" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="block" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="edit" path="/design/standard/templates/block" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="edit.tpl" path="/design/standard/templates/block/edit" md5sum="86cab2dd883dbd6a6d752a524d62f9f2"/>
+  <file name="edit.tpl" path="/design/standard/templates/block/edit" md5sum="a01c227785a5b41336cceac94e0e9357"/>
   <file name="view" path="/design/standard/templates/block" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="view.tpl" path="/design/standard/templates/block/view" md5sum="61dc839835c8ad509421ae1572d9e61f"/>
+  <file name="view.tpl" path="/design/standard/templates/block/view" md5sum="edf4923f9960274199199edaad91f8f7"/>
+  <file name="class" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="datatype" path="/design/standard/templates/class" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="edit" path="/design/standard/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezpage.tpl" path="/design/standard/templates/class/datatype/edit" md5sum="1127d0b029270565fe4120b6be884d4c"/>
+  <file name="view" path="/design/standard/templates/class/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="ezpage.tpl" path="/design/standard/templates/class/datatype/view" md5sum="02e0d4652c1ea04e3a188535661bf496"/>
   <file name="content" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="datatype" path="/design/standard/templates/content" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="edit" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="75a97432ee2b5951523ad545197d6dbc"/>
+  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="051c4c09e86d82ae4fb23e98740a8a06"/>
   <file name="view" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/view" md5sum="823565a730c35dc3611a9522c4291d12"/>
   <file name="page" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="block.tpl" path="/design/standard/templates/page" md5sum="503c744a3648c4859c093b6b0b6c053b"/>
   <file name="preview.tpl" path="/design/standard/templates/page" md5sum="503c744a3648c4859c093b6b0b6c053b"/>
-  <file name="zone.tpl" path="/design/standard/templates/page" md5sum="c02d80827a28690488a822c1106bf5ab"/>
+  <file name="zone.tpl" path="/design/standard/templates/page" md5sum="a49b7c355cf52bd053d3c24aaddcea33"/>
+  <file name="zone" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="extras" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="flash_video_list.php" path="/extras" md5sum="7092625de2ea711dd3a8a9eb5e72e173"/>
-  <file name="ezinfo.php" md5sum="4529a7b104c10e2f9c0f0d5528a4da9d"/>
+  <file name="ezinfo.php" md5sum="592a6a33bfd78cc461c22f83af76fade"/>
   <file name="modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezajax" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="module.php" path="/modules/ezajax" md5sum="2d63f3819f1e20d663bb55934d2cd779"/>
   <file name="search.php" path="/modules/ezajax" md5sum="2951e0f58126b5f5ad1a32597638eb3e"/>
   <file name="ezflow" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="block.php" path="/modules/ezflow" md5sum="49b0cc4ff404eb9d1e23ba66a886c4d8"/>
-  <file name="function_definition.php" path="/modules/ezflow" md5sum="99fc513252c9f300a6632081327e1665"/>
-  <file name="functioncollection.php" path="/modules/ezflow" md5sum="f30e43d082d110b36b38dc5ef98de9c2"/>
+  <file name="function_definition.php" path="/modules/ezflow" md5sum="c5a062daa39cf9aacc4bac8e0d3836c2"/>
+  <file name="functioncollection.php" path="/modules/ezflow" md5sum="95ea6cc6f0ffc83c2e2f480d8cbd120b"/>
   <file name="module.php" path="/modules/ezflow" md5sum="6922ee3c5ec139f186c705440e97756e"/>
   <file name="preview.php" path="/modules/ezflow" md5sum="423bda4e73e9edb68f272b9299d4e7ed"/>
   <file name="request.php" path="/modules/ezflow" md5sum="cdb41f2e5289318fb9fee4a109e63e42"/>
-  <file name="timeline.php" path="/modules/ezflow" md5sum="76a608006b9880bcc8dc4be984587b8b"/>
+  <file name="timeline.php" path="/modules/ezflow" md5sum="7d601d9eda7bb498c999588acb7cc1c6"/>
   <file name="zone.php" path="/modules/ezflow" md5sum="d5542f783b943f8e306bc5834401e036"/>
   <file name="flash" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="embed.php" path="/modules/flash" md5sum="a4d68a6dff761ad85448bd5779858449"/>
   <file name="module.php" path="/modules/flash" md5sum="6c8a781ba31930f0ee80da204447ab68"/>
   <file name="settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="block.ini.append.php" path="/settings" md5sum="1a321282ec1e6f19977b6395368b17c8"/>
+  <file name="block.ini.append.php" path="/settings" md5sum="94556b07b0afc17a7c86c858bdbd6314"/>
   <file name="browse.ini.append.php" path="/settings" md5sum="d6c19c0e2a1bef71276e92c4cab35212"/>
   <file name="content.ini.append.php" path="/settings" md5sum="15b98ee81415bd6ea05e371304f18c73"/>
   <file name="cronjob.ini.append.php" path="/settings" md5sum="6d5dfffdc12ed27785b66ff2a2415d57"/>
   <file name="design.ini.append.php" path="/settings" md5sum="162a8a9b437db66b3afa13246c31b446"/>
+  <file name="http.ini.append.php" path="/settings" md5sum="7237a7099ae39af95eb804e11609528c"/>
   <file name="image.ini.append.php" path="/settings" md5sum="233fcd960d6bfa63afea9918431e547a"/>
+  <file name="menu.ini.append.php" path="/settings" md5sum="590fb815541dda5d0cc72f4b803d65ea"/>
   <file name="module.ini.append.php" path="/settings" md5sum="ef87a07b2f7afac027784db27d93184a"/>
   <file name="site.ini.append.php" path="/settings" md5sum="d71e80bbb99cedf032a579e28acaa37d"/>
   <file name="siteaccess" path="/settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
