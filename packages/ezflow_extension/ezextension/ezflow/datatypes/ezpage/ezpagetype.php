@@ -87,12 +87,15 @@ class eZPageType extends eZDataType
             }
             else
             {
-                $allowedZones = $zoneINI->variable( 'General', 'AllowedTypes' );
-                $availableForClasses = array();
+                $allowedZones = array();
+                if ( $zoneINI->hasGroup( 'General' ) && $zoneINI->hasVariable( 'General', 'AllowedTypes' ) )
+                    $allowedZones = $zoneINI->variable( 'General', 'AllowedTypes' );
+
                 $class = eZContentClass::fetch( $contentClassAttribute->attribute( 'contentclass_id' ) );
 
                 foreach ( $allowedZones as $allowedZone )
                 {
+                    $availableForClasses = array();
                     if ( $zoneINI->hasVariable( $allowedZone, 'AvailableForClasses' ) )
                         $availableForClasses = $zoneINI->variable( $allowedZone, 'AvailableForClasses' );
                     

@@ -25,7 +25,8 @@ class eZHTTPCacheManager
     {
         $handlerList = array();
         $ini = eZINI::instance( 'http.ini' );
-        $handlerList = $ini->variable( 'HTTPCacheHandlers', 'Handlers' );
+        if ( $ini->hasGroup( 'HTTPCacheHandlers' ) && $ini->hasVariable( 'HTTPCacheHandlers', 'Handlers' ) )
+            $handlerList = $ini->variable( 'HTTPCacheHandlers', 'Handlers' );
         
         return $handlerList;
     }
