@@ -36,3 +36,4 @@ Changes from 1.0-0 to 1.1-0
 - Implemented enhancement #014316: Default template takes too much ressources
 - Implemented enhancement #014529: Changing the zone layout without deleting existing blocks
 - Implemented enhancement #014523: Select a default layout in the ezpage attribute when creating a brand new content object.
+- Implemented enhancement #013359: php warning in array_merge in ezflowoperations.php

@@ -239,8 +239,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                            WHERE block_id='$blockID'
                                              AND ts_visible>0
                                              AND ts_hidden=0
-                                           ORDER BY priority ASC
-                                           LIMIT $countToRemove" );
+                                           ORDER BY priority ASC", array( 'limit' => $countToRemove ) );
 
                         if ( $items )
                         {
@@ -294,8 +293,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                         $duplicityCheck = $db->arrayQuery( "SELECT object_id
                                                                     FROM $poolTMPTable
                                                                     WHERE block_id='$overflowID'
-                                                                      AND object_id=$objectID
-                                                                    LIMIT 1" );
+                                                                      AND object_id=$objectID", array( 'limit' => 1 ) );
                                         if ( $duplicityCheck )
                                         {
                                             eZDebug::writeNotice( "Object $objectID is already available in the block $overflowID.", 'eZ Flow Update Cronjob' );
@@ -350,8 +348,7 @@ if ( createTemporaryTable( $blockTable, $blockTMPTable ) )
                                            FROM $poolTMPTable
                                            WHERE block_id='$blockID'
                                              AND ts_hidden>0
-                                           ORDER BY ts_hidden ASC
-                                           LIMIT $countToRemove" );
+                                           ORDER BY ts_hidden ASC", array( 'limit' => $countToRemove ) );
 
                         if ( $items )
                         {
