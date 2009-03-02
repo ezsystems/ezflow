@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="false">
-  <name>Event</name>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:5:"Event";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>event</identifier>
   <remote-id>563cb5edc2adfd2b240efa456c81525f</remote-id>
   <object-name-pattern>&lt;short_title|title&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpl/index.php/</site-url>
-    <url>http://localhost/ezpl/index.php/class/view/30</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/41</url>
     <groups>
-      <group id="1"
-             name="Content" />
+      <group id="1" name="Content"/>
     </groups>
-    <id>30</id>
-    <created>1155796872</created>
-    <modified>1158834137</modified>
+    <id>41</id>
+    <created>1235986121</created>
+    <modified>1235986121</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,96 +23,74 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>246</id>
+        <id>298</id>
       </remote>
-      <name>Full title</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:10:"Full title";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>title</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>55</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>247</id>
+        <id>299</id>
       </remote>
-      <name>Short title</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Short title";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>short_title</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <max-length>19</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezxmltext"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>262</id>
+        <id>300</id>
       </remote>
-      <name>Text</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Text";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>text</identifier>
       <placement>3</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezkeyword"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezkeyword" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>269</id>
+        <id>301</id>
       </remote>
-      <name>Category</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:8:"Category";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>category</identifier>
       <placement>4</placement>
-      <datatype-parameters />
+      <datatype-parameters/>
     </attribute>
-    <attribute datatype="ezdatetime"
-               required="true"
-               searchable="false"
-               information-collector="false"
-               translatable="false">
+    <attribute datatype="ezdatetime" required="true" searchable="false" information-collector="false" translatable="false">
       <remote>
-        <id>249</id>
+        <id>302</id>
       </remote>
-      <name>From Time</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"From Time";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>from_time</identifier>
       <placement>5</placement>
       <datatype-parameters>
-        <default-value type="current-date" />
+        <default-value type="current-date"/>
+        <use-seconds>0</use-seconds>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezdatetime"
-               required="false"
-               searchable="false"
-               information-collector="false"
-               translatable="false">
+    <attribute datatype="ezdatetime" required="false" searchable="false" information-collector="false" translatable="false">
       <remote>
-        <id>250</id>
+        <id>303</id>
       </remote>
-      <name>To Time</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:7:"To Time";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>to_time</identifier>
       <placement>6</placement>
       <datatype-parameters>
-        <default-value type="empty" />
+        <default-value type="empty"/>
+        <use-seconds>0</use-seconds>
       </datatype-parameters>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

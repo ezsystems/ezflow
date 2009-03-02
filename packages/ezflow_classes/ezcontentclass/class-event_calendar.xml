@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="true">
-  <name>Event calendar</name>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="true" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:14:"Event calendar";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>event_calendar</identifier>
   <remote-id>020cbeb6382c8c89dcec2cd406fb47a8</remote-id>
   <object-name-pattern>&lt;short_title|title&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpl/index.php/</site-url>
-    <url>http://localhost/ezpl/index.php/class/view/31</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/42</url>
     <groups>
-      <group id="1"
-             name="Content" />
+      <group id="1" name="Content"/>
     </groups>
-    <id>31</id>
-    <created>1155797400</created>
-    <modified>1165920019</modified>
+    <id>42</id>
+    <created>1235986121</created>
+    <modified>1235986121</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,59 +23,45 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>251</id>
+        <id>304</id>
       </remote>
-      <name>Full Title</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:10:"Full Title";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>title</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>65</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezstring"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>252</id>
+        <id>305</id>
       </remote>
-      <name>Short Title</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Short Title";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>short_title</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <max-length>25</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezselection"
-               required="true"
-               searchable="false"
-               information-collector="false"
-               translatable="false">
+    <attribute datatype="ezselection" required="true" searchable="false" information-collector="false" translatable="false">
       <remote>
-        <id>253</id>
+        <id>306</id>
       </remote>
-      <name>View</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"View";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>view</identifier>
       <placement>3</placement>
       <datatype-parameters>
         <options>
-          <option id="0"
-                  name="Calendar" />
-          <option id="1"
-                  name="Program" />
+          <option id="0" name="Calendar"/>
+          <option id="1" name="Program"/>
         </options>
         <is-multiselect>0</is-multiselect>
       </datatype-parameters>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

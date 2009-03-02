@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="false">
-  <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Poll&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Poll";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>poll</identifier>
   <remote-id>232937a3a2eacbbf24e2601aebe16522</remote-id>
   <object-name-pattern>&lt;name&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpub390/index.php/</site-url>
-    <url>http://localhost/ezpub390/index.php/class/view/37</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/27</url>
     <groups>
-      <group id="1"
-             name="Content" />
+      <group id="1" name="Content"/>
     </groups>
-    <id>37</id>
-    <created>1169220053</created>
-    <modified>1169220164</modified>
+    <id>27</id>
+    <created>1235986118</created>
+    <modified>1235986118</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,52 +23,40 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>287</id>
+        <id>250</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Name&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>name</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>0</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezxmltext"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>288</id>
+        <id>251</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:11:&quot;Description&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>description</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezoption"
-               required="true"
-               searchable="false"
-               information-collector="true"
-               translatable="true">
+    <attribute datatype="ezoption" required="true" searchable="false" information-collector="true" translatable="true">
       <remote>
-        <id>289</id>
+        <id>252</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:8:&quot;Question&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:8:"Question";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>question</identifier>
       <placement>3</placement>
       <datatype-parameters>
         <default-value></default-value>
       </datatype-parameters>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

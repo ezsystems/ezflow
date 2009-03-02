@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="true">
-  <name>Forum topic</name>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="true" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Forum topic";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>forum_topic</identifier>
   <remote-id>71f99c516743a33562c3893ef98c9b60</remote-id>
   <object-name-pattern>&lt;subject&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpl/index.php/</site-url>
-    <url>http://localhost/ezpl/index.php/class/view/28</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/39</url>
     <groups>
-      <group id="1"
-             name="Content" />
+      <group id="1" name="Content"/>
     </groups>
-    <id>28</id>
-    <created>1155554573</created>
-    <modified>1155554573</modified>
+    <id>39</id>
+    <created>1235986121</created>
+    <modified>1235986121</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,65 +23,49 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>234</id>
+        <id>292</id>
       </remote>
-      <name>Subject</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:7:"Subject";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>subject</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>0</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="eztext"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="eztext" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>235</id>
+        <id>293</id>
       </remote>
-      <name>Message</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:7:"Message";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>message</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezboolean"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezboolean" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>236</id>
+        <id>294</id>
       </remote>
-      <name>Sticky</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:6:"Sticky";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>sticky</identifier>
       <placement>3</placement>
       <datatype-parameters>
-        <default-value is-set="false" />
+        <default-value is-set="false"/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezsubtreesubscription"
-               required="false"
-               searchable="false"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezsubtreesubscription" required="false" searchable="false" information-collector="false" translatable="true">
       <remote>
-        <id>237</id>
+        <id>295</id>
       </remote>
-      <name>Notify me about updates</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:23:"Notify me about updates";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>notify_me</identifier>
       <placement>4</placement>
-      <datatype-parameters />
+      <datatype-parameters/>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

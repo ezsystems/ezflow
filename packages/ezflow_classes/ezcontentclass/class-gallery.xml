@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="true">
-  <name>Gallery</name>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="true" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:7:"Gallery";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>gallery</identifier>
   <remote-id>6a320cdc3e274841b82fcd63a86f80d1</remote-id>
   <object-name-pattern>&lt;name&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpl/index.php/</site-url>
-    <url>http://localhost/ezpl/index.php/class/view/26</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/37</url>
     <groups>
-      <group id="1"
-             name="Content" />
+      <group id="1" name="Content"/>
     </groups>
-    <id>26</id>
-    <created>1155024163</created>
-    <modified>1155024163</modified>
+    <id>37</id>
+    <created>1235986120</created>
+    <modified>1235986120</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,68 +23,52 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>224</id>
+        <id>286</id>
       </remote>
-      <name>Name</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>name</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>0</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezxmltext"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>225</id>
+        <id>287</id>
       </remote>
-      <name>Short description</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:17:"Short description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>short_description</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezxmltext"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>226</id>
+        <id>288</id>
       </remote>
-      <name>Description</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>description</identifier>
       <placement>3</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezobjectrelation"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezobjectrelation" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>227</id>
+        <id>289</id>
       </remote>
-      <name>Image</name>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:5:"Image";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>image</identifier>
       <placement>4</placement>
       <datatype-parameters>
-        <selection-type id="0" />
-        <fuzzy-match id="0" />
+        <selection-type id="0"/>
+        <fuzzy-match id="0"/>
       </datatype-parameters>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

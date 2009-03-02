@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<content-class is-container="false">
-  <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:13:&quot;Windows media&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:13:"Windows media";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>windows_media</identifier>
   <remote-id>223dd2551e85b63b55a72d02363faab6</remote-id>
   <object-name-pattern>&lt;name&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezpub390/index.php/</site-url>
-    <url>http://localhost/ezpub390/index.php/class/view/24</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/35</url>
     <groups>
-      <group id="3"
-             name="Media" />
+      <group id="3" name="Media"/>
     </groups>
-    <id>24</id>
-    <created>1168428348</created>
-    <modified>1171545848</modified>
+    <id>35</id>
+    <created>1235986120</created>
+    <modified>1235986120</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -23,47 +23,35 @@
       <user-login>admin</user-login>
     </modifier>
   </remote>
-  <attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring"
-               required="true"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="true" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>222</id>
+        <id>278</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Name&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>name</identifier>
       <placement>1</placement>
       <datatype-parameters>
         <max-length>0</max-length>
-        <default-string />
+        <default-string/>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezxmltext"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>223</id>
+        <id>279</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:11:&quot;Description&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>description</identifier>
       <placement>2</placement>
       <datatype-parameters>
         <text-column-count>10</text-column-count>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezmedia"
-               required="true"
-               searchable="false"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezmedia" required="true" searchable="false" information-collector="false" translatable="true">
       <remote>
-        <id>224</id>
+        <id>280</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;File&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"File";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>file</identifier>
       <placement>3</placement>
       <datatype-parameters>
@@ -71,18 +59,14 @@
         <type>windows_media_player</type>
       </datatype-parameters>
     </attribute>
-    <attribute datatype="ezkeyword"
-               required="false"
-               searchable="true"
-               information-collector="false"
-               translatable="true">
+    <attribute datatype="ezkeyword" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>318</id>
+        <id>281</id>
       </remote>
-      <serialized-name-list>a:2:{s:6:&quot;eng-GB&quot;;s:4:&quot;Tags&quot;;s:16:&quot;always-available&quot;;s:6:&quot;eng-GB&quot;;}</serialized-name-list>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Tags";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>tags</identifier>
       <placement>4</placement>
-      <datatype-parameters />
+      <datatype-parameters/>
     </attribute>
-  </attributes>
+  </ezcontentclass-attri:attributes>
 </content-class>

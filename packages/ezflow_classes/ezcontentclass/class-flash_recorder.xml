@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false">
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
   <serialized-name-list>a:2:{s:6:"eng-GB";s:14:"Flash recorder";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
   <identifier>flash_recorder</identifier>
   <remote-id>e349c947fd306299418be35b07b9a940</remote-id>
   <object-name-pattern>&lt;name&gt;</object-name-pattern>
   <url-alias-pattern></url-alias-pattern>
   <remote>
-    <site-url>http://localhost/ezflow/index.php/</site-url>
-    <url>http://localhost/ezflow/index.php/class/view/42</url>
+    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezflow_test/index.php/class/view/30</url>
     <groups>
       <group id="3" name="Media"/>
     </groups>
-    <id>42</id>
-    <created>1195737005</created>
-    <modified>1197379341</modified>
+    <id>30</id>
+    <created>1235986119</created>
+    <modified>1235986119</modified>
     <creator>
       <user-id>14</user-id>
       <user-login>admin</user-login>
@@ -26,7 +26,7 @@
   <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
     <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>324</id>
+        <id>261</id>
       </remote>
       <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>name</identifier>
@@ -38,7 +38,7 @@
     </attribute>
     <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>325</id>
+        <id>262</id>
       </remote>
       <serialized-name-list>a:2:{s:6:"eng-GB";s:13:"Stream server";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>stream_server</identifier>
@@ -50,7 +50,7 @@
     </attribute>
     <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>326</id>
+        <id>263</id>
       </remote>
       <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"File server";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>file_server</identifier>
@@ -62,7 +62,7 @@
     </attribute>
     <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
       <remote>
-        <id>332</id>
+        <id>264</id>
       </remote>
       <serialized-name-list>a:2:{s:6:"eng-GB";s:3:"Key";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
       <identifier>key</identifier>
