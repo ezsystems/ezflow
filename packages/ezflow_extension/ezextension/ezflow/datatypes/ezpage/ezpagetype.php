@@ -516,7 +516,8 @@ class eZPageType extends eZDataType
                             array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
+                                                'cancel_page' => $redirectionURI,
+                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ),
                             $module );
                             break;
                         case 'new_source':
@@ -565,7 +566,8 @@ class eZPageType extends eZDataType
                             array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_source-' . $params[1] . '-' . $params[2] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
+                                                'cancel_page' => $redirectionURI,
+                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ),
                             $module );
                             break;
 
@@ -599,7 +601,8 @@ class eZPageType extends eZDataType
                             array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_custom_attribute-' . $params[1] . '-' . $params[2] . '-' . $params[3] . ']',
                                                                                  'value' => $contentObjectAttribute->attribute( 'id' ) ),
                                                 'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI ),
+                                                'cancel_page' => $redirectionURI,
+                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ),
                             $module );
                             break;
 
