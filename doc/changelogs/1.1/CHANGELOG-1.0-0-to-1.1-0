@@ -22,6 +22,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #013875: installation of ezflow does not add to any role the ezflow/* permissions, but those are needed
 - Fixed bug #014521: Default block.ini clearing the list of [General]AllowedTypes[]
 - Fixed bug #012910: eZFlow: Global Zone [Global layout] is always fetched and only CSS-hidden in the presentation layer
+- Fixed bug #014321: ezflow should not set SQL mode
 
 *Enhancements*
 
