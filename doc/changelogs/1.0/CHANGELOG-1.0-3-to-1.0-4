@@ -5,3 +5,4 @@ Changes from 1.0-3 to 1.0-4
 - Fixed bug #014521: Default block.ini clearing the list of [General]AllowedTypes[]
   (Merged from trunk ezflow (1.1) rev.3625)
 - Fixed bug #012910: eZFlow: Global Zone [Global layout] is always fetched and only CSS-hidden in the presentation layer
+- Fixed bug #014321: ezflow should not set SQL mode
