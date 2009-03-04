@@ -24,6 +24,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #012910: eZFlow: Global Zone [Global layout] is always fetched and only CSS-hidden in the presentation layer
 - Fixed bug #014321: ezflow should not set SQL mode
 - Fixed bug #014485: ezflow - after clicking custom action button - checkbox looses state
+- Fixed bug #013523: HostMatchMapItems is not set correctly after installation of ezflow
 
 *Enhancements*
 
