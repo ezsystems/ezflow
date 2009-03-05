@@ -12,3 +12,5 @@ Changes from 1.0-3 to 1.0-4
   (Merged from trunk ezflow (1.1) rev. 3665)
 - Fixed bug #014564: eZ Flow cronjob patch to consider viewcache.ini (patch by Gurudutt Verma)
   (Merged from trunk ezflow (1.1) rev. 3667)
+- Fixed bug #013551: eZFLow - Copying objects does not work properly
+  (Merged from trunk ezflow (1.1) rev. 3290)

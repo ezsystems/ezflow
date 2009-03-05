@@ -204,6 +204,14 @@ class eZPage
             }
         }
     }
+
+    public function __clone()
+    {
+        foreach ( $this->attributes['zones'] as $i => $zone )
+        {
+            $this->attributes['zones'][$i] = clone $zone;
+        }
+    }
 }
 
 ?>
