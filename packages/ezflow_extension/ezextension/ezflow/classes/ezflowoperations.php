@@ -454,7 +454,9 @@ class eZFlowOperations
 
             if ( $nodeChanged )
             {
-                eZContentCache::cleanup( array( $nodeID ) );
+                $contentObject = eZContentObject::fetchByNodeID( $nodeID );
+                if ( $contentObject )
+                    eZContentCacheManager::clearContentCache( $contentObject->attribute('id') );
             }
         }
 
