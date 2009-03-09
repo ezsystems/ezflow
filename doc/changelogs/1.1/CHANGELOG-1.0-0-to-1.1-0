@@ -26,6 +26,7 @@ Changes from 1.0-0 to 1.1-0
 - Fixed bug #014485: ezflow - after clicking custom action button - checkbox looses state
 - Fixed bug #013523: HostMatchMapItems is not set correctly after installation of ezflow
 - Fixed bug #014564: eZ Flow cronjob patch to consider viewcache.ini (patch by Gurudutt Verma)
+- Fixed bug #012877: Template warning in admin interface of fresh ezflow install
 
 *Enhancements*
 
