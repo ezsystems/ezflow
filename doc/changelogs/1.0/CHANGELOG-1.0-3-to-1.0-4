@@ -14,3 +14,5 @@ Changes from 1.0-3 to 1.0-4
   (Merged from trunk ezflow (1.1) rev. 3667)
 - Fixed bug #013551: eZFLow - Copying objects does not work properly
   (Merged from trunk ezflow (1.1) rev. 3290)
+- Fixed bug #012877: Template warning in admin interface of fresh ezflow install
+  (Merged from trunk ezflow (1.1) rev. 3674)
