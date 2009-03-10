@@ -9,10 +9,10 @@
   <file name="ezflowajaxcontent.php" path="/classes" md5sum="76de92660418ed3cbb12a2a2141f0d88"/>
   <file name="ezflowblock.php" path="/classes" md5sum="3f58ff1bf35e6336534cf3c45fe25a91"/>
   <file name="ezflowfetchinterface.php" path="/classes" md5sum="f25e4051028875b80437fd1b03124e2d"/>
-  <file name="ezflowoperations.php" path="/classes" md5sum="0871c0deb64405182b1dde9f14b23715"/>
+  <file name="ezflowoperations.php" path="/classes" md5sum="3bcd718d69e344e259a03f73ae704323"/>
   <file name="ezflowpool.php" path="/classes" md5sum="c35ebdc36cfb3b046eee8173744db156"/>
   <file name="ezflowpoolitem.php" path="/classes" md5sum="3ebb258c5c7cdb9bde0086e08d9771e1"/>
-  <file name="ezhttpcachemanager.php" path="/classes" md5sum="16f25d2653c8f494d17b521d4db76a59"/>
+  <file name="ezhttpcachemanager.php" path="/classes" md5sum="2cccd65adc22fb3a99d3fd650cc8f364"/>
   <file name="ezhttpcachemanagerinterface.php" path="/classes" md5sum="3aee7ed9a48df0450e2405fb7ce29494"/>
   <file name="ezpage.php" path="/classes" md5sum="3f224b4e018768330c2fff79f7406e31"/>
   <file name="ezpageblock.php" path="/classes" md5sum="a570f82e77df46209fa1e598f4fab5e7"/>
@@ -20,12 +20,12 @@
   <file name="ezpagezone.php" path="/classes" md5sum="5a9c11b09a6f7f883f0c63fcd8b6e853"/>
   <file name="ezsquidcachemanager.php" path="/classes" md5sum="c82512f7f2333840f2af4b96b789f3bf"/>
   <file name="fetches" path="/classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezflowlatestobjects.php" path="/classes/fetches" md5sum="2a8a58a80dad15b5e1b0ab95a969a7b8"/>
+  <file name="ezflowlatestobjects.php" path="/classes/fetches" md5sum="0028483cb436cac1a9f4f09d5d7dfe3a"/>
   <file name="cronjobs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflowupdate.php" path="/cronjobs" md5sum="1b32b60ef1fd33f55be2542d0abee5de"/>
   <file name="datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage" path="/datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="cc5f444403928bfb447cbf6ab18e2888"/>
+  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="3eb6035c1851e2f898d5f8b2ff626e63"/>
   <file name="design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="admin" path="/design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="images" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -43,7 +43,7 @@
   <file name="stylesheets" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflow.css" path="/design/admin/stylesheets" md5sum="0746021e006f6bb9d857cec62cac12c1"/>
   <file name="ezpage" path="/design/admin/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.css" path="/design/admin/stylesheets/ezpage" md5sum="d76a63fbb1955037c08ba86834905857"/>
+  <file name="ezpage.css" path="/design/admin/stylesheets/ezpage" md5sum="8d540c100e75bdb0b57c2ba6e315a9ee"/>
   <file name="templates" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezflow" path="/design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="flash" path="/design/ezflow" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -278,14 +278,13 @@
   <file name="3_items1.tpl" path="/design/ezflow/override/templates/block" md5sum="dee5d3d0aa9f849bde40cf0873bc1245"/>
   <file name="3_items2.tpl" path="/design/ezflow/override/templates/block" md5sum="7845d35a8a9090059d8ccc6a8838a508"/>
   <file name="3_items3.tpl" path="/design/ezflow/override/templates/block" md5sum="fe7ad4a8f3000ea0636b95db8493de2c"/>
-  <file name="3d_items.tpl" path="/design/ezflow/override/templates/block" md5sum="4c1cb80d2714bf959678f5438d4bcf96"/>
-  <file name="3d_list.tpl" path="/design/ezflow/override/templates/block" md5sum="b2ec4b3012e72be40b74bd320a8b7d69"/>
   <file name="4_items1.tpl" path="/design/ezflow/override/templates/block" md5sum="85592a3085b46459316e9b6c7ec32076"/>
   <file name="4_items2.tpl" path="/design/ezflow/override/templates/block" md5sum="f1967ad2e927d57661f607b27964b70f"/>
   <file name="4_items3.tpl" path="/design/ezflow/override/templates/block" md5sum="1f361cd56872007b1e40cfe746f407a6"/>
   <file name="5_items1.tpl" path="/design/ezflow/override/templates/block" md5sum="324de744a6f0bfe27e77d7e0eb74bd61"/>
   <file name="banner1.tpl" path="/design/ezflow/override/templates/block" md5sum="35590a5ff4ba8bdb7bd02c9ab23d21f2"/>
   <file name="banner2.tpl" path="/design/ezflow/override/templates/block" md5sum="a9976952c5eb916dd882131edafdc97f"/>
+  <file name="dynamic_3_items1.tpl" path="/design/ezflow/override/templates/block" md5sum="2c3445ddc133ab965aa53e5044554e4f"/>
   <file name="flash_recorder.tpl" path="/design/ezflow/override/templates/block" md5sum="4a26330902d8a56e6d2c3b9bb2745dae"/>
   <file name="gallery1.tpl" path="/design/ezflow/override/templates/block" md5sum="ec6c7ddd743d3602badae0fff9880e66"/>
   <file name="gallery_gmap.tpl" path="/design/ezflow/override/templates/block" md5sum="dadc55ecd15f98abdf1b0de317a6c805"/>
@@ -312,7 +311,7 @@
   <file name="ie5.css" path="/design/ezflow/stylesheets/browsers" md5sum="713ac758aeedd38a8e5b23fbeb203e61"/>
   <file name="ie7lte.css" path="/design/ezflow/stylesheets/browsers" md5sum="38e2df7e4b44c16b71eac35cb01be0a9"/>
   <file name="core.css" path="/design/ezflow/stylesheets" md5sum="4f8619f22d166fdb0e6a827da62f54c8"/>
-  <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="02a132fb916fd3653b84e57fffc8a0f8"/>
+  <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="4a47d59fa42d7f347c80d029d2a72ed6"/>
   <file name="ezpage" path="/design/ezflow/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage.css" path="/design/ezflow/stylesheets/ezpage" md5sum="66c2f515d0695d23e2e34a507d7cb948"/>
   <file name="pagelayout.css" path="/design/ezflow/stylesheets" md5sum="2df6aa2d8ad2f87b89fafdf9e05ddc55"/>
@@ -323,13 +322,13 @@
   <file name="timeline.tpl" path="/design/ezflow/templates/extra" md5sum="f6d5875d6e4fe6f41ec867c300687dfe"/>
   <file name="flash_demo.tpl" path="/design/ezflow/templates" md5sum="73172088bee1519bed2c3e503ce3a037"/>
   <file name="page_footer.tpl" path="/design/ezflow/templates" md5sum="8fe9bfffb4ee8b3f9d4ec9ee4f6c7257"/>
-  <file name="page_header.tpl" path="/design/ezflow/templates" md5sum="9142b7ff564dc2fc45dfac0f20d21331"/>
+  <file name="page_header.tpl" path="/design/ezflow/templates" md5sum="f2ef03ffb1ab9438f9e705f3c8ed3b1f"/>
   <file name="parts" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="extra_info.tpl" path="/design/ezflow/templates/parts" md5sum="92ac1104ab20d8dab379e5e9dcdaab11"/>
   <file name="flash_player.tpl" path="/design/ezflow/templates/parts" md5sum="43c236b877acf39ec7ee7d0cb943a8b9"/>
   <file name="flash_player_embed_code.tpl" path="/design/ezflow/templates/parts" md5sum="de4cd8aca92e3166674087bcf396e19c"/>
   <file name="websitetoolbar" path="/design/ezflow/templates/parts" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="timeline.tpl" path="/design/ezflow/templates/parts/websitetoolbar" md5sum="319be445a9daa4a73aa422794ea235a1"/>
+  <file name="timeline.tpl" path="/design/ezflow/templates/parts/websitetoolbar" md5sum="d8038bac54b17da00875ede70953dccd"/>
   <file name="zone" path="/design/ezflow/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="2zoneslayout1.tpl" path="/design/ezflow/templates/zone" md5sum="c67da5134b4b3fb4254fe3873cd9cba1"/>
   <file name="2zoneslayout2.tpl" path="/design/ezflow/templates/zone" md5sum="c67da5134b4b3fb4254fe3873cd9cba1"/>
@@ -345,15 +344,14 @@
   <file name="block" path="/design/iphone/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="3_items.tpl" path="/design/iphone/override/templates/block" md5sum="d020e29a719d615a62ce5d9d9f171e28"/>
   <file name="flash_recorder.tpl" path="/design/iphone/override/templates/block" md5sum="5aadf3bb7c5e056651c81a4a5e8722de"/>
-  <file name="gallery.tpl" path="/design/iphone/override/templates/block" md5sum="ac89d658396635b5906cc92c9ca20163"/>
   <file name="gallery1.tpl" path="/design/iphone/override/templates/block" md5sum="922455305e9b05a2cf26c56a04500a0f"/>
-  <file name="poll.tpl" path="/design/iphone/override/templates/block" md5sum="7761942be931d5724da4ab03aa17026a"/>
+  <file name="poll.tpl" path="/design/iphone/override/templates/block" md5sum="54d55cec584237e3a629a433f10a3830"/>
   <file name="vertically_listed_items.tpl" path="/design/iphone/override/templates/block" md5sum="5bb0dcbc4748393bb5189ee6e7302851"/>
   <file name="video.tpl" path="/design/iphone/override/templates/block" md5sum="5aadf3bb7c5e056651c81a4a5e8722de"/>
   <file name="embed" path="/design/iphone/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="image.tpl" path="/design/iphone/override/templates/embed" md5sum="eff2e09fd429f6762a1e584b1b479a9d"/>
   <file name="full" path="/design/iphone/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="image.tpl" path="/design/iphone/override/templates/full" md5sum="88798dc8b4607fe8a1065fe3cb5344a0"/>
+  <file name="image.tpl" path="/design/iphone/override/templates/full" md5sum="601b30ade588a9e5b4a871a4cfc84c2a"/>
   <file name="line" path="/design/iphone/override/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="article.tpl" path="/design/iphone/override/templates/line" md5sum="8cd49e709d2badfab4cc170a30ff6f92"/>
   <file name="stylesheets" path="/design/iphone" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -361,7 +359,7 @@
   <file name="templates" path="/design/iphone" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="content" path="/design/iphone/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="collectedinfo" path="/design/iphone/templates/content" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="poll.tpl" path="/design/iphone/templates/content/collectedinfo" md5sum="2173c9a698848514aeb4f09991c3d979"/>
+  <file name="poll.tpl" path="/design/iphone/templates/content/collectedinfo" md5sum="450b381c9e4677be2562d0a339e8660b"/>
   <file name="datatype" path="/design/iphone/templates/content" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="view" path="/design/iphone/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezimage.tpl" path="/design/iphone/templates/content/datatype/view" md5sum="9d9b50030a402174b0be510f2a3df3b8"/>
@@ -380,7 +378,7 @@
   <file name="4zones_layout1.gif" path="/design/standard/images/ezpage/thumbnails" md5sum="1ed9d47bcfb7c918e047182200e380f3"/>
   <file name="globalzone_layout.gif" path="/design/standard/images/ezpage/thumbnails" md5sum="53da388c9a2593d88f844010225730df"/>
   <file name="javascript" path="/design/standard" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="blocktools.js" path="/design/standard/javascript" md5sum="3b7418b9ddfcc377f86f19457b0030c7"/>
+  <file name="blocktools.js" path="/design/standard/javascript" md5sum="f09ff5ccf022f8357e706a3c85708a7a"/>
   <file name="ez_core.js" path="/design/standard/javascript" md5sum="811233d21cdfbed738dde806ab191a98"/>
   <file name="scheduledialog.js" path="/design/standard/javascript" md5sum="3a6e2c75dc548c415836a9bd537756e7"/>
   <file name="zonetools.js" path="/design/standard/javascript" md5sum="96208db7032859114b93aa90e7d20eb3"/>
@@ -438,7 +436,7 @@
   <file name="content" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="datatype" path="/design/standard/templates/content" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="edit" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="051c4c09e86d82ae4fb23e98740a8a06"/>
+  <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/edit" md5sum="491f0c7c25345ecc6fcc149a5a10e56a"/>
   <file name="view" path="/design/standard/templates/content/datatype" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage.tpl" path="/design/standard/templates/content/datatype/view" md5sum="823565a730c35dc3611a9522c4291d12"/>
   <file name="page" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -446,9 +444,13 @@
   <file name="preview.tpl" path="/design/standard/templates/page" md5sum="503c744a3648c4859c093b6b0b6c053b"/>
   <file name="zone.tpl" path="/design/standard/templates/page" md5sum="a49b7c355cf52bd053d3c24aaddcea33"/>
   <file name="zone" path="/design/standard/templates" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="changelogs" path="/doc" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="1.1" path="/doc/changelogs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="CHANGELOG-1.0-0-to-1.1-0" path="/doc/changelogs/1.1" md5sum="e9c5228fe61d4785854a07f17fa1978c"/>
   <file name="extras" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="flash_video_list.php" path="/extras" md5sum="7092625de2ea711dd3a8a9eb5e72e173"/>
-  <file name="ezinfo.php" md5sum="592a6a33bfd78cc461c22f83af76fade"/>
+  <file name="ezinfo.php" md5sum="0293d950a08fad35812a94f10e283822"/>
   <file name="modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezajax" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="module.php" path="/modules/ezajax" md5sum="2d63f3819f1e20d663bb55934d2cd779"/>
@@ -458,7 +460,7 @@
   <file name="function_definition.php" path="/modules/ezflow" md5sum="c5a062daa39cf9aacc4bac8e0d3836c2"/>
   <file name="functioncollection.php" path="/modules/ezflow" md5sum="95ea6cc6f0ffc83c2e2f480d8cbd120b"/>
   <file name="module.php" path="/modules/ezflow" md5sum="6922ee3c5ec139f186c705440e97756e"/>
-  <file name="preview.php" path="/modules/ezflow" md5sum="423bda4e73e9edb68f272b9299d4e7ed"/>
+  <file name="preview.php" path="/modules/ezflow" md5sum="f52631ef9422864a0213169e037ec8a4"/>
   <file name="request.php" path="/modules/ezflow" md5sum="cdb41f2e5289318fb9fee4a109e63e42"/>
   <file name="timeline.php" path="/modules/ezflow" md5sum="7d601d9eda7bb498c999588acb7cc1c6"/>
   <file name="zone.php" path="/modules/ezflow" md5sum="d5542f783b943f8e306bc5834401e036"/>
@@ -466,7 +468,7 @@
   <file name="embed.php" path="/modules/flash" md5sum="a4d68a6dff761ad85448bd5779858449"/>
   <file name="module.php" path="/modules/flash" md5sum="6c8a781ba31930f0ee80da204447ab68"/>
   <file name="settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="block.ini.append.php" path="/settings" md5sum="94556b07b0afc17a7c86c858bdbd6314"/>
+  <file name="block.ini.append.php" path="/settings" md5sum="a9426ade21c8490176590ba35c594cad"/>
   <file name="browse.ini.append.php" path="/settings" md5sum="d6c19c0e2a1bef71276e92c4cab35212"/>
   <file name="content.ini.append.php" path="/settings" md5sum="15b98ee81415bd6ea05e371304f18c73"/>
   <file name="cronjob.ini.append.php" path="/settings" md5sum="6d5dfffdc12ed27785b66ff2a2415d57"/>
@@ -488,9 +490,14 @@
   <file name="zone.ini.append.php" path="/settings" md5sum="40862d016fb88e8c704d5a857103c470"/>
   <file name="sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="common" path="/sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="democontent.sql" path="/sql/common" md5sum="de1a8318cec07985e0df1fa11842fb33"/>
+  <file name="democontent.sql" path="/sql/common" md5sum="a7c51bab2e238bdb46e640b6e5664fbd"/>
   <file name="mysql" path="/sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="mysql.sql" path="/sql/mysql" md5sum="26a772222f331de1313a018d8bc29492"/>
+  <file name="oracle" path="/sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="oracle.sql" path="/sql/oracle" md5sum="3d6d94f2b9aa89b237d0da99bf36906d"/>
   <file name="postgresql" path="/sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="postgresql.sql" path="/sql/postgresql" md5sum="6877c71196fcbc991751c5b164f53b96"/>
+  <file name="postgresql.sql" path="/sql/postgresql" md5sum="5a0bc59d6fcc03d7dc2530a5ded666e6"/>
+  <file name="translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="untranslated" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/untranslated" md5sum="54be76840bb4d5b6f1d5bf5ec5d6bbc6"/>
 </extension>
