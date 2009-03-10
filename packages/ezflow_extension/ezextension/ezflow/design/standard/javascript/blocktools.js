@@ -240,7 +240,7 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( collapsedEl, "collapsed", "expanded" );
         }
         
-        Cookie.setSub("eZPageBlockState", getBlockID(o), "1" );
+        Cookie.setSub("eZPageBlockState", getBlockID(o), "1", {path: "/"});
     };
     
     var collapseBlock = function(o) {
@@ -252,7 +252,7 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( expandedEl, "expanded", "collapsed" );
         }
         
-        Cookie.setSub("eZPageBlockState", getBlockID(o), "0" );
+        Cookie.setSub("eZPageBlockState", getBlockID(o), "0", {path: "/"});
     }
     
     var updateBlockView = function(o) {

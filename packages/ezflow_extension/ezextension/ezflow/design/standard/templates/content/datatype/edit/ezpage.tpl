@@ -117,7 +117,7 @@ for( var i = 0; i < tabs.length; i++ ) {
 
 tabView.on("activeTabChange", function(e) {
     var tabIndex = tabView.getTabIndex( e.newValue );
-    YAHOO.util.Cookie.set("eZPageActiveTabIndex", tabIndex);
+    YAHOO.util.Cookie.set("eZPageActiveTabIndex", tabIndex, {path: "/"});
 });
 
 tabView.appendTo('zone-tabs-container');

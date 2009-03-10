@@ -6,6 +6,7 @@ AllowedTypes[]=Manual2Items
 AllowedTypes[]=Manual3Items
 AllowedTypes[]=Manual4Items
 AllowedTypes[]=Manual5Items
+AllowedTypes[]=Dynamic3Items
 AllowedTypes[]=Gallery
 AllowedTypes[]=Video
 AllowedTypes[]=ItemList
@@ -91,6 +92,17 @@ ViewList[]=5_items1
 ViewList[]=5_items2
 ViewName[5_items1]=5 items (1)
 ViewName[5_items2]=5 items (2)
+
+[Dynamic3Items]
+Name=3 items (Dynamic)
+NumberOfValidItems=3
+NumberOfArchivedItems=5
+ManualAddingOfItems=disabled
+FetchClass=eZFlowLatestObjects
+FetchFixedParameters[Class]=article
+FetchFixedParameters[Source]=69
+ViewList[]=3_items1
+ViewName[3_items1]=3 items (1)
 
 [Gallery]
 Name=Gallery (Manual)

@@ -1730,6 +1730,29 @@ div.block-type-5items div.attribute-image
 
 /* BLOCK 5 ITEMS: END */
 
+/* BLOCK DYNAMIC 3 ITEMS: START */
+
+div.block-type-dynamic3items div.class-article
+{
+    padding: 0 4px 0 4px;
+}
+
+div.block-type-dynamic3items div.attribute-header h2 a
+{
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+div.block-type-dynamic3items div.attribute-image
+{
+    float: left;
+    margin-right: 0.5em;
+    margin-left: 0;
+}
+
+/* BLOCK DYNAMIC 3 ITEMS: END */
+
 /* BLOCK TYPE ITEM LIST: START */
 
 .block-type-itemlist
