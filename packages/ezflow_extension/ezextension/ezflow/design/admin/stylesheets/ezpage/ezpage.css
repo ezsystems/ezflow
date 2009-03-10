@@ -233,6 +233,16 @@ div.block-container div.block-parameters div.source
     clear: both; 
 }
 
+.hidden
+{
+    display: none;
+}
+
+.visible
+{
+    display: block;
+}
+
 .float-break
 {
     height: 1%;
@@ -275,3 +285,32 @@ div.zones .button
     cursor: pointer;
 }
 /* ZONE LAYOUT: END */
+
+div#zone-map-container
+{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+div#zone-map-container p
+{
+    font-size: 1.1em;
+}
+
+div#zone-map-container .zone-map-type
+{
+    color: #000000;
+    font-weight: bold;
+}
+
+div#zone-map-container .zone-map-item
+{
+    float: left;
+    margin: 0.5em 1em 1em 0;
+}
+
+div#zone-map-container .zone-map-item label
+{
+    margin-bottom: 0.25em;
+    color: #000000;
+}
