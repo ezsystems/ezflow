@@ -16,7 +16,7 @@
     </div></div>
     </div>
       
-    <p class="hide"><a href="#main">{'Skip to main content'|i18n('design/ezwebin/pagelayout')}</a></p>
+    <p class="hide"><a href="#main">{'Skip to main content'|i18n('design/ezflow/pagelayout')}</a></p>
   </div>
   </div>
   

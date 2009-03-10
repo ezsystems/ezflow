@@ -40,11 +40,11 @@
         <div class="content-navigator">
             {if $previous_image}
                 <div class="content-navigator-previous">
-                    <div class="content-navigator-arrow">&laquo;&nbsp;</div><a href={$previous_image[0].url_alias|ezurl} title="{$previous_image[0].name|wash}">{'Previous'|i18n( 'design/ezwebin/full/image' )}</a>
+                    <div class="content-navigator-arrow">&laquo;&nbsp;</div><a href={$previous_image[0].url_alias|ezurl} title="{$previous_image[0].name|wash}">{'Previous'|i18n( 'design/iphone/full/image' )}</a>
                 </div>
             {else}
                 <div class="content-navigator-previous-disabled">
-                    <div class="content-navigator-arrow">&laquo;&nbsp;</div>{'Previous'|i18n( 'design/ezwebin/full/image' )}
+                    <div class="content-navigator-arrow">&laquo;&nbsp;</div>{'Previous'|i18n( 'design/iphone/full/image' )}
                 </div>
             {/if}
 
@@ -65,11 +65,11 @@
 
             {if $next_image}
                 <div class="content-navigator-next">
-                    <a href={$next_image[0].url_alias|ezurl} title="{$next_image[0].name|wash}">{'Next'|i18n( 'design/ezwebin/full/image' )}</a><div class="content-navigator-arrow">&nbsp;&raquo;</div>
+                    <a href={$next_image[0].url_alias|ezurl} title="{$next_image[0].name|wash}">{'Next'|i18n( 'design/iphone/full/image' )}</a><div class="content-navigator-arrow">&nbsp;&raquo;</div>
                 </div>
             {else}
                 <div class="content-navigator-next-disabled">
-                    {'Next image'|i18n( 'design/ezwebin/full/image' )}<div class="content-navigator-arrow">&nbsp;&raquo;</div>
+                    {'Next image'|i18n( 'design/iphone/full/image' )}<div class="content-navigator-arrow">&nbsp;&raquo;</div>
                 </div>
             {/if}
         </div>

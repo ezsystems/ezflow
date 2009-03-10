@@ -1,4 +1,4 @@
-{set-block scope=global variable=title}{'Poll %pollname'|i18n( 'design/ezwebin/collectedinfo/poll', , hash( '%pollname', $node.name|wash() ) )}{/set-block}
+{set-block scope=global variable=title}{'Poll %pollname'|i18n( 'design/iphone/collectedinfo/poll', , hash( '%pollname', $node.name|wash() ) )}{/set-block}
 
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
@@ -9,20 +9,20 @@
         <div class="poll-result">
 
     <div class="attribute-header">
-        <h1>{'Results'|i18n( 'design/ezwebin/collectedinfo/poll' )}</h1>
+        <h1>{'Results'|i18n( 'design/iphone/collectedinfo/poll' )}</h1>
     </div>
 
         {if $error}
 
         {if $error_anonymous_user}
         <div class="warning">
-            <h2>{'Please log in to vote on this poll.'|i18n( 'design/ezwebin/collectedinfo/poll' )}</h2>
+            <h2>{'Please log in to vote on this poll.'|i18n( 'design/iphone/collectedinfo/poll' )}</h2>
         </div>
         {/if}
 
         {if $error_existing_data}
         <div class="warning">
-            <h2>{'You have already voted for this poll.'|i18n( 'design/ezwebin/collectedinfo/poll' )}</h2>
+            <h2>{'You have already voted for this poll.'|i18n( 'design/iphone/collectedinfo/poll' )}</h2>
         </div>
         {/if}
 
@@ -61,7 +61,7 @@
                                 <i>{$percentage}%</i>
                             </td>
                             <td class="poll-votecount">
-                                {'Votes'|i18n( 'design/ezwebin/collectedinfo/poll' )}: {$item_count}
+                                {'Votes'|i18n( 'design/iphone/collectedinfo/poll' )}: {$item_count}
                             </td>
                         </tr>
                         <tr>
@@ -96,12 +96,12 @@
 
         <br/>
 
-        {'%count total votes'|i18n( 'design/ezwebin/collectedinfo/poll' ,,
+        {'%count total votes'|i18n( 'design/iphone/collectedinfo/poll' ,,
                                      hash( '%count', fetch( content, collected_info_count, hash( object_id, $object.id ) ) ) )}
 
             <div class="content-results">
                 <div class="attribute-link">
-                    <p><a href={$node.url_alias|ezurl}>{'Back to poll'|i18n( 'design/ezwebin/collectedinfo/poll' )}</a></p>
+                    <p><a href={$node.url_alias|ezurl}>{'Back to poll'|i18n( 'design/iphone/collectedinfo/poll' )}</a></p>
                 </div>
             </div>
 

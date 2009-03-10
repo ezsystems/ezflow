@@ -23,7 +23,7 @@
         {/section}
 
         {/let}
-        <input class="button" type="submit" name="ActionCollectInformation" value="{"Vote"|i18n("design/ezwebin/embed/poll")}" />
+        <input class="button" type="submit" name="ActionCollectInformation" value="{"Vote"|i18n("design/iphone/embed/poll")}" />
 
         </form>
 </div>
