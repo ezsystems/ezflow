@@ -321,7 +321,7 @@ class eZFlowOperations
                     {
                         $numberOfValidItems = 20;
                         eZDebug::writeWarning( 'Number of valid items for ' . $block['block_type'] .
-                    ' is not set; using the default value (' . $numberOfValidItems . ')', 'eZ Flow Update Cronjob' );
+                                               ' is not set; using the default value (' . $numberOfValidItems . ')', 'eZ Flow Update Cronjob' );
                     }
 
                     $countToRemove = $countValid - $numberOfValidItems;
@@ -405,7 +405,7 @@ class eZFlowOperations
                                              moved_to='$overflowID',
                                              priority=0
                                          WHERE block_id='$blockID'
-                                           AND object_id IN ( " . implode( ',', $itemArray ) . " )" );
+                                           AND " . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
                                 }
                                 else
                                 {
@@ -413,7 +413,7 @@ class eZFlowOperations
                                          SET ts_hidden=$time,
                                              priority=0
                                          WHERE block_id='$blockID'
-                                           AND object_id IN ( " . implode( ',', $itemArray ) . " )" );
+                                           AND " . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
                                 }
                             }
                         }
@@ -453,7 +453,7 @@ class eZFlowOperations
                             }
                             $db->query( "DELETE FROM ezm_pool
                                  WHERE block_id='$blockID'
-                                   AND object_id IN ( " . implode( ',', $itemArray ) . ")" );
+                                   AND " . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
                         }
                     }
                 }
