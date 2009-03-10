@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package version="1.1-0beta1" development="false" install_type="install">
+<package version="1.1-0rc1" development="false" install_type="install">
   <name>ezflow_extension</name>
   <summary>ezflow_extension</summary>
   <description>ezflow extension</description>
   <vendor>eZ systems</vendor>
   <type value="extension"/>
   <ezpublish>
-    <version>4.1.0beta1</version>
+    <version>4.1.0rc1</version>
     <named-version>4.1</named-version>
   </ezpublish>
   <maintainers>
@@ -31,7 +31,7 @@
   <simple-files/>
   <version>
     <number>1.1</number>
-    <release>0beta1</release>
+    <release>0rc1</release>
   </version>
   <licence>GPL</licence>
   <state>stable</state>

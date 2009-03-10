@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="1.1-0beta1"
+<package version="1.1-0rc1"
          development="false"
          install_type="install">
   <name>ezflow_democontent</name>
@@ -14,7 +14,7 @@ Live Video - subtree
   <vendor>eZ systems</vendor>
   <type value="contentobject" />
   <ezpublish>
-    <version>4.1.0beta1</version>
+    <version>4.1.0rc1</version>
     <named-version>4.1</named-version>
   </ezpublish>
   <maintainers>
@@ -57,7 +57,7 @@ Live Video - subtree
   </simple-files>
   <version>
     <number>1.1</number>
-    <release>0beta1</release>
+    <release>0rc1</release>
   </version>
   <licence>GPL</licence>
   <state>stable</state>
