@@ -1,0 +1,46 @@
+Changes from 1.0-0 to 1.1-0
+
+*Bugs*
+
+- Fixed bug #012565: DB transaction error on ez flow
+- Fixed bug #012681: eZFlow - Content Cache not cleared when using ezflow cronjobs
+- Fixed bug #012164: PHP notice during installation.
+- Fixed bug #012882: Proper license headers for ezflow
+- Fixed bug #013022: PHP reference usage in ezflow extension
+- Fixed bug #013043: New global layout object javascript issue
+- Fixed bug #012792: eZFlow : null timestamp when setting publication time on a waiting item
+- Fixed bug #012873: eZTemplate: No such attribute for object(eZPageBlock): fetch_params
+- Fixed bug #012783: eZFlow : Elapsed time of the queue list is incorrect
+- Fixed bug #013067: ezflow: Datatype does not support class/content packages
+- Fixed bug #013305: quick search of ezflow is not working with ezfind extension
+- Fixed bug #012361: Fatal error during setup wizard last step
+- Fixed bug #012875: Errors in debug output on "Finished" setup of setup wizard when using ezflow site package
+- Fixed bug #013551: eZFLow - Copying objects does not work properly
+- Fixed bug #014277: Incorrect ezflow ModuleList setting
+- Fixed bug #013851: Clicking Collapse or Expand makes browser jump to the top of the page
+- Fixed bug #013884: eZFlow - The datatype's "has_content" function is not correct (patch by Rune Langseid)
+- Fixed bug #013875: installation of ezflow does not add to any role the ezflow/* permissions, but those are needed
+- Fixed bug #014521: Default block.ini clearing the list of [General]AllowedTypes[]
+- Fixed bug #012910: eZFlow: Global Zone [Global layout] is always fetched and only CSS-hidden in the presentation layer
+- Fixed bug #014321: ezflow should not set SQL mode
+- Fixed bug #014485: ezflow - after clicking custom action button - checkbox looses state
+- Fixed bug #013523: HostMatchMapItems is not set correctly after installation of ezflow
+- Fixed bug #014564: eZ Flow cronjob patch to consider viewcache.ini (patch by Gurudutt Verma)
+- Fixed bug #012877: Template warning in admin interface of fresh ezflow install
+- Fixed bug #013654: ezflow: hidden nodes get inserted in automatic blocks
+
+*Enhancements*
+
+- Implemented enhancement #012879: Adjust ezflow footer message to 2008
+- Implemented enhancement #013288: Add possibility to filter content classes in browse mode for manual blocks when adding items
+- Implemented enhancement #012894: We can't change the priority of articles in a block manual validated. and the order is contrary between front and BO
+- Implemented enhancement #013054: eZ Publish/ Webin does not support table summary and caption as required by WAI
+- Implemented enhancement #014303: Improved publishing schedule
+- Implemented enhancement #014304: Expanding and collapsing blocks while editing
+- Implemented enhancement #013379: Allow ezflow blocks to have 0 archived items
+- Implemented enhancement #013860: Add align support for paragraphs in ezxml for OE5
+- Implemented enhancement #014316: Default template takes too much ressources
+- Implemented enhancement #014529: Changing the zone layout without deleting existing blocks
+- Implemented enhancement #014523: Select a default layout in the ezpage attribute when creating a brand new content object.
+- Implemented enhancement #013359: php warning in array_merge in ezflowoperations.php
+- Implemented enhancement #013456: make ezflow compatible with ezoracle
