@@ -56,6 +56,9 @@ class eZFlowLatestObjects implements eZFlowFetchInterface
             $subTreeParameters['ClassFilterType'] = 'include';
             $subTreeParameters['ClassFilterArray'] = explode( ';', $parameters['Class'] );
         }
+        
+        // Do not fetch hidden nodes even when ShowHiddenNodes=true
+        $subTreeParameters['AttributeFilter'] = array( 'and', array( 'visibility', '=', true ) );
 
         $result = eZContentObjectTreeNode::subTreeByNodeID( $subTreeParameters, $nodeID );
         $fetchResult = array();
