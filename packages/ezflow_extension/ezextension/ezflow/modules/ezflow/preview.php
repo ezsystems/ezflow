@@ -41,8 +41,10 @@ $poolTMPTable = $db->generateUniqueTempTableName( 'ezm_pool_tmp_%' );
 $nodeID = 2;
 $time = time() - 5;
 
-$nodeID = $Params['NodeID'];
-$time = $Params['Time'];
+if( isset( $Params['NodeID'] ) )
+    $nodeID = (int)$Params['NodeID'];
+if( isset( $Params['Time'] ) )
+    $time = (int)$Params['Time'];
 
 $db->createTempTable( 'CREATE TEMPORARY TABLE ' . $blockTMPTable . 
                         ' AS SELECT * FROM ' . $blockTableDef['name'] . 
