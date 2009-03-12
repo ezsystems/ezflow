@@ -2368,6 +2368,16 @@ class eZFlownInstaller extends eZSiteInstaller
                         'class_identifier'=>'forum_topic'
                         )
                         ),
+                'edit_ezsubtreesubscription_forum_topic'=>
+                        array(
+                        'Source'=>'content/datatype/edit/ezsubtreesubscription.tpl',
+                        'MatchFile'=>'datatype/edit/ezsubtreesubscription/forum_topic.tpl',
+                        'Subdir'=>'templates',
+                        'Match'=>
+                        array(
+                        'class_identifier'=>'forum_topic'
+                        )
+                        ),
                 'edit_forum_reply'=>
                         array(
                         'Source'=>'content/edit.tpl',
