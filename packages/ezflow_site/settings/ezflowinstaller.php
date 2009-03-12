@@ -590,6 +590,7 @@ class eZFlownInstaller extends eZSiteInstaller
                              'groups' => $this->adminINISettings() );
         $settings[] = array( 'settings_dir' => 'settings/override',
                              'groups' => $this->commonINISettings() );
+
         foreach( $settings as $settingsGroup )
             $this->updateINIFiles( $settingsGroup );
 
@@ -1432,6 +1433,16 @@ class eZFlownInstaller extends eZSiteInstaller
         $accessType = $this->setting( 'access_type' );
         $siteaccessTypes = $this->setting( 'siteaccess_urls' );
 
+        // set 'language settings'
+        $translationSA = array();
+        
+        foreach( $siteaccessTypes['translation'] as $name => $urlInfo )
+        {
+            $translationSA[$name] = ucfirst( $name );
+        }
+        
+        $settings['RegionalSettings'] = array( 'TranslationSA' => $translationSA );
+
         $portMatch = array();
         $hostMatch = array();
         // get info about translation siteacceses.
@@ -1686,7 +1697,7 @@ class eZFlownInstaller extends eZSiteInstaller
                     'JavaScriptList' => array(
                         'insertmedia.js',
                         'yui/build/yahoo-dom-event/yahoo-dom-event.js',
-                        'yui/build/calendar/calendar.js',
+                        'yui/build/calendar/calendar-min.js',
                         'ezdatepicker.js' ) ),
                 'StylesheetSettings' => array(
                     'CSSFileList' => array(
@@ -2017,6 +2028,16 @@ class eZFlownInstaller extends eZSiteInstaller
                         'class_identifier'=>'real_video'
                         )
                         ),
+                'full_silverlight'=>
+                        array(
+                        'Source'=>'node/view/full.tpl',
+                        'MatchFile'=>'full/silverlight.tpl',
+                        'Subdir'=>'templates',
+                        'Match'=>
+                        array(
+                        'class_identifier'=>'silverlight'
+                        )
+                        ),
                 'full_windows_media'=>
                         array(
                         'Source'=>'node/view/full.tpl',
@@ -2275,6 +2296,16 @@ class eZFlownInstaller extends eZSiteInstaller
                         'Match'=>
                         array(
                         'class_identifier'=>'product'
+                        )
+                        ),
+                'line_silverlight'=>
+                        array(
+                        'Source'=>'node/view/line.tpl',
+                        'MatchFile'=>'line/silverlight.tpl',
+                        'Subdir'=>'templates',
+                        'Match'=>
+                        array(
+                        'class_identifier'=>'silverlight'
                         )
                         ),
                 'line_quicktime'=>

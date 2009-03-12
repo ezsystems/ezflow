@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
+  <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Silverlight";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+  <identifier>silverlight</identifier>
+  <remote-id>8ab17aae77dd4f24b5a8e835784e96e7</remote-id>
+  <object-name-pattern>&lt;name&gt;</object-name-pattern>
+  <url-alias-pattern></url-alias-pattern>
+  <remote>
+    <site-url>http://localhost/~ls/ezwebin_test/index.php/</site-url>
+    <url>http://localhost/~ls/ezwebin_test/index.php/class/view/42</url>
+    <groups>
+      <group id="3" name="Media"/>
+    </groups>
+    <id>42</id>
+    <created>1236001735</created>
+    <modified>1236001735</modified>
+    <creator>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </creator>
+    <modifier>
+      <user-id>14</user-id>
+      <user-login>admin</user-login>
+    </modifier>
+  </remote>
+  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+    <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>309</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+      <identifier>name</identifier>
+      <placement>1</placement>
+      <datatype-parameters>
+        <max-length>0</max-length>
+        <default-string/>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
+      <remote>
+        <id>310</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+      <identifier>description</identifier>
+      <placement>2</placement>
+      <datatype-parameters>
+        <text-column-count>5</text-column-count>
+      </datatype-parameters>
+    </attribute>
+    <attribute datatype="ezmedia" required="false" searchable="false" information-collector="false" translatable="true">
+      <remote>
+        <id>311</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"File";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+      <identifier>file</identifier>
+      <placement>3</placement>
+      <datatype-parameters>
+        <max-size unit-size="mega">0</max-size>
+        <type>silverlight</type>
+      </datatype-parameters>
+    </attribute>
+  </ezcontentclass-attri:attributes>
+</content-class>
