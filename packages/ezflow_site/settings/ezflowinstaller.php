@@ -898,6 +898,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->adminIconINISettings();
         $settings[] = $this->adminViewCacheINISettings();
         $settings[] = $this->adminODFINISettings();
+        $settings[] = $this->adminOEINISettings();
 
         return $settings;
     }
@@ -1398,6 +1399,12 @@ class eZFlownInstaller extends eZSiteInstaller
         // admin siteaccess uses the same ODF-settings
         return $this->siteODFINISettings();
     }
+    
+    function adminOEINISettings()
+    {
+        return array( 'name' => 'ezoe.ini',
+                      'settings' => array( 'EditorSettings' => array( 'SkinVariant' => 'silver' ) ) );
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // Common INI settings
@@ -1411,6 +1418,8 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->commonMenuINISettings();
         $settings[] = $this->commonViewCacheINISettings();
         $settings[] = $this->commonForumINISettings();
+        $settings[] = $this->commonOEAttributesINISettings();
+        $settings[] = $this->commonXMLINISettings();
         return $settings;
     }
 
@@ -1536,11 +1545,17 @@ class eZFlownInstaller extends eZSiteInstaller
                                                                           'cols' => 'Timetable',
                                                                           'comparison' => 'Comparison Table',
                                                                           'default' => 'Default' ),
+                                             'CustomAttributes' => array( '0' => 'summary',
+                                                                          '1' => 'caption' ),
                                              'Defaults'=> array( 'rows' => '2',
                                                                  'cols' => '2',
                                                                  'width' => '100%',
                                                                  'border' => '0',
                                                                  'class' => 'default' ) ),
+                           'td' => array( 'CustomAttributes' => array( '0' => 'valign' ) ),
+                           'th' => array( 'CustomAttributes' => array( '0' => 'scope',
+                                                                       '1' => 'abbr',
+                                                                       '2' => 'valign' ) ),
                            'factbox' => array( 'CustomAttributes' => array( '0' => 'align',
                                                                            '1' => 'title' ),
                                                'CustomAttributesDefaults' => array( 'align' => 'right',
@@ -1548,7 +1563,10 @@ class eZFlownInstaller extends eZSiteInstaller
                            'quote' => array( 'CustomAttributes' => array( '0' => 'align',
                                                                           '1' => 'author' ),
                                              'CustomAttributesDefaults' => array( 'align' => 'right',
-                                                                                  'autor' => 'Quote author' ) ) );
+                                                                                  'autor' => 'Quote author' ) ),
+                           'CustomTagSettings' => array( 'AvailableCustomTags' => array( '0' => 'underline' ),
+                                                         'IsInline' => array( 'underline' => 'true') ),
+                           'embed-type_images' => array( 'AvailableClasses' => array() ) );
 
         return array( 'name' => 'content.ini',
                       'settings' => $settings );
@@ -1642,7 +1660,40 @@ class eZFlownInstaller extends eZSiteInstaller
                       'reset_arrays' => false,
                       'settings' => $settings );
     }
+    
+    function commonOEAttributesINISettings()
+    {
+        $settings = array( 'CustomAttribute_table_summary' => array( 'Name' => 'Summary (WAI)',
+                                                                     'Required' => 'true' ),
+                           'CustomAttribute_scope' => array( 'Name' => 'Scope',
+                                                             'Title' => 'The scope attribute defines a way to associate header cells and data cells in a table.',
+                                                             'Type' => 'select',
+                                                             'Selection' => array( '0' => '',
+                                                                                   'col' => 'Column',
+                                                                                   'row' => 'Row' ) ),
+                           'CustomAttribute_valign' => array( 'Title' => 'Lets you define the vertical alignment of the table cell/ header.',
+                                                              'Type' => 'select',
+                                                              'Selection' => array( '0' => '',
+                                                                                    'top' => 'Top',
+                                                                                    'middle' => 'Middle',
+                                                                                    'bottom' => 'Bottom',
+                                                                                    'baseline' => 'Baseline' ) ),
+                           'Attribute_table_border' => array( 'Type' => 'htmlsize',
+                                                              'AllowEmpty' => 'true' ),
+                           'CustomAttribute_embed_offset' => array( 'Type' => 'int',
+                                                                    'AllowEmpty' => 'true' ),
+                           'CustomAttribute_embed_limit' => array( 'Type' => 'int',
+                                                                   'AllowEmpty' => 'true' ) );
+        return array( 'name' => 'ezoe_attributes.ini',
+                      'settings' => $settings );
+    }
 
+    function commonXMLINISettings()
+    {
+        return array( 'name' => 'ezxml.ini',
+                      'settings' => array( 'TagSettings' => array( 'TagPresets' => array( '0' => '',
+                                                                                          'mini' => 'Simple formatting' ) ) ) );
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // User siteaccess INI settings
@@ -1662,6 +1713,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->siteTemplateINISettings();
         $settings[] = $this->siteContentStructureMenuINISettings();
         $settings[] = $this->siteODFINISettings();
+        $settings[] = $this->siteOEINISettings();
 
         return $settings;
     }
@@ -2890,6 +2942,12 @@ class eZFlownInstaller extends eZSiteInstaller
 
         return array( 'name' => 'odf.ini',
                       'settings' => array( 'article' => array( 'Attribute' => $articleExtraAttributes ) ) );
+    }
+
+    function siteOEINISettings()
+    {
+        return array( 'name' => 'ezoe.ini',
+                      'settings' => array( 'EditorSettings' => array( 'SkinVariant' => 'black' ) ) );
     }
 }
 
