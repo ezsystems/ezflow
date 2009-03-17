@@ -477,7 +477,7 @@
   <file name="image.ini.append.php" path="/settings" md5sum="233fcd960d6bfa63afea9918431e547a"/>
   <file name="menu.ini.append.php" path="/settings" md5sum="590fb815541dda5d0cc72f4b803d65ea"/>
   <file name="module.ini.append.php" path="/settings" md5sum="ef87a07b2f7afac027784db27d93184a"/>
-  <file name="site.ini.append.php" path="/settings" md5sum="d71e80bbb99cedf032a579e28acaa37d"/>
+  <file name="site.ini.append.php" path="/settings" md5sum="e4e63571b8ff33c74dfc6519b9853968"/>
   <file name="siteaccess" path="/settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="iphone" path="/settings/siteaccess" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="image.ini.append.php" path="/settings/siteaccess/iphone" md5sum="5bc8ad4f09a8887c21a60698fe54c416"/>
@@ -498,6 +498,10 @@
   <file name="postgresql" path="/sql" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="postgresql.sql" path="/sql/postgresql" md5sum="5a0bc59d6fcc03d7dc2530a5ded666e6"/>
   <file name="translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="cat-ES" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/cat-ES" md5sum="6471e1964fc9d889e0a196fb7d86193a"/>
+  <file name="esl-ES" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/esl-ES" md5sum="ce66a6860fb776b01f2c63070d989a9d"/>
   <file name="untranslated" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="translation.ts" path="/translations/untranslated" md5sum="54be76840bb4d5b6f1d5bf5ec5d6bbc6"/>
 </extension>
