@@ -502,6 +502,8 @@
   <file name="translation.ts" path="/translations/cat-ES" md5sum="6471e1964fc9d889e0a196fb7d86193a"/>
   <file name="esl-ES" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="translation.ts" path="/translations/esl-ES" md5sum="ce66a6860fb776b01f2c63070d989a9d"/>
+  <file name="jpn-JP" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
+  <file name="translation.ts" path="/translations/jpn-JP" md5sum="a165e237d6b6936abab813daae0f723d"/>
   <file name="untranslated" path="/translations" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="translation.ts" path="/translations/untranslated" md5sum="54be76840bb4d5b6f1d5bf5ec5d6bbc6"/>
 </extension>
