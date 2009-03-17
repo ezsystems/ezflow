@@ -2,8 +2,8 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Flow
-// SOFTWARE RELEASE: 1.1.0
-// COPYRIGHT NOTICE: Copyright (C) 1999-2008 eZ Systems AS
+// SOFTWARE RELEASE: 1.1-0
+// COPYRIGHT NOTICE: Copyright (C) 1999-2009 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -29,7 +29,7 @@ class ezflowInfo
     static function info()
     {
         return array( 'Name' => 'eZ Flow',
-                      'Version' => '1.1-0rc1',
+                      'Version' => '1.1-0',
                       'Copyright' => 'Copyright (C) 1999-' . date('Y') . ' eZ Systems AS',
                       'License' => 'GNU General Public License v2.0'
                      );
