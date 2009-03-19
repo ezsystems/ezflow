@@ -586,6 +586,8 @@ class eZPageType extends eZDataType
                                 }
 
                                 $block->setAttribute( 'custom_attributes', $customAttributes );
+                                $contentObjectAttribute->setContent( $page );
+                                $contentObjectAttribute->store();
                             }
 
                             break;
