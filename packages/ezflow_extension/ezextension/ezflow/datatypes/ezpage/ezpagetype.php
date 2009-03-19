@@ -646,6 +646,9 @@ class eZPageType extends eZDataType
                                     $item->setAttribute( 'action', 'add' );
                                 }
                             }
+                            
+                            $contentObjectAttribute->setContent( $page );
+                            $contentObjectAttribute->store();
                         }
                     }
                     break;
@@ -691,6 +694,9 @@ class eZPageType extends eZDataType
                     $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray ) );
 
                 $block->setAttribute( 'fetch_params', $serializedParams );
+                
+                $contentObjectAttribute->setContent( $page );
+                $contentObjectAttribute->store();
                 break;
             case 'new_source_browse':
                 $page = $contentObjectAttribute->content();
@@ -727,6 +733,8 @@ class eZPageType extends eZDataType
                     }
 
                     $block->setAttribute( 'custom_attributes', $customAttributes );
+                    $contentObjectAttribute->setContent( $page );
+                    $contentObjectAttribute->store();
                 }
                 break;
             case 'custom_attribute_browse':
