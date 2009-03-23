@@ -378,7 +378,7 @@ $dataMap = $node->dataMap();
 $page = $dataMap['page']->attribute('content');
 
 $zones = $page->attribute('zones');
-$output = '[';
+$output = array();
 foreach ( $zones as $zone )
 {
     $blocks = $zone->attribute('blocks');
@@ -405,19 +405,17 @@ foreach ( $zones as $zone )
             }
             $block->setAttribute( 'valid_nodes', $validNodesObjects );
         }
-        
-        $output .= '{ \'objectid\':\'' . $block->attribute('zone_id') . '-' . $block->attribute('id') . '\', \'xhtml\':\'';
+
+        $outputBlock = array( 'objectid' => $block->attribute('zone_id') . '-' . $block->attribute('id') );
         $tpl->setVariable( 'block', $block );
-        $output .= htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
-        $output .= '\'},';
+        $outputBlock['xhtml'] = htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
+        $output[] = $outputBlock;
     }
 }
-$output .= ']';
-$output = str_replace( "\n", "", $output );
 
 header( 'Content-Type: application/json; charset=' . $httpCharset );
 
-echo $output;
+echo eZFlowAjaxContent::jsonEncode( $output );
 eZExecution::cleanExit();
 
 ?>
