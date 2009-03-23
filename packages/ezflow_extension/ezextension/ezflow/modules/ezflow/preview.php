@@ -408,7 +408,7 @@ foreach ( $zones as $zone )
 
         $outputBlock = array( 'objectid' => $block->attribute('zone_id') . '-' . $block->attribute('id') );
         $tpl->setVariable( 'block', $block );
-        $outputBlock['xhtml'] = htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES, $httpCharset );
+        $outputBlock['xhtml'] = htmlentities( str_replace( array( "\r\n", "\r", "\n" ), array(""), $tpl->fetch( 'design:page/preview.tpl' ) ), ENT_QUOTES, $httpCharset );
         $output[] = $outputBlock;
     }
 }
