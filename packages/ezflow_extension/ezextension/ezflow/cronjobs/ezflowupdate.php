@@ -31,6 +31,6 @@ if ( !$isQuiet )
     $cli->output( "Updating ezm_pool" );
 }
 
-eZFlowOperations::update();
+eZFlowOperations::update( true );
 
 ?>
