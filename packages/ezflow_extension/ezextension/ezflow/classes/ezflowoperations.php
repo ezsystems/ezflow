@@ -151,6 +151,35 @@ class eZFlowOperations
             $db->commit();
         }
 
+        // Find items that have been moved to trash or deleted
+        $itemArray = array();
+        $offset = 0;
+        $limit = 50;
+        do
+        {
+            $items = $db->arrayQuery( 'SELECT object_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
+            if ( count( $items ) == 0 )
+                break;
+
+            foreach( $items as $item )
+            {
+                // Find items that have been deleted or moved to trash
+                $rows = $db->arrayQuery( 'SELECT id, status FROM ezcontentobject WHERE id = ' . $item['object_id'] );
+                if ( count( $rows ) == 0 or // deleted
+                     ( count( $rows ) == 1 and $rows[0]['status'] == 2 ) ) // trashed
+                    $itemArray[] = $item['object_id'];
+            }
+
+            $offset += $limit;
+        } while ( true );
+        // Remove them all from the flow
+        if ( count( $itemArray ) > 0 )
+        {
+            $db->begin();
+            $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
+            $db->commit();
+        }
+
         // Update pool and pages for all nodes
         $res = $db->arrayQuery( "SELECT DISTINCT node_id
                          FROM ezm_block" );
