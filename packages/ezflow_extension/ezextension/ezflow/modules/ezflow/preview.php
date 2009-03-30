@@ -370,14 +370,28 @@ foreach ( $correctOrder as $blockID )
 }
 
 /* OPERATIONS CODE: END */
-
+$timelineINI = eZINI::instance('timeline.ini');
 $tpl = templateInit();
 $httpCharset = eZTextCodec::httpCharset();
 $node = eZContentObjectTreeNode::fetch( $nodeID );
-$dataMap = $node->dataMap();
-$page = $dataMap['page']->attribute('content');
 
-$zones = $page->attribute('zones');
+$previewSettingsGroup = 'PreviewSettings_';
+if( $node )
+{
+    $previewSettingsGroup = $previewSettingsGroup . $node->object()->attribute('class_identifier');
+    $dataMap = $node->dataMap();
+}
+
+if ( $timelineINI->hasGroup( $previewSettingsGroup ) );
+    $previewClassAttribute = $timelineINI->variable( $previewSettingsGroup, 'PreviewClassAttribute' );
+
+if( isset( $dataMap[$previewClassAttribute] ) )
+    $page = $dataMap[$previewClassAttribute]->attribute('content');
+
+$zones = array();
+if ( isset( $page ) && ( $page instanceof eZPage ) )
+    $zones = $page->attribute('zones');
+
 $output = array();
 foreach ( $zones as $zone )
 {
