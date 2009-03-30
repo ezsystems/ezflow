@@ -149,7 +149,7 @@ class eZPageBlockItem
      * @return mixed
      * @param string $name
      */
-    public public function attribute( $name )
+    public function attribute( $name )
     {
         if ( $this->hasAttribute( $name ) )
         {
