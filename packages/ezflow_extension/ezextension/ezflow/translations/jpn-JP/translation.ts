@@ -1,4 +1,5 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS><TS version="1.1" language="en_US">
 <defaultcodec></defaultcodec>
 <context>
     <name>design/admin/content/edit</name>
@@ -260,7 +261,7 @@
     </message>
     <message>
         <source>Are you sure you want to remove this block?</source>
-        <translation>このブロックを削除してよろしいですか?</translation>
+        <translation>このブロックを削除してよろしいですか？</translation>
     </message>
     <message>
         <source>Set overflow</source>
@@ -336,7 +337,7 @@
     </message>
     <message>
         <source>History: no items.</source>
-        <translation>履歴: アイテムなし.</translation>
+        <translation>履歴: アイテムなし</translation>
     </message>
     <message>
         <source>Remove selected</source>
@@ -377,7 +378,7 @@
     <name>design/standard/datatype/ezpage</name>
     <message>
         <source>The total number of zones in the new layout is less than the number of zones in the previous layout. Therefore, you must map the previous zones to new zones. Unmapped zones will be removed!</source>
-        <translation>新しいレイアウトには、以前のレイアウトより少ない数のゾーンが設定されています。以前のゾーンを新しいゾーンへ割り当てて下さい。割り当てられていないゾーンは削除されます。!</translation>
+        <translation>新しいレイアウトには、以前のレイアウトより少ない数のゾーンが設定されています。以前のゾーンを新しいゾーンへ割り当てて下さい。割り当てられていないゾーンは削除されます。</translation>
     </message>
     <message>
         <source>Set layout</source>
