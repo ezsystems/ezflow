@@ -505,6 +505,11 @@ div.break /* Old method for terminating floating elements flow; kept for backwar
 
 /* MISCELLANEOUS STYLES */
 
+div.oe-window /* Needed by OE 5.0 when translating content */
+{
+    clear: both;
+}
+
 .hide /* Used on elements which should only be visible if CSS in disabled or unavailable */
 {
     display: none;
