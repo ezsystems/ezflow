@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension name="ezflow">
   <file name="autoloads" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezjson.php" path="/autoloads" md5sum="9e1b01ddb96593e54ea769db79059174"/>
-  <file name="ezred5streamlist.php" path="/autoloads" md5sum="03bff04a7c3a1fce582327f105ace358"/>
-  <file name="eztemplateautoload.php" path="/autoloads" md5sum="573f8883fb3a56deadc3c03af2a5fdd7"/>
-  <file name="ezunserialize.php" path="/autoloads" md5sum="198baa25f22d30420d4bb20296621b8f"/>
+  <file name="ezjson.php" path="/autoloads" md5sum="2906ae2829f6a1b8d15a55a8182c9e6d"/>
+  <file name="ezred5streamlist.php" path="/autoloads" md5sum="19764f79c7874c365a2503ca77854a5e"/>
+  <file name="eztemplateautoload.php" path="/autoloads" md5sum="6c3de047a6aea9007f23eeb20480d616"/>
+  <file name="ezunserialize.php" path="/autoloads" md5sum="7194eb926815d7f849a903ba4343526a"/>
   <file name="classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezflowajaxcontent.php" path="/classes" md5sum="59ffcf4786cbcee9b24748df028bc8b6"/>
-  <file name="ezflowblock.php" path="/classes" md5sum="4ef5d3a1329a60a6a39e242d9f389df0"/>
-  <file name="ezflowfetchinterface.php" path="/classes" md5sum="61fe49ea0814b8b29ac53bb57d9acd99"/>
-  <file name="ezflowoperations.php" path="/classes" md5sum="5d96ae813afa254941e9975c175686b2"/>
-  <file name="ezflowpool.php" path="/classes" md5sum="2f21efe527699f533bf7ed408371e108"/>
-  <file name="ezflowpoolitem.php" path="/classes" md5sum="cfab8e03c47756ced7ad7e1c5c4cea28"/>
-  <file name="ezhttpcachemanager.php" path="/classes" md5sum="df14bd929a85f0cbf507abc5e6203b6d"/>
-  <file name="ezhttpcachemanagerinterface.php" path="/classes" md5sum="ae8f375f9e4482afe22c4c7fb4038dc9"/>
-  <file name="ezpage.php" path="/classes" md5sum="f0885b48b30ebe03603f9546ea3bcdd1"/>
-  <file name="ezpageblock.php" path="/classes" md5sum="d6b814e68caad9fba2ed5bf8d46a168e"/>
-  <file name="ezpageblockitem.php" path="/classes" md5sum="928fa5634a40b6aa653dfb952091bbc4"/>
-  <file name="ezpagezone.php" path="/classes" md5sum="314bd1f7092f01ff169afcd03dc2d04d"/>
-  <file name="ezsquidcachemanager.php" path="/classes" md5sum="3bcf5e949d7a993af9920453cfe802ed"/>
+  <file name="ezflowajaxcontent.php" path="/classes" md5sum="50f212d0199b9e0c2e923dfdb1946ef0"/>
+  <file name="ezflowblock.php" path="/classes" md5sum="94851e50d7b6572c739d29e1a9ba88d3"/>
+  <file name="ezflowfetchinterface.php" path="/classes" md5sum="38b5244429ae560cbadea836b46f41f1"/>
+  <file name="ezflowoperations.php" path="/classes" md5sum="d2ce950fb5e63df8c4c023cec7fec83f"/>
+  <file name="ezflowpool.php" path="/classes" md5sum="cb1ebe5fa29ee6bcb7bb1e618a9a095b"/>
+  <file name="ezflowpoolitem.php" path="/classes" md5sum="1d44bdf8bae8f54daa1c82114933281c"/>
+  <file name="ezhttpcachemanager.php" path="/classes" md5sum="0df822b6088d321ac0ebcf8bf7275321"/>
+  <file name="ezhttpcachemanagerinterface.php" path="/classes" md5sum="51c9f6d47a20b9f08dbcfef5853db982"/>
+  <file name="ezpage.php" path="/classes" md5sum="882c0d31527b71f7375ea258c224a9be"/>
+  <file name="ezpageblock.php" path="/classes" md5sum="7c080b8c2bc9941103c66eccb3ae363d"/>
+  <file name="ezpageblockitem.php" path="/classes" md5sum="8c034dbde6668059af846401bc20bc5e"/>
+  <file name="ezpagezone.php" path="/classes" md5sum="af8e9f0d5bb9104df5d4cb9df24751f6"/>
+  <file name="ezsquidcachemanager.php" path="/classes" md5sum="33a9aa2198c0ffdb9537f9f56e7185b7"/>
   <file name="fetches" path="/classes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezflowlatestobjects.php" path="/classes/fetches" md5sum="cc8a1abdffddf4a171f865f63014105c"/>
+  <file name="ezflowlatestobjects.php" path="/classes/fetches" md5sum="0b7b7ced98c3f9bb327625f9d977f944"/>
   <file name="cronjobs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezflowupdate.php" path="/cronjobs" md5sum="9e8cf9150eb4eb93149d7c24241a7080"/>
+  <file name="ezflowupdate.php" path="/cronjobs" md5sum="9909192b443ed73c047f9a8b231abcae"/>
   <file name="datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage" path="/datatypes" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="a909ae4129ceb89b363caa11ca6833af"/>
+  <file name="ezpagetype.php" path="/datatypes/ezpage" md5sum="c74acf3800a98d9fb6e1d29916764272"/>
   <file name="design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="admin" path="/design" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="images" path="/design/admin" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
@@ -310,7 +310,7 @@
   <file name="browsers" path="/design/ezflow/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ie5.css" path="/design/ezflow/stylesheets/browsers" md5sum="713ac758aeedd38a8e5b23fbeb203e61"/>
   <file name="ie7lte.css" path="/design/ezflow/stylesheets/browsers" md5sum="38e2df7e4b44c16b71eac35cb01be0a9"/>
-  <file name="core.css" path="/design/ezflow/stylesheets" md5sum="4f8619f22d166fdb0e6a827da62f54c8"/>
+  <file name="core.css" path="/design/ezflow/stylesheets" md5sum="e8fa2a0215eac88e3fa62a4bb19ca560"/>
   <file name="ezflow.css" path="/design/ezflow/stylesheets" md5sum="4a47d59fa42d7f347c80d029d2a72ed6"/>
   <file name="ezpage" path="/design/ezflow/stylesheets" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezpage.css" path="/design/ezflow/stylesheets/ezpage" md5sum="66c2f515d0695d23e2e34a507d7cb948"/>
@@ -450,24 +450,24 @@
   <file name="CHANGELOG-1.0-0-to-1.1-0" path="/doc/changelogs/1.1" md5sum="e9c5228fe61d4785854a07f17fa1978c"/>
   <file name="CHANGELOG-1.1-0-to-1.1-1" path="/doc/changelogs/1.1" md5sum="d3295131f09f1a318fa8081850886f5f"/>
   <file name="extras" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="flash_video_list.php" path="/extras" md5sum="e67030b2dc66bd00f693fc6232c1f57f"/>
-  <file name="ezinfo.php" md5sum="ff6ddcb7806ed4e81fca9736b8daccab"/>
+  <file name="flash_video_list.php" path="/extras" md5sum="8faebd11b65f02ec44e0d53a44a243fe"/>
+  <file name="ezinfo.php" md5sum="fa0d79b5d5d69f00213d6de090c7f439"/>
   <file name="modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="ezajax" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="module.php" path="/modules/ezajax" md5sum="df32226335f8bde9da9b26c706d519e3"/>
-  <file name="search.php" path="/modules/ezajax" md5sum="d7e6b35c236d7bd64dd69628de538094"/>
+  <file name="module.php" path="/modules/ezajax" md5sum="d0f1f9eabd41abd8af8b7d31babb3539"/>
+  <file name="search.php" path="/modules/ezajax" md5sum="235b02377860997b26e3ab37a468a7d9"/>
   <file name="ezflow" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="block.php" path="/modules/ezflow" md5sum="263eb8d90e10ff7d4e9d514bf8b77efd"/>
-  <file name="function_definition.php" path="/modules/ezflow" md5sum="8887c9012302236ab5d57b73e4d34ab9"/>
-  <file name="functioncollection.php" path="/modules/ezflow" md5sum="6bbfd5a2b82d745d54e416ae11c0dc06"/>
-  <file name="module.php" path="/modules/ezflow" md5sum="34e64273cd8e1b40f8c2d9df0611af78"/>
-  <file name="preview.php" path="/modules/ezflow" md5sum="d7c0bc3412eaaff3f0d06b5e1562edfb"/>
-  <file name="request.php" path="/modules/ezflow" md5sum="9b7bf538db07edda31fe2c2f5867992a"/>
-  <file name="timeline.php" path="/modules/ezflow" md5sum="0e9ee3e97a7c0fe5bac28b788308881a"/>
-  <file name="zone.php" path="/modules/ezflow" md5sum="9dc7dff0774f9fce6d4da71c6c29c989"/>
+  <file name="block.php" path="/modules/ezflow" md5sum="5e82b871423957c603d5419a1988adfe"/>
+  <file name="function_definition.php" path="/modules/ezflow" md5sum="148f8d8279877eb56820eb0da77255cd"/>
+  <file name="functioncollection.php" path="/modules/ezflow" md5sum="fb405c70e82ab5ca1f357e5b0981a4cb"/>
+  <file name="module.php" path="/modules/ezflow" md5sum="bc4ef6f4b87f728902f442681ba5d17f"/>
+  <file name="preview.php" path="/modules/ezflow" md5sum="eb340c78d0dd0ad1c3e8f5c0768fc2ca"/>
+  <file name="request.php" path="/modules/ezflow" md5sum="e3a74aa7fd88b31f9a45e9ee4208c33a"/>
+  <file name="timeline.php" path="/modules/ezflow" md5sum="068a131d92fccb76cc4f65add666fe51"/>
+  <file name="zone.php" path="/modules/ezflow" md5sum="02891658fc80cbab1015bda4c8f630a1"/>
   <file name="flash" path="/modules" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
-  <file name="embed.php" path="/modules/flash" md5sum="f9cfbc0fa00c95375b836d60ad624ad1"/>
-  <file name="module.php" path="/modules/flash" md5sum="821c5c7185503efcb76e63a384fb27ce"/>
+  <file name="embed.php" path="/modules/flash" md5sum="23023b3b6772cb53530e9e0a2cb9a9c7"/>
+  <file name="module.php" path="/modules/flash" md5sum="404def939c4889150782458894f8d6f5"/>
   <file name="settings" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="block.ini.append.php" path="/settings" md5sum="a9426ade21c8490176590ba35c594cad"/>
   <file name="browse.ini.append.php" path="/settings" md5sum="d6c19c0e2a1bef71276e92c4cab35212"/>
