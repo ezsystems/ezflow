@@ -787,13 +787,16 @@ class eZFlownInstaller extends eZSiteInstaller
                 $languageList[] = $primaryLanguage;
             }
 
+            $siteaccessTypes = $this->setting( 'siteaccess_urls' );
+
             // Create siteaccess
             $this->createSiteAccess( array( 'src' => array( 'siteaccess' => $this->setting( 'user_siteaccess' ) ),
                                             'dst' => array( 'siteaccess' => $this->languageNameFromLocale( $locale ),
                                                             'settings' => array( 'site.ini' => array( 'RegionalSettings' => array( 'Locale' => $locale,
                                                                                                                                    'ContentObjectLocale' => $locale,
                                                                                                                                    'TextTranslation' => $locale != 'eng-GB' ? 'enabled' : 'disabled',
-                                                                                                                                   'SiteLanguageList' => $languageList ) ) ) ) ) );
+                                                                                                                                   'SiteLanguageList' => $languageList ),
+                                                                                                      'SiteSettings' => array( 'SiteURL' => $siteaccessTypes['translation'][$this->languageNameFromLocale( $locale )]['url'] ) ) ) ) ) );
         }
     }
 

@@ -1,0 +1,9 @@
+Changes from 1.0-4 to 1.0-5
+
+*Bugs*
+
+- Fixed bug #14909: SiteURL not correctly set for multilingual, hostname based install
+  (Merged from ezflow trunk rev. 3928)
+
+*Enhancements*
+
