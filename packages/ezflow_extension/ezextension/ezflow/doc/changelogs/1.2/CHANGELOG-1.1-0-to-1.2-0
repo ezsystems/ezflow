@@ -5,3 +5,4 @@ Changes from 1.1-0 to 1.2-0
 - Fixed bug #014618: The timeline doesn't work anymore when there is a line break in a block (patch by AR)
 - Fixed bug #014668: Deleted item references are not removed from eZ Flow blocks (patch by GL)
 - Fixed bug #013106: ezflow: Hardcoded class identifier and class attribute identifiers
+- Fixed bug #14909: SiteURL not correctly set for multilingual, hostname based install
