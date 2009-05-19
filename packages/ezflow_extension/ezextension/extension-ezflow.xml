@@ -449,6 +449,7 @@
   <file name="1.1" path="/doc/changelogs" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="CHANGELOG-1.0-0-to-1.1-0" path="/doc/changelogs/1.1" md5sum="e9c5228fe61d4785854a07f17fa1978c"/>
   <file name="CHANGELOG-1.1-0-to-1.1-1" path="/doc/changelogs/1.1" md5sum="d3295131f09f1a318fa8081850886f5f"/>
+  <file name="CHANGELOG-1.1-1-to-1.1-2" path="/doc/changelogs/1.1" md5sum="928a39eb38b027506aa0498f1607f7ee"/>
   <file name="extras" md5sum="d41d8cd98f00b204e9800998ecf8427e" type="dir"/>
   <file name="flash_video_list.php" path="/extras" md5sum="8faebd11b65f02ec44e0d53a44a243fe"/>
   <file name="ezinfo.php" md5sum="fa0d79b5d5d69f00213d6de090c7f439"/>
