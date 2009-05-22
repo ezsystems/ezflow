@@ -2950,7 +2950,7 @@ class eZFlownInstaller extends eZSiteInstaller
     function siteOEINISettings()
     {
         return array( 'name' => 'ezoe.ini',
-                      'settings' => array( 'EditorSettings' => array( 'SkinVariant' => 'black' ) ) );
+                      'settings' => array( 'EditorSettings' => array( 'SkinVariant' => 'silver' ) ) );
     }
 }
 
