@@ -15,6 +15,7 @@ AllowedTypes[]=Banner
 AllowedTypes[]=TagCloud
 AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
+AllowedTypes[]=FeedReader
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -177,5 +178,14 @@ NumberOfArchivedItems=4
 ManualAddingOfItems=enabled
 ViewList[]=flash_recorder
 ViewName[flash_recorder]=Flash Recorder
+
+[FeedReader]
+Name=Feed reader
+ManualAddingOfItems=disabled
+CustomAttributes[]=source
+CustomAttributes[]=limit
+CustomAttributes[]=offset
+ViewList[]=feed_reader
+ViewName[feed_reader]=Feed reader
 
 */ ?>
