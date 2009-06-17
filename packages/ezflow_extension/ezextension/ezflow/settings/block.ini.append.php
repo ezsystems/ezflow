@@ -16,6 +16,7 @@ AllowedTypes[]=TagCloud
 AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
 AllowedTypes[]=FeedReader
+AllowedTypes[]=Keywords
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -187,5 +188,19 @@ CustomAttributes[]=limit
 CustomAttributes[]=offset
 ViewList[]=feed_reader
 ViewName[feed_reader]=Feed reader
+
+[Keywords]
+Name=Keywords
+NumberOfValidItems=5
+NumberOfArchivedItems=5
+ManualAddingOfItems=disabled
+FetchClass=eZFlowKeywordsFetch
+FetchFixedParameters[Class]=article
+FetchParameters[Source]=NodeID
+FetchParametersSelectionType[Source]=single
+FetchParametersIsRequired[Source]=true
+FetchParameters[Keywords]=string
+ViewList[]=keywords
+ViewName[keywords]=Keywords
 
 */ ?>
