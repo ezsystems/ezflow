@@ -2063,3 +2063,11 @@ div.feedback h2
 }
 
 /* FEEDBACK: END */
+
+/* GMAP BLOCK */
+
+div.map-container
+{
+    width: 450px;
+    height: 350px;
+}

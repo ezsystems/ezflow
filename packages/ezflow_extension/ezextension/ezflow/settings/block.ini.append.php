@@ -17,6 +17,7 @@ AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
 AllowedTypes[]=FeedReader
 AllowedTypes[]=Keywords
+AllowedTypes[]=GMap
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -202,5 +203,13 @@ FetchParametersIsRequired[Source]=true
 FetchParameters[Keywords]=string
 ViewList[]=keywords
 ViewName[keywords]=Keywords
+
+[GMap]
+Name=Google Map
+ManualAddingOfItems=disabled
+CustomAttributes[]=location
+CustomAttributes[]=key
+ViewList[]=gmap
+ViewName[gmap]=Google Map
 
 */ ?>
