@@ -5,7 +5,13 @@
 
 <div id="map-container-{$block.id}" class="map-container"></div>
 
+{* 
+    Do not load GMap API if key is empty. 
+    Option to skip loading GMap API in case when it was loaded globally e.g in <head> section
+*}
+{if ne( $key, '' )}
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key={$key}" type="text/javascript"></script>
+{/if}
 
 <script type="text/javascript">
 var GMAP{$block.id} = {ldelim}{rdelim};
