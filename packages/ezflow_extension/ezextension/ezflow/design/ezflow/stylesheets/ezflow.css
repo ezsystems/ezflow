@@ -1920,6 +1920,23 @@ div.block-type-poll label
 
 /* BLOCK TYPE POLL: END */
 
+/* BLOCK TYPE ONLINE USERS: START */
+
+div.block-type-online-users div.attribute-header h2
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #c70000;
+    background-image: url(../images/block-type-3items/header-bg.png);
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    font-size: 0.85em;
+    padding: 5px 0 6px 5px;
+}
+
+/* BLOCK TYPE ONLINE USERS: END */
+
+/* */
+
 /* BLOCK: START */
 div.block div.left
 {

@@ -18,6 +18,7 @@ AllowedTypes[]=FlashRecorder
 AllowedTypes[]=FeedReader
 AllowedTypes[]=Keywords
 AllowedTypes[]=GMap
+AllowedTypes[]=OnlineUsers
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -211,5 +212,11 @@ CustomAttributes[]=location
 CustomAttributes[]=key
 ViewList[]=gmap
 ViewName[gmap]=Google Map
+
+[OnlineUsers]
+Name=Online Users
+ManualAddingOfItems=disabled
+ViewList[]=onlineusers
+ViewName[onlineusers]=Online Users
 
 */ ?>
