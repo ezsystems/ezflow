@@ -24,28 +24,45 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-$Module = array( 'name' => 'eZ Flow' );
+$Module = array( 'name' => 'eZ Flow',
+                 'functions' => array( 'changelayout' ) );
 
 $ViewList = array();
 $ViewList['timeline'] = array( 'script' => 'timeline.php',
+                               'functions' => array( 'timeline' ),
                                'params' => array( 'NodeID', 'LanguageCode' ) );
 
 $ViewList['preview'] = array( 'script' => 'preview.php',
+                              'functions' => array( 'timeline' ),
                               'params' => array( 'Time', 'NodeID' ) );
 
 $ViewList['zone'] = array(
                             'script' => 'zone.php',
+                            'functions' => array( 'edit' ),
                             'params' => array( 'ContentObjectAttributeID', 'Version', 'ZoneID' )
                          );
 
 $ViewList['request'] = array(
                             'script' => 'request.php',
+                            'functions' => array( 'edit' ),
                             'unordered_params' => array( 'items' => 'Items',
                                                          'block' => 'Block' )
                          );
 
 $ViewList['block'] = array(
                             'script' => 'block.php',
+                            'functions' => array( 'call' ),
                             'params' => array( 'BlockID', 'Output' )
                          );
+$FunctionList = array();
+$FunctionList['timeline'] = array();
+$FunctionList['edit'] = array();
+$FunctionList['call'] = array();
+$FunctionList['changelayout'] = array( 'Class' => array( 'name'=> 'Class',
+                                                                  'values'=> array(),
+                                                                  'path' => 'classes/',
+                                                                  'file' => 'ezcontentclass.php',
+                                                                  'class' => 'eZContentClass',
+                                                                  'function' => 'fetchList',
+                                                                  'parameter' => array( 0, false, false, array( 'name' => 'asc' ) ) ) );
 ?>

@@ -13,9 +13,35 @@
      $block_id = ''
      $item_id = ''
      $zone_names = ezini( $attribute.content.zone_layout, 'ZoneName', 'zone.ini' )
-     $allowed_zones = fetch('ezflow', 'allowed_zones')}
+     $allowed_zones = fetch('ezflow', 'allowed_zones')
+     $can_change_layout = fetch( 'user', 'has_access_to', hash( 'module', 'ezflow', 'function', 'changelayout' ) )
+     $current_user = fetch( 'user', 'current_user' )
+     $content_object = fetch( 'content', 'object', hash( 'object_id', $attribute.contentobject_id ) )
+     $policies = fetch( 'user', 'user_role', hash( 'user_id', $current_user.contentobject_id ) )
+     $layout_for_current_class = false()}
+
+     {foreach $policies as $policy}
+        {if and( eq( $policy.moduleName, 'ezflow' ),
+                    eq( $policy.functionName, 'changelayout' ),
+                        is_array( $policy.limitation ) )}
+            {if $policy.limitation[0].values_as_array|contains( $content_object.content_class.id )}
+                {set $layout_for_current_class = true()}
+            {/if}
+        {elseif or( and( eq( $policy.moduleName, '*' ),
+                             eq( $policy.functionName, '*' ),
+                                 eq( $policy.limitation, '*' ) ),
+                    and( eq( $policy.moduleName, 'ezflow' ),
+                             eq( $policy.functionName, '*' ),
+                                 eq( $policy.limitation, '*' ) ),
+                    and( eq( $policy.moduleName, 'ezflow' ),
+                             eq( $policy.functionName, 'changelayout' ),
+                                 eq( $policy.limitation, '*' ) ) )}
+            {set $layout_for_current_class = true()}
+        {/if}
+     {/foreach}
 
 <div id="page-datatype-container" class="yui-skin-sam yui-skin-ezflow">
+{if and( $can_change_layout, $layout_for_current_class )}
 <div class="zones float-break">
 {foreach $allowed_zones as $allowed_zone}
 {if $allowed_zone['classes']|contains( $attribute.object.content_class.identifier )}
@@ -41,7 +67,7 @@
     </div>
     <input type="hidden" class="current-zone-count" name="ContentObjectAttribute_ezpage_zone_count_{$attribute.id}" value="{$attribute.content.zones|count()}" />
 </div>
-
+{/if}
 <div id="zone-tabs-container"></div>
 </div>
 <script type="text/javascript">
