@@ -79,7 +79,7 @@ YAHOO.ez.BlockDD = function() {
                     var destDD = DDM.getDDById(id);
                     var srcTargetID = srcEl.parentNode.parentNode.id;
                     var destTargetID = destEl.parentNode.parentNode.id;
-                
+
                     if(srcTargetID == destTargetID) {
                         destEl.appendChild(this.getEl());
                         destDD.isEmpty = false;
@@ -311,3 +311,130 @@ YAHOO.ez.BlockCollapse = function(){
         }
     };
 }();
+
+var BlockDDInit = function() {
+    YUI( YUI3_config ).use('dd-constrain', 'dd-proxy', 'dd-drop', 'io-ez', 'json', function(Y) {
+        Y.DD.DDM.on('drop:over', function(e) {
+            var drag = e.drag.get('node'), drop = e.drop.get('node');
+            
+            if (drop.get('tagName').toLowerCase() === 'div' && drop.get('parentNode').get('id') === drag.get('parentNode').get('id') ) {
+                if (!goingUp) {
+                    drop = drop.get('nextSibling');
+                }
+
+                drop.get('parentNode').insertBefore(drag, drop);
+                e.drop.sizeShim();
+            }
+        });
+
+        Y.DD.DDM.on('drag:drag', function(e) {
+            var y = e.target.lastXY[1];
+
+            if (y < lastY) {
+                goingUp = true;
+            }
+            else {
+                goingUp = false;
+            }
+
+            lastY = y;
+        });
+
+        Y.DD.DDM.on('drag:start', function(e) {
+            var drag = e.target;
+
+            drag.get('node').setStyle('opacity', '.25');
+            drag.get('dragNode').appendChild( Y.Node.create( '<div></div>' ).addClass( 'block-container' ).set('innerHTML', drag.get('node').get('innerHTML') ) );
+            drag.get('dragNode').setStyles({
+                opacity: '.5',
+                borderColor: drag.get('node').getStyle('borderColor'),
+                backgroundColor: drag.get('node').getStyle('backgroundColor')
+            });
+        });
+
+        Y.DD.DDM.on('drag:end', function(e) {
+            var drag = e.target;
+
+            drag.get('node').setStyles({
+                visibility: '',
+                opacity: '1'
+            });
+            drag.get('dragNode').set('innerHTML', '');
+            
+            var blocks = Y.Node.all( '#'+ drag.get('node').get('parentNode').get('id') + ' .block-container' );
+            var data = '';
+
+            blocks.each( function(v, k) {
+                data += 'block_order%5B%5D=' + v.get('id');
+                data += '&';
+            } );
+
+            data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
+            data += '&version=' + BlockDDInit.cfg.version;
+            data += '&zone=' + BlockDDInit.cfg.zone;
+            data += '&http_accept=json';
+            Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
+            
+            var newOrder = drag.get('node').get('parentNode').queryAll('.block-container');
+            var index = 0;
+            newOrder.each(function(v, k) {
+                var inputList = v.queryAll('.block-control');
+     
+                for(var i = 0; i < inputList.size(); i++) {
+                    var input = inputList.item(i);
+                    var name = input.get('name');
+                    
+                    if( name.match(/([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/) ) {
+                        name = name.replace( /([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/, "$1_$2[$3][" + index + "]" );
+                    } else if ( name.match(/([\a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)\]/) ) {
+                        name = name.replace( /([\a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)\]/, "$1[$2-" + index + "]" );
+                    } else if ( name.match(/([\a-zA-Z]+)+\_+([0-9])/) ) {
+                        name = name.replace( /([\a-zA-Z]+)+\_+([0-9])/, "$1_" + index );
+                    }
+                    
+                    input.set('name', name);
+                }
+                
+                index++;
+            });
+        });
+
+        Y.DD.DDM.on('drag:drophit', function(e) {
+            var drop = e.drop.get('node'), drag = e.drag.get('node');
+            
+            if (drop.get('tagName').toLowerCase() !== 'div' && drop.get('id') !== drag.get('parentNode').get('id') ) {
+                if (!drop.contains(drag)) {
+                    drop.appendChild(drag);
+                }
+            }
+        });
+
+        function _callBack( id, o ) {
+
+        }
+
+        var goingUp = false, lastY = 0;
+        
+        var lis = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container');
+        lis.each(function(v, k) {
+            var dd = new Y.DD.Drag({
+                node: v,
+                target: {
+                    padding: '0'
+                }
+            }).plug(Y.Plugin.DDProxy, {
+                moveOnEnd: false
+            }).plug(Y.Plugin.DDConstrained, {
+                constrain2node: '#zone-' + BlockDDInit.cfg.zone + '-blocks'
+            });
+        });
+
+        var uls = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks');
+        uls.each(function(v, k) {
+            var tar = new Y.DD.Drop({
+                node: v
+            });
+        });
+        
+    });
+}

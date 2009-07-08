@@ -70,6 +70,9 @@
 {/if}
 <div id="zone-tabs-container"></div>
 </div>
+
+{ezscript( array('ezyui::ez') )}
+
 <script type="text/javascript">
 YAHOO.ez.ZoneLayout.cfg = {ldelim} 'allowedzones': '{$allowed_zones|json()}',
                                    'zonelayout': '{$attribute.content.zone_layout}' {rdelim};
@@ -125,20 +128,25 @@ else {
 
 var tabs = tabView.get("tabs");
 for( var i = 0; i < tabs.length; i++ ) {
-    tabs[i].on("dataLoadedChange", function(e) {
-        YAHOO.util.Event.onContentReady("zone-tabs-container", function() {
-            YAHOO.ez.BlockDD.cfg = {
+    var params = {zone: i};
+    tabs[i].on("dataLoadedChange", function(e, params) {
+        YAHOO.util.Event.onContentReady("zone-tabs-container", function(params) {
+            var cfg = {
 {/literal} 
-            url: "{'ezflow/request'|ezurl('no')}",
-            attributeid: {$attribute.id},
-            version: {$attribute.version}
+                url: "{'ezflow/request'|ezurl('no')}",
+                attributeid: {$attribute.id},
+                version: {$attribute.version},
+                zone: params.zone
 {literal} 
             };
+            YAHOO.ez.BlockDD.cfg = cfg;
             YAHOO.ez.BlockDD.init();
             YAHOO.ez.BlockCollapse.init();
             YAHOO.ez.sheduleDialog.init();
-        });
-    });
+            BlockDDInit.cfg = cfg;
+            BlockDDInit();
+        },params, false);
+    }, params, false);
 }
 
 tabView.on("activeTabChange", function(e) {

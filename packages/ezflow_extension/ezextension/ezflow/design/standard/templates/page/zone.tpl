@@ -20,8 +20,10 @@
     <a class="trigger expand-all" href="#" title="{'Expand'|i18n( 'design/standard/datatype/ezpage' )}">{'Expand'|i18n( 'design/standard/datatype/ezpage' )}</a> | <a class="trigger collapse-all" href="#" title="{'Collapse'|i18n( 'design/standard/datatype/ezpage' )}">{'Collapse'|i18n( 'design/standard/datatype/ezpage' )}</a>
 </div>
 
+<div id="zone-{$zone_id}-blocks">
 {foreach $zone.blocks as $index => $block}
     {if ne( $block.action, 'remove' )}
         {block_edit_gui block=$block block_id=$index current_time=currentdate() zone_id=$zone_id attribute=$attribute zone=$zone}
     {/if}
 {/foreach}
+</div>

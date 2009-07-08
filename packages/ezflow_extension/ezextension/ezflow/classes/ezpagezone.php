@@ -136,6 +136,27 @@ class eZPageZone
     }
 
     /**
+     * Sorting blocks for given sort array which contains block ids
+     * 
+     * @param array $sortArray
+     */
+    public function sortBlocks( array $sortArray )
+    {
+        $newOrder = array();
+        
+        foreach( $sortArray as $sortItem )
+        {
+            foreach( $this->attributes['blocks'] as $block )
+            {
+                if ( $block->attribute('id') === $sortItem )
+                    $newOrder[] = $block;
+            }
+        }
+        
+        $this->attributes['blocks'] = $newOrder;
+    }
+
+    /**
      * Move current block position up
      *
      * @param integer $currentIndex
