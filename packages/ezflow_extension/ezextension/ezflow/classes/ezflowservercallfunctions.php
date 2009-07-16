@@ -12,13 +12,13 @@ class eZFlowServerCallFunctions
      * @param mixed $args
      * @return array
      */
-    public static function onlineUsers( $args )
+    public static function onlineUsers()
     {
         $result = array();
         
         $result['logged_in_count'] = eZFunctionHandler::execute( 'user', 'logged_in_count', array() );
         $result['anonymous_count'] = eZFunctionHandler::execute( 'user', 'anonymous_count', array() );
-
+        
         return $result;
     }
 

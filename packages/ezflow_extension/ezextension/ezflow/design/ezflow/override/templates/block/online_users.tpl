@@ -16,7 +16,7 @@
 <script type="text/javascript">
 <!--
 {literal}
-YUI().use('node', 'event', 'io-ez', 'json', function( Y )
+YUI( YUI3_config ).use('node', 'event', 'io-ez', 'json', function( Y )
 {
    Y.on( 'domready', function( e )
    {

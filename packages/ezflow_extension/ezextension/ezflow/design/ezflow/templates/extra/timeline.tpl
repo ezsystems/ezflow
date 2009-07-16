@@ -1,27 +1,3 @@
-{* Dependencies *}
-<script type="text/javascript"src={"javascript/prototype.js"|ezdesign}></script>
-<script type="text/javascript" src={"lib/yui/2.6.0/build/utilities/utilities.js"|ezdesign}></script>
-<script type="text/javascript" src={"lib/yui/2.6.0/build/slider/slider-min.js"|ezdesign}></script>
-<script type="text/javascript" src={"lib/yui/2.6.0/build/calendar/calendar-min.js"|ezdesign}></script>
-<script type="text/javascript" src={"lib/yui/2.6.0/build/get/get-min.js"|ezdesign}></script>
-<script type="text/javascript" src={"javascript/timeline/timeline.js"|ezdesign}></script>
-<script type="text/javascript">
-var handlerData = {ldelim}
-{rdelim};
-
-var successHandler = function(oData) {ldelim}
-{rdelim};
-
-var aURLs = [
-    "{'lib/yui/2.6.0/build/assets/skins/sam/calendar.css'|ezdesign( 'no' )}",
-    "{'stylesheets/timeline/timeline.css'|ezdesign( 'no' )}"
-];
-
-YAHOO.util.Get.css(aURLs, {ldelim}
-                onSuccess: successHandler,
-                data:   handlerData
-{rdelim});
-</script>
 {def $past_precision_hours=2 
      $past_filler_hours=4
      $past_precision_position_px=92
@@ -94,23 +70,48 @@ YAHOO.util.Get.css(aURLs, {ldelim}
 
 <script type="text/javascript">
 <!--
-    YAHOO.namespace("timeline.slider");    
-    YAHOO.timeline.slider.initalSliderPosition = {sum( $now_in_pixels, $slide_label_inital_spacing )};
-    
-    YAHOO.timeline.slider.slideLabelInitalSpacing = {$slide_label_inital_spacing};
-    YAHOO.timeline.slider.middeStartPx = 80;
-    YAHOO.timeline.slider.rightStartPx = 640;
-    
-    YAHOO.timeline.slider.timestampStart = {$past_start};
-    YAHOO.timeline.slider.timeStartHours = {$past_start|datetime( 'custom', '%H' )};
-    YAHOO.timeline.slider.timeStartMinutes = {$past_start|datetime( 'custom', '%i' )};
-    
-    YAHOO.timeline.slider.nodeid = {$node.node_id};
-    YAHOO.timeline.slider.fetchURL = {"/ezflow/preview"|ezurl};
+(function() {ldelim}
+    YUILoader.onSuccess = function() {ldelim}
+        YAHOO.namespace("timeline.slider");
+        YAHOO.timeline.slider.initalSliderPosition = {sum( $now_in_pixels, $slide_label_inital_spacing )};
+
+        YAHOO.timeline.slider.slideLabelInitalSpacing = {$slide_label_inital_spacing};
+        YAHOO.timeline.slider.middeStartPx = 80;
+        YAHOO.timeline.slider.rightStartPx = 640;
+
+        YAHOO.timeline.slider.timestampStart = {$past_start};
+        YAHOO.timeline.slider.timeStartHours = {$past_start|datetime( 'custom', '%H' )};
+        YAHOO.timeline.slider.timeStartMinutes = {$past_start|datetime( 'custom', '%i' )};
+
+        YAHOO.timeline.slider.nodeid = {$node.node_id};
+        YAHOO.timeline.slider.fetchURL = {"/ezflow/preview"|ezurl};
 
 
-    YAHOO.namespace("timeline.calendar");    
-    YAHOO.timeline.calendar.arrowImageUP = 'url({"timeline/arrow_up.gif"|ezimage(no)})';
-    YAHOO.timeline.calendar.arrowImageDown = 'url({"timeline/arrow_down.gif"|ezimage(no)})';
+        YAHOO.namespace("timeline.calendar");    
+        YAHOO.timeline.calendar.arrowImageUP = 'url({"timeline/arrow_up.gif"|ezimage(no)})';
+        YAHOO.timeline.calendar.arrowImageDown = 'url({"timeline/arrow_down.gif"|ezimage(no)})';
+    {rdelim}
+
+    YUILoader.addModule({ldelim}
+        name: 'prototype',
+        type: 'js',
+        fullpath: '{"javascript/prototype.js"|ezdesign( 'no' )}'
+    {rdelim});
+    
+    YUILoader.addModule({ldelim}
+        name: 'timeline',
+        type: 'js',
+        fullpath: '{"javascript/timeline/timeline.js"|ezdesign( 'no' )}'
+    {rdelim});
+
+    YUILoader.addModule({ldelim}
+        name: 'timeline-css',
+        type: 'css',
+        fullpath: '{"stylesheets/timeline/timeline.css"|ezdesign( 'no' )}'
+    {rdelim});
+    
+    YUILoader.require(["timeline-css","prototype","calendar","slider","utilities","timeline"]);
+    YUILoader.insert();
+{rdelim})();
 //-->
 </script>
