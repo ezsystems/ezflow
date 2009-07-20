@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="eZPublish" basedir="build" default="build">
+<project name="eZFlow" basedir="build" default="build">
 
     <description>eZWebin packages build file</description>
 
