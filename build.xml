@@ -14,6 +14,10 @@
         <echo message="ezflow.version.alias          : ${ezflow.version.alias}"/>
         <echo message="ezflow.svn.trunk.packages.url : ${ezflow.svn.trunk.packages.url}"/>
         <echo message="php.cli.executable.path       : ${php.cli.executable.path}"/>
+        <echo message="ezp.version.major             : ${ezp.version.major}"/>
+        <echo message="ezp.version.minor             : ${ezp.version.minor}"/>
+        <echo message="ezp.version.release           : ${ezp.version.release}"/>
+        <echo message="ezp.version.alias             : ${ezp.version.alias}"/>
     </target>
 
     <target name="warning" depends="infos">
@@ -37,6 +41,74 @@
             <param name="extension.name"       value="ezflow_extension"/>
             <param name="extension.short.name" value="ezflow"/>
         </antcall>
+
+        <antcall target="update-package-xml"/>
+        <antcall target="update-ezinfo-php"/>
+        <antcall target="update-license-headers"/>
+    </target>
+
+    <target name="update-package-xml">
+        <echo message="Updating package.xml with correct version numbers"/>
+
+        <!-- <version>xxx</version> -->
+        <replaceregexp byline="true" flags="m">
+            <regexp pattern='^(    \074version\076)(.*)(\074/version\076)$'/>
+            <substitution expression='\1${ezp.version.alias}.${ezp.version.release}\3'/>
+            <fileset dir="${basedir}" includes="**/*package.xml"/>
+        </replaceregexp>
+
+        <!-- <named-version>xxx</named-version> -->
+        <replaceregexp byline="true" flags="m">
+            <regexp pattern='^(    \074named-version\076)(.*)(\074/named-version\076)$'/>
+            <substitution expression='\1${ezp.version.alias}\3'/>
+            <fileset dir="${basedir}" includes="**/*package.xml"/>
+        </replaceregexp>
+
+        <!-- <package version="zzzz" -->
+        <replaceregexp byline="true">
+            <regexp pattern='^(\074package version=")(.*)(")$'/>
+            <substitution expression='\1${ezflow.version.major}.${ezflow.version.minor}-${ezflow.version.release}\3'/>
+            <fileset dir="${basedir}" includes="**/*package.xml"/>
+        </replaceregexp>
+
+        <!-- <number>xxxx</number> -->
+        <replaceregexp byline="true">
+            <regexp pattern='^(    \074number\076)(.*)(\074/number\076)$'/>
+            <substitution expression='\1${ezflow.version.alias}\3'/>
+            <fileset dir="${basedir}" includes="**/*package.xml"/>
+        </replaceregexp>
+
+        <!-- <release>yyy</release> -->
+        <replaceregexp byline="true">
+            <regexp pattern='^(    \074release\076)(.*)(\074/release\076)$'/>
+            <substitution expression='\1${ezflow.version.release}\3'/>
+            <fileset dir="${basedir}" includes="**/*package.xml"/>
+        </replaceregexp>
+
+    </target>
+
+    <target name="update-ezinfo-php">
+        <echo message="Updating ezinfo.php"/>
+
+        <replaceregexp byline="true">
+            <regexp pattern='^(                      \047Version\047 => \047)(.*)(\047,)$'/>
+            <substitution expression='\1${ezflow.version.alias}-${ezflow.version.release}\3'/>
+            <fileset dir="${basedir}" includes="**/*ezinfo.php"/>
+        </replaceregexp>
+
+    </target>
+
+    <target name="update-license-headers">
+        <echo message="Updating license headers"/>
+
+        <!-- SOFTWARE RELEASE -->
+        <replaceregexp byline="true">
+            <regexp pattern="// SOFTWARE RELEASE: (.*)"/>
+            <substitution expression="// SOFTWARE RELEASE: ${ezflow.version.alias}-${ezflow.version.release}"/>
+            <fileset dir="${basedir}">
+                <include name="**/*.php"/>
+            </fileset>
+        </replaceregexp>
     </target>
 
     <!-- called by build -->
