@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<project name="eZPublish" basedir="build" default="build">
+
+    <description>eZWebin packages build file</description>
+
+    <property file="../properties/ezflow.properties"/>
+
+    <target name="infos">
+        <echo message="EZWEBIN BUILD INFORMATIONS"/>
+        <echo message="--------------------------"/>
+        <echo message="ezflow.version.major          : ${ezflow.version.major}"/>
+        <echo message="ezflow.version.minor          : ${ezflow.version.minor}"/>
+        <echo message="ezflow.version.release        : ${ezflow.version.release}"/>
+        <echo message="ezflow.version.alias          : ${ezflow.version.alias}"/>
+        <echo message="ezflow.svn.trunk.packages.url : ${ezflow.svn.trunk.packages.url}"/>
+        <echo message="php.cli.executable.path       : ${php.cli.executable.path}"/>
+    </target>
+
+    <target name="warning" depends="infos">
+        <echo message="Please check informations defined above are correct"/>
+        <echo message="If not feel free to update the properties/ezflow.properties file"/>
+        <echo message="This script will wait for 5 seconds before it starts"/>
+
+        <sleep seconds="5"/>
+    </target>
+
+    <target name="init" depends="warning">
+        <exec executable="svn" failonerror="true">
+            <arg value="export"/>
+            <arg value="${ezflow.svn.trunk.packages.url}"/>
+            <arg value="packages"/>
+        </exec>
+    </target>
+
+    <target name="build" depends="init">
+        <antcall target="run-ezpxmlfilelist-php">
+            <param name="extension.name"       value="ezflow_extension"/>
+            <param name="extension.short.name" value="ezflow"/>
+        </antcall>
+    </target>
+
+    <!-- called by build -->
+    <target name="run-ezpxmlfilelist-php">
+        <echo message="Building XML file list for extension ${extension.name}"/>
+        <exec executable="${php.cli.executable.path}" failonerror="true">
+            <arg value="../bin/ezpxmlextfilelist.php"/>
+            <arg value="-e"/>
+            <arg value="${basedir}/packages/${extension.name}/${extension.short.name}/ezextension"/>
+            <arg value="-n"/>
+            <arg value="${extension.short.name}"/>
+            <redirector output="${basedir}/packages/${extension.name}/ezextension/extension-${extension.short.name}.xml" append="true"/>
+        </exec>
+    </target>
+
+    <target name="dist">
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_classes"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_democontent"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_design"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_extension"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_site"/></antcall>
+    </target>
+
+    <!-- called by target dist -->
+    <target name="create-package-tarball">
+        <tar destfile="${package.name}.ezpkg"
+             compression="gzip"
+             longfile="gnu"
+             basedir="${basedir}/packages/${package.name}"/>
+    </target>
+
+    <target name="distclean">
+        <delete includeemptydirs="true">
+            <fileset dir="${basedir}" includes="**/*.ezpkg"/>
+        </delete>
+    </target>
+
+    <target name="cleanall" depends="distclean">
+        <delete dir="packages"/>
+    </target>
+</project>
