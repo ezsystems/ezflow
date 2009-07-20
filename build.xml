@@ -6,8 +6,8 @@
     <property file="../properties/ezflow.properties"/>
 
     <target name="infos">
-        <echo message="EZWEBIN BUILD INFORMATIONS"/>
-        <echo message="--------------------------"/>
+        <echo message="EZFLOW BUILD INFORMATIONS"/>
+        <echo message="-------------------------"/>
         <echo message="ezflow.version.major          : ${ezflow.version.major}"/>
         <echo message="ezflow.version.minor          : ${ezflow.version.minor}"/>
         <echo message="ezflow.version.release        : ${ezflow.version.release}"/>
