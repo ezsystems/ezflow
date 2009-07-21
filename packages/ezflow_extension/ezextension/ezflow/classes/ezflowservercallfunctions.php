@@ -12,13 +12,49 @@ class eZFlowServerCallFunctions
      * @param mixed $args
      * @return array
      */
-    public static function onlineUsers()
+    public static function onlineUsers( $args )
     {
         $result = array();
         
         $result['logged_in_count'] = eZFunctionHandler::execute( 'user', 'logged_in_count', array() );
         $result['anonymous_count'] = eZFunctionHandler::execute( 'user', 'anonymous_count', array() );
         
+        return $result;
+    }
+
+    public static function getValidItems( $args )
+    {
+        include_once( 'kernel/common/template.php' );
+        
+        $http = eZHTTPTool::instance();
+        $tpl = templateInit();
+
+        $result = array();
+        
+        $blockID = $http->postVariable('block_id');
+        $offset = $http->postVariable('offset');
+        $limit = $http->postVariable('limit');
+
+        $validNodes = eZFlowPool::validNodes( $blockID );
+        $counter = 0;
+        foreach( $validNodes as $validNode )
+        {
+            $counter++;
+            
+            if ( $counter <= $offset )
+                continue;
+            
+            $tpl->setVariable('node', $validNode);
+            $tpl->setVariable('view', 'block_item');
+            $tpl->setVariable('image_class', 'blockgallery1');
+            $content = $tpl->fetch('design:node/view/view.tpl');
+            
+            $result[] = $content;
+            
+            if ( $counter === $limit )
+                break;
+        }
+
         return $result;
     }
 

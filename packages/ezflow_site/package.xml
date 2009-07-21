@@ -60,19 +60,22 @@
     <requires>
       <require type="ezpackage"
                name="ezflow_extension"
-               min-version="1.1" />
+               min-version="2.0" />
+      <require type="ezpackage"
+               name="ezyui_extension"
+               min-version="1.0" />
       <require type="ezpackage"
                name="ezwebin_extension"
-               min-version="1.4" />
+               min-version="1.5" />
       <require type="ezpackage"
                name="ezflow_classes"
-               min-version="1.1" />
+               min-version="2.0" />
       <require type="ezpackage"
                name="ezflow_democontent"
-               min-version="1.1" />
+               min-version="2.0" />
       <require type="ezpackage"
                name="ezflow_design"
-               min-version="1.1" />
+               min-version="2.0" />
     </requires>
     <obsoletes />
     <conflicts />

@@ -179,6 +179,8 @@
                     var oImg = document.createElement("img");
                     oImg.className = "schedule-handler";
         {/literal}
+                    oImg.alt = "{$node.name|wash()|shorten( '50' )}";
+                    oImg.title = "{$node.name|wash()|shorten( '50' )}";
                     oImg.src = "{'ezpage/clock_ico.gif'|ezimage('no')}";
         {literal}
 

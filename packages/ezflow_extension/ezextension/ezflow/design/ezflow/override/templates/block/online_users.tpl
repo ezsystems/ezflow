@@ -16,25 +16,33 @@
 <script type="text/javascript">
 <!--
 {literal}
-YUI( YUI3_config ).use('node', 'event', 'io-ez', 'json', function( Y )
-{
-   Y.on( 'domready', function( e )
-   {
-       Y.io.ez( 'ezflow::onlineusers', { on: { success: _callBack }, data: 'http_accept=json' } );
-   });
-   function _callBack( id, o )
-   {
-       if ( o.responseText && o.responseText.length > 0 )
-       {
-            var response = Y.JSON.parse(o.responseText);
+(function() {
+YUI3_config.modules = {
+    'yui2-json': {
 {/literal}
-            var blockID = '{$block.id}';
+        fullpath: '{"lib/yui/2.7.0/build/json/json-min.js"|ezdesign('no')}',
 {literal}
-            Y.get( '#logged-in-count-' + blockID ).set( 'innerHTML', response.content.logged_in_count );
-            Y.get( '#anonymous-count-' + blockID ).set( 'innerHTML', response.content.anonymous_count );
-       }
-   }
+    }
+};
+YUI(YUI3_config).use('node', 'event', 'io-ez', 'yui2-json', function(Y, result) {
+    function _callBack( id, o )
+    {
+        if ( o.responseText !== undefined )
+        {
+            var response = YAHOO.lang.JSON.parse(o.responseText);
+
+            var blockID = '{$block.id}';
+
+            if ( response.content !== undefined ) {
+                Y.get( '#logged-in-count-' + blockID ).set( 'innerHTML', response.content.logged_in_count );
+                Y.get( '#anonymous-count-' + blockID ).set( 'innerHTML', response.content.anonymous_count );
+            }
+        }
+    }
+    Y.io.ez( 'ezflow::onlineusers', { on: { success: _callBack }, method: 'POST', data: 'http_accept=json' } );
 });
+
+})();
 {/literal}
 -->
 </script>

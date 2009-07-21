@@ -16,9 +16,10 @@ AllowedTypes[]=TagCloud
 AllowedTypes[]=Poll
 AllowedTypes[]=FlashRecorder
 AllowedTypes[]=FeedReader
-AllowedTypes[]=Keywords
+AllowedTypes[]=Keyword
 AllowedTypes[]=GMap
 AllowedTypes[]=OnlineUsers
+AllowedTypes[]=MultimediaCarousel
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -191,19 +192,19 @@ CustomAttributes[]=offset
 ViewList[]=feed_reader
 ViewName[feed_reader]=Feed reader
 
-[Keywords]
-Name=Keywords
+[Keyword]
+Name=Keyword
 NumberOfValidItems=5
 NumberOfArchivedItems=5
 ManualAddingOfItems=disabled
 FetchClass=eZFlowKeywordsFetch
-FetchFixedParameters[Class]=article
 FetchParameters[Source]=NodeID
 FetchParametersSelectionType[Source]=single
 FetchParametersIsRequired[Source]=true
 FetchParameters[Keywords]=string
-ViewList[]=keywords
-ViewName[keywords]=Keywords
+FetchParameters[Classes]=string
+ViewList[]=keyword
+ViewName[keyword]=Keyword
 
 [GMap]
 Name=Google Map
@@ -218,5 +219,18 @@ Name=Online Users
 ManualAddingOfItems=disabled
 ViewList[]=onlineusers
 ViewName[onlineusers]=Online Users
+
+[MultimediaCarousel]
+Name=Multimedia carousel
+NumberOfValidItems=5
+NumberOfArchivedItems=5
+ManualAddingOfItems=disabled
+FetchClass=eZFlowMCFetch
+FetchParameters[Source]=NodeID
+FetchParametersSelectionType[Source]=single
+FetchParametersIsRequired[Source]=true
+FetchParameters[Classes]=string
+ViewList[]=multimediacarousel
+ViewName[multimediacarousel]=Multimedia carousel
 
 */ ?>

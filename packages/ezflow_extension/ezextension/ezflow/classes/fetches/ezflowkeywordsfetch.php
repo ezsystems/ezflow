@@ -50,9 +50,9 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
 
         $sortBy = array( 'published', false );
 
-        if ( isset( $parameters['Class'] ) )
+        if ( isset( $parameters['Classes'] ) )
         {
-            $classIdentifiers = explode( ';', $parameters['Class'] );
+            $classIdentifiers = explode( ',', $parameters['Classes'] );
             $classIDs =  array();
             foreach( $classIdentifiers as $classIdentifier )
             {
@@ -73,7 +73,7 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
                                                                           'parent_node_id' => $nodeID,
                                                                           'include_duplicates' => false,
                                                                           'sort_by' => $sortBy,
-                                                                          'strict_matching' => true ) );
+                                                                          'strict_matching' => false ) );
 
         $fetchResult = array();
         foreach( $result as $item )
