@@ -65,6 +65,9 @@
                name="ezyui_extension"
                min-version="1.0" />
       <require type="ezpackage"
+               name="ezwt_extension"
+               min-version="1.1" />
+      <require type="ezpackage"
                name="ezwebin_extension"
                min-version="1.5" />
       <require type="ezpackage"
