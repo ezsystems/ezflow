@@ -117,10 +117,10 @@
         <exec executable="${php.cli.executable.path}" failonerror="true">
             <arg value="../bin/ezpxmlextfilelist.php"/>
             <arg value="-e"/>
-            <arg value="${basedir}/packages/${extension.name}/${extension.short.name}/ezextension"/>
+            <arg value="${basedir}/packages/${extension.name}/ezextension/${extension.short.name}"/>
             <arg value="-n"/>
             <arg value="${extension.short.name}"/>
-            <redirector output="${basedir}/packages/${extension.name}/ezextension/extension-${extension.short.name}.xml" append="true"/>
+            <redirector output="${basedir}/packages/${extension.name}/ezextension/extension-${extension.short.name}.xml" append="false"/>
         </exec>
     </target>
 
