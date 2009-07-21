@@ -94,7 +94,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $this->addSetting( 'design_list', eZSiteInstaller::getParam( $parameters, 'design_list', array() ) );
 
         $this->addSetting( 'main_site_design', strtolower( $this->solutionName() ) );
-        $this->addSetting( 'extension_list', array( 'ezwt', 'ezyui', strtolower( $this->solutionName() ), 'ezwebin' ) );
+        $this->addSetting( 'extension_list', array( 'ezyui', strtolower( $this->solutionName() ), 'ezwt', 'ezwebin' ) );
         $this->addSetting( 'version', $this->solutionVersion() );
 
         $this->addSetting( 'locales', eZSiteInstaller::getParam( $parameters, 'all_language_codes', array() ) );
