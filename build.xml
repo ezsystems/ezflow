@@ -1,10 +1,41 @@
 <?xml version="1.0"?>
-<project name="eZFlow" basedir="build" default="build">
+<project name="eZFlow" default="all">
 
-    <description>eZWebin packages build file</description>
+    <description>eZFlow packages build file</description>
 
-    <property file="../properties/ezflow.properties"/>
+    <mkdir dir="build"/>
 
+    <!-- ================== -->
+    <!-- dynamic properties -->
+    <!-- ================== -->
+
+    <!-- current year -->
+    <tstamp>
+        <format property="date.current.year" pattern="yyyy"/>
+    </tstamp>
+
+    <!-- ========================= -->
+    <!-- end of dynamic properties -->
+    <!-- ========================= -->
+
+    <!-- ================= -->
+    <!-- static properties -->
+    <!-- ================= -->
+
+    <property name="ezflow.build.dir" location="build"/>
+    <property file="./ant/ezflow.properties"/>
+
+    <!-- ======================== -->
+    <!-- end of static properties -->
+    <!-- ======================== -->
+
+    <!-- ============================= -->
+    <!-- high level ( public ) targets -->
+    <!-- ============================= -->
+
+    <!-- Shows the list of properties used for building this extension -->
+    <!-- Anytime the ezflow.properties file is update, this target must  -->
+    <!-- me update as well                                             -->
     <target name="infos">
         <echo message="EZFLOW BUILD INFORMATIONS"/>
         <echo message="-------------------------"/>
@@ -13,29 +44,36 @@
         <echo message="ezflow.version.release        : ${ezflow.version.release}"/>
         <echo message="ezflow.version.alias          : ${ezflow.version.alias}"/>
         <echo message="ezflow.svn.trunk.packages.url : ${ezflow.svn.trunk.packages.url}"/>
-        <echo message="php.cli.executable.path       : ${php.cli.executable.path}"/>
-        <echo message="ezp.version.major             : ${ezp.version.major}"/>
-        <echo message="ezp.version.minor             : ${ezp.version.minor}"/>
-        <echo message="ezp.version.release           : ${ezp.version.release}"/>
-        <echo message="ezp.version.alias             : ${ezp.version.alias}"/>
+        <echo message="php.cli.executable.path        : ${php.cli.executable.path}"/>
+        <echo message="ezp.version.major              : ${ezp.version.major}"/>
+        <echo message="ezp.version.minor              : ${ezp.version.minor}"/>
+        <echo message="ezp.version.release            : ${ezp.version.release}"/>
+        <echo message="ezp.version.alias              : ${ezp.version.alias}"/>
     </target>
 
+    <!-- Displays a warning before building the extension        -->
+    <!-- Also waits for 5 seconds before starting the real build -->
+    <!-- This makes it possible to interrupt the script before   -->
+    <!-- any real task is done                                   -->
     <target name="warning" depends="infos">
         <echo message="Please check informations defined above are correct"/>
-        <echo message="If not feel free to update the properties/ezflow.properties file"/>
+        <echo message="If not feel free to update the ant/ezflow.properties file"/>
         <echo message="This script will wait for 5 seconds before it starts"/>
 
         <sleep seconds="5"/>
     </target>
 
+    <!-- Prepares the build                               -->
+    <!-- Runs an svn export of the extension's repository -->
     <target name="init" depends="warning">
         <exec executable="svn" failonerror="true">
             <arg value="export"/>
             <arg value="${ezflow.svn.trunk.packages.url}"/>
-            <arg value="packages"/>
+            <arg value="${ezflow.build.dir}/packages"/>
         </exec>
     </target>
 
+    <!-- builds the extension -->
     <target name="build" depends="init">
         <antcall target="run-ezpxmlfilelist-php">
             <param name="extension.name"       value="ezflow_extension"/>
@@ -47,6 +85,39 @@
         <antcall target="update-license-headers"/>
     </target>
 
+    <!-- Meta target, calls build and dist -->
+    <target name="all" depends="build,dist"/>
+
+    <!-- creates all the tarballs for packages -->
+    <target name="dist">
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_classes"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_democontent"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_design"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_extension"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_site"/></antcall>
+    </target>
+
+    <!-- Cleans the generated tarball by dist-->
+    <target name="distclean">
+        <delete includeemptydirs="true">
+            <fileset dir="${ezflow.build.dir}" includes="**/*.ezpkg"/>
+        </delete>
+    </target>
+
+    <!-- Purge everything in the build directory -->
+    <!-- Also remove the build directory         -->
+    <target name="cleanall" depends="distclean">
+        <delete dir="${ezflow.build.dir}"/>
+    </target>
+
+    <!-- ==================================== -->
+    <!-- end of high level ( public ) targets -->
+    <!-- ==================================== -->
+
+    <!-- ====================================================== -->
+    <!-- low level ( private ) targets, for internal usage ONLY -->
+    <!-- ====================================================== -->
+
     <target name="update-package-xml">
         <echo message="Updating package.xml with correct version numbers"/>
 
@@ -54,50 +125,53 @@
         <replaceregexp byline="true" flags="m">
             <regexp pattern='^(    \074version\076)(.*)(\074/version\076)$'/>
             <substitution expression='\1${ezp.version.alias}.${ezp.version.release}\3'/>
-            <fileset dir="${basedir}" includes="**/*package.xml"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*package.xml"/>
         </replaceregexp>
 
         <!-- <named-version>xxx</named-version> -->
         <replaceregexp byline="true" flags="m">
             <regexp pattern='^(    \074named-version\076)(.*)(\074/named-version\076)$'/>
             <substitution expression='\1${ezp.version.alias}\3'/>
-            <fileset dir="${basedir}" includes="**/*package.xml"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*package.xml"/>
         </replaceregexp>
 
         <!-- <package version="zzzz" -->
         <replaceregexp byline="true">
             <regexp pattern='^(\074package version=")(.*)(")$'/>
             <substitution expression='\1${ezflow.version.major}.${ezflow.version.minor}-${ezflow.version.release}\3'/>
-            <fileset dir="${basedir}" includes="**/*package.xml"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*package.xml"/>
         </replaceregexp>
 
         <!-- <number>xxxx</number> -->
         <replaceregexp byline="true">
             <regexp pattern='^(    \074number\076)(.*)(\074/number\076)$'/>
             <substitution expression='\1${ezflow.version.alias}\3'/>
-            <fileset dir="${basedir}" includes="**/*package.xml"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*package.xml"/>
         </replaceregexp>
 
         <!-- <release>yyy</release> -->
         <replaceregexp byline="true">
             <regexp pattern='^(    \074release\076)(.*)(\074/release\076)$'/>
             <substitution expression='\1${ezflow.version.release}\3'/>
-            <fileset dir="${basedir}" includes="**/*package.xml"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*package.xml"/>
         </replaceregexp>
 
     </target>
 
+    <!-- Updates ezinfo.php with correct version numbers -->
     <target name="update-ezinfo-php">
         <echo message="Updating ezinfo.php"/>
 
-        <replaceregexp byline="true">
-            <regexp pattern='^(                      \047Version\047 => \047)(.*)(\047,)$'/>
+        <replaceregexp byline="true" flags="i">
+            <regexp pattern="^([\s]+\047version\047[\s]+=>[\s]+\047)(.*)(\047,)$"/>
             <substitution expression='\1${ezflow.version.alias}-${ezflow.version.release}\3'/>
-            <fileset dir="${basedir}" includes="**/*ezinfo.php"/>
+            <fileset dir="${ezflow.build.dir}" includes="**/*ezinfo.php"/>
         </replaceregexp>
-
     </target>
 
+    <!-- Updates the license headers with correct version numbers -->
+    <!-- Updates the // SOFTWARE RELEASE line                     -->
+    <!-- Updates the // COPYRIGHT NOTICE line                     -->
     <target name="update-license-headers">
         <echo message="Updating license headers"/>
 
@@ -105,7 +179,16 @@
         <replaceregexp byline="true">
             <regexp pattern="// SOFTWARE RELEASE: (.*)"/>
             <substitution expression="// SOFTWARE RELEASE: ${ezflow.version.alias}-${ezflow.version.release}"/>
-            <fileset dir="${basedir}">
+            <fileset dir="${ezflow.build.dir}">
+                <include name="**/*.php"/>
+            </fileset>
+        </replaceregexp>
+
+        <!-- COPYRIGHT NOTICE -->
+        <replaceregexp byline="true">
+            <regexp pattern="// COPYRIGHT NOTICE: Copyright \(C\) 1999-[\d]{4} eZ Systems AS"/>
+            <substitution expression="// COPYRIGHT NOTICE: Copyright (C) 1999-${date.current.year} eZ Systems AS"/>
+            <fileset dir="${ezflow.build.dir}">
                 <include name="**/*.php"/>
             </fileset>
         </replaceregexp>
@@ -115,38 +198,25 @@
     <target name="run-ezpxmlfilelist-php">
         <echo message="Building XML file list for extension ${extension.name}"/>
         <exec executable="${php.cli.executable.path}" failonerror="true">
-            <arg value="../bin/ezpxmlextfilelist.php"/>
+            <arg value="./bin/ezpxmlextfilelist.php"/>
             <arg value="-e"/>
-            <arg value="${basedir}/packages/${extension.name}/ezextension/${extension.short.name}"/>
+            <arg value="${ezflow.build.dir}/packages/${extension.name}/ezextension/${extension.short.name}"/>
             <arg value="-n"/>
             <arg value="${extension.short.name}"/>
-            <redirector output="${basedir}/packages/${extension.name}/ezextension/extension-${extension.short.name}.xml" append="false"/>
+            <redirector output="${ezflow.build.dir}/packages/${extension.name}/ezextension/extension-${extension.short.name}.xml" append="false"/>
         </exec>
-    </target>
-
-    <target name="dist">
-        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_classes"/></antcall>
-        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_democontent"/></antcall>
-        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_design"/></antcall>
-        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_extension"/></antcall>
-        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_site"/></antcall>
     </target>
 
     <!-- called by target dist -->
     <target name="create-package-tarball">
-        <tar destfile="${package.name}.ezpkg"
+        <tar destfile="${ezflow.build.dir}/${package.name}.ezpkg"
              compression="gzip"
              longfile="gnu"
-             basedir="${basedir}/packages/${package.name}"/>
+             basedir="${ezflow.build.dir}/packages/${package.name}"/>
     </target>
 
-    <target name="distclean">
-        <delete includeemptydirs="true">
-            <fileset dir="${basedir}" includes="**/*.ezpkg"/>
-        </delete>
-    </target>
+    <!-- ============================================================= -->
+    <!-- end of low level ( private ) targets, for internal usage ONLY -->
+    <!-- ============================================================= -->
 
-    <target name="cleanall" depends="distclean">
-        <delete dir="packages"/>
-    </target>
 </project>
