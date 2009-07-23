@@ -85,8 +85,24 @@
         <antcall target="update-license-headers"/>
     </target>
 
+    <!-- building eZWebin as a dependency -->
+    <target name="build-externals">
+        <delete dir="${ezflow.build.dir}/packages"/>
+
+        <!-- downloads the build file -->
+        <get src="${external.dependancy.ezwebin.svn.trunk.packages.url}" dest="ezwebinbuild.xml"/>
+
+        <!-- downloads the property files -->
+        <get src="${external.dependancy.ezwebin.properties.file.url}" dest="ant/${external.dependancy.ezwebin.properties.file.name}"/>
+        <!-- building eZWebin -->
+        <ant antfile="${external.dependancy.ezwebin.build.script.name}" dir="." target="all" inheritAll="true"/>
+
+        <delete file="${external.dependancy.ezwebin.build.script.name}"/>
+        <delete file="ant/${external.dependancy.ezwebin.properties.file.name}"/>
+    </target>
+
     <!-- Meta target, calls build and dist -->
-    <target name="all" depends="build,dist"/>
+    <target name="all" depends="build,dist,build-externals"/>
 
     <!-- creates all the tarballs for packages -->
     <target name="dist">
