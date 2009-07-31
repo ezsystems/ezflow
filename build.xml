@@ -87,18 +87,17 @@
 
     <!-- building eZWebin as a dependency -->
     <target name="build-externals">
-        <delete dir="${ezflow.build.dir}/packages"/>
+        <!-- eZFLGmapBlock -->
+        <antcall target="-build-external">
+            <param name="external.dependancy.build.file.url"
+                   value="${external.dependancy.ezflgmapblock.svn.trunk.build.file.url}"/>
 
-        <!-- downloads the build file -->
-        <get src="${external.dependancy.ezwebin.svn.trunk.packages.url}" dest="ezwebinbuild.xml"/>
+            <param name="external.dependancy.properties.file.url"
+                   value="${external.dependancy.ezflgmapblock.properties.file.url}"/>
 
-        <!-- downloads the property files -->
-        <get src="${external.dependancy.ezwebin.properties.file.url}" dest="ant/${external.dependancy.ezwebin.properties.file.name}"/>
-        <!-- building eZWebin -->
-        <ant antfile="${external.dependancy.ezwebin.build.script.name}" dir="." target="all" inheritAll="true"/>
-
-        <delete file="${external.dependancy.ezwebin.build.script.name}"/>
-        <delete file="ant/${external.dependancy.ezwebin.properties.file.name}"/>
+            <param name="external.dependancy.properties.file.name"
+                   value="${external.dependancy.ezflgmapblock.properties.file.name}"/>
+        </antcall>
     </target>
 
     <!-- Meta target, calls build and dist -->
@@ -229,6 +228,25 @@
              compression="gzip"
              longfile="gnu"
              basedir="${ezflow.build.dir}/packages/${package.name}"/>
+    </target>
+
+    <target name="-build-external">
+        <delete dir="${ezflow.build.dir}/packages"/>
+
+        <get src="${external.dependancy.build.file.url}"
+             dest="externalbuild.xml"/>
+
+        <get src="${external.dependancy.properties.file.url}"
+             dest="ant/${external.dependancy.properties.file.name}"/>
+
+        <ant antfile="externalbuild.xml"
+             dir="."
+             target="all"
+             inheritAll="true"/>
+
+        <delete file="ant/${external.dependancy.properties.file.name}"/>
+
+        <delete file="externalbuild.xml"/>
     </target>
 
     <!-- ============================================================= -->
