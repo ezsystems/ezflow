@@ -87,6 +87,18 @@
 
     <!-- building eZWebin as a dependency -->
     <target name="build-externals">
+        <!-- eZWebin-->
+        <antcall target="-build-external">
+            <param name="external.dependancy.build.file.url"
+                   value="${external.dependancy.ezwebin.svn.trunk.build.file.url}"/>
+
+            <param name="external.dependancy.properties.file.url"
+                   value="${external.dependancy.ezwebin.properties.file.url}"/>
+
+            <param name="external.dependancy.properties.file.name"
+                   value="${external.dependancy.ezwebin.properties.file.name}"/>
+        </antcall>
+
         <!-- eZFLGmapBlock -->
         <antcall target="-build-external">
             <param name="external.dependancy.build.file.url"
@@ -234,19 +246,19 @@
         <delete dir="${ezflow.build.dir}/packages"/>
 
         <get src="${external.dependancy.build.file.url}"
-             dest="externalbuild.xml"/>
+             dest="ezflowexternalbuild.xml"/>
 
         <get src="${external.dependancy.properties.file.url}"
              dest="ant/${external.dependancy.properties.file.name}"/>
 
-        <ant antfile="externalbuild.xml"
+        <ant antfile="ezflowexternalbuild.xml"
              dir="."
              target="all"
              inheritAll="true"/>
 
         <delete file="ant/${external.dependancy.properties.file.name}"/>
 
-        <delete file="externalbuild.xml"/>
+        <delete file="ezflowexternalbuild.xml"/>
     </target>
 
     <!-- ============================================================= -->
