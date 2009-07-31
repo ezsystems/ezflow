@@ -16,13 +16,13 @@
 
 <div class="block">
     <label>{'Search phrase'|i18n( 'design/admin/content/edit' )}</label>
-    <input class="textfield" type="text" name="SearchStr" value="" onkeypress="return ezajaxSearchEnter(event)" />
+    <input id="search-string-{$object.id}" class="textfield" type="text" name="SearchStr" value="" />
     <input name="SearchOffset" type="hidden" value="0"  />
     <input name="SearchLimit" type="hidden" value="10"  />
 </div>
 
 <div class="block">
-    <input class="button" type="button" name="SearchButton" onclick="return ezajaxSearchPost();" value="{'Search'|i18n( 'design/admin/content/edit' )}" />
+    <input id="search-button-{$object.id}" class="button" type="button" name="SearchButton" value="{'Search'|i18n( 'design/admin/content/edit' )}" />
 </div>
 
 {*
@@ -66,7 +66,7 @@
 </div>
 
 <div class="block search-results">
-    <div id="ajaxsearchresult" style="overflow: hidden">
+    <div id="search-results-{$object.id}" style="overflow: hidden">
 </div>
 
 {foreach $content_attributes as $content_attribute}
@@ -118,103 +118,16 @@ function addBlock( object, id )
 
 {include uri='design:content/edit_menu.tpl'}
 
-<script type="text/javascript" src={"javascript/ez_core.js"|ezdesign}></script>
+{ezscript( array('ezjsc::yui3', 'ezajaxsearch.js') )}
+
 <script type="text/javascript">
-<!--
-var ezajaxSearchUrl = {"ezajax/search"|ezurl}, ezajaxSearchDisplay = ez.$('ajaxsearchresult');
-var ezajaxSearchObject, ezajaxSearchObjectSpans, ezajaxObject = new ez.ajax();
-{literal}
-
-function showDateRange( t )
-{
-    var dateRange = document.getElementsByClassName( 'date-range-selection' );
-    if ( t.value == 6 )
-        dateRange[0].style.display = 'block';
-    else
-        dateRange[0].style.display = 'none';
-}
-
-function ezajaxSearchPost()
-{
-    var postData = ez.$$('input, select', ez.$('ajaxsearchbox')).callEach('postData').join('&');
-    ezajaxObject.load( ezajaxSearchUrl, postData, ezajaxSearchPostBack);
-    return false;
-}
-
-function ezajaxSearchEnter( e )
-{
-    e = e || window.event;
-    key = e.which || e.keyCode;
-    if ( key == 13) return ezajaxSearchPost();
-    return true;
-}
-
-function ezajaxSearchSectionChange( t )
-{
-    //if ( t.value ) ezajaxTimeSpan.hide();
-    //else ezajaxTimeSpan.show();
-}
-
-function unixtimetodate( timestamp )
-{
-    var date = new Date( timestamp * 1000 );
-    dateString = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDay();
-    return dateString;
-}
-
-function ezajaxSearchPostBack( r )
-{
-   // In this case we trust the source, so we can use eval
-   eval( 'ezajaxSearchObject = ' +  r.responseText );
-   /* 
-     if search returned result, the result
-     object will have the following properties:
-      * SearchResult array of search result objects
-      * SearchCount  total number of objects
-      * SearchOffset the offset of the search
-      * SearchLimit  the limit used on this search
-   */
-   var search = ezajaxSearchObject.SearchResult, root = ezajaxSearchUrl.split('ezajax/search')[0], temp = '';
-   if ( !search.length )
-   {
-       ezajaxSearchDisplay.el.innerHTML = 'No Search Result Found';
-   }
-   else
-   {
-       for (var i = 0, l = search.length; i < l; i++)
-       {
-      temp += '<div class="block"><div class="item-title">{/literal}{literal} ' + search[i].name + '<\/div><div class="item-published-date">[' + search[i].class_name + '] ' + unixtimetodate( search[i].published ) +'<\/div><div class="item-selector"><input type="checkbox" value="' + search[i].id + '" name="SelectedObjectIDArray[]" /><\/div><\/div>';
-       }
-       ezajaxSearchDisplay.el.innerHTML = temp;
-       ezajaxSearchObjectSpans = ez.$$('span', ezajaxSearchDisplay);
-       ezajaxSearchFadeIn( -1 );
-   }
-   if ( ezajaxSearchObject.debug ) alert( ezajaxSearchObject.debug );
-}
-
-function ezajaxSearchFadeIn(el)
-{
-  var i = ezajaxSearchObjectSpans.indexOf( el );
-  if ( (i !== -1 || el === -1 ) && i < ezajaxSearchObjectSpans.length -1 )
-  {
-    i = i + 1;
-    o = ezajaxSearchObjectSpans[i];
-    o.addEvent('click', ez.fn.bind( ezajaxSearchClick, o, o.el, ezajaxSearchObject.SearchResult[i], i ));
-    o.hide( {duration:50, transition: ez.fx.sinoidal}, {width:10}, ezajaxSearchFadeIn);
-  }
-}
-
-function ezajaxSearchClick( el, obj, i )
-{
-  // this: element ez object
-  // el: span element
-  // obj: json object
-  // i: index
-  alert( this + ' | ' + el + ' | ' + obj + ' | ' + i );
-}
-{/literal}
-
--->
+eZAJAXSearch.cfg = {ldelim}
+                        searchstring: '#search-string-{$object.id}',
+                        searchbutton: '#search-button-{$object.id}',
+                        searchresults: '#search-results-{$object.id}',
+                        resulttemplate: '<div class="block"><div class="item-title">{ldelim}title{rdelim}</div><div class="item-published-date">[{ldelim}class_name{rdelim}] {ldelim}date{rdelim}</div><div class="item-selector"><input type="checkbox" value="{ldelim}object_id{rdelim}" name="SelectedObjectIDArray[]" /></div></div>'
+                   {rdelim};
+eZAJAXSearch.init();
 </script>
 
 <!-- SEARCH BOX: END -->
