@@ -525,10 +525,6 @@ class eZPageType extends eZDataType
                 {
                     switch ( $rotationUnit )
                     {
-                        case '1':
-                            $rotationInterval = $rotationValue;
-                            break;
-
                         case '2':
                             $rotationInterval = $rotationValue * 60;
                             break;

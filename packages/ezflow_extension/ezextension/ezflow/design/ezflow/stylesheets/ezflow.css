@@ -2088,3 +2088,10 @@ div.map-container
     width: 450px;
     height: 350px;
 }
+
+/* PUSH-TO-BLOCK */
+
+div#page-datatype-container .yuimenu ul li
+{
+    background-image: none;
+}

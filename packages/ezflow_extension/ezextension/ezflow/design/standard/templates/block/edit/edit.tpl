@@ -57,13 +57,32 @@
         {/if}
         {/foreach}
     {elseif $is_custom}
-        {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
+        {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )
+             $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )}
         {foreach $custom_attributes as $custom_attrib}
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 <input class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
             {else}
-                <label>{$custom_attrib}:</label> <input class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
+                <label>{$custom_attrib}:</label> 
+                {if is_set( $custom_attribute_types[$custom_attrib] )}
+                    {switch match = $custom_attribute_types[$custom_attrib]}
+                        {case match = 'text'}
+                        <textarea class="textbox block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" rows="7">{$block.custom_attributes[$custom_attrib]|wash()}</textarea>
+                        {/case}
+                        {case match = 'checkbox'}
+                        <input class="block-control" type="checkbox" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
+                        {/case}
+                        {case match = 'string'}
+                        <input class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
+                        {/case}
+                        {case}
+                        <input class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
+                        {/case}
+                    {/switch}
+                {else}
+                <input class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]}" />
+                {/if}
             {/if}
             {undef $use_browse_mode}
         {/foreach}
@@ -159,7 +178,6 @@
     <tr class="rotation">
         <td colspan="3">{'Rotation:'|i18n( 'design/standard/block/edit' )} <input class="textfield block-control" type="text" name="RotationValue_{$block_id}" value="{$block.rotation.value}" size="5" />
             <select class="list block-control" name="RotationUnit_{$block_id}">
-                <option value="1" {if eq( $block.rotation.unit, 1 )}selected="selected"{/if}>{'sec'|i18n( 'design/standard/block/edit' )}</option>
                 <option value="2" {if eq( $block.rotation.unit, 2 )}selected="selected"{/if}>{'min'|i18n( 'design/standard/block/edit' )}</option>
                 <option value="3" {if eq( $block.rotation.unit, 3 )}selected="selected"{/if}>{'hour'|i18n( 'design/standard/block/edit' )}</option>
                 <option value="4" {if eq( $block.rotation.unit, 4 )}selected="selected"{/if}>{'day'|i18n( 'design/standard/block/edit' )}</option>

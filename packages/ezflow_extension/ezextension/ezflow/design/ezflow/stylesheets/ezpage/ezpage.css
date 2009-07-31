@@ -234,6 +234,12 @@ div.block-container div.block-parameters
     font-size: 11px;
 }
 
+div.block-container div.block-parameters .textbox
+{
+    width: 99%;
+    overflow: auto;
+}
+
 div.block-container div.block-parameters div.source
 {
     padding-top: 0.25em;

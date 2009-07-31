@@ -11,35 +11,28 @@
 
 </div>
 
-{ezscript( array('ezyui::ez') )}
+{ezscript( array('ezjsc::yui3') )}
 
 <script type="text/javascript">
 <!--
 {literal}
 (function() {
-YUI3_config.modules = {
-    'yui2-json': {
-{/literal}
-        fullpath: '{"lib/yui/2.7.0/build/json/json-min.js"|ezdesign('no')}',
-{literal}
-    }
-};
-YUI(YUI3_config).use('node', 'event', 'io-ez', 'yui2-json', function(Y, result) {
-    function _callBack( id, o )
+YUI(YUI3_config).use('node', 'event', 'io-ez', function(Y) {
+    function ioCallBack( id, o )
     {
-        if ( o.responseText !== undefined )
+        if ( o.responseJSON !== undefined )
         {
-            var response = YAHOO.lang.JSON.parse(o.responseText);
-
-            var blockID = '{$block.id}';
+            var response = o.responseJSON;
 
             if ( response.content !== undefined ) {
-                Y.get( '#logged-in-count-' + blockID ).set( 'innerHTML', response.content.logged_in_count );
-                Y.get( '#anonymous-count-' + blockID ).set( 'innerHTML', response.content.anonymous_count );
+{/literal}
+                Y.get( '#logged-in-count-{$block.id}' ).set( 'innerHTML', response.content.logged_in_count );
+                Y.get( '#anonymous-count-{$block.id}' ).set( 'innerHTML', response.content.anonymous_count );
+{literal}
             }
         }
     }
-    Y.io.ez( 'ezflow::onlineusers', { on: { success: _callBack }, method: 'POST', data: 'http_accept=json' } );
+    Y.io.ez( 'ezflow::onlineusers', { on: { success: ioCallBack } } );
 });
 
 })();

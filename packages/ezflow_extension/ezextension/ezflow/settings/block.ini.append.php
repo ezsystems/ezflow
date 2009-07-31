@@ -20,6 +20,9 @@ AllowedTypes[]=Keyword
 AllowedTypes[]=GMap
 AllowedTypes[]=OnlineUsers
 AllowedTypes[]=MultimediaCarousel
+AllowedTypes[]=Search
+AllowedTypes[]=Ads
+AllowedTypes[]=LatestContent
 
 #[Example]
 # Name of the block type as shown in the editorial interface.
@@ -232,5 +235,32 @@ FetchParametersIsRequired[Source]=true
 FetchParameters[Classes]=string
 ViewList[]=multimediacarousel
 ViewName[multimediacarousel]=Multimedia carousel
+
+[Search]
+Name=Search
+ManualAddingOfItems=disabled
+ViewList[]=search
+ViewName[search]=Search
+
+[Ads]
+Name=Advertisement
+ManualAddingOfItems=disabled
+CustomAttributes[]=code
+CustomAttributeTypes[code]=text
+ViewList[]=ads
+ViewName[ads]=Advertisement
+
+[LatestContent]
+Name=Latest content
+NumberOfValidItems=3
+NumberOfArchivedItems=5
+ManualAddingOfItems=disabled
+FetchClass=eZFlowLatestContent
+FetchParameters[Source]=NodeID
+FetchParametersSelectionType[Source]=single
+FetchParametersIsRequired[Source]=true
+FetchParameters[Classes]=string
+ViewList[]=latest_content
+ViewName[latest_content]=Latest content
 
 */ ?>

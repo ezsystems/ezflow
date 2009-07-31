@@ -313,7 +313,7 @@ YAHOO.ez.BlockCollapse = function(){
 }();
 
 var BlockDDInit = function() {
-    YUI( YUI3_config ).use('dd-constrain', 'dd-proxy', 'dd-drop', 'io-ez', 'json', function(Y) {
+    YUI( YUI3_config ).use('dd-constrain', 'dd-proxy', 'dd-drop', 'io-ez', function(Y) {
         Y.DD.DDM.on('drop:over', function(e) {
             var drag = e.drag.get('node'), drop = e.drop.get('node');
             
@@ -372,7 +372,6 @@ var BlockDDInit = function() {
             data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
             data += '&version=' + BlockDDInit.cfg.version;
             data += '&zone=' + BlockDDInit.cfg.zone;
-            data += '&http_accept=json';
             Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
             
             var newOrder = drag.get('node').get('parentNode').queryAll('.block-container');
@@ -415,8 +414,8 @@ var BlockDDInit = function() {
 
         var goingUp = false, lastY = 0;
         
-        var lis = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container');
-        lis.each(function(v, k) {
+        var dragList = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container');
+        dragList.each(function(v, k) {
             var dd = new Y.DD.Drag({
                 node: v,
                 target: {
@@ -427,11 +426,14 @@ var BlockDDInit = function() {
             }).plug(Y.Plugin.DDConstrained, {
                 constrain2node: '#zone-' + BlockDDInit.cfg.zone + '-blocks'
             });
+            // Workround for Safari 4.0.2
+            // TODO: Remove after 3.0.0 GA release
+            dd.addInvalid('select');
         });
 
-        var uls = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks');
-        uls.each(function(v, k) {
-            var tar = new Y.DD.Drop({
+        var dropList = Y.Node.all('#zone-' + BlockDDInit.cfg.zone + '-blocks');
+        dropList.each(function(v, k) {
+            var drop = new Y.DD.Drop({
                 node: v
             });
         });

@@ -60,7 +60,7 @@
 <div id="zone-tabs-container"></div>
 </div>
 
-{ezscript( array('ezyui::ez') )}
+{ezscript( array('ezjsc::yui3') )}
 
 <script type="text/javascript">
 (function() {ldelim}

@@ -1,14 +1,8 @@
-{ezscript( array('ezyui::ez') )}
+{ezscript( array('ezjsc::yui3') )}
 <script type="text/javascript">
 (function() {ldelim}
 
-YUI3_config.modules = {ldelim}
-    'yui2-json': {ldelim}
-        fullpath: '{"lib/yui/2.7.0/build/json/json-min.js"|ezdesign('no')}'
-    {rdelim}
-{rdelim};
-
-YUI( YUI3_config ).use( 'node', 'event', 'io-ez', 'yui2-json', function(Y, result) {ldelim}
+YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
     Y.on('domready', function(e) {ldelim}
         var offset = 0;
         var limit = 3;
@@ -48,8 +42,8 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', 'yui2-json', function(Y, resul
         {rdelim}
 
         var _callBack = function(id, o) {ldelim}
-            if ( o.responseText !== undefined ) {ldelim}
-                var response = YAHOO.lang.JSON.parse(o.responseText);
+            if ( o.responseJSON !== undefined ) {ldelim}
+                var response = o.responseJSON;
                 var colContent = Y.Node.all('#block-{$block.id} .col-content');
 
                 for(var i = 0; i < colContent.size(); i++) {ldelim}
@@ -143,4 +137,4 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', 'yui2-json', function(Y, resul
 </div>
 <!-- BLOCK: END -->
 
-{undef $valid_nodes}{undef $valid_nodes}
+{undef $valid_nodes}
