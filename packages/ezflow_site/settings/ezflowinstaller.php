@@ -1300,6 +1300,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $contentINI = eZINI::instance( 'content.ini' );
         $datatypeRepositories = $contentINI->variable( 'DataTypeSettings', 'ExtensionDirectories' );
         $datatypeRepositories[] = 'ezflow';
+        $datatypeRepositories[] = 'ezstarrating';
         $contentINI->setVariables( array( 
             'DataTypeSettings' => array( 
                 'ExtensionDirectories' => $datatypeRepositories 
@@ -1307,6 +1308,7 @@ class eZFlownInstaller extends eZSiteInstaller
         ) );
         $availableDatatype = $contentINI->variable( 'DataTypeSettings', 'AvailableDataTypes' );
         $availableDatatype[] = 'ezpage';
+        $availableDatatype[] = 'ezsrrating';
         $contentINI->setVariables( array( 
             'DataTypeSettings' => array( 
                 'AvailableDataTypes' => $availableDatatype 
