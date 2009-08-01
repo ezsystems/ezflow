@@ -28,7 +28,7 @@
               name="LICENCE" />
   </documents>
   <changelog>
-    <entry person="Administrator User"
+    <entry person="Administrator User" 
            email="nospam@ez.no"
            release="1">
       <change>Creation of package.</change>
@@ -58,9 +58,6 @@
   <dependencies>
     <provides />
     <requires>
-      <require type="ezpackage"
-               name="ezwt_extension"
-               min-version="1.1" />
       <require type="ezpackage"
                name="ezwt_extension"
                min-version="1.1" />
