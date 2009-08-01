@@ -1317,36 +1317,44 @@ class eZFlownInstaller extends eZSiteInstaller
                 'AvailableDataTypes' => $availableDatatype 
             ) 
         ) );
-        $extensionPackage = eZPackage::fetch( 'ezflow_extension', false, false, false );
-        if ( is_object( $extensionPackage ) )
-        {
-            switch ($db->databaseName())
-            {
-                case 'mysql':
-                    $sqlFile = 'mysql.sql';
-                    $path = $extensionPackage->path() . '/ezextension/ezflow/sql/mysql';
-                    break;
-                case 'postgresql':
-                    $sqlFile = 'postgresql.sql';
-                    $path = $extensionPackage->path() . '/ezextension/ezflow/sql/postgresql';
-                    break;
-            }
-            $res = $db->insertFile( $path, $sqlFile, false );
-            if ( $res )
-            {
-                $sqlFile = 'democontent.sql';
-                $path = $extensionPackage->path() . '/ezextension/ezflow/sql/common';
-                $res = $db->insertFile( $path, $sqlFile, false );
-                if ( ! $res )
-                {
-                    eZDebug::writeError( 'Can\'t initialize ezflow demo data.', 'eZFlowInstaller::preInstall()' );
-                }
-            }
-            else
-            {
-                eZDebug::writeError( 'Can\'t initialize ezflow database shema.', 'eZFlowInstaller::preInstall()' );
-            }
-        }
+        
+        $this->insertDBFile( 'ezflow_extension', 'ezflow', true );
+        $this->insertDBFile( 'ezstarrating_extension', 'ezstarrating' );        
+    }
+    function insertDBFile( $packageName, $extensionName, $loadContent = false )
+    {
+        $db = eZDB::instance();
+        $extensionPackage = eZPackage::fetch( $packageName, false, false, false );
+
+         if ( $extensionPackage instanceof eZPackage )
+         {
+             switch ($db->databaseName())
+             {
+                 case 'mysql':
+                     $sqlFile = 'mysql.sql';
+                     $path = $extensionPackage->path() . '/ezextension/' . $extensionName .  '/sql/mysql';
+                     break;
+                 case 'postgresql':
+                     $sqlFile = 'postgresql.sql';
+                     $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/postgresql';
+                     break;
+             }
+             $res = $db->insertFile( $path, $sqlFile, false );
+             if ( $res && $loadContent )
+             {
+                 $sqlFile = 'democontent.sql';
+                 $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/common';
+                 $res = $db->insertFile( $path, $sqlFile, false );
+                 if ( ! $res )
+                 {
+                     eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' demo data.', __METHOD__ );
+                 }
+             }
+             else
+             {
+                 eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' database shema.', __METHOD__ );
+             }
+         }
     }
     function languageMatrixDefinition()
     {
