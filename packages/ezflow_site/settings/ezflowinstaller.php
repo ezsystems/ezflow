@@ -78,6 +78,9 @@ class eZFlownInstaller extends eZSiteInstaller
         $this->addSetting( 'main_site_design', strtolower( $this->solutionName() ) );
         $this->addSetting( 'extension_list', array( 
             'ezjscore', 
+            'ezstarrating', 
+            'ezflgmapblock', 
+            'ezgmaplocation', 
             strtolower( $this->solutionName() ), 
             'ezwt', 
             'ezwebin' 
