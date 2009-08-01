@@ -59,17 +59,29 @@
     <provides />
     <requires>
       <require type="ezpackage"
-               name="ezflow_extension"
-               min-version="2.0" />
-      <require type="ezpackage"
-               name="ezyui_extension"
-               min-version="1.0" />
+               name="ezwt_extension"
+               min-version="1.1" />
       <require type="ezpackage"
                name="ezwt_extension"
                min-version="1.1" />
       <require type="ezpackage"
+               name="ezstarrating_extension"
+               min-version="1.0" />
+      <require type="ezpackage"
+               name="ezgmaplocation_extension"
+               min-version="1.0" />
+      <require type="ezpackage"
+               name="ezjscore_extension"
+               min-version="1.0" />
+      <require type="ezpackage"
+               name="ezflgmapblock_extension"
+               min-version="1.0" />
+      <require type="ezpackage"
                name="ezwebin_extension"
                min-version="1.5" />
+      <require type="ezpackage"
+               name="ezflow_extension"
+               min-version="2.0" />
       <require type="ezpackage"
                name="ezflow_classes"
                min-version="2.0" />

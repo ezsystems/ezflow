@@ -145,5 +145,14 @@
       <placement>11</placement>
       <datatype-parameters/>
     </attribute>
+    <attribute datatype="ezsrrating" required="false" searchable="false" information-collector="false" translatable="true">
+      <remote>
+        <id>325</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Star Rating";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+      <identifier>star_rating</identifier>
+      <placement>12</placement>
+      <datatype-parameters/>
+    </attribute>
   </ezcontentclass-attri:attributes>
 </content-class>
