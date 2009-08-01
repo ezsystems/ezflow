@@ -1339,7 +1339,14 @@ class eZFlownInstaller extends eZSiteInstaller
                      $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/postgresql';
                      break;
              }
+             
              $res = $db->insertFile( $path, $sqlFile, false );
+             
+             if ( !$res  )
+             {
+                 eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' database shema.', __METHOD__ );
+             }
+             
              if ( $res && $loadContent )
              {
                  $sqlFile = 'democontent.sql';
@@ -1349,10 +1356,6 @@ class eZFlownInstaller extends eZSiteInstaller
                  {
                      eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' demo data.', __METHOD__ );
                  }
-             }
-             else
-             {
-                 eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' database shema.', __METHOD__ );
              }
          }
     }
