@@ -24,6 +24,12 @@ AllowedTypes[]=Search
 AllowedTypes[]=Ads
 AllowedTypes[]=LatestContent
 
+[PushToBlock]
+# List of content classes using Layout datatype
+ContentClasses[]=frontpage
+# The subtree node ID from which to fetch objects with Layout datatype
+RootSubtree=1
+
 #[Example]
 # Name of the block type as shown in the editorial interface.
 # Name=Fetch Name Shown In Editorial Interface
