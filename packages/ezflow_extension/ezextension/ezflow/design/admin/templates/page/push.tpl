@@ -61,179 +61,22 @@
 </div>
 
 <script type="text/javascript">
-(function() {ldelim}
-    {literal}
-    YUILoader.onSuccess = function() {
+    YUILoader.onSuccess = function() {ldelim}
+        eZPushToBlock.cfg = {ldelim}
+            requesturl: "{'ezflow/get'|ezurl('no')}",
+            nodename: "{$node.name|wash()|shorten( '50' )}",
+            imagepath: "{'ezpage/clock_ico.gif'|ezimage('no')}"
+        {rdelim}
         
-            var oPlacementStoreButton = new YAHOO.widget.Button("placement-store-button");
+        eZPushToBlock.init();
+    {rdelim}
 
-            var oPlacementRemoveButton = new YAHOO.widget.Button("placement-remove-button");
+    YUILoader.addModule({ldelim}
+        name: 'ezpushtoblock',
+        type: 'js',
+        fullpath: '{"javascript/ezpushtoblock.js"|ezdesign( 'no' )}'
+    {rdelim});
 
-            var oPlacementButton = new YAHOO.widget.Button("placement-button");
-
-            var oFrontpageButton = new YAHOO.widget.Button("select-frontpage-button", { 
-                                                    type: "menu", 
-                                                    menu: "select-frontpage-list" });
-
-
-            var oZoneButton = new YAHOO.widget.Button("select-zone-button", { 
-                                                    type: "menu", 
-                                                    menu: "select-zone-list" });
-
-            var oBlockButton = new YAHOO.widget.Button("select-block-button", { 
-                                                    type: "menu", 
-                                                    menu: "select-block-list" });
-
-            var clearMenuContent = function(b) {
-                var oMenu = b.getMenu();
-                oMenu.clearContent();
-                oMenu.render( b );
-            }
-
-            var handleRequest = function(p, b) {
-                var handleSuccess = function(o) {
-                    if(o.responseText !== undefined) {
-                        var aResponse = YAHOO.lang.JSON.parse( o.responseText );
-                        var oMenu  = b.getMenu();
-                        clearMenuContent( b );
-
-                        for(var i = 0; i < aResponse.length; i++) {
-                            var oResItem = aResponse[i];
-                            oMenu.addItem( {text: oResItem.name, value: oResItem.id} );
-                        }
-
-                        oMenu.render( b );
-                    }
-                }
-
-                var callback =
-                {
-                  success: handleSuccess
-                };
-
-                var request = YAHOO.util.Connect.asyncRequest('POST', sUrl, callback, p);
-            }
-
-            {/literal}
-            
-            var sUrl = "{'ezflow/get'|ezurl('no')}";
-            {literal}
-
-            oFrontpageButton.getMenu().subscribe("click", function (p_sType, p_aArgs) {
-                var oEvent = p_aArgs[0],
-                oMenuItem = p_aArgs[1];
-
-                oZoneButton.set( "label", "Select zone" );
-                oBlockButton.set( "label", "Select block" );
-                clearMenuContent( oBlockButton );
-
-                if (oMenuItem) {
-                    var sPostData = "content=frontpage&node_id=" + oMenuItem.value; 
-
-                    handleRequest( sPostData, oZoneButton );
-
-                    oFrontpageButton.set( "label", oMenuItem.cfg.getProperty("text") );
-                }
-            });
-
-            oZoneButton.getMenu().subscribe("click", function (p_sType, p_aArgs) {
-                var oEvent = p_aArgs[0],
-                oMenuItem = p_aArgs[1];
-
-                if (oMenuItem) {
-                    oZoneButton.set( "label", oMenuItem.cfg.getProperty("text") );
-                    var nodeID = oFrontpageButton.get("selectedMenuItem").value;
-                    var sPostData = "content=zone&node_id=" + nodeID + "&zone=" + oMenuItem.value;
-
-                    handleRequest( sPostData, oBlockButton );
-
-                    oZoneButton.set( "label", oMenuItem.cfg.getProperty("text") );
-                }
-            });
-
-            oBlockButton.getMenu().subscribe("click", function (p_sType, p_aArgs) {
-                var oEvent = p_aArgs[0],
-                oMenuItem = p_aArgs[1];
-
-                if (oMenuItem) {
-                    oBlockButton.set( "label", oMenuItem.cfg.getProperty("text") );
-                }
-            });
-
-            oPlacementButton.on("click", function(e) {
-                var oPlacementList = YAHOO.util.Dom.get("placement-list");
-                var tBody = YAHOO.util.Dom.getFirstChild(oPlacementList);
-
-                var sFrontpageText = oFrontpageButton.get("selectedMenuItem").cfg.getProperty("text");
-                var sZoneText = oZoneButton.get("selectedMenuItem").cfg.getProperty("text");
-                var sBlockText = oBlockButton.get("selectedMenuItem").cfg.getProperty("text");
-
-                var sID = "id-" + oFrontpageButton.get("selectedMenuItem").value + "-" + oZoneButton.get("selectedMenuItem").value + "-" + oBlockButton.get("selectedMenuItem").value;
-
-                var oCurrTr = YAHOO.util.Dom.get( sID );
-
-                if (oCurrTr === null) {
-                    var oTr = document.createElement("tr");
-                    oTr.id = sID;
-
-                    var oTdInput = document.createElement("td");
-                    var oInput = document.createElement("input");
-                    oInput.type = "checkbox";
-                    oInput.name = "Remove"; // TODO: add the correct name
-
-                    oTdInput.appendChild( oInput );
-
-                    var oTdPlacement = document.createElement("td");
-                    oTdPlacement.appendChild( document.createTextNode( sFrontpageText + " / " + sZoneText + " / " + sBlockText  ) );
-
-                    var oImg = document.createElement("img");
-                    oImg.className = "schedule-handler";
-        {/literal}
-                    oImg.alt = "{$node.name|wash()|shorten( '50' )}";
-                    oImg.title = "{$node.name|wash()|shorten( '50' )}";
-                    oImg.src = "{'ezpage/clock_ico.gif'|ezimage('no')}";
-        {literal}
-
-                    var oSpan = document.createElement("span");
-                    oSpan.className = "ts-publication";
-
-                    var oTSInput = document.createElement("input");
-                    oTSInput.type = "hidden";
-                    oTSInput.value = Math.round( new Date().getTime() / 1000 );
-                    oTSInput.name = "PlacementTSArray[" + oFrontpageButton.get("selectedMenuItem").value + "][" + oZoneButton.get("selectedMenuItem").value + "][" + oBlockButton.get("selectedMenuItem").value + "]";
-
-                    oTdPlacement.appendChild(oSpan);
-                    oTdPlacement.appendChild(oTSInput);
-                    oTdPlacement.appendChild(oImg);
-
-                    oTr.appendChild( oTdInput );
-                    oTr.appendChild( oTdPlacement );
-
-                    tBody.appendChild( oTr );
-
-                    YAHOO.ez.sheduleDialog.init();
-                }        
-            });
-
-            oPlacementRemoveButton.on("click", function(e) {
-                var oPlacementList = YAHOO.util.Dom.get("placement-list");
-                var tBody = YAHOO.util.Dom.getFirstChild(oPlacementList);
-
-                var aInput = YAHOO.util.Dom.getElementsBy( function(e) {
-                    if ( e.type === "checkbox" && e.checked ) {
-                        return true;
-                    }
-                }, "input", oPlacementList );
-
-                for( var i = 0; i < aInput.length; i++ ) {
-                    var oInput = aInput[i];
-
-                    var oTr = YAHOO.util.Dom.getAncestorByTagName(oInput, "tr");
-                    tBody.removeChild( oTr );
-                }
-            });
-    }
-    {/literal}
     YUILoader.addModule({ldelim}
         name: 'scheduledialog',
         type: 'js',
@@ -246,7 +89,6 @@
         fullpath: '{"stylesheets/scheduledialog.css"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.require(["button","menu","calendar","container","json","utilities","scheduledialog","scheduledialog-css"]);
+    YUILoader.require(["button","menu","calendar","container","json","utilities","scheduledialog","scheduledialog-css", "ezpushtoblock"]);
     YUILoader.insert();
-{rdelim})();
 </script>
