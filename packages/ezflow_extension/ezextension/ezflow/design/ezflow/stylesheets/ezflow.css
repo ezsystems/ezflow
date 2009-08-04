@@ -2081,6 +2081,52 @@ div.feedback h2
 
 /* FEEDBACK: END */
 
+/* FEED READER BLOCK */
+
+.block-type-feed-reader
+{
+    background-image: url(../images/block-type-feedreader/con-bg.gif);
+    background-position: bottom left;
+    background-repeat: repeat-x;
+}
+
+.block-type-feed-reader a
+{
+    display: block;
+    text-decoration: none;
+    color: #990000;
+    background-image: url(../images/block-type-feedreader/a-bg.gif);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 21px;
+    margin-left: 20px;
+}
+
+.block-type-feed-reader h2
+{
+    margin-top: 0;
+    background-image: url(../images/block-type-feedreader/h1-bg.gif);
+    background-repeat: repeat-x;
+    padding-left: 20px;
+    padding-top: 17px;
+}
+
+.block-type-feed-reader h2 a
+{
+    color: #000;
+    background-image: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.block-type-feed-reader div
+{
+    background-image: url(../images/block-type-feedreader/sep-bg.gif);
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    padding: 8px 0 8px 0;
+}
+
 /* GMAP BLOCK */
 
 div.map-container
