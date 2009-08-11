@@ -117,6 +117,9 @@
                value="gallery" />
       <provide type="ezcontentclass"
                name="contentclass"
+               value="geo_article" />
+      <provide type="ezcontentclass"
+               name="contentclass"
                value="forum" />
       <provide type="ezcontentclass"
                name="contentclass"
@@ -215,6 +218,9 @@
           filename="class-gallery"
           sub-directory="ezcontentclass" />
     <item type="ezcontentclass"
+          filename="class-geo_article"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
           filename="class-forum"
           sub-directory="ezcontentclass" />
     <item type="ezcontentclass"
@@ -308,6 +314,9 @@
           sub-directory="ezcontentclass" />
     <item type="ezcontentclass"
           filename="class-gallery"
+          sub-directory="ezcontentclass" />
+    <item type="ezcontentclass"
+          filename="class-geo_article"
           sub-directory="ezcontentclass" />
     <item type="ezcontentclass"
           filename="class-forum"
