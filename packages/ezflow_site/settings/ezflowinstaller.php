@@ -25,12 +25,14 @@
 //
 class eZFlownInstaller extends eZSiteInstaller
 {
-    const MAJOR_VERSION = 1.1;
+    const MAJOR_VERSION = 2.0;
     const MINOR_VERSION = 0;
+
     function eZFlownInstaller( $parameters = false )
     {
         eZSiteInstaller::eZSiteInstaller( $parameters );
     }
+
     function &instance( $params )
     {
         $impl = & $GLOBALS["eZFlownInstallerGlobalInstance"];
@@ -38,10 +40,12 @@ class eZFlownInstaller extends eZSiteInstaller
             $impl = new eZFlownInstaller( $params );
         return $impl;
     }
+
     function resetGlobals()
     {
         unset( $GLOBALS["eZFlownInstallerGlobalInstance"] );
     }
+
     function initSettings( $parameters )
     {
         $siteINI = eZINI::instance();
@@ -138,6 +142,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $this->addSetting( 'primary_language', eZSiteInstaller::getParam( $parameters, 'all_language_codes/0', '' ) );
         $this->addSetting( 'var_dir', eZSiteInstaller::getParam( $parameters, 'var_dir', 'var/' . $this->setting( 'user_siteaccess' ) ) );
     }
+
     function initSteps()
     {
         $postInstallSteps = array( 
@@ -1231,6 +1236,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         $this->Steps['post_install'] = $postInstallSteps;
     }
+
     /*!
      Re-impl.
     */
@@ -1241,6 +1247,7 @@ class eZFlownInstaller extends eZSiteInstaller
             $this->dbCommit( array() );
         return $errCode;
     }
+
     /*!
      Install from command-line.
     */
@@ -1269,6 +1276,7 @@ class eZFlownInstaller extends eZSiteInstaller
         ) );
         $this->postInstall();
     }
+
     /*!
       pre-install stuff.
     */
@@ -1319,49 +1327,46 @@ class eZFlownInstaller extends eZSiteInstaller
                 'AvailableDataTypes' => $availableDatatype 
             ) 
         ) );
-        
         $this->insertDBFile( 'ezflow_extension', 'ezflow', true );
         $this->insertDBFile( 'ezstarrating_extension', 'ezstarrating' );
         $this->insertDBFile( 'ezgmaplocation_extension', 'ezgmaplocation' );
     }
+
     function insertDBFile( $packageName, $extensionName, $loadContent = false )
     {
         $db = eZDB::instance();
         $extensionPackage = eZPackage::fetch( $packageName, false, false, false );
-
-         if ( $extensionPackage instanceof eZPackage )
-         {
-             switch ($db->databaseName())
-             {
-                 case 'mysql':
-                     $sqlFile = 'mysql.sql';
-                     $path = $extensionPackage->path() . '/ezextension/' . $extensionName .  '/sql/mysql';
-                     break;
-                 case 'postgresql':
-                     $sqlFile = 'postgresql.sql';
-                     $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/postgresql';
-                     break;
-             }
-             
-             $res = $db->insertFile( $path, $sqlFile, false );
-             
-             if ( !$res  )
-             {
-                 eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' database shema.', __METHOD__ );
-             }
-             
-             if ( $res && $loadContent )
-             {
-                 $sqlFile = 'democontent.sql';
-                 $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/common';
-                 $res = $db->insertFile( $path, $sqlFile, false );
-                 if ( ! $res )
-                 {
-                     eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' demo data.', __METHOD__ );
-                 }
-             }
-         }
+        if ( $extensionPackage instanceof eZPackage )
+        {
+            switch ($db->databaseName())
+            {
+                case 'mysql':
+                    $sqlFile = 'mysql.sql';
+                    $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/mysql';
+                    break;
+                case 'postgresql':
+                    $sqlFile = 'postgresql.sql';
+                    $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/postgresql';
+                    break;
+            }
+            $res = $db->insertFile( $path, $sqlFile, false );
+            if ( ! $res )
+            {
+                eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' database shema.', __METHOD__ );
+            }
+            if ( $res && $loadContent )
+            {
+                $sqlFile = 'democontent.sql';
+                $path = $extensionPackage->path() . '/ezextension/' . $extensionName . '/sql/common';
+                $res = $db->insertFile( $path, $sqlFile, false );
+                if ( ! $res )
+                {
+                    eZDebug::writeError( 'Can\'t initialize ' . $extensionName . ' demo data.', __METHOD__ );
+                }
+            }
+        }
     }
+
     function languageMatrixDefinition()
     {
         $matrixDefinition = new eZMatrixDefinition( );
@@ -1371,6 +1376,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $matrixDefinition->decodeClassAttribute( $matrixDefinition->xmlString() );
         return $matrixDefinition;
     }
+
     function updateTemplateLookClassAttributes( $params = false )
     {
         $languageSettingsMatrixDefinition = $this->languageMatrixDefinition();
@@ -1449,6 +1455,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'attributes' => $newAttributesInfo 
         ) );
     }
+
     function updateTemplateLookObjectAttributes( $params = false )
     {
         $languageSettingsMatrixDefinition = $this->languageMatrixDefinition();
@@ -1512,15 +1519,18 @@ class eZFlownInstaller extends eZSiteInstaller
             'attributes_data' => $templateLookData 
         ) );
     }
+
     function solutionVersion()
     {
         $version = self::MAJOR_VERSION . '.' . self::MINOR_VERSION;
         return $version;
     }
+
     function solutionName()
     {
         return 'eZFlow';
     }
+
     function createTranslationSiteAccesses()
     {
         foreach ($this->setting( 'locales' ) as $locale)
@@ -1561,6 +1571,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) );
         }
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // Setup roles
     ///////////////////////////////////////////////////////////////////////////
@@ -1605,6 +1616,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $roles;
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // Setup preferences
     ///////////////////////////////////////////////////////////////////////////
@@ -1649,6 +1661,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $preferences;
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // Post-install siteaccess INI updates
     ///////////////////////////////////////////////////////////////////////////
@@ -1663,6 +1676,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $siteINI->setVariable( 'SiteAccessSettings', 'RelatedSiteAccessList', $this->setting( 'all_siteaccess_list' ) );
         $siteINI->save();
     }
+
     function postInstallUserSiteaccessINIUpdate( $params = false )
     {
         $siteINI = eZINI::instance( "site.ini.append.php", "settings/siteaccess/" . $this->setting( 'user_siteaccess' ), null, false, null, true );
@@ -1676,6 +1690,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $siteINI->save( false, false, false, false, true, true );
         unset( $siteINI );
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // Admin siteaccess INI settings
     ///////////////////////////////////////////////////////////////////////////
@@ -1693,6 +1708,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->adminOEINISettings();
         return $settings;
     }
+
     function adminContentStructureMenuINISettings()
     {
         $contentStructureMenu = array( 
@@ -1713,6 +1729,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $contentStructureMenu;
     }
+
     function adminToolbarINISettings()
     {
         $toolbar = array( 
@@ -1795,6 +1812,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $toolbar;
     }
+
     function adminOverrideINISettings()
     {
         return array( 
@@ -2060,6 +2078,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     function adminSiteINISettings()
     {
         $settings = array();
@@ -2083,6 +2102,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function adminContentINISettings()
     {
         $designList = $this->setting( 'design_list' );
@@ -2097,6 +2117,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $image;
     }
+
     function adminIconINISettings()
     {
         $image = array( 
@@ -2111,6 +2132,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $image;
     }
+
     function adminViewCacheINISettings()
     {
         return array( 
@@ -2122,11 +2144,13 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     function adminODFINISettings()
     {
         // admin siteaccess uses the same ODF-settings
         return $this->siteODFINISettings();
     }
+
     function adminOEINISettings()
     {
         return array( 
@@ -2138,6 +2162,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // Common INI settings
     ///////////////////////////////////////////////////////////////////////////
@@ -2153,6 +2178,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->commonXMLINISettings();
         return $settings;
     }
+
     function commonSiteINISettings()
     {
         $settings = array();
@@ -2231,6 +2257,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonMenuINISettings()
     {
         //setup vars
@@ -2243,6 +2270,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonContentINISettings()
     {
         $settings = array( 
@@ -2368,6 +2396,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonViewCacheINISettings()
     {
         $settings = array( 
@@ -2535,6 +2564,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonForumINISettings()
     {
         $settings = array();
@@ -2549,6 +2579,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonOEAttributesINISettings()
     {
         $settings = array( 
@@ -2595,6 +2626,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function commonXMLINISettings()
     {
         return array( 
@@ -2609,6 +2641,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     ///////////////////////////////////////////////////////////////////////////
     // User siteaccess INI settings
     ///////////////////////////////////////////////////////////////////////////
@@ -2629,6 +2662,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings[] = $this->siteOEINISettings();
         return $settings;
     }
+
     function siteSiteINISettings()
     {
         $settings = array();
@@ -2653,6 +2687,7 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => $settings 
         );
     }
+
     function siteDesignINISettings()
     {
         $settings = array( 
@@ -2676,6 +2711,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $settings;
     }
+
     function siteContentStructureMenuINISettings()
     {
         $contentStructureMenu = array( 
@@ -2695,6 +2731,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $contentStructureMenu;
     }
+
     function siteMenuINISettings()
     {
         return array( 
@@ -2751,6 +2788,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     function siteOverrideINISettings()
     {
         return array( 
@@ -2927,7 +2965,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'Search', 
                         'view' => 'search' 
                     ) 
-                ),
+                ), 
                 'block_ads' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/ads.tpl', 
@@ -2936,7 +2974,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'Ads', 
                         'view' => 'ads' 
                     ) 
-                ),
+                ), 
                 'block_latest_content' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/latest_content.tpl', 
@@ -2945,7 +2983,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'LatestContent', 
                         'view' => 'latest_content' 
                     ) 
-                ),
+                ), 
                 'block_gmaps_1item_streetview' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/gmaps_1item_streetview.tpl', 
@@ -2954,7 +2992,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'GMapsItem', 
                         'view' => 'gmaps_1item_streetview' 
                     ) 
-                ),
+                ), 
                 'block_gmaps_1item_large' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/gmaps_1item_large.tpl', 
@@ -2963,7 +3001,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'GMapsItem', 
                         'view' => 'gmaps_1item_large' 
                     ) 
-                ),
+                ), 
                 'block_gmaps_1item_tiny' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/gmaps_1item_tiny.tpl', 
@@ -2972,7 +3010,7 @@ class eZFlownInstaller extends eZSiteInstaller
                         'type' => 'GMapsItem', 
                         'view' => 'gmaps_1item_tiny' 
                     ) 
-                ),
+                ), 
                 'block_feed_reader' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/feed_reader.tpl', 
@@ -3094,6 +3132,14 @@ class eZFlownInstaller extends eZSiteInstaller
                     'Subdir' => 'templates', 
                     'Match' => array( 
                         'class_identifier' => 'article' 
+                    ) 
+                ), 
+                'full_geo_article' => array( 
+                    'Source' => 'node/view/full.tpl', 
+                    'MatchFile' => 'full/geo_article.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'class_identifier' => 'geo_article' 
                     ) 
                 ), 
                 'full_article_mainpage' => array( 
@@ -3350,6 +3396,14 @@ class eZFlownInstaller extends eZSiteInstaller
                     'Subdir' => 'templates', 
                     'Match' => array( 
                         'class_identifier' => 'article' 
+                    ) 
+                ), 
+                'line_geo_article' => array( 
+                    'Source' => 'node/view/line.tpl', 
+                    'MatchFile' => 'line/geo_article.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'class_identifier' => 'geo_article' 
                     ) 
                 ), 
                 'line_article_mainpage' => array( 
@@ -3946,6 +4000,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     function siteToolbarINISettings()
     {
         $toolbar = array( 
@@ -3976,6 +4031,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $toolbar;
     }
+
     function siteImageINISettings()
     {
         $settings = array( 
@@ -4081,6 +4137,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $settings;
     }
+
     function siteContentINISettings()
     {
         $settings = array( 
@@ -4101,6 +4158,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $settings;
     }
+
     function siteBrowseINISettings()
     {
         $settings = array( 
@@ -4121,6 +4179,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $settings;
     }
+
     function siteTemplateINISettings()
     {
         $settings = array( 
@@ -4133,6 +4192,7 @@ class eZFlownInstaller extends eZSiteInstaller
         );
         return $settings;
     }
+
     function siteODFINISettings()
     {
         // update 'article' class attributes info
@@ -4150,6 +4210,7 @@ class eZFlownInstaller extends eZSiteInstaller
             ) 
         );
     }
+
     function siteOEINISettings()
     {
         return array( 
