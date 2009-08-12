@@ -1304,6 +1304,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $datatypeRepositories = $contentINI->variable( 'DataTypeSettings', 'ExtensionDirectories' );
         $datatypeRepositories[] = 'ezflow';
         $datatypeRepositories[] = 'ezstarrating';
+        $datatypeRepositories[] = 'ezgmaplocation';
         $contentINI->setVariables( array( 
             'DataTypeSettings' => array( 
                 'ExtensionDirectories' => $datatypeRepositories 
@@ -1312,6 +1313,7 @@ class eZFlownInstaller extends eZSiteInstaller
         $availableDatatype = $contentINI->variable( 'DataTypeSettings', 'AvailableDataTypes' );
         $availableDatatype[] = 'ezpage';
         $availableDatatype[] = 'ezsrrating';
+        $availableDatatype[] = 'ezgmaplocation';
         $contentINI->setVariables( array( 
             'DataTypeSettings' => array( 
                 'AvailableDataTypes' => $availableDatatype 
@@ -1319,7 +1321,8 @@ class eZFlownInstaller extends eZSiteInstaller
         ) );
         
         $this->insertDBFile( 'ezflow_extension', 'ezflow', true );
-        $this->insertDBFile( 'ezstarrating_extension', 'ezstarrating' );        
+        $this->insertDBFile( 'ezstarrating_extension', 'ezstarrating' );
+        $this->insertDBFile( 'ezgmaplocation_extension', 'ezgmaplocation' );
     }
     function insertDBFile( $packageName, $extensionName, $loadContent = false )
     {
