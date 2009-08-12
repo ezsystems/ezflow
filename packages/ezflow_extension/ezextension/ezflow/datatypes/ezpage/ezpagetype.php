@@ -527,18 +527,20 @@ class eZPageType extends eZDataType
                             $block =& $zone->getBlock( $params[2] );
 
                             if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
-                            $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
+                            {
+                                $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
+                                $blockINI = eZINI::instance( 'block.ini' );
 
-                            $blockINI = eZINI::instance( 'block.ini' );
+                                $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                                $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
 
-                            $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                                if ( $fetchParametersSelectionType['Source'] == 'single' )
+                                    $fetchParams['Source'] = $selectedNodeIDArray[0];
+                                else
+                                    $fetchParams['Source'] = $selectedNodeIDArray;
 
-                            if ( $fetchParametersSelectionType['Source'] == 'single' )
-                            $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray[0] ) );
-                            else
-                            $serializedParams = serialize( array( 'Source' => $selectedNodeIDArray ) );
-
-                            $block->setAttribute( 'fetch_params', $serializedParams );
+                                $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
+                            }
 
                             $contentObjectAttribute->setContent( $page );
                             $contentObjectAttribute->store();
