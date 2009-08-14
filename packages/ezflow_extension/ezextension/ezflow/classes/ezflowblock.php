@@ -93,6 +93,20 @@ class eZFlowBlock extends eZPersistentObject
                       'sort' => array( 'id' => 'asc' ),
                       'name' => 'ezm_block' );
     }
+
+    /**
+     * Fetch block by ID
+     * 
+     * @param int $id
+     * @return null|eZFlowBlock
+     */
+    static function fetch( $id )
+    {
+        $cond = array( 'id' => $id );
+        $rs = eZPersistentObject::fetchObject( self::definition(), null, $cond );
+        return $rs;
+    }
+
 }
 
 ?>

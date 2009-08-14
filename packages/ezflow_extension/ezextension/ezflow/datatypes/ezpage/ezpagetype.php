@@ -220,6 +220,7 @@ class eZPageType extends eZDataType
                     $fetchParams = array();
 
                     $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
+                    $tmpFetchParams = $fetchParams;
 
                     foreach ( $params as $param => $value )
                     {
@@ -227,6 +228,17 @@ class eZPageType extends eZDataType
                     }
 
                     $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
+                    
+                    if ( $fetchParams !== $tmpFetchParams )
+                    {
+                        $persBlockObject = eZFlowBlock::fetch( $block->attribute( 'id' ) );
+
+                        if ( $persBlockObject instanceof eZFlowBlock )
+                        {
+                            $persBlockObject->setAttribute( 'last_update', 0 );
+                            $persBlockObject->store();
+                        }
+                    }
                 }
             }
         }
@@ -691,6 +703,14 @@ class eZPageType extends eZDataType
                         $fetchParams['Source'] = $selectedNodeIDArray;
 
                     $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
+                    
+                    $persBlockObject = eZFlowBlock::fetch( $block->attribute( 'id' ) );
+                    
+                    if ( $persBlockObject instanceof eZFlowBlock )
+                    {
+                        $persBlockObject->setAttribute( 'last_update', 0 );
+                        $persBlockObject->store();
+                    }
                 }
 
                 $contentObjectAttribute->setContent( $page );
