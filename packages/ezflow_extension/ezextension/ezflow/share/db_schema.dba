@@ -1,0 +1,223 @@
+<?php
+// This array contains the database schema
+$schema = array (
+  'ezm_block' => 
+  array (
+    'name' => 'ezm_block',
+    'fields' => 
+    array (
+      'block_type' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'fetch_params' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'id' => 
+      array (
+        'length' => 32,
+        'type' => 'char',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'is_removed' => 
+      array (
+        'length' => 2,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'last_update' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'name' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'node_id' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'overflow_id' => 
+      array (
+        'length' => 32,
+        'type' => 'char',
+        'default' => NULL,
+      ),
+      'rotation_interval' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => NULL,
+      ),
+      'rotation_type' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => NULL,
+      ),
+      'zone_id' => 
+      array (
+        'length' => 32,
+        'type' => 'char',
+        'not_null' => '1',
+        'default' => '',
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'ezm_block__is_removed' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'is_removed',
+        ),
+      ),
+      'ezm_block__node_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'node_id',
+        ),
+      ),
+    ),
+  ),
+  'ezm_pool' => 
+  array (
+    'name' => 'ezm_pool',
+    'fields' => 
+    array (
+      'block_id' => 
+      array (
+        'length' => 32,
+        'type' => 'char',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'moved_to' => 
+      array (
+        'length' => 32,
+        'type' => 'char',
+        'default' => NULL,
+      ),
+      'node_id' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'object_id' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'priority' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'rotation_until' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'ts_hidden' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'ts_publication' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => 0,
+      ),
+      'ts_visible' => 
+      array (
+        'length' => 10,
+        'type' => 'int',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'block_id',
+          1 => 'object_id',
+        ),
+      ),
+      'ezm_pool__block_id__ts_hidden' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'block_id',
+          1 => 'ts_hidden',
+        ),
+      ),
+      'ezm_pool__block_id__ts_publication__priority' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'block_id',
+          1 => 'ts_publication',
+          2 => 'priority',
+        ),
+      ),
+      'ezm_pool__block_id__ts_visible' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'block_id',
+          1 => 'ts_visible',
+        ),
+      ),
+    ),
+  ),
+  '_info' => 
+  array (
+    'format' => 'generic',
+  ),
+);
+// This array contains the database data
+$data = array (
+  '_info' => 
+  array (
+    'format' => 'generic',
+  ),
+);
+
+?>
