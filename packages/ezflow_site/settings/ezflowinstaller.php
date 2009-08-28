@@ -3957,6 +3957,14 @@ class eZFlownInstaller extends eZSiteInstaller
                         'class_identifier' => 'image' 
                     ) 
                 ), 
+                'flash_player_galleryline' => array( 
+                    'Source' => 'node/view/galleryline.tpl', 
+                    'MatchFile' => 'galleryline/flash_player.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'class_identifier' => 'flash_player' 
+                    ) 
+                ), 
                 'image_galleryslide' => array( 
                     'Source' => 'node/view/galleryslide.tpl', 
                     'MatchFile' => 'galleryslide/image.tpl', 
