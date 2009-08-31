@@ -137,7 +137,7 @@ class eZFeedReader
                                              'content' => $content,
                                              'published' => $published );
 
-                    if( $counter == $limit )
+                    if ( $counter == ( $limit + $offset ) )
                         break;
                 }
 
