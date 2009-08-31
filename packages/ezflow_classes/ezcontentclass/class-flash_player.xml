@@ -59,5 +59,16 @@
         <type>flash</type>
       </datatype-parameters>
     </attribute>
+    <attribute datatype="ezimage" required="false" searchable="false" information-collector="false" translatable="true">
+      <remote>
+        <id>348</id>
+      </remote>
+      <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"Thumbnail";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
+      <identifier>thumbnail</identifier>
+      <placement>4</placement>
+      <datatype-parameters>
+        <max-size unit-size="mega">0</max-size>
+      </datatype-parameters>
+    </attribute>
   </ezcontentclass-attri:attributes>
 </content-class>
