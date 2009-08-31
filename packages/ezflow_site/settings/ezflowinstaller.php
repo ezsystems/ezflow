@@ -3118,6 +3118,14 @@ class eZFlownInstaller extends eZSiteInstaller
                         'class_identifier' => 'article' 
                     ) 
                 ), 
+                'block_item_comment' => array( 
+                    'Source' => 'node/view/block_item.tpl', 
+                    'MatchFile' => 'block_item/comment.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'class_identifier' => 'comment' 
+                    ) 
+                ), 
                 'block_item_image' => array( 
                     'Source' => 'node/view/block_item.tpl', 
                     'MatchFile' => 'block_item/image.tpl', 

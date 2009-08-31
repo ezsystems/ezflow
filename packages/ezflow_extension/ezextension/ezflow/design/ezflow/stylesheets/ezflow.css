@@ -2141,3 +2141,16 @@ div#page-datatype-container .yuimenu ul li
 {
     background-image: none;
 }
+
+/* BLOCK ITEM */
+
+div.content-view-block-item div.class-comment
+{
+    padding: 0.5em;
+}
+
+div.content-view-block-item div.class-comment div.attribute-byline
+{
+    background-image: none;
+    padding-bottom: 0.5em;
+}
