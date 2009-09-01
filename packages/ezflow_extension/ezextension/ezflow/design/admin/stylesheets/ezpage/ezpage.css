@@ -314,3 +314,43 @@ div#zone-map-container .zone-map-item label
     margin-bottom: 0.25em;
     color: #000000;
 }
+
+.yui-skin-ezflow .yui-navset .yui-content
+{
+    background-color: #fff;
+}
+
+.yui-skin-ezflow .yui-navset .yui-content, .yui-skin-ezflow .yui-navset .yui-navset-top .yui-content
+{
+    border-color: #A3A3A3;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav, .yui-skin-ezflow .yui-navset .yui-navset-top .yui-nav
+{
+    border-color: #A3A3A3;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav a, .yui-skin-ezflow .yui-navset .yui-navset-top .yui-nav a
+{
+    background-image: none;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav .selected a, .yui-skin-ezflow .yui-navset .yui-nav .selected a em
+{
+    border-color: #A3A3A3;
+    background-image: none;
+    background-color: #A3A3A3;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav a:hover, .yui-skin-ezflow .yui-navset .yui-nav a:focus
+{
+    background-image: none;
+    background-color: #A3A3A3;
+    color: #FFFFFF;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav .selected a, .yui-skin-ezflow .yui-navset .yui-nav .selected a:focus, .yui-skin-ezflow .yui-navset .yui-nav .selected a:hover
+{
+    background-image: none;
+    background-color: #A3A3A3;
+}
