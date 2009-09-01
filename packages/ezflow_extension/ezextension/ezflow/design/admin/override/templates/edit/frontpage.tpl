@@ -118,7 +118,7 @@ function addBlock( object, id )
 
 {include uri='design:content/edit_menu.tpl'}
 
-{ezscript( array('ezjsc::yui3', 'ezajaxsearch.js') )}
+{ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io', 'ezajaxsearch.js' ) )}
 
 <script type="text/javascript">
 eZAJAXSearch.cfg = {ldelim}

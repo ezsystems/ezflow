@@ -1,4 +1,4 @@
-{ezscript( array('ezjsc::yui3') )}
+{ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io' ) )}
 <script type="text/javascript">
 (function() {ldelim}
 

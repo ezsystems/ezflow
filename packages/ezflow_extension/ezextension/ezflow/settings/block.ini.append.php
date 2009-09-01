@@ -23,6 +23,7 @@ AllowedTypes[]=MultimediaCarousel
 AllowedTypes[]=Search
 AllowedTypes[]=Ads
 AllowedTypes[]=LatestContent
+AllowedTypes[]=TopRated
 
 [PushToBlock]
 # List of content classes using Layout datatype
@@ -268,5 +269,14 @@ FetchParametersIsRequired[Source]=true
 FetchParameters[Classes]=string
 ViewList[]=latest_content
 ViewName[latest_content]=Latest content
+
+[TopRated]
+Name=Top Rated
+ManualAddingOfItems=disabled
+CustomAttributes[]=source_node_id
+CustomAttributes[]=limit
+UseBrowseMode[source_node_id]=true
+ViewList[]=toprated
+ViewName[toprated]=TopRated
 
 */ ?>
