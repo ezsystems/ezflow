@@ -2984,6 +2984,15 @@ class eZFlownInstaller extends eZSiteInstaller
                         'view' => 'latest_content' 
                     ) 
                 ), 
+                'block_top_rated' => array( 
+                    'Source' => 'block/view/view.tpl', 
+                    'MatchFile' => 'block/top_rated.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'type' => 'TopRated', 
+                        'view' => 'toprated' 
+                    ) 
+                ), 
                 'block_gmaps_1item_streetview' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/gmaps_1item_streetview.tpl', 
