@@ -2993,31 +2993,13 @@ class eZFlownInstaller extends eZSiteInstaller
                         'view' => 'toprated' 
                     ) 
                 ), 
-                'block_gmaps_1item_streetview' => array( 
+                'block_gmapitems_geo_located_content' => array( 
                     'Source' => 'block/view/view.tpl', 
-                    'MatchFile' => 'block/gmaps_1item_streetview.tpl', 
+                    'MatchFile' => 'block/geo_located_content.tpl', 
                     'Subdir' => 'templates', 
                     'Match' => array( 
-                        'type' => 'GMapsItem', 
-                        'view' => 'gmaps_1item_streetview' 
-                    ) 
-                ), 
-                'block_gmaps_1item_large' => array( 
-                    'Source' => 'block/view/view.tpl', 
-                    'MatchFile' => 'block/gmaps_1item_large.tpl', 
-                    'Subdir' => 'templates', 
-                    'Match' => array( 
-                        'type' => 'GMapsItem', 
-                        'view' => 'gmaps_1item_large' 
-                    ) 
-                ), 
-                'block_gmaps_1item_tiny' => array( 
-                    'Source' => 'block/view/view.tpl', 
-                    'MatchFile' => 'block/gmaps_1item_tiny.tpl', 
-                    'Subdir' => 'templates', 
-                    'Match' => array( 
-                        'type' => 'GMapsItem', 
-                        'view' => 'gmaps_1item_tiny' 
+                        'type' => 'GMapItems', 
+                        'view' => 'geo_located_content' 
                     ) 
                 ), 
                 'block_feed_reader' => array( 

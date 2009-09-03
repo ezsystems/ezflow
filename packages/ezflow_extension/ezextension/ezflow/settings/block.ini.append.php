@@ -24,6 +24,7 @@ AllowedTypes[]=Search
 AllowedTypes[]=Ads
 AllowedTypes[]=LatestContent
 AllowedTypes[]=TopRated
+AllowedTypes[]=GMapItems
 
 [PushToBlock]
 # List of content classes using Layout datatype
@@ -278,5 +279,18 @@ CustomAttributes[]=limit
 UseBrowseMode[source_node_id]=true
 ViewList[]=toprated
 ViewName[toprated]=TopRated
+
+[GMapItems]
+Name=Google Map Items
+ManualAddingOfItems=disabled
+CustomAttributes[]=parent_node_id
+CustomAttributes[]=class
+CustomAttributes[]=attribute
+CustomAttributes[]=limit
+CustomAttributes[]=width
+CustomAttributes[]=height
+UseBrowseMode[parent_node_id]=true
+ViewList[]=geo_located_content
+ViewName[geo_located_content]=Geo-Located Content
 
 */ ?>
