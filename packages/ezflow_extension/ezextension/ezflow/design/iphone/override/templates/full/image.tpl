@@ -12,18 +12,19 @@
     {set $sort_column_value = $node.object.published
          $sort_column = 'published'}
 {/if}
-{def $previous_image=fetch_alias( subtree, hash( parent_node_id, $node.parent_node_id,
-                                                class_filter_type, include,
-                                                class_filter_array, array( 'image' ),
-                                                limit, 1,
-                                                attribute_filter, array( and, array( $sort_column, $sort_order|choose( '>', '<' ), $sort_column_value ) ),
-                                                sort_by, array( $sort_column, $sort_order|not ) ) )
-     $next_image=fetch_alias( subtree, hash( parent_node_id, $node.parent_node_id,
-                                            class_filter_type, include,
-                                            class_filter_array, array( 'image' ),
-                                            limit, 1,
-                                            attribute_filter, array( and, array( $sort_column, $sort_order|choose( '<', '>' ), $sort_column_value ) ),
-                                            sort_by, array( $sort_column, $sort_order ) ) ) }
+
+{def $previous_image = fetch( 'content', 'list', hash( 'parent_node_id', $node.parent_node_id,
+                                                       'class_filter_type', 'include',
+                                                       'class_filter_array', array( 'image' ),
+                                                       'limit', '1',
+                                                       'attribute_filter', array( 'and', array( $sort_column, $sort_order|choose( '>', '<' ), $sort_column_value ) ),
+                                                       'sort_by', array( array( $sort_column, $sort_order|not ), array( 'node_id', $sort_order|not ) ) ) )
+     $next_image = fetch( 'content', 'list', hash( 'parent_node_id', $node.parent_node_id,
+                                                   'class_filter_type', 'include',
+                                                   'class_filter_array', array( 'image' ),
+                                                   'limit', '1',
+                                                   'attribute_filter', array( 'and', array( $sort_column, $sort_order|choose( '<', '>' ), $sort_column_value ) ),
+                                                   'sort_by', array( array( $sort_column, $sort_order ), array( 'node_id', $sort_order ) ) ) ) }
 
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>

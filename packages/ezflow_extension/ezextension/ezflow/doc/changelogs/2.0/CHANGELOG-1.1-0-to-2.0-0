@@ -7,3 +7,4 @@ Changes from 1.1-0 to 1.2-0
 - Fixed bug #013106: ezflow: Hardcoded class identifier and class attribute identifiers
 - Fixed bug #14909: SiteURL not correctly set for multilingual, hostname based install
 - Fixed bug #14569: Install consistently(?) creates AdditionalLoginFormActionURL error
+- Fixed bug #13520: Next / previous links in Forum not working properly
