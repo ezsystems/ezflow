@@ -71,9 +71,6 @@
                name="ezjscore_extension"
                min-version="1.0" />
       <require type="ezpackage"
-               name="ezflgmapblock_extension"
-               min-version="1.0" />
-      <require type="ezpackage"
                name="ezwebin_extension"
                min-version="1.5" />
       <require type="ezpackage"
