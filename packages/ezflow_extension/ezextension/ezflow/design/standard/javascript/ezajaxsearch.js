@@ -42,8 +42,10 @@ var eZAJAXSearch = function() {
             data += '&SearchLimit=10';
             data += '&SearchOffset=0';
             
+            var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezflow::search' ;
+            
             if(searchString !== '') {
-                Y.io.ez('ezflow::search', {on: {success: successCallBack}, method: 'POST', data: data });
+                Y.io.ez(backendUri, {on: {success: successCallBack}, method: 'POST', data: data });
             }
         }
 
