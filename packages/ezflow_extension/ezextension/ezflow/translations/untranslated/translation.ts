@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -95,6 +97,69 @@
     </message>
 </context>
 <context>
+    <name>design/admin/contextsubmenu</name>
+    <message>
+        <source>Push to block</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/node/contextmenu</name>
+    <message>
+        <source>eZ Flow</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/node/subitemcontextmenu</name>
+    <message>
+        <source>eZ Flow</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/page/push</name>
+    <message>
+        <source>Choose placement for &quot;%node_name&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select frontpage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select zone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/ezflow/block/online_users</name>
+    <message>
+        <source>There are currently %logged_in_count active users on the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are %anonymous_count anonymous users accessing the site.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>design/ezflow/edit/frontpage</name>
     <message>
         <source>Search phrase</source>
@@ -187,6 +252,10 @@
     <name>design/ezflow/parts/website_toolbar</name>
     <message>
         <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push to block</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -302,10 +371,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>sec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>min</source>
         <translation type="unfinished"></translation>
     </message>
@@ -400,6 +465,48 @@
     </message>
     <message>
         <source>Collapse</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/standard/page/push</name>
+    <message>
+        <source>Choose placement for &quot;%node_name&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select frontpage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select zone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Placement list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ezflow/push</name>
+    <message>
+        <source>Push to block</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
