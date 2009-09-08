@@ -60,6 +60,8 @@
 
 </div>
 
+{ezscript_require(array( 'ezjsc::yui2' ) )}
+
 <script type="text/javascript">
     YUILoader.onSuccess = function() {ldelim}
         eZPushToBlock.cfg = {ldelim}
