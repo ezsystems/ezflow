@@ -1,3 +1,5 @@
+-- note: the DEFAULT '' NOT NULL are OK, since NOT NULL takes pecendence and we do not rely on ezdbschema to remove the default clause
+
 CREATE TABLE ezm_block (
     id CHAR(32) DEFAULT '' NOT NULL,
     zone_id CHAR(32) DEFAULT '' NOT NULL,
