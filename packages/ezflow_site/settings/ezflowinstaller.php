@@ -1150,7 +1150,11 @@ class eZFlownInstaller extends eZSiteInstaller
                         array( 
                             'module' => 'user', 
                             'function' => 'password' 
-                        ) 
+                        ), 
+                        array( 
+                            'module' => 'ezjscore', 
+                            'function' => 'call' 
+                        )
                     ) 
                 ) 
             ), 
