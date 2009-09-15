@@ -68,6 +68,8 @@
     </div>
 </div>
 
+{ezscript_require( 'ezjsc::yui2' )}
+
 <script type="text/javascript">
 <!--
 (function() {ldelim}
