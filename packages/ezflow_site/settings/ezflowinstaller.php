@@ -2560,7 +2560,17 @@ class eZFlownInstaller extends eZSiteInstaller
                     '1' => 'parent', 
                     '2' => 'relating' 
                 ) 
-            ) 
+            ), 
+            'geo_article' => array( 
+                'DependentClassIdentifier' => array( 
+                    '0' => 'frontpage' 
+                ), 
+                'ClearCacheMethod' => array( 
+                    '0' => 'object', 
+                    '1' => 'parent', 
+                    '2' => 'relating' 
+                ) 
+            )
         );
         return array( 
             'name' => 'viewcache.ini', 
