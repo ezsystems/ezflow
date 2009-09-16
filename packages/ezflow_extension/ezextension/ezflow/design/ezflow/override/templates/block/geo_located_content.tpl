@@ -19,7 +19,7 @@
     {def $height = '600'}
 {/if}
 
-{def $locations = fetch( 'content', 'list', hash( 'parent_node_id', $block.custom_attributes.parent_node_id,
+{def $locations = fetch( 'content', 'tree', hash( 'parent_node_id', $block.custom_attributes.parent_node_id,
                                                   'class_filter_type', 'include',
                                                   'class_filter_array', array( $block.custom_attributes.class ),
                                                   'sort_by', array( 'published', false() ),
