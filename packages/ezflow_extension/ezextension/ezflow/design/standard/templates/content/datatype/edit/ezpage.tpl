@@ -126,13 +126,6 @@
         });
 
         tabView.appendTo('zone-tabs-container');
-
-        function confirmDiscard( question )
-        {
-            // Ask user if he really wants to do it.
-            return confirm( question );
-        }
-
         {/literal}
     {rdelim}
     
@@ -171,4 +164,11 @@
     // Load the files using the insert() method.
     YUILoader.insert();
 {rdelim})();
+
+function confirmDiscard( question )
+{ldelim}
+    // Ask user if he really wants to do it.
+    return confirm( question );
+{rdelim}
+{/literal}
 </script>
