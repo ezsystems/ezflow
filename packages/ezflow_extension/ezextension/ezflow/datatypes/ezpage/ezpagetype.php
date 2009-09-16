@@ -245,9 +245,9 @@ class eZPageType extends eZDataType
 
         if ( $http->hasPostVariable( $base . '_ezpage_block_custom_attribute_' . $contentObjectAttribute->attribute( 'id' ) ) )
         {
-            $blockFetchParams = $http->postVariable( $base . '_ezpage_block_custom_attribute_' . $contentObjectAttribute->attribute( 'id' ) );
+            $blockCustomAttributes = $http->postVariable( $base . '_ezpage_block_custom_attribute_' . $contentObjectAttribute->attribute( 'id' ) );
 
-            foreach ( $blockFetchParams as $zoneID => $blocks )
+            foreach ( $blockCustomAttributes as $zoneID => $blocks )
             {
                 $zone = $page->getZone( $zoneID );
 
@@ -744,9 +744,11 @@ class eZPageType extends eZDataType
 
                 if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
                 {
+                    $customAttributes = $block->attribute( 'custom_attributes' );
+
                     if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
                     {
-                        $selectedNodeIDArray = $http->postVariable ('SelectedNodeIDArray' );
+                        $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
                         $customAttributes[$params[3]] = $selectedNodeIDArray[0];
                     }
 

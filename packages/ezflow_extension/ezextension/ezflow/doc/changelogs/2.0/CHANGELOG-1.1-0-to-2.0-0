@@ -11,3 +11,4 @@ Changes from 1.1-0 to 2.0-0
 - Fixed bug #15410: ezstarrating doesn't work for anyone except admin
 - Fixed bug #15495: ezflow cronjob doesn't work correctly in regards to google map item block
 - Fixed bug #15492: "Google map items" doesn't fetch subtree, only children of the selected node
+- Fixed bug #15493: "Google map items" clears other input fields when you select "Source"
