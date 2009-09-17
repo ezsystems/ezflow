@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="1.1-0"
+         development="false"
+         install_type="install">
+  <name>ezflow_democontent</name>
+  <summary>Home, Conference, Discussion Forum, Conference Blog, Live Video</summary>
+  <description>This package contains the following nodes:
+Home - node
+Conference - subtree
+Discussion Forum - subtree
+Conference Blog - subtree
+Live Video - subtree
+</description>
+  <vendor>eZ systems</vendor>
+  <type value="contentobject" />
+  <ezpublish>
+    <version>4.1.0</version>
+    <named-version>4.1</named-version>
+  </ezpublish>
+  <maintainers>
+    <maintainer>
+      <name>Administrator User</name>
+      <email>nospam@ez.no</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <packaging>
+    <timestamp>1163689610</timestamp>
+    <host>packages.ez.no</host>
+  </packaging>
+  <documents>
+    <document mime-type="text/plain"
+              name="LICENCE" />
+  </documents>
+  <changelog>
+    <entry timestamp="1163689610"
+           person="Administrator User"
+           email="nospam@ez.no"
+           release="1">
+      <change>Creation of package.</change>
+    </entry>
+  </changelog>
+  <simple-files>
+    <simple-file key="b981f34cee08522308f8b194f16a7cd0" original-path="var/storage/original/video/42c61dca547dd2f0025a43eec31c6911.flv" package-path="simplefiles/35a4c198.flv"/>
+    <simple-file key="fec62479d01eaf007ead850efb59f571" original-path="var/storage/images/conference/conference-photos/aleksander/1057-1-eng-GB/Aleksander.jpg" package-path="simplefiles/cb4841e1.jpg"/>
+    <simple-file key="373d252fe0a16f7c316af9b85cd57dca" original-path="var/storage/images/conference/conference-photos/ez-awards-entertainment/1061-1-eng-GB/eZ-Awards-entertainment.jpg" package-path="simplefiles/c319e989.jpg"/>
+    <simple-file key="8c8b38ab09c6c9954cc2c5609f4ab922" original-path="var/storage/images/conference/conference-photos/partner-of-the-year/1065-1-eng-GB/Partner-of-the-year.jpg" package-path="simplefiles/082126f1.jpg"/>
+    <simple-file key="26610ae51891bc0db7466aae7c0e42dc" original-path="var/storage/images/conference/conference-photos/ez-awards-crowd/1069-1-eng-GB/eZ-Awards-crowd.jpg" package-path="simplefiles/61c5bd90.jpg"/>
+    <simple-file key="30757c3f22c4b73eca0baff4f99897c4" original-path="var/storage/images/conference/news/join-the-ez-conference-2008/1216-1-eng-GB/Join-the-eZ-Conference-2008.jpg" package-path="simplefiles/fd546b5b.jpg"/>
+    <simple-file key="063405932633662bf5d523184d7c987f" original-path="var/storage/images/conference/news/site-of-the-year-ez-award-goes-to-lagardere/1198-3-eng-GB/Site-of-the-Year-eZ-Award-goes-to-Lagardere.jpg" package-path="simplefiles/5fcdfdc6.jpg"/>
+    <simple-file key="ca3689f67635c291ae11e6fcd90c6119" original-path="var/storage/images/conference/news/the-ez-awards-2007-partner-of-the-year-goes-to-france/1187-4-eng-GB/The-eZ-Awards-2007-Partner-of-the-Year-goes-to-France.jpg" package-path="simplefiles/53bfbe51.jpg"/>
+    <simple-file key="1c5c52afeaa4b6ab659af37125243051" original-path="var/storage/images/conference/news/press-and-media-mentions-at-the-2007-ez-conference/1159-1-eng-GB/Press-and-Media-mentions-at-the-2007-eZ-Conference.jpg" package-path="simplefiles/4192533a.jpg"/>
+    <simple-file key="76198d281525842f068c947efb25ef6d" original-path="var/storage/images/conference/news/ez-conference-hits-all-time-high-for-attendee-participation/1148-1-eng-GB/eZ-Conference-Hits-all-Time-High-for-Attendee-Participation.jpg" package-path="simplefiles/a6860846.jpg"/>
+    <simple-file key="32f87d6567512605e58093b3f359506a" original-path="var/storage/images/conference/news/norwegian-minister-opens-the-ez-awards-reception/1137-1-eng-GB/Norwegian-Minister-Opens-the-eZ-Awards-Reception.jpg" package-path="simplefiles/687a8b41.jpg"/>
+    <simple-file key="cec1d785a4055a2786cf9e55808ad39d" original-path="var/storage/images/conference/news/congratulations-ez-awards-2007-winners/1126-2-eng-GB/Congratulations-eZ-Awards-2007-winners.jpg" package-path="simplefiles/093a0b07.jpg"/>
+    <simple-file key="1cd3f5a3a8ec1093420de99934e9860a" original-path="var/storage/images/conference/news/ez-conference-the-biggest-open-source-cms-conference/1091-1-eng-GB/eZ-Conference-the-biggest-Open-Source-CMS-Conference.jpg" package-path="simplefiles/4d2925bc.jpg"/>
+  </simple-files>
+  <version>
+    <number>1.1</number>
+    <release>0</release>
+  </version>
+  <licence>GPL</licence>
+  <state>stable</state>
+  <dependencies>
+    <provides />
+    <requires />
+    <obsoletes />
+    <conflicts />
+  </dependencies>
+  <install>
+    <item type="ezcontentobject"
+          filename="contentobjects"
+          sub-directory="ezcontentobject" />
+  </install>
+  <uninstall>
+    <item type="ezcontentobject"
+          filename="contentobjects"
+          sub-directory="ezcontentobject" />
+  </uninstall>
+</package>

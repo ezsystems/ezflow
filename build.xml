@@ -119,9 +119,11 @@
     <target name="dist">
         <antcall target="create-package-tarball"><param name="package.name" value="ezflow_classes"/></antcall>
         <antcall target="create-package-tarball"><param name="package.name" value="ezflow_democontent"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_democontent_clean"/></antcall>
         <antcall target="create-package-tarball"><param name="package.name" value="ezflow_design"/></antcall>
         <antcall target="create-package-tarball"><param name="package.name" value="ezflow_extension"/></antcall>
         <antcall target="create-package-tarball"><param name="package.name" value="ezflow_site"/></antcall>
+        <antcall target="create-package-tarball"><param name="package.name" value="ezflow_site_clean"/></antcall>
     </target>
 
     <!-- Cleans the generated tarball by dist-->
