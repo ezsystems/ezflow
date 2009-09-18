@@ -9,6 +9,15 @@
               <text>Home</text>
             </ezobject:attribute>
             <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1034" ezremote:identifier="page" name="Layout" type="ezpage">
+<page>
+  <zone_layout>2ZonesLayout1</zone_layout>
+  <zone id="id_4f6d946ab48d95799d31179c3acde8cb">
+    <zone_identifier>left</zone_identifier>
+  </zone>
+  <zone id="id_a1117aa7fd4548568490cc7ab1271a4b">
+    <zone_identifier>right</zone_identifier>
+  </zone>
+</page>
             </ezobject:attribute>
             <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="253" ezremote:identifier="tags" name="Tags" type="ezkeyword">
               <keyword-string></keyword-string>
