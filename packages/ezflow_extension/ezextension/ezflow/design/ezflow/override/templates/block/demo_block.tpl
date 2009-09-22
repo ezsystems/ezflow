@@ -4,7 +4,7 @@
 
 <p>To learn more about eZ Flow, please visit our website and watch <a href="http://ez.no/ezflow">the introduction video</a>.</p>
 
-<p>This page is the home page of your website, you can access the administration interface of your website here, you will need to use the "admin" username and the password you defined when installing eZ Publish.</p>
+<p>This page is the home page of your website, you can access the administration interface of your website by selecting the appropriate check box on the <a href="{'/user/login'|ezurl( 'no' )}">login page</a>, you will need to use the "admin" username and the password you defined when installing eZ Publish.</p>
 
 <p>If you want to use the eZ toolbar for front end editing, please <a href="{'/user/login'|ezurl( 'no' )}">login</a> to the website with the same administrator account or with any account you might have setup with sufficient rights.</p>
 
@@ -17,6 +17,6 @@
     <li><strong>Start publishing content</strong> in the repository and launch your website. See <a href="http://ez.no/doc/ez_publish/user_manual/4_0/daily_tasks">the documentation</a>.</li>
 </ol>
 
-<p>For more information, please visit our documentation. You might also consider exchanging with our community via our forums or browsing existing extensions in the community contribution corner.</p>
+<p>For more information, please visit our <a href="http://ez.no/doc">documentation</a>. You might also consider exchanging with our community via our <a href="http://ez.no/developer/forum">forums</a> or browsing existing extensions in the <a href="http://projects.ez.no/">community contribution corner</a>.</p>
 
-<p>If you are running a business project, you should consider help from eZ Systems professional services such as training, consulting or Premium support and maintenance.</p>
+<p>If you are running a business project, you should consider help from eZ Systems professional services such as <a href="http://ez.no/support_and_services/training">training</a>, <a href="http://ez.no/support_and_services/expert_consulting">consulting</a> or <a href="http://ez.no/support_and_services/ez_publish_premium">Premium</a> support and maintenance.</p>
