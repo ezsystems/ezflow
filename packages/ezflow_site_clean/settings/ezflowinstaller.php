@@ -2808,6 +2808,15 @@ class eZFlownInstaller extends eZSiteInstaller
             'name' => 'override.ini', 
             'discard_old_values' => true, 
             'settings' => array( 
+                'block_demo_block' => array( 
+                    'Source' => 'block/view/view.tpl', 
+                    'MatchFile' => 'block/demo_block.tpl', 
+                    'Subdir' => 'templates', 
+                    'Match' => array( 
+                        'type' => 'DemoBlock', 
+                        'view' => 'demoblock' 
+                    ) 
+                ), 
                 'block_2_items1' => array( 
                     'Source' => 'block/view/view.tpl', 
                     'MatchFile' => 'block/2_items1.tpl', 

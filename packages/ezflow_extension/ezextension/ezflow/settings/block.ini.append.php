@@ -2,6 +2,7 @@
 
 [General]
 #AllowedTypes[]=Example
+AllowedTypes[]=DemoBlock
 AllowedTypes[]=Manual2Items
 AllowedTypes[]=Manual3Items
 AllowedTypes[]=Manual4Items
@@ -64,6 +65,13 @@ RootSubtree=1
 # Used by browse mode for manual block,
 # possibility to limit block items to specific class
 # AllowedClasses[]=article
+
+[DemoBlock]
+Name=Demo Block
+ManualAddingOfItems=disabled
+CustomAttributes[]
+ViewList[]=demoblock
+ViewName[demoblock]=Demo Block
 
 [Manual2Items]
 Name=2 items (Manual)

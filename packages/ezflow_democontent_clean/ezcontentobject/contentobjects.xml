@@ -13,6 +13,12 @@
   <zone_layout>2ZonesLayout1</zone_layout>
   <zone id="id_4f6d946ab48d95799d31179c3acde8cb">
     <zone_identifier>left</zone_identifier>
+    <block id="id_ab9e386be359563619c639ea52acd75d">
+      <name/>
+      <zone_id>4f6d946ab48d95799d31179c3acde8cb</zone_id>
+      <type>DemoBlock</type>
+      <view>demo</view>
+    </block>
   </zone>
   <zone id="id_a1117aa7fd4548568490cc7ab1271a4b">
     <zone_identifier>right</zone_identifier>
