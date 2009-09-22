@@ -20,3 +20,4 @@
 <p>For more information, please visit our <a href="http://ez.no/doc">documentation</a>. You might also consider exchanging with our community via our <a href="http://ez.no/developer/forum">forums</a> or browsing existing extensions in the <a href="http://projects.ez.no/">community contribution corner</a>.</p>
 
 <p>If you are running a business project, you should consider help from eZ Systems professional services such as <a href="http://ez.no/support_and_services/training">training</a>, <a href="http://ez.no/support_and_services/expert_consulting">consulting</a> or <a href="http://ez.no/support_and_services/ez_publish_premium">Premium</a> support and maintenance.</p>
+<p><img src="{'ez-logo.gif'|ezimage( 'no' )}" alt="eZ" /></p>
