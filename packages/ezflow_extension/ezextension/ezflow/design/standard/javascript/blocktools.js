@@ -373,27 +373,27 @@ var BlockDDInit = function() {
             data += '&version=' + BlockDDInit.cfg.version;
             data += '&zone=' + BlockDDInit.cfg.zone;
             Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
-            
+
             var newOrder = drag.get('node').get('parentNode').queryAll('.block-container');
             var index = 0;
             newOrder.each(function(v, k) {
                 var inputList = v.queryAll('.block-control');
-     
+
                 for(var i = 0; i < inputList.size(); i++) {
                     var input = inputList.item(i);
                     var name = input.get('name');
-                    
+
                     if( name.match(/([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/) ) {
                         name = name.replace( /([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/, "$1_$2[$3][" + index + "]" );
-                    } else if ( name.match(/([\a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)\]/) ) {
-                        name = name.replace( /([\a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)\]/, "$1[$2-" + index + "]" );
+                    } else if ( name.match(/([a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)+(-[\w_]+)?\]/) ) {
+                        name = name.replace( /([a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)+(-[\w_]+)?\]/, "$1[$2-" + index + "$4]" );
                     } else if ( name.match(/([\a-zA-Z]+)+\_+([0-9])/) ) {
                         name = name.replace( /([\a-zA-Z]+)+\_+([0-9])/, "$1_" + index );
                     }
-                    
+
                     input.set('name', name);
                 }
-                
+
                 index++;
             });
         });

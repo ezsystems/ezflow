@@ -142,18 +142,25 @@ class eZPageZone
      */
     public function sortBlocks( array $sortArray )
     {
-        $newOrder = array();
-        
+        $sortedBlocks = array();
+
         foreach( $sortArray as $sortItem )
         {
+            $blocksToBeRemoved = array();
+            
             foreach( $this->attributes['blocks'] as $block )
             {
                 if ( $block->attribute('id') === $sortItem )
-                    $newOrder[] = $block;
+                    $sortedBlocks[] = $block;
+                
+                if ( $block->toBeRemoved() )
+                    $blocksToBeRemoved[] = $block;
             }
         }
-        
-        $this->attributes['blocks'] = $newOrder;
+
+        $sortedBlocks = array_merge( $sortedBlocks, $blocksToBeRemoved );
+
+        $this->attributes['blocks'] = $sortedBlocks;
     }
 
     /**
