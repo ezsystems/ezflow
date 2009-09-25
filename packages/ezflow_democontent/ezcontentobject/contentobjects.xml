@@ -53,6 +53,9 @@
                       <zone_id>082188b2a113cc866cbcf6ca6e5ce7d3</zone_id>
                       <type>TagCloud</type>
                       <view>tag_cloud</view>
+                      <custom_attributes>
+                        <subtree_node_id>2</subtree_node_id>
+                      </custom_attributes>
                     </block>
                   </zone>
                   <zone id="id_a111cb7cf30697605c5af970e5eae708">
@@ -194,6 +197,9 @@
                           <zone_id>2c534a9d5a624ccc411592fa15d34b04</zone_id>
                           <type>TagCloud</type>
                           <view>tag_cloud</view>
+                          <custom_attributes>
+                            <subtree_node_id>2</subtree_node_id>
+                          </custom_attributes>
                         </block>
                       </zone>
                     </page>
