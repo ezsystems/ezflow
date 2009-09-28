@@ -39,6 +39,8 @@ if ( $Module->isCurrentAction( 'Store' ) )
              }
          }
      }
+
+    $Module->redirectTo( $node->urlAlias() );
 }
  
 $tpl = templateInit();
