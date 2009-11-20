@@ -117,41 +117,78 @@
 <table border="0" cellspacing="1" class="items queue" id="z:{$zone_id}_b:{$block_id}_q">
     <tbody>
     {if $block.waiting|count()}
-    {foreach $block.waiting as $item sequence array( 'bglight', 'bgdark') as $style}
+    {foreach $block.waiting as $index => $item sequence array( 'bglight', 'bgdark') as $style}
     {def $item_object = fetch( 'content', 'object', hash( 'object_id', $item.object_id ) )}
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}" class="{if $item.ts_publication|lt($current_time)}tbp{/if}">
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
         <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" class="handler">{$item_object.name|wash()}</td>
-        <td class="time">
-            <span class="ts-publication">{$item.ts_publication|l10n( 'shortdatetime' )}</span>
-                {if $item.ts_publication|lt( $current_time )|not()}
-                    (
-                    {def $time_diff = $item.ts_publication|sub( $current_time )
-                         $days = $time_diff|div( '86400' )|floor()
-                         $hours = $time_diff|mod( '86400' )|div( '3600' )|floor()
-                         $minutes = $time_diff|mod( '86400' )|mod( '3600' )|div( '60' )|floor()
-                         $seconds = $time_diff|mod( '86400' )|mod( '3600' )|mod( '60' )|round()}
-                         
-                     {if $days|gt( '0' )}
-                         {$days} {'d'|i18n( 'design/standard/block/edit' )}
-                     {/if}
-                         
-                     {if $hours|gt( '0' )}
-                         {$hours} {'h'|i18n( 'design/standard/block/edit' )}
-                     {/if}
-                         
-                     {if $minutes|gt( '0' )}
-                         {$minutes} {'m'|i18n( 'design/standard/block/edit' )}
-                     {/if}
-                         
-                     {if $seconds|gt( '0' )}
-                         {$seconds} {'s'|i18n( 'design/standard/block/edit' )} {'left'|i18n( 'design/standard/block/edit' )}
-                     {/if}
-                    )
+            <td class="time">
+                {if $block.rotation.interval}
+                      <span>{'Rotating item.'|i18n( 'design/standard/block/edit' )}</span>
+                      {def $number_of_valid_setting = ezini( $block.type, 'NumberOfValidItems', 'block.ini' )
+                           $last_valid_time = $block.last_valid_item.ts_visible
+                           $interval_time = $block.rotation.interval
+                           $time_left_latest = $last_valid_time|sub( $current_time )|sum( $interval_time )
+                           $position_left = $block.waiting|count()|sub( $index )|sub('1')
+                           $time_left = sum( $position_left|div( $number_of_valid_setting )|floor|mul( $interval_time ),$time_left_latest )
+                      }
+                      {if $time_left|gt( '0' )}
+                       <span class="rotation-time-left">
+                             {def $days = $time_left|div( '86400' )|floor()
+                                  $hours = $time_left|mod( '86400' )|div( '3600' )|floor()
+                                  $minutes = $time_left|mod( '86400' )|mod( '3600' )|div( '60' )|floor()
+                                  $seconds = $time_left|mod( '86400' )|mod( '3600' )|mod( '60' )|round()
+                             }
+                             
+                             {if $days|gt( '0' )}
+                                 {$days} {'d'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $hours|gt( '0' )}
+                                 {$hours} {'h'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $minutes|gt( '0' )}
+                                 {$minutes} {'m'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $seconds|gt( '0' )}
+                                 {$seconds} {'s'|i18n( 'design/standard/block/edit' )} {'left'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                       </span>
+                      {/if}
+                      {undef $time_left}
+                {else}
+                    <span class="ts-publication">{$item.ts_publication|l10n( 'shortdatetime' )}</span>
+                        {if $item.ts_publication|lt( $current_time )|not()}
+                            (
+                            {def $time_diff = $item.ts_publication|sub( $current_time )
+                                 $days = $time_diff|div( '86400' )|floor()
+                                 $hours = $time_diff|mod( '86400' )|div( '3600' )|floor()
+                                 $minutes = $time_diff|mod( '86400' )|mod( '3600' )|div( '60' )|floor()
+                                 $seconds = $time_diff|mod( '86400' )|mod( '3600' )|mod( '60' )|round()}
+                                 
+                             {if $days|gt( '0' )}
+                                 {$days} {'d'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $hours|gt( '0' )}
+                                 {$hours} {'h'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $minutes|gt( '0' )}
+                                 {$minutes} {'m'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                                 
+                             {if $seconds|gt( '0' )}
+                                 {$seconds} {'s'|i18n( 'design/standard/block/edit' )} {'left'|i18n( 'design/standard/block/edit' )}
+                             {/if}
+                            )
+                          {/if}
+                    <input class="block-control" type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="{$item.ts_publication}" />
+                    <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" alt="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
                 {/if}
-            <input class="block-control" type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="{$item.ts_publication}" />
-            <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" alt="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
-        </td>
+            </td>
     </tr>
     {undef $item_object}
     {/foreach}

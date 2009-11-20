@@ -622,36 +622,77 @@ class eZPageType extends eZDataType
 
                             if ( $block )
                             {
-                                if ( $block->getItemCount() > 0 )
+                                foreach ( $selectedObjectIDArray as $index => $objectID )
                                 {
-                                    foreach ( $block->attribute( 'items' ) as $itemID => $item )
+                                    //judge the list if there is a same item in history
+                                    $itemAdded = false;
+                                    $itemValid = false;
+                                    $historyItems = $block->attribute( 'archived' );
+                                    foreach( $historyItems as $historyItem )
                                     {
-                                        foreach ( $selectedObjectIDArray as $index => $objectID )
+                                        if( $historyItem->attribute( 'object_id' ) == $objectID )
+                                        {
+                                            $itemAdded = $historyItem;
+                                        }
+                                    }
+                                    $validItems = $block->attribute( 'valid' );
+                                    foreach( $validItems as $validItem )
+                                    {
+                                        if( $validItem->attribute( 'object_id' ) == $objectID )
+                                        {
+                                            $itemValid = $validItem;
+                                        }
+                                    }
+                                    
+                                    //judge if the item will be removed
+                                    $itemToBeRemoved = false;
+                                    if ( $block->getItemCount() > 0 )
+                                    {
+                                        foreach ( $block->attribute( 'items' ) as $itemID => $item )
                                         {
                                             if ( $item->attribute( 'object_id' ) == $objectID )
                                             {
                                                 if ( $item->toBeRemoved() )
                                                 {
-                                                    $block->removeItem( $itemID );
-                                                    unset( $selectedObjectIDArray[$index] );
+                                                    $itemToBeRemoved = true;
+                                                    $itemAdded = $item;
                                                  }
                                             }
                                         }
                                     }
-                                }
-
-                                foreach ( $selectedObjectIDArray as $index => $objectID )
-                                {
-                                    $item = $block->addItem( new eZPageBlockItem() );
+                                    
                                     $node = eZContentObjectTreeNode::fetchByContentObjectID( $objectID );
                                     $object = $node[0]->object();
                                     $nodeID = $node[0]->attribute( 'node_id' );
-
-                                    $item->setAttribute( 'object_id', $objectID );
-                                    $item->setAttribute( 'node_id', $nodeID );
-                                    $item->setAttribute( 'priority', $block->getItemCount() );
-                                    $item->setAttribute( 'ts_publication', time() );
-                                    $item->setAttribute( 'action', 'add' );
+                                    if( $itemAdded || $itemToBeRemoved )
+                                    {
+                                        //if there is same item in history, or item to be removed (in history or valid), set the item in history to be modified
+                                        // if item is not to be removed, add to the block since it's not in block ,but in history or valid
+                                        if( !$itemToBeRemoved )
+                                        {
+                                            $block->addItem( $itemAdded );
+                                        }
+                                        $itemAdded->setXMLStorable( true );
+                                        $itemAdded->setAttribute( 'node_id', $nodeID );
+                                        $itemAdded->setAttribute( 'priority', $block->getItemCount() );
+                                        $itemAdded->setAttribute( 'ts_publication', time() );
+                                        $itemAdded->setAttribute( 'ts_visible', '0' );
+                                        $itemAdded->setAttribute( 'ts_hidden', '0' );
+                                        $itemAdded->setAttribute( 'action', 'modify' );
+                                    }
+                                    else
+                                    {
+                                        if( !$itemValid )
+                                        {
+                                            //if there is no same item in history and valid, also the item is not to be removed, add new
+                                            $item = $block->addItem( new eZPageBlockItem() );
+                                            $item->setAttribute( 'object_id', $objectID );
+                                            $item->setAttribute( 'node_id', $nodeID );
+                                            $item->setAttribute( 'priority', $block->getItemCount() );
+                                            $item->setAttribute( 'ts_publication', time() );
+                                            $item->setAttribute( 'action', 'add' );
+                                        }
+                                    }
                                 }
                             }
                             
@@ -959,6 +1000,14 @@ class eZPageType extends eZDataType
                                             if ( $item->hasAttribute( 'priority' ) )
                                             {
                                                 $db->query( "UPDATE ezm_pool SET priority='" . $item->attribute( 'priority' ) . "'
+                                                                WHERE object_id='" . $item->attribute( 'object_id' ) . "'
+                                                                    AND block_id='" . $blockID ."'" );
+                                            }
+                                            //if there is ts_hidden and ts_visible, update the two fields. This is the case when add items from history
+                                            if ( $item->hasAttribute( 'ts_hidden' ) && $item->hasAttribute( 'ts_visible' ) )
+                                            {
+                                                $db->query( "UPDATE ezm_pool SET ts_hidden='" . $item->attribute( 'ts_hidden' ) . "',
+                                                             ts_visible='" . $item->attribute('ts_visible') . "' 
                                                                 WHERE object_id='" . $item->attribute( 'object_id' ) . "'
                                                                     AND block_id='" . $blockID ."'" );
                                             }

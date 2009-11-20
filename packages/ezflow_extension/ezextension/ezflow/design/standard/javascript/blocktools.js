@@ -50,6 +50,12 @@ YAHOO.ez.BlockDD = function() {
             a.onComplete.subscribe(function() {
                 Dom.setStyle(proxyid, "visibility", "hidden");
                 Dom.setStyle(thisid, "visibility", "");
+                //clear the time left of items in rotation queue
+                var tableBody = srcEl.parentNode;
+                var timeLeft = Dom.getElementsByClassName("rotation-time-left", "span", tableBody);
+                for (i=0;i<timeLeft.length;i++){
+                    timeLeft[i].innerHTML="";
+                }
             });
             a.animate();
 
@@ -66,6 +72,7 @@ YAHOO.ez.BlockDD = function() {
             postData += "Block=" + tableID + "&ContentObjectAttributeID=" + cfg.attributeid + "&Version=" + cfg.version;
 
             YAHOO.util.Connect.asyncRequest( 'POST', cfg.url, '', postData );
+            
         },
 
         onDragDrop: function(e, id) {

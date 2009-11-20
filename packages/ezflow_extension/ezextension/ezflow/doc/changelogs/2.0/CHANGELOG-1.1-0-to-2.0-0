@@ -13,3 +13,4 @@ Changes from 1.1-0 to 2.0-0
 - Fixed bug #15492: "Google map items" doesn't fetch subtree, only children of the selected node
 - Fixed bug #15493: "Google map items" clears other input fields when you select "Source"
 - Fixed bug #15552: ezflow: Fatal error if deleting an block and creating a new one (under some circumstances )
+- Fixed bug #15676: impossible to activate previously archived article with eZ Flow when using its cronjob (patch by XC)

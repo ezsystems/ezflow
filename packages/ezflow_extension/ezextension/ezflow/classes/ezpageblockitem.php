@@ -191,5 +191,15 @@ class eZPageBlockItem
     {
         return isset( $this->attributes['action'] ) && $this->attributes['action'] == 'add';
     }
+    
+    /**
+     * set the block item to be storable in the content object
+     * @param bool $xmlStorable
+     * @return void
+     */
+    public function setXMLStorable( $xmlStorable )
+    {
+        $this->XMLStorable = $xmlStorable;
+    }
 }
 ?>

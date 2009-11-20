@@ -32,7 +32,8 @@ class eZPageBlock
                                                 'valid_nodes' => 'getValidItemsAsNodes',
                                                 'archived' => 'getArchivedItems',
                                                 'view_template' => 'viewTemplate',
-                                                'edit_template' => 'editTemplate' );
+                                                'edit_template' => 'editTemplate',
+                                                'last_valid_item' => 'getLastValidItem' );
 
     /**
      * Constructor
@@ -413,8 +414,36 @@ class eZPageBlock
                 {
                     if ( isset( $itemObjects[$oid] ) )
                     {
-                        $itemObjects[$oid]->setAttribute( 'ts_publication', $item->attribute( 'ts_publication' ) );
-                        $itemObjects[$oid]->setAttribute( 'priority', $item->attribute( 'priority' ) );
+                        //modify an item in history to be visible
+                        //if item from db is hidden, visible=0 and the item from draft is not, delete it from db queue
+                        //this is the case when requesting the history items and valid item
+                        if( $item->attribute( 'ts_hidden' ) == 0 && $item->attribute( 'ts_visible' ) == 0 )
+                        {
+                            if( !$mergeAdded )
+                            {
+                                unset( $itemObjects[$oid] );
+                            }
+                        }
+                        else
+                        {
+                            //this is the case when fetching valid items
+                            $itemObjects[$oid]->setAttribute( 'ts_publication', $item->attribute( 'ts_publication' ) );
+                            $itemObjects[$oid]->setAttribute( 'priority', $item->attribute( 'priority' ) );
+                        }
+                    }
+                    else
+                    {
+                        //modify an item in history to be visible
+                        //if the items from db don't have the item
+                        //and modified item is not hidden, add it to the item list.
+                        //this is the case when requesting the queue
+                        if( $item->attribute( 'ts_hidden' ) == 0 && $item->attribute( 'ts_visible' ) == 0)
+                        {
+                            if( $mergeAdded )
+                            {
+                                $itemObjects[$oid] = $item;
+                            }
+                        }
                     }
                 }
             }
@@ -468,6 +497,31 @@ class eZPageBlock
     {
         $archivedItems = eZFlowPool::archivedItems( $this->id() );
         return $this->merge( $archivedItems );
+    }
+    
+    /**
+     * Fetch last valid item in valid list, if valid is empty, return null
+     * in case of the same valid items, return the last one in order
+     * @return eZPageBlockItem
+     */
+    protected function getLastValidItem()
+    {
+        $validItems = $this->getValidItems();
+        $result = null;
+        if( count( $validItems ) > 0 )
+        {
+            $result = null;
+            $lastTime = 0;
+            foreach($validItems as $item)
+            {
+                if( $item -> attribute( 'ts_visible' ) >= $lastTime)
+                {
+                    $lastTime = $item -> attribute( 'ts_visible' );
+                    $result = $item;
+                }
+            }
+        }
+        return $result;
     }
 
     /**
