@@ -1,0 +1,5 @@
+Changes from 2.0-0 to 2.1-0
+
+*Bugs*
+
+- Fixed bug #15676: impossible to activate previously archived article with eZ Flow when using its cronjob (patch by XC)
