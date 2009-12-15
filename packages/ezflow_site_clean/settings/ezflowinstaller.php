@@ -1330,7 +1330,7 @@ class eZFlownInstaller extends eZSiteInstaller
                 'AvailableDataTypes' => $availableDatatype 
             ) 
         ) );
-        $this->insertDBFile( 'ezflow_extension', 'ezflow', true );
+        $this->insertDBFile( 'ezflow_extension', 'ezflow', false );
         $this->insertDBFile( 'ezstarrating_extension', 'ezstarrating' );
         $this->insertDBFile( 'ezgmaplocation_extension', 'ezgmaplocation' );
     }
