@@ -178,7 +178,7 @@ eZAJAXSearch.init();
     <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezflow/edit/frontpage' )}" />
     <input type="hidden" name="DiscardConfirm" value="0" />
     <input type="hidden" name="RedirectIfDiscarded" value="{ezhttp( 'LastAccessesURI', 'session', true() )}" />
-    <input type="hidden" name="RedirectURIAfterPublish" value="{ezhttp( 'LastAccessesURI', 'session', true() )}" />
+    <input type="hidden" name="RedirectURIAfterPublish" value="{if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}{ezhttp( 'LastAccessesURI', 'session' )}{/if}" />
     </div>
 </div>
 
