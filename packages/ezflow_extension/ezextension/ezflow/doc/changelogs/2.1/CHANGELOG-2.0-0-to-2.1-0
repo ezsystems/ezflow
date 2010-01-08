@@ -5,3 +5,5 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #15676: impossible to activate previously archived article with eZ Flow when using its cronjob (patch by XC)
 - Fixed bug #15849: Unknown session variable 'LastAccessesURI'
 - Fixed bug #15850: PHP warning thrown when publishing frontpage
+- Fixed bug #16014: iPhone siteaccess missing image and DB settings by default
+- Fixed bug #015600: Little Mistake in ezflow 2.0-0 in site.ini
