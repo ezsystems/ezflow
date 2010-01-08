@@ -154,6 +154,10 @@ class eZFlownInstaller extends eZSiteInstaller
                                           '_params' => array() ),
                                    array( '_function' => 'createTranslationSiteAccesses',
                                           '_params' => array() ),
+                                   array( '_function' => 'createiPhoneSiteAccess', 
+                                          '_params' => array() ), 
+                                   array( '_function' => 'updateiPhoneImageINISettings', 
+                                          '_params' => array() ),
                                    array( '_function' => 'updateTemplateLookClassAttributes',
                                           '_params' => array() ),
                                    array( '_function' => 'updateTemplateLookObjectAttributes',
@@ -787,6 +791,85 @@ class eZFlownInstaller extends eZSiteInstaller
         }
     }
 
+
+    function createiPhoneSiteAccess()
+    {
+        $this->createSiteAccess( array( 
+            'src' => array( 
+                'siteaccess' => $this->setting( 'user_siteaccess' ) 
+            ), 
+            'dst' => array( 
+                'siteaccess' => 'iphone', 
+                'settings' => array( 
+                    'site.ini' => array(
+                        'DesignSettings' => array( 
+                            'AdditionalSiteDesignList' => array(
+                                'ezflow', 'ezwebin', 'base', 'standard'
+                                ),
+                            'SiteDesign' => 'iphone'
+                            ),
+                        ) 
+                    ) 
+                ) 
+            ) 
+        );
+        
+    }
+    
+    function updateiPhoneImageINISettings()
+    {
+        $settings = $this->siteImageINISettings();
+        
+        $settings['settings']['AliasSettings'] = array(
+            'AliasList' => array_merge(
+                $settings['settings']['AliasSettings']['AliasList'],
+                array(
+                    'iphonelarge', 
+                    'ifrontpagegallery', 
+                    'iphonethumb', 
+                    'iphoneminithumb', 
+                    'imainstory1'
+                )
+            )
+        );
+        $settings['settings']['iphonelarge'] = array(
+            'Reference' => '',
+            'Filters' => array(
+                'geometry/scalewidthdownonly=285'
+            )
+        );
+        $settings['settings']['iphonethumb'] = array(
+            'Reference' => '',
+            'Filters' => array(
+                'geometry/scalewidthdownonly=139'
+            )
+        );
+        $settings['settings']['iphoneminithumb'] = array(
+            'Reference' => '',
+            'Filters' => array(
+                'geometry/scalewidthdownonly=102.2'
+            )
+        );
+        $settings['settings']['ifrontpagegallery'] = array(
+            'Reference' => '',
+            'Filters' => array(
+                'geometry/scalewidthdownonly=239'
+            )
+        );
+        $settings['settings']['imainstory1'] = array(
+            'Reference' => '',
+            'Filters' => array(
+                'geometry/scalewidthdownonly=302'
+            )
+        );
+
+        $ini = eZINI::instance( $settings['name'], 'settings/siteaccess/iphone', null, false, null, true );
+        $ini->reset();
+
+        $ini->setReadOnlySettingsCheck( false );
+        $ini->setVariables( $settings['settings'] );
+        $ini->save( $settings['name'], '.append.php', false, null, 'settings/siteaccess/iphone', true );
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     // Setup roles
