@@ -1,19 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$site.http_equiv.Content-language|wash}" lang="{$site.http_equiv.Content-language|wash}">
 <head>
-    <style type="text/css">
-        @import url({"stylesheets/core.css"|ezdesign(no)});
-        @import url({"stylesheets/content.css"|ezdesign(no)});
-        @import url({ezini('StylesheetSettings','ClassesCSS','design.ini')|ezroot(no)});
-        @import url({ezini('StylesheetSettings','SiteCSS','design.ini')|ezroot(no)});
-        {foreach ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ) as $css_file}
-        @import url({concat( 'stylesheets/', $css_file )|ezdesign});
-        {/foreach}
-    
-        @import url({"stylesheets/iphone.css"|ezdesign(no)});
-    </style>
     
     {include uri='design:page_head.tpl'}
+    {include uri='design:page_head_style.tpl'}
+    {include uri='design:page_head_script.tpl'}
+
+    {ezcss_require( 'iphone.css' )}
 
 	<meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/
 </head>
@@ -29,14 +22,10 @@
             {* Only show full version link and logo on the frontpage *}
             {if $module_result.path|count|eq(1)}
                 <div id="logo">
-                    <div id="full-version-link">
-                        <a href="/">Non-iPhone optimized site</a>
-                    </div>
-
                         {if $pagedesign.data_map.image.content.is_valid|not()}
                             <h1><a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}">{ezini('SiteSettings','SiteName')}</a></h1>
                         {else}
-                            <a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}"><img src={$pagedesign.data_map.image.content[iphonethumb].full_path|ezroot} alt="{$pagedesign.data_map.image.content[iphonethumb].text}" width="{$pagedesign.data_map.image.content[iphonethumb].width}" height="{$pagedesign.data_map.image.content[iphonethumb].height}" /></a>
+                            <a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}" class="mobile-logo"></a>
                         {/if}
                 </div>
             {else}
@@ -52,25 +41,63 @@
                     {/if}
                 </div>
             {/if}
+            <div id="nav-menu">
+                <p id="nav-menu-handler">{'Navigation'|i18n('design/iphone/pagelayout')}</p>
+                <div id="nav-menu-items" style="display: none">
+                    {def $root_node = fetch( 'content', 'node', hash( 'node_id', $module_result.content_info.node_id ) )
+                         $menu_items = fetch( 'content', 'list', hash( 'parent_node_id', $root_node.node_id,
+                                                                       'sort_by', $root_node.sort_array,
+                                                                       'class_filter_type', 'include', 
+                                                                       'class_filter_array', ezini( 'MenuContentSettings', 'TopIdentifierList', 'menu.ini' ) ) )}
+                    {if $menu_items}
+                        {foreach $menu_items as $menu_item}
+                            <ul>
+                                <li><a href="{$menu_item.url_alias|ezurl('no')}" title="{$menu_item.name|wash()}">{$menu_item.name|wash()}</a></li>
+                            </ul>
+                        {/foreach}
+                    {/if}
+                    
+                    {undef $root_node $menu_items}
+                </div>
+                {ezscript_require( 'ezjsc::yui3' )}
+                <script type="text/javascript">
+                {literal}
+                    YUI().use('node','dom','event','anim', function(Y)  {
+                        Y.one('#nav-menu-handler').on('click', function(e) {
+                            var node = Y.one('#nav-menu-items');
+                            node.setStyle( 'display', 'block' );
+                                                                                        
+                            var anim = new Y.Anim({ node: node,
+                                                    from: { height: 0 },
+                                                    to: { height: function(node) {
+                                                                    return node.get('scrollHeight');
+                                                        } },
+                                                    easing: Y.Easing.easeOut 
+                                                 });
+                            anim.on( 'start', function(e) {
+                                this.get('node').setStyle( 'height', '0px' );
+                            } );
+                            anim.on( 'end', function(e) {
+                                this.get('node').addClass( 'nav-menu-expanded' );
+                            });
+                            anim.run();
+                        });
+                    } );
+                {/literal}
+                </script>
+            </div>
 
             {$module_result.content}
 
         </div>
     
         {include uri='design:page_footer.tpl'}
-
-
-        {if $pagedesign.data_map.footer_script.has_content}
-        <script language="javascript" type="text/javascript">
-        <!--
-            {$pagedesign.data_map.footer_script.content}
-        //-->
-        </script>
-        {/if}
     
     </div>
     
-    
+
+    {include uri='design:page_footer_script.tpl'}
+
     
     <!--DEBUG_REPORT-->
 </body>

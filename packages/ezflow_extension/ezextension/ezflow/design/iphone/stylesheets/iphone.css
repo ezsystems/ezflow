@@ -30,6 +30,50 @@ div.block-type-mainstory div.attribute-link
     width: 282px;
 }
 
+div#nav-menu
+{
+    padding: 3px;
+    background-color: #FFF;
+    margin: 3px 3px 0 3px;
+}
+
+p#nav-menu-handler
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+div#nav-menu-items
+{
+    border-top:1px solid rgb(217,217,217);
+}
+
+div#nav-menu-items ul
+{
+    width:100%;
+    font-family: Helvetica;    
+    list-style-type:none;
+    margin:0px;
+    padding: 0px;
+}
+
+div#nav-menu-items ul li
+{
+    list-style-type: none;
+    border-bottom:1px solid rgb(217,217,217);
+    line-height: 20px;
+    padding: 5px 10px 9px 10px;
+    background-image:url("../images/disclosure.png");
+    background-repeat: no-repeat;
+    background-position: right; 
+}
+
+div#nav-menu-items ul li:first-child
+{
+    border-top:0px
+}
+
 div#main
 {
     margin: 0;
@@ -40,6 +84,15 @@ div#logo
     padding: 3px;
     background-color: #FFF;
     margin: 0px 3px;
+    float: none;
+}
+
+div#logo a.mobile-logo
+{
+    display: block;
+    height: 39px;
+    width: 154px;
+    background-image: url(../images/iphone-site-logo.png);
 }
 
 a
@@ -209,18 +262,18 @@ div#full-version-link
 
 div#footer 
 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    color: #FFFFFF;
-    font-size: 0.7em;
-    text-align: center;
+    width: 100%;
 }
 
 div#footer a
 {
     color: #FFFFFF;
     text-decoration: underline;
+}
+
+div.page-view-type span.mobile-site
+{
+    font-weight: bold;
 }
 
 div.attribute-header
