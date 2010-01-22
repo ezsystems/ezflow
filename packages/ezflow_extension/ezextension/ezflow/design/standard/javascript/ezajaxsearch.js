@@ -18,10 +18,7 @@ var eZAJAXSearch = function() {
                         
                         var template = ret.cfg.resulttemplate;
                         template = template.replace(/\{+title+\}/, item.name);
-                        
-                        var date = new Date( item.published * 1000 );
-                        var dateString = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDay();
-                        template = template.replace(/\{+date+\}/, dateString);
+                        template = template.replace(/\{+date+\}/, item.published_date);
                         template = template.replace(/\{+class_name+\}/, item.class_name);
                         template = template.replace(/\{+url_alias+\}/, item.url_alias);
                         template = template.replace(/\{+object_id+\}/, item.id);
@@ -37,12 +34,14 @@ var eZAJAXSearch = function() {
 
         var performSearch = function() {
             var searchString = Y.get(ret.cfg.searchstring).get('value');
+            var dateFormatType = ret.cfg.dateformattype;
 
             var data = 'SearchStr=' + searchString;
             data += '&SearchLimit=10';
             data += '&SearchOffset=0';
+            data += '&EncodingFormatDate=' + dateFormatType;
             
-            var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezflow::search' ;
+            var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezjsc::search' ;
             
             if(searchString !== '') {
                 Y.io.ez(backendUri, {on: {success: successCallBack}, method: 'POST', data: data });

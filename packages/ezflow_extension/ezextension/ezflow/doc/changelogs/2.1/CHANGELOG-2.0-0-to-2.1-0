@@ -6,4 +6,5 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #15849: Unknown session variable 'LastAccessesURI'
 - Fixed bug #15850: PHP warning thrown when publishing frontpage
 - Fixed bug #16014: iPhone siteaccess missing image and DB settings by default
-- Fixed bug #015600: Little Mistake in ezflow 2.0-0 in site.ini
+- Fixed bug #15600: Little Mistake in ezflow 2.0-0 in site.ini
+- Fixed bug #16005: ezajaxsearch does not use locales when shows date
