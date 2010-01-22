@@ -125,6 +125,7 @@ eZAJAXSearch.cfg = {ldelim}
                         searchstring: '#search-string-{$object.id}',
                         searchbutton: '#search-button-{$object.id}',
                         searchresults: '#search-results-{$object.id}',
+                        dateformattype: 'shortdatetime',
                         resulttemplate: '<div class="block"><div class="item-title">{ldelim}title{rdelim}</div><div class="item-published-date">[{ldelim}class_name{rdelim}] {ldelim}date{rdelim}</div><div class="item-selector"><input type="checkbox" value="{ldelim}object_id{rdelim}" name="SelectedObjectIDArray[]" /></div></div>'
                    {rdelim};
 eZAJAXSearch.init();

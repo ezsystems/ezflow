@@ -173,6 +173,12 @@ class eZFlowAjaxContent
         $ret['class_id']         = (int) $contentObject->attribute( 'contentclass_id' );
         $ret['class_name']       = $contentObject->attribute( 'class_name' );
 
+        if ( isset( $params['formatDate'] ) )
+        {
+            $ret['modified_date'] = self::formatLocaleDate( $contentObject->attribute( 'modified' ), $params['formatDate'] );
+            $ret['published_date'] = self::formatLocaleDate( $contentObject->attribute( 'published' ), $params['formatDate'] );
+        }
+
         if ( $node )
         {
             // optimization for eZ Publish 4.1 (avoid fetching class)
@@ -514,6 +520,33 @@ class eZFlowAjaxContent
     protected function phpJsonEncodeNameValue( $name, $value )
     {
         return (sprintf("%s:%s", $this->phpJsonEncode(strval($name)), $this->phpJsonEncode($value)));
+    }
+
+    /**
+     * Format date timestamp according to currently used locale code
+     * Allowed are following types:
+     * - time
+     * - shorttime
+     * - date
+     * - shortdate
+     * - datetime
+     * - shortdatetime
+     * 
+     * @param integer $timestamp
+     * @param string $type
+     * @return string
+     */
+    public static function formatLocaleDate( $timestamp, $type )
+    {
+        $formattedDate = null;
+
+        $locale = eZLocale::instance();
+
+        $method = $locale->getFormattingFunction( $type );
+        if ( $method )
+            $formattedDate = $locale->$method( $timestamp );
+
+        return $formattedDate;
     }
 }
 

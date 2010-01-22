@@ -45,6 +45,10 @@ class eZFlowServerCallFunctions
 
         if ( $searchLimit > 30 ) $searchLimit = 30;
 
+        $encodeParams = array();
+        if ( $http->hasPostVariable( 'EncodingFormatDate' ) )
+            $encodeParams['formatDate'] = $http->postVariable( 'EncodingFormatDate' );
+
         //Preper the search params
         $param = array( 'SearchOffset' => $searchOffset,
                         'SearchLimit' => $searchLimit+1,
@@ -85,7 +89,7 @@ class eZFlowServerCallFunctions
         $searchList = eZSearch::search( $searchStr, $param );
 
         $result = array();
-        $result['SearchResult'] = eZFlowAjaxContent::nodeEncode( $searchList['SearchResult'], array(), false );
+        $result['SearchResult'] = eZFlowAjaxContent::nodeEncode( $searchList['SearchResult'], $encodeParams, false );
         $result['SearchCount'] = $searchList['SearchCount'];
         $result['SearchOffset'] = $searchOffset;
         $result['SearchLimit'] = $searchLimit;
