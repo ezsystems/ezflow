@@ -7,9 +7,7 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk (ezflow-2.1) rev. 4348)
 - Fixed bug #15850: PHP warning thrown when publishing frontpage
   (Merged from trunk (ezflow-2.1) rev. 4352)
-- Fixed bug #15600: Little Mistake in ezflow 2.0-0 in site.ini
+- Fixed bug #015600: Little Mistake in ezflow 2.0-0 in site.ini
   (Merged from trunk rev. 4376) 
-- Fixed bug #16014: iPhone siteaccess missing image and DB settings by default
+- Fixed bug #016014: iPhone siteaccess missing image and DB settings by default
   (Merged from trunk rev. 4376)
-- Fixed bug #16005: ezajaxsearch does not use locales when shows date
-  (Merged from trunk rev. 4389)
