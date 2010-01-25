@@ -36,13 +36,17 @@ class eZFlowMCFetch implements eZFlowFetchInterface
         // Do not fetch hidden nodes even when ShowHiddenNodes=true
         $subTreeParameters['AttributeFilter'] = array( 'and', array( 'visibility', '=', true ) );
 
-        $result = eZContentObjectTreeNode::subTreeByNodeID( $subTreeParameters, $nodeID );
+        $nodes = eZContentObjectTreeNode::subTreeByNodeID( $subTreeParameters, $nodeID );
+        
+        if ( $nodes === null )
+            return array();
+        
         $fetchResult = array();
-        foreach( $result as $item )
+        foreach( $nodes as $node )
         {
-            $fetchResult[] = array( 'object_id' => $item['contentobject_id'],
-                                    'node_id' => $item['node_id'],
-                                    'ts_publication' => $item['published'] );
+            $fetchResult[] = array( 'object_id' => $node['contentobject_id'],
+                                    'node_id' => $node['node_id'],
+                                    'ts_publication' => $node'published'] );
         }
 
         return $fetchResult;

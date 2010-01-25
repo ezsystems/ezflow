@@ -8,3 +8,4 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #16014: iPhone siteaccess missing image and DB settings by default
 - Fixed bug #15600: Little Mistake in ezflow 2.0-0 in site.ini
 - Fixed bug #16005: ezajaxsearch does not use locales when shows date
+- Fixed bug #15835: Running ezflow cronjob generates PHP errors
