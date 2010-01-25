@@ -59,8 +59,7 @@ $ini = eZINI::instance();
 
 $contentObject = $node->attribute( 'object' );
 
-$nodeResult = eZNodeviewfunctions::generateNodeView( $tpl, $node, $contentObject, $languageCode, 'full', 0,
-                                                      false, false, false );
+$nodeResult = eZNodeviewfunctions::generateNodeViewData( $tpl, $node, $contentObject, $languageCode, 'full', 0 );
 
 // Generate a unique cache key for use in cache-blocks in pagelayout.tpl.
 // This should be looked as a temporary fix as ideally all cache-blocks 
