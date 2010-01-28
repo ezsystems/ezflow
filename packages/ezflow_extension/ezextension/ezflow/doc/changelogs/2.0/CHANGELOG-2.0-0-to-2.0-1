@@ -16,3 +16,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4393)
 - Fixed bug #15792: eZFlow timeline and ezdfs file handler (patch)
   (Merged from trunk rev. 4395)
+- Fixed bug #16006: ezajaxsearch does not use translation system
+  (Merged from trunk rev. 4403)
