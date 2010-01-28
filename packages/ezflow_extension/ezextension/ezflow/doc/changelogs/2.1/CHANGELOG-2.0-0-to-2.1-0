@@ -10,3 +10,4 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #16005: ezajaxsearch does not use locales when shows date
 - Fixed bug #15835: Running ezflow cronjob generates PHP errors
 - Fixed bug #15792: eZFlow timeline and ezdfs file handler (patch)
+- Fixed bug #16006: ezajaxsearch does not use translation system

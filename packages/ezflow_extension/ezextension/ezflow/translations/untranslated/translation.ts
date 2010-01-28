@@ -510,4 +510,11 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
