@@ -46,7 +46,7 @@ class eZFlowMCFetch implements eZFlowFetchInterface
         {
             $fetchResult[] = array( 'object_id' => $node['contentobject_id'],
                                     'node_id' => $node['node_id'],
-                                    'ts_publication' => $node'published'] );
+                                    'ts_publication' => $node['published'] );
         }
 
         return $fetchResult;
