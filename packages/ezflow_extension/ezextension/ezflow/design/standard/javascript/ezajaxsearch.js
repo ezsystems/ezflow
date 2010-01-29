@@ -32,13 +32,64 @@ var eZAJAXSearch = function() {
             }
         }
 
+        var getValueForSelector = function(sel) {
+            var value, node = Y.one(sel);
+            
+            if ( node ) {
+                if (node.get('nodeName').toLowerCase() == 'input'
+                        && (node.get('type') == 'radio' 
+                                || node.get('type') == 'checkbox')) {
+                    value = (Y.one(sel + ':checked') != null) ? Y.one(sel + ':checked').get('value') : null;
+                } else if (node.get('nodeName').toLowerCase() == 'select'
+                                && node.hasAttribute('multiple')) {
+                    value = [];
+                
+                    for (var i = 0; i < node.get('options').size(); i++) {
+                        var option = node.get('options').item(i);
+                        if (option.get('selected'))
+                            value.push(option.get('value'));
+                    }
+
+                    value = value.join(',');
+                } else {
+                    value = node.get('value');
+                }
+            }
+            
+            return value;
+        }
+
         var performSearch = function() {
-            var searchString = Y.get(ret.cfg.searchstring).get('value');
+            var searchString = getValueForSelector(ret.cfg.searchstring);
             var dateFormatType = ret.cfg.dateformattype;
 
-            var data = 'SearchStr=' + searchString;
-            data += '&SearchLimit=10';
-            data += '&SearchOffset=0';
+            var value, data = 'SearchStr=' + searchString;
+            data += '&SearchLimit=' + getValueForSelector('[name=SearchLimit]');
+            
+            if (value = getValueForSelector('[name=SearchOffset]'))
+                data += '&SearchOffset=' + value;
+            
+            if (value = getValueForSelector('[name=SearchSectionID]'))
+                data += '&SearchSectionID=' + value;
+            
+            if (value = getValueForSelector('[name=SearchDate]'))
+                data += '&SearchDate=' +  value;
+
+            if (value = getValueForSelector('[name=SearchContentClassAttributeID]'))
+                data += '&SearchContentClassAttributeID=' + value;
+
+            if (value = getValueForSelector('[name=SearchContentClassID]'))
+                data += '&SearchContentClassID=' + value;
+
+            if (value = getValueForSelector('[name=SearchContentClassIdentifier]'))
+                data += '&SearchContentClassIdentifier=' + value;
+
+            if (value = getValueForSelector('[name=SearchSubTreeArray]'))
+                data += '&SearchSubTreeArray=' + value;
+
+            if (value = getValueForSelector('[name=SearchTimestamp]'))
+                data += '&SearchTimestamp=' + value;
+
             data += '&EncodingFormatDate=' + dateFormatType;
             
             var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezjsc::search' ;
