@@ -851,6 +851,10 @@ class eZFlownInstaller extends eZSiteInstaller
                         array( 
                             'module' => 'content', 
                             'function' => 'pendinglist' 
+                        ), 
+                        array( 
+                            'module' => 'content', 
+                            'function' => 'dashboard' 
                         ) 
                     ) 
                 ) 
