@@ -850,6 +850,10 @@ class eZFlownInstaller extends eZSiteInstaller
                         ), 
                         array( 
                             'module' => 'content', 
+                            'function' => 'bookmark' 
+                        ), 
+                        array( 
+                            'module' => 'content', 
                             'function' => 'pendinglist' 
                         ) 
                     ) 
