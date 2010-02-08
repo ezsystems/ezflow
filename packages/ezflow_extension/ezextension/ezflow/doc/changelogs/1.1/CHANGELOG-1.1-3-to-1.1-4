@@ -8,6 +8,7 @@ Changes from 1.1-3 to 1.1-4
   (Merged from trunk rev. 4376) 
 - Fixed bug #016014: iPhone siteaccess missing image and DB settings by default
   (Merged from trunk rev. 4376)
-  
+- Fixed bug #15676: impossible to activate previously archived article with eZ Flow when using its cronjob
+  (Merged from trunk rev. 4299)
 *Enhancements*
 
