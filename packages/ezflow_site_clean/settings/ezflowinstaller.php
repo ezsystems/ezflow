@@ -1768,8 +1768,9 @@ class eZFlownInstaller extends eZSiteInstaller
         $siteINI = eZINI::instance( 'site.ini.append.php', 'settings/siteaccess/' . $this->setting( 'admin_siteaccess' ), null, false, null, true );
         $siteINI->setVariable( 'DesignSettings', 'SiteDesign', $this->setting( 'admin_siteaccess' ) );
         $siteINI->setVariable( 'DesignSettings', 'AdditionalSiteDesignList', array( 
-            'admin', 
-            'ezflow' 
+            'admin2',
+            'admin',
+            'ezflow'
         ) );
         $siteINI->setVariable( 'SiteAccessSettings', 'RelatedSiteAccessList', $this->setting( 'all_siteaccess_list' ) );
         $siteINI->save();
