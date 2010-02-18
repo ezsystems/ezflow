@@ -859,6 +859,7 @@ class eZPageType extends eZDataType
      * @param eZContentObjectAttribute $contentObjectAttribute
      * @param eZContentObject $contentObject
      * @param array(eZContentObjectTreeNode) $publishedNodes
+     * @return bool
      */
     function onPublish( $contentObjectAttribute, $contentObject, $publishedNodes )
     {
@@ -1035,6 +1036,8 @@ class eZPageType extends eZDataType
 
         $contentObjectAttribute->content( $page );
         $contentObjectAttribute->store();
+
+        return true;
     }
 
     /**
