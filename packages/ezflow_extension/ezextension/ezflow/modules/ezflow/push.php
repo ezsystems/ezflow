@@ -48,7 +48,7 @@ $tpl = templateInit();
 $tpl->setVariable( 'node', $node );
 
 $Result['path'] = array( array( 'url' => false,
-                                'text' => eZi18n::translate( 'ezflow/push', 'Push to block' ) ) );;
+                                'text' => ezpI18n::translate( 'ezflow/push', 'Push to block' ) ) );;
 $Result['content'] = $tpl->fetch('design:page/push.tpl');
 
 ?>
