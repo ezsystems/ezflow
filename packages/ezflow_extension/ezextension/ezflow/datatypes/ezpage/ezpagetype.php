@@ -375,11 +375,13 @@ class eZPageType extends eZDataType
      * Stores the datatype data to the database which is related to the object attribute.
      *
      * @param eZContentObjectAttribute $contentObjectAttribute
+     * @return bool
      */
     function storeObjectAttribute( $contentObjectAttribute )
     {
         $page = $contentObjectAttribute->content();
         $contentObjectAttribute->setAttribute( 'data_text', $page->toXML() );
+        return true;
     }
 
     /**
