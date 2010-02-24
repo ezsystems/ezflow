@@ -16,3 +16,4 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #16160: Call to undefined function ezi18n()
 - Fixed bug #16212: ezflow: eZPageType::onPublish should return true
 - Fixed bug #16211: ezflow: eZPageType::storeObjectAttribute should return true
+- Fixed bug #16264: bad index naming in oracle
