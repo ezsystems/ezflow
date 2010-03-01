@@ -1,4 +1,4 @@
-<h1>Welcome to eZ Publish 4.2 and eZ Flow</h1>
+<h1>Welcome to eZ Publish and eZ Flow</h1>
 
 <p>You chose the eZ Flow package with a clean install and no evaluation data, this installation is empty of content.</p>
 
