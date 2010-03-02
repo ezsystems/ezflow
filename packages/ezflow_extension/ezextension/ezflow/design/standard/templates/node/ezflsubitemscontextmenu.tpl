@@ -2,6 +2,8 @@
 menuArray['eZFlow'] = new Array();
 menuArray['eZFlow']['depth'] = 1; // this is a first level submenu of ContextMenu
 menuArray['eZFlow']['elements'] = new Array();
+menuArray['eZFlow']['elements']['push-to-block'] = new Array();
+menuArray['eZFlow']['elements']['push-to-block']['url'] = {"/ezflow/push/%nodeID%"|ezurl};
 </script>
 
 <hr />
