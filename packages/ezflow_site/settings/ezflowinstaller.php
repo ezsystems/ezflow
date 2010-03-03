@@ -2191,7 +2191,7 @@ class eZFlownInstaller extends eZSiteInstaller
         // Make sure viewcaching works in admin with the new admin interface
         $settings['ContentSettings'] = array( 
             'CachedViewPreferences' => array( 
-                'full' => 'admin_navigation_content=1;admin_children_viewmode=list;admin_list_limit=1;admin_edit_show_locations=0;admin_leftmenu_width=10;admin_url_list_limit=10;admin_url_view_limit=10;admin_section_list_limit=1;admin_orderlist_sortfield=user_name;admin_orderlist_sortorder=desc;admin_search_stats_limit=1;admin_treemenu=1;admin_bookmarkmenu=1;admin_left_menu_width=13' 
+                'full' => 'admin_navigation_content=1;admin_children_viewmode=list;admin_list_limit=1' 
             ) 
         );
         $settings['SiteAccessSettings'] = array_merge( $settings['SiteAccessSettings'], array( 
