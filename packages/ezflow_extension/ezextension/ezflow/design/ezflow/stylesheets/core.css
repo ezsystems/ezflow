@@ -8,7 +8,7 @@ body /* These becomes the initial settings for most other elements */
     background-color: #464346;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8em;
-    color: #535548;;
+    color: #535548;
     text-align: center; /* IE method for centering page if it has fixed width */
     margin: 0;
     padding: 0;
@@ -77,6 +77,7 @@ a
 a:hover
 {
     color: #000000;
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -303,16 +304,28 @@ optgroup
     font-style: normal;
 }
 
-input.button, input.defaultbutton
+input.button, button, input.defaultbutton, input.button-disabled
 {
     background-image: url(../images/button-bg.png);
     background-repeat: repeat-x;
     background-position: left top;
     border: 1px solid #b9b7b7;
+    cursor: pointer;
     font-size: 0.8em;
     color: #787979;
     vertical-align: middle;
     margin: 0.25em 0 0.25em 0;
+}
+
+input.defaultbutton
+{
+	font-weight: bold;
+}
+
+input.button-disabled
+{
+    cursor: default;
+    color: #999;
 }
 
 input.box, textarea.box
@@ -366,7 +379,7 @@ fieldset label
     color: #000000;
 }
 
-fieldset input.button
+fieldset input.button, fieldset input.defaultbutton, fieldset input.button-disabled
 {
     margin-top: 0.5em;
 }
@@ -420,10 +433,15 @@ div.block /* Used around groups of objects which are connected in some way, and 
     clear: both;
 }
 
-div.block div.element /* Used if several objects are to be stacked horizontally within the same block */
+div.block div.element, div.block div.halfelement /* Used if several objects are to be stacked horizontally within the same block */
 {
     padding-right: 1em;
     float: left;
+}
+
+div.halfelement
+{
+    width: 48%;
 }
 
 div.block div.left /* Floats elements to the left in a block */
@@ -438,6 +456,16 @@ div.block div.right /* Floats elements to the right in a block */
     width: 48%;
     float: right;
     clear: right;
+}
+
+div.button-left
+{
+    float: left;
+}
+
+div.button-right
+{
+    float: right;
 }
 
 p.text-left, td.text-left, th.text-left, *.text-left
@@ -502,12 +530,46 @@ div.break /* Old method for terminating floating elements flow; kept for backwar
     margin-bottom: -1px;
 }
 
+/* SPLIT THREE */
+
+div.split
+{
+    clear: both;
+}
+
+div.split-content
+{
+    border: none;
+}
+
+div.split div.three-left
+{
+    width: 31%;
+    float: left;
+}
+
+div.split div.three-right
+{
+    width: 31%;
+    float: right;
+}
+
+div.split div.three-center
+{
+    margin: 0 35% 0 35%;
+}
+
 
 /* MISCELLANEOUS STYLES */
 
 div.oe-window /* Needed by OE 5.0 when translating content */
 {
     clear: both;
+}
+
+.small
+{
+    font-size: 85%;
 }
 
 .hide /* Used on elements which should only be visible if CSS in disabled or unavailable */
