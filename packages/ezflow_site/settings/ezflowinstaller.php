@@ -2774,15 +2774,11 @@ class eZFlownInstaller extends eZSiteInstaller
             'settings' => array( 
                 'JavaScriptSettings' => array( 
                     'JavaScriptList' => array( 
-                        'insertmedia.js', 
-                        'yui/build/yahoo-dom-event/yahoo-dom-event.js', 
-                        'yui/build/calendar/calendar-min.js', 
-                        'ezdatepicker.js' 
+                        'insertmedia.js'
                     ) 
                 ), 
                 'StylesheetSettings' => array( 
-                    'CSSFileList' => array( 
-                        'yui/build/calendar/assets/calendar.css' 
+                    'CSSFileList' => array(
                     ) 
                 ) 
             ) 
