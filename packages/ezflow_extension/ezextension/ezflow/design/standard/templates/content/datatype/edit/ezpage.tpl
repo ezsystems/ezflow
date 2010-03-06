@@ -170,5 +170,4 @@ function confirmDiscard( question )
     // Ask user if he really wants to do it.
     return confirm( question );
 {rdelim}
-{/literal}
 </script>
