@@ -24,7 +24,16 @@ var eZAJAXSearch = function()
 
                         var template = ret.cfg.resulttemplate;
                         template = template.replace(/\{+title+\}/, item.name);
-                        template = template.replace(/\{+date+\}/, item.published_date);
+                        if ( item.published_date === undefined )
+                        {
+                            var date = new Date( item.published * 1000 );
+                            var dateString = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDay();
+                            template = template.replace(/\{+date+\}/, dateString);
+                        }
+                        else
+                        {
+                            template = template.replace(/\{+date+\}/, item.published_date);
+                        }
                         template = template.replace(/\{+class_name+\}/, item.class_name);
                         template = template.replace(/\{+url_alias+\}/, item.url_alias);
                         template = template.replace(/\{+object_id+\}/, item.id);
@@ -44,9 +53,8 @@ var eZAJAXSearch = function()
 
             if ( node )
             {
-                if (node.get('nodeName').toLowerCase() == 'input'
-                        && (node.get('type') == 'radio' 
-                                || node.get('type') == 'checkbox'))
+                if ( node.get('nodeName').toLowerCase() === 'input'
+                     && ( node.get('type') === 'radio' || node.get('type') === 'checkbox') )
                 {
                     value = (Y.one(sel + ':checked') != null) ? Y.one(sel + ':checked').get('value') : null;
                 }
@@ -54,14 +62,11 @@ var eZAJAXSearch = function()
                                 && node.hasAttribute('multiple'))
                 {
                     value = [];
-
-                    for (var i = 0; i < node.get('options').size(); i++)
+                    node.get('options').each(function( option )
                     {
-                        var option = node.get('options').item(i);
-                        if (option.get('selected'))
-                            value.push(option.get('value'));
-                    }
-
+                        if ( option.get('selected') )
+                            value.push( option.get('value') );
+                    });
                     value = value.join(',');
                 }
                 else
@@ -76,7 +81,7 @@ var eZAJAXSearch = function()
         var performSearch = function()
         {
             var searchString = getValueForSelector(ret.cfg.searchstring);
-            var dateFormatType = ret.cfg.dateformattype;
+            var dateFormatType = ret.cfg.dateformattype !== undefined ? ret.cfg.dateformattype : 'shortdatetime';
 
             var value, data = 'SearchStr=' + searchString;
             data += '&SearchLimit=' + getValueForSelector('[name=SearchLimit]');
@@ -107,6 +112,14 @@ var eZAJAXSearch = function()
 
             data += '&EncodingFormatDate=' + dateFormatType;
 
+            if ( ret.cfg.customSearchAttributes !== undefined )
+            {
+                for ( var i = 0, l = ret.cfg.customSearchAttributes.length; i < l; i++ )
+                {
+                    data += '&' + Y.get( ret.cfg.customSearchAttributes[i] ).get('name') + '=' + Y.get( ret.cfg.customSearchAttributes[i] ).get('value'); 
+                }
+            }
+
             var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezjsc::search' ;
 
             if(searchString !== '')
@@ -124,10 +137,11 @@ var eZAJAXSearch = function()
         var handleKeyPress = function(e)
         {
             var key = e.which || e.keyCode;
-            if (key == 13)
+            if (key === 13)
             {
                 performSearch();
                 e.halt();
+                return false;
             }
         }
 
