@@ -73,7 +73,7 @@ YAHOO.ez.ZoneLayout = function() {
         if ( zoneCountDiff != 0 && !Dom.hasClass(zoneMapPlaceholder, 'type_' + selectedZoneType.type) ) {
             zoneMapPlaceholder.className = '';
             Dom.addClass(zoneMapPlaceholder, 'type_' + selectedZoneType.type);
-            Dom.replaceClass(zoneMapContainer, 'hidden', 'visible');
+            Dom.replaceClass(zoneMapContainer, 'hide', 'show');
             
             Dom.get('zone-map-type').innerHTML = '<p class="zone-map-type">' + selectedZoneType.name + ' [' + selectedZoneType.type + ']</p>'
             

@@ -12,10 +12,10 @@
 <div id="id_{$block.id}" class="block-container">
 
 <div class="block-header float-break">
-    <div class="left">
+    <div class="button-left">
         <em class="trigger expand"></em> {ezini( $block.type, 'Name', 'block.ini' )}
     </div>
-    <div class="right">
+    <div class="button-right">
         <input class="block-control" type="image" src="{'ezpage/block_up.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_up-{$zone_id}-{$block_id}]" alt="{'Move up'|i18n( 'design/standard/block/edit' )}" title="{'Move up'|i18n( 'design/standard/block/edit' )}" /> <input class="block-control" type="image" src="{'ezpage/block_down.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_down-{$zone_id}-{$block_id}]" alt="{'Move down'|i18n( 'design/standard/block/edit' )}" title="{'Move down'|i18n( 'design/standard/block/edit' )}" /> <input class="block-control" type="image" src="{'ezpage/block_del.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_remove_block-{$zone_id}-{$block_id}]" title="{'Remove'|i18n( 'design/standard/block/edit' )}" alt="{'Remove'|i18n( 'design/standard/block/edit' )}" value="{'Remove'|i18n( 'design/standard/block/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to remove this block?'|i18n( 'design/standard/block/edit' )}' );" />
     </div>
 </div>

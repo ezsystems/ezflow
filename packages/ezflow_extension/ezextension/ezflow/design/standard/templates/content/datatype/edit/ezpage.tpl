@@ -45,7 +45,7 @@
 {/foreach}
     <div class="break"></div>
 
-    <div id="zone-map-container" class="hidden float-break">
+    <div id="zone-map-container" class="hide float-break">
         <div id="zone-map-type"></div>
         <p>{'The total number of zones in the new layout is less than the number of zones in the previous layout. Therefore, you must map the previous zones to new zones. Unmapped zones will be removed!'|i18n( 'design/standard/datatype/ezpage' )}</p>
         <div id="zone-map-placeholder"></div>

@@ -20,3 +20,4 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #16070: eZ Flow: Wrong parameter from "push-to-block" contextmenu to "ezflow/push" (patch)
 - Fixed bug #16310: Class "Templates settings" should not have attribute "Language settings"
 - Fixed bug #16232: ezpage.tpl - literal end tag too much
+- Fixed bug #16302: ezflow GUI require some tweaks in order to be compatible with admin2 design
