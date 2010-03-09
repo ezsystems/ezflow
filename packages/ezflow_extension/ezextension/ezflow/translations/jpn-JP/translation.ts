@@ -100,36 +100,36 @@
     <name>design/admin/contextsubmenu</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ブロックにプッシュ</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/contextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/subitemcontextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&quot;%node_name&quot;の配置先を選択してください</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フロントページを選択</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ゾーンを選択</translation>
     </message>
     <message>
         <source>Select block</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">追加</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -145,18 +145,18 @@
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">保存</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/online_users</name>
     <message>
         <source>There are currently %logged_in_count active users on the system.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">現在、%logged_in_count人のログインユーザがサイトにいます。</translation>
     </message>
     <message>
         <source>There are %anonymous_count anonymous users accessing the site.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">現在、%anonymous_count人の匿名ユーザがサイトにいます。</translation>
     </message>
 </context>
 <context>
@@ -472,15 +472,15 @@
     <name>design/standard/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&quot;%node_name&quot;の配置先を選択してください</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">フロントページを選択</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ゾーンを選択</translation>
     </message>
     <message>
         <source>Select block</source>
@@ -488,11 +488,11 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">追加</translation>
     </message>
     <message>
         <source>Placement list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">配置先リスト</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -500,21 +500,21 @@
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">保存</translation>
     </message>
 </context>
 <context>
     <name>ezflow/push</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ブロックにプッシュ</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">検索</translation>
     </message>
 </context>
 </TS>
