@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -100,63 +98,70 @@
     <name>design/admin/contextsubmenu</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation>Empujar al bloque</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/contextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/subitemcontextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige ubicación para &quot;%node_name&quot;</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir página principal</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir zona</translation>
     </message>
     <message>
         <source>Select block</source>
-        <translation type="unfinished">Elegir bloque</translation>
+        <translation>Elegir bloque</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/online_users</name>
     <message>
         <source>There are currently %logged_in_count active users on the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hay %logged_in_count usuarios activos en el sistema.</translation>
     </message>
     <message>
         <source>There are %anonymous_count anonymous users accessing the site.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hay %anonymous_count usuarios anónimos accediendo al web.</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
+        <translation>Buscar</translation>
     </message>
 </context>
 <context>
@@ -167,7 +172,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>BuscarBuscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <source>Section to search</source>
@@ -256,7 +261,141 @@
     </message>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation>Empujar al bloque</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/collectedinfo/poll</name>
+    <message>
+        <source>Poll %pollname</source>
+        <translation type="obsolete">Encuesta %pollname</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation type="obsolete">Resultados</translation>
+    </message>
+    <message>
+        <source>Please log in to vote on this poll.</source>
+        <translation type="obsolete">Por favor, conéctate para votar en esta encuesta.</translation>
+    </message>
+    <message>
+        <source>You have already voted for this poll.</source>
+        <translation type="obsolete">Ya has votado en esta encuesta.</translation>
+    </message>
+    <message>
+        <source>Votes</source>
+        <translation type="obsolete">Votos</translation>
+    </message>
+    <message>
+        <source>%count total votes</source>
+        <translation type="obsolete">%count votos</translation>
+    </message>
+    <message>
+        <source>Back to poll</source>
+        <translation type="obsolete">Volver a la encuesta</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/content/edit</name>
+    <message>
+        <source>Edit %1 - %2</source>
+        <translation type="obsolete">Editar %1 - %2</translation>
+    </message>
+    <message>
+        <source>Translating content from %from_lang to %to_lang</source>
+        <translation type="obsolete">Traduciendo contenido de %from_lang a %to_lang</translation>
+    </message>
+    <message>
+        <source>Content in %language</source>
+        <translation type="obsolete">Contenido en %language</translation>
+    </message>
+    <message>
+        <source>Send for publishing</source>
+        <translation type="obsolete">Publicar</translation>
+    </message>
+    <message>
+        <source>Store draft</source>
+        <translation type="obsolete">Guardar borrador</translation>
+    </message>
+    <message>
+        <source>Discard draft</source>
+        <translation type="obsolete">Descartar borrador</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/embed/poll</name>
+    <message>
+        <source>Vote</source>
+        <translation type="obsolete">Votar</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/full/image</name>
+    <message>
+        <source>Previous</source>
+        <translation type="obsolete">Anterior</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="obsolete">Siguiente</translation>
+    </message>
+    <message>
+        <source>Next image</source>
+        <translation type="obsolete">Siguiente imagen</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/pagelayout</name>
+    <message>
+        <source>Search</source>
+        <translation type="obsolete">Buscar</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/parts/website_toolbar</name>
+    <message>
+        <source>About</source>
+        <translation type="obsolete">Acerca de</translation>
+    </message>
+    <message>
+        <source>Create here</source>
+        <translation type="obsolete">Crear aquí</translation>
+    </message>
+    <message>
+        <source>Edit: %node_name [%class_name]</source>
+        <translation type="obsolete">Editar: %node_name [%class_name]</translation>
+    </message>
+    <message>
+        <source>Move</source>
+        <translation type="obsolete">Mover</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="obsolete">Eliminar</translation>
+    </message>
+    <message>
+        <source>Add locations</source>
+        <translation type="obsolete">Añadir ubicaciones</translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="obsolete">Línea temporal</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="obsolete">Documentación</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="obsolete">Reemplazar</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="obsolete">Exportar</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="obsolete">Importar</translation>
     </message>
 </context>
 <context>
@@ -310,6 +449,28 @@
     <message>
         <source>Next image</source>
         <translation>Siguiente imagen</translation>
+    </message>
+</context>
+<context>
+    <name>design/iphone/page_footer</name>
+    <message>
+        <source>Visit:</source>
+        <translation>Visita:</translation>
+    </message>
+    <message>
+        <source>mobile site</source>
+        <translation>web móvil</translation>
+    </message>
+    <message>
+        <source>full site</source>
+        <translation>web completa</translation>
+    </message>
+</context>
+<context>
+    <name>design/iphone/pagelayout</name>
+    <message>
+        <source>Navigation</source>
+        <translation>Navegación</translation>
     </message>
 </context>
 <context>
@@ -371,6 +532,10 @@
         <translation>Rotación:</translation>
     </message>
     <message>
+        <source>sec</source>
+        <translation type="obsolete">segundo</translation>
+    </message>
+    <message>
         <source>min</source>
         <translation>minuto</translation>
     </message>
@@ -417,6 +582,10 @@
     <message>
         <source>History:</source>
         <translation>Historia:</translation>
+    </message>
+    <message>
+        <source>Rotating item.</source>
+        <translation>Rotando elemento.</translation>
     </message>
 </context>
 <context>
@@ -472,49 +641,42 @@
     <name>design/standard/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige ubicación para &quot;%node_name&quot;</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir página principal</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir zona</translation>
     </message>
     <message>
         <source>Select block</source>
-        <translation type="unfinished">Elegir bloque</translation>
+        <translation>Elegir bloque</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Placement list</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de ubicaciones</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>ezflow/push</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ezflow/block/search</name>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Empujar al bloque</translation>
     </message>
 </context>
 </TS>
