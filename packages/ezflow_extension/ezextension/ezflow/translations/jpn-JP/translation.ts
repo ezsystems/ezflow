@@ -449,7 +449,7 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>ブッロク名: </translation>
+        <translation>ブロック名: </translation>
     </message>
     <message>
         <source>Block type:</source>
