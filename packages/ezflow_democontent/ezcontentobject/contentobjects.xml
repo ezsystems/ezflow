@@ -640,7 +640,7 @@
             <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Thu, 03 Sep 2009 09:57:24 GMT" ezremote:modified="Thu, 03 Sep 2009 10:01:38 GMT" initial_language="eng-GB">
               <ezobject:object-translation language="eng-GB" object_name="eZ Conference 2009 Report">
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="293" ezremote:identifier="title" name="Title" type="ezstring">
-                  <text>eZ Conference 2009 Report</text>
+                  <text>eZ Conference &amp; Awards 2010 in Berlin</text>
                 </ezobject:attribute>
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="294" ezremote:identifier="short_title" name="Short title" type="ezstring">
                   <text></text>
@@ -653,22 +653,41 @@
                   </ezauthor>
                 </ezobject:attribute>
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="296" ezremote:identifier="intro" name="Summary" type="ezxmltext">
-                  <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
-                    <paragraph><link href="http://ez.no/company/ez_conference_awards">eZ Conference &amp; Awards 2009</link> was held in Paris from 25 to 26 of June. Over 250 people from all over the world celebrated the 10th anniversary of <link href="http://ez.no/company">eZ Systems</link>, and enjoyed the two day conference on Thursday and Friday. Well over 30 speakers provided a highly professional package of sessions reaching from <link href="http://ez.no/company/ez_conference_awards/developer_track">the developer and community track</link>, <link href="http://ez.no/company/ez_conference_awards/web_content_management_track">web content management track</link>, to <link href="http://ez.no/company/ez_conference_awards/digital_media_track">the digital media track</link>.</paragraph>
-                  </section>
+                    <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">eZ is proud to host the 8th annual <link xhtml:title="eZ Conference page" href="http://ez.no/company/ez_conference_awards">eZ Conference</link> in<strong> Berlin on the 24th and 25th of June</strong>. This Web Content Management &amp; Digital Media conference is attended by hundreds of industry leaders and experts every year, and all web professionals, including the entire eZ Ecosystem, are invited. The regular Partner meeting is held on the 23rd.</paragraph>
+                    </section>
                 </ezobject:attribute>
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="297" ezremote:identifier="body" name="Body" type="ezxmltext">
-                  <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
-                    <paragraph>There were <link href="http://ez.no/company/ez_conference_awards/sponsors">6 sponsors</link> of eZ Conference &amp; Awards 2009 where <link href="http://ez.no/partners/worldwide_partners/audaxis_france">Audaxis</link> and <link href="http://ez.no/partners/worldwide_partners/ymc_ag">YMC</link> were the main sponsors. Track sponsors were <link href="http://ez.no/partners/worldwide_partners/prosodie">Prosodie</link>, <link href="http://ez.no/partners/worldwide_partners/alter_way">Alter Way</link> and <link href="http://ez.no/partners/worldwide_partners/redpill_linpro">Redpill Linpro</link> and <link href="http://ez.no/partners/worldwide_partners/interoute">Interoute</link> was sponsoring the partner day on Wednesday June 24th.The conference was held at <link href="http://eurosites.fr/location-salle-paris-george_v.html">Eurosites George V</link> venue witch was situated at the center of the golden triangle in Paris right next to<emphasize> Champs</emphasize>-<emphasize>Élysées.</emphasize> The staff worked hard to get the 3 day event conducted smoothly and they responded very well to what is expected of a professional event venue. </paragraph>
-                    <paragraph><link href="http://ez.no/company/ez_conference_awards/ez_awards">eZ Awards</link> on Thursday evening was attended by more than 300 people who could enjoy a band and our host for some years now, Marvin Charles. The 10 category list of awards were handed out to the ones that have contributed to Open Source and the eZ Ecosystem in an exceptional way. The 90 minutes show also included several songs like "Roxie" from the musical <emphasize>Chicago </emphasize>as a way to celebrate the success of the US operations started in the windy city during 2008. The evening ended with an after party at Le Queenie (kindly sponsored by <link href="http://ez.no/partners/worldwide_partners/nxc">NXC, once more Partner of the Year 2009</link>), where all attendees met to have a few drinks and celebrate into the night. </paragraph>
-                    <paragraph>This edition of eZ Conference in Paris is probably one of the greatest in eZ history. Many are curious about where eZ Conference &amp; Awards 2010 will be held. eZ has already some ideas and will communicate this to the whole ecosystem as soon as plans are set. </paragraph>
-                    <paragraph>Once again, eZ thanks everyone involved in <link href="http://ez.no/company/ez_conference_awards">eZ Conference &amp; Awards 2009</link>, and is already looking forward to next year's edition. Feel free to fill out our <link href="http://ez.no/survey/view/124">survey for attendees</link> and give us feedback. Feel free to watch the video summary below. </paragraph>
-                  </section>
+                    <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/">
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/"><link xhtml:title="eZ Conference 2010" href="http://ez.no/company/ez_conference_awards">eZ Conference 2010</link> has a wide but focused appeal. eZ's commitment to <link xhtml:title="Free and open source software" href="http://ez.no/company/open_source_business_model">free and Open Source software</link> means that its ecosystem includes some of the brightest, well-informed professionals worldwide. Past speakers have included Open Source leaders Rasmus Lerdorf ("father" of PHP) and David Axmark (Co-Founder, MySQL), as well as business and technology experts from BBC, IBM, Lagardère, Mozilla, and Schibsted.</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The target audiences include: developers and <link href="http://ez.no/customer">customers</link> using or interested in eZ technology ( <link href="http://ez.no/ezpublish">eZ Publish</link>, <link href="http://ez.no/ezflow">eZ Flow</link>, <link href="http://ez.no/ezfind">eZ Find</link>, <link href="http://ez.no/ezcomponents">eZ Components</link> or PHP in general); Web Content Management professionals looking at best practices as well as new trends; and Digital Media Publishing specialists, as eZ's robust, <link href="http://ez.no/solutions/digital_media">media-ready solutions</link> are especially counted upon for online magazine and newspaper websites. The two days of diverse and stimulating presentations are accordingly split into three tracks: eZ Technology, Web Content Management, and Digital Media Publishing.</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Aside from the presentations, the conference offers many other useful opportunities for attendees. The eZ Systems team will be on-hand to discuss technical or business issues concerning <link href="http://ez.no/software">eZ products</link>. Further learning and networking will take place between Open Source experts, developers, implementors, content managers, web hosting companies, and more. There is also the eZ Awards and party, which recognizes the success of members of the eZ Ecosystem over the past year.</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The conference's venue in down town Berlin provides great choices for dining, sightseeing, and culture. It is easily accessible, a central location in Europe, and representative of eZ's widespread reach.</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">To register and to keep up to date on eZ Conference &amp; Awards 2010 details, visit: <link href="http://ez.no/company/ez_conference_awards">http://ez.no/company/ez_conference_awards</link></paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The 3 tracks of 2010</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">The goal of eZ Conference is to gather the whole ecosystem with the current tracks:</paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                        <ul>
+                          <li>
+                            <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Developers and customers using or interested in eZ Technology : eZ Publish, eZ Flow, eZ Find, eZ Components or PHP in general</paragraph>
+                          </li>
+                          <li>
+                            <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Web Content Management professionals looking at best practices as well as new trends</paragraph>
+                          </li>
+                          <li>
+                            <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">Digital Media Publishing specialists, eZ getting a leading position in this industry for online magazines and newspapers</paragraph>
+                          </li>
+                        </ul>
+                      </paragraph>
+                      <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
+                        <custom name="video" custom:source="http://www.youtube.com/v/je6CqRWjwfo" custom:height="277" custom:width="450"/>
+                      </paragraph>
+                    </section>
                 </ezobject:attribute>
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="298" ezremote:identifier="enable_comments" name="Enable comments" type="ezboolean">
                   <value>0</value>
                 </ezobject:attribute>
-                <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="299" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="91e32cfb50ab58aca04adfc6d3d91ae1" alternative-text="eZ Conference attendees"/>
+                <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="299" ezremote:identifier="image" name="Image" type="ezimage" image-file-key="91e32cfb50ab58aca04adfc6d3d91ae1" alternative-text="eZ Conference &amp; Awards 2010 in Berlin"/>
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="300" ezremote:identifier="caption" name="Caption (Image)" type="ezxmltext">
                   <section xmlns:image="http://ez.no/namespaces/ezpublish3/image/" xmlns:xhtml="http://ez.no/namespaces/ezpublish3/xhtml/" xmlns:custom="http://ez.no/namespaces/ezpublish3/custom/"/>
                 </ezobject:attribute>
