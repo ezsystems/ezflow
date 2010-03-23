@@ -26,3 +26,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4467)
 - Fixed bug #16232: ezpage.tpl - literal end tag too much
   (Merged from trunk rev. 4482)
+- Fixed bug #16163: eZ Flow Search Block, "Search" button has no action
+  (Merged from trunk rev. 4537)
