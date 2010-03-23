@@ -2,6 +2,8 @@
 <form id="search-form-{$block.id}" action="{'ezajax/search'|ezurl('no')}" method="post">
     <input id="search-string-{$block.id}" type="text" name="SearchStr" value="" />
     <input id="search-button-{$block.id}" class="button" type="submit" name="SearchButton" value="{'Search'|i18n( 'design/ezflow/block/search' )}" />
+    <input name="SearchOffset" type="hidden" value="0"  />
+    <input name="SearchLimit" type="hidden" value="10"  />
 </form>
 
 <div id="search-results-{$block.id}"></div>
