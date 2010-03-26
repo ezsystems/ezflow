@@ -635,10 +635,10 @@
             </ezobject:version>
           </ezobject:version-list>
         </ezremote:object>
-        <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="72" name="eZ Conference 2009 Report" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Thu, 22 Nov 2007 15:07:49 GMT" ezremote:modified="Thu, 03 Sep 2009 10:01:38 GMT" remote_id="603680038b9b31839ccac87c3ff1ce16" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
+        <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="72" name="eZ Conference &amp; Awards 2010 in Berlin" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="16" ezremote:published="Fri, 05 Mar 2010 12:22:49 GMT" ezremote:modified="Fri, 05 Mar 2010 12:22:49 GMT" remote_id="603680038b9b31839ccac87c3ff1ce16" class_remote_id="c15b600eb9198b1924063b5a68758232" ezremote:class_identifier="article" ezremote:always_available="0" initial_language="eng-GB">
           <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="2">
-            <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Thu, 03 Sep 2009 09:57:24 GMT" ezremote:modified="Thu, 03 Sep 2009 10:01:38 GMT" initial_language="eng-GB">
-              <ezobject:object-translation language="eng-GB" object_name="eZ Conference 2009 Report">
+            <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="2" ezremote:status="1" ezremote:created="Fri, 05 Mar 2010 12:22:49 GMT" ezremote:modified="Fri, 05 Mar 2010 12:22:49 GMT" initial_language="eng-GB">
+              <ezobject:object-translation language="eng-GB" object_name="eZ Conference &amp; Awards 2010 in Berlin">
                 <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="293" ezremote:identifier="title" name="Title" type="ezstring">
                   <text>eZ Conference &amp; Awards 2010 in Berlin</text>
                 </ezobject:attribute>
@@ -703,7 +703,7 @@
                 </ezobject:attribute>
               </ezobject:object-translation>
               <ezobject:node-assignment-list>
-                <node-assignment is-main-node="1" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" name="eZ Conference 2009 Report" node-id="74" remote-id="a744ef43dbd8d5b8bcff1a3720da20ed" sort-field="path" sort-order="1" priority="0"/>
+                <node-assignment is-main-node="1" parent-node-remote-id="a9ce20abb62ab03dc24ac01287fc59dc" name="eZ Conference &amp; Awards 2010 in Berlin" node-id="74" remote-id="a744ef43dbd8d5b8bcff1a3720da20ed" sort-field="path" sort-order="1" priority="0"/>
               </ezobject:node-assignment-list>
             </ezobject:version>
           </ezobject:version-list>
