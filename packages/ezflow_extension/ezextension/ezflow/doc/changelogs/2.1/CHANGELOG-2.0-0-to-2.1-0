@@ -22,3 +22,4 @@ Changes from 2.0-0 to 2.1-0
 - Fixed bug #16232: ezpage.tpl - literal end tag too much
 - Fixed bug #16302: ezflow GUI require some tweaks in order to be compatible with admin2 design
 - Fixed bug #16163: eZ Flow Search Block, "Search" button has no action
+- Fixed bug #16521: gmap block in ezflow doesnt work (YAHOO is not defined)
