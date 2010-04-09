@@ -28,3 +28,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4482)
 - Fixed bug #16163: eZ Flow Search Block, "Search" button has no action
   (Merged from trunk rev. 4537)
+- Fixed bug #16594: eZ Flow block items' new positions lost on "save draft"
+  (Merged from trunk rev. 4571)
