@@ -474,7 +474,10 @@ class eZPageBlock
     protected function getValidItems()
     {
         $validItems = eZFlowPool::validItems( $this->id() );
-        return $this->merge( $validItems );
+        $merged = $this->merge( $validItems );
+        usort( $merged, array( $this, 'sortItemsByPriority' ) );
+
+        return $merged;
     }
 
     /**
@@ -583,7 +586,7 @@ class eZPageBlock
      * @param eZPageBlockItem $b
      * @return integer
      */
-    public function sortItems( $a, $b )
+    public function sortItems( eZPageBlockItem $a, eZPageBlockItem $b )
     {
         if ( $a->attribute('ts_publication') == $b->attribute('ts_publication') )
         {
@@ -607,6 +610,29 @@ class eZPageBlock
         else
         {
             return -1;
+        }
+    }
+
+    /**
+     * Sorting items based on the priority attribute
+     *
+     * @param eZPageBlockItem $a
+     * @param eZPageBlockItem $b
+     * @return integer
+     */
+    public function sortItemsByPriority( eZPageBlockItem $a, eZPageBlockItem $b )
+    {
+        if ( $a->attribute('priority') > $b->attribute('priority') )
+        {
+            return -1;
+        }
+        else if ( $a->attribute('priority') < $b->attribute('priority') )
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
         }
     }
 
