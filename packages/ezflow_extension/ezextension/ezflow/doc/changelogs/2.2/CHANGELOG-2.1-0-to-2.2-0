@@ -1,0 +1,5 @@
+Changes from 2.1-0 to 2.2-0
+
+*Bugs*
+
+- Fixed bug #16594: eZ Flow block items' new positions lost on "save draft"
