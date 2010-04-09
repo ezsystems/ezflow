@@ -160,6 +160,13 @@
     </message>
 </context>
 <context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>design/ezflow/edit/frontpage</name>
     <message>
         <source>Search phrase</source>
@@ -418,6 +425,14 @@
         <source>History:</source>
         <translation>Historia:</translation>
     </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotating item.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -507,13 +522,6 @@
     <name>ezflow/push</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ezflow/block/search</name>
-    <message>
-        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

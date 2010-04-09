@@ -30,3 +30,4 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4537)
 - Fixed bug #16594: eZ Flow block items' new positions lost on "save draft"
   (Merged from trunk rev. 4571)
+- Fixed bug #16613: ezflow: add item is not translatable

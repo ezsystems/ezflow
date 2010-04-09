@@ -160,6 +160,13 @@
     </message>
 </context>
 <context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Suche</translation>
+    </message>
+</context>
+<context>
     <name>design/ezflow/edit/frontpage</name>
     <message>
         <source>Search phrase</source>
@@ -418,6 +425,14 @@
         <source>History:</source>
         <translation>Geschichte:</translation>
     </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotating item.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -506,16 +521,9 @@
 <context>
     <name>ezflow/push</name>
     <message>
-        <location filename="push.php" line="49"/>
+        <location filename="push.php" line="51"/>
         <source>Push to block</source>
         <translation>Zu Block hinzufügen</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezflow/block/search</name>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
