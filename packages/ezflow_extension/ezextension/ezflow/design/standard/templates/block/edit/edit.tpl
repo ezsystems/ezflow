@@ -51,7 +51,7 @@
     {if $is_dynamic}
         {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
         {if eq( $fetch_parameter, 'Source' )}
-            <input class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="Choose source" />
+            <input class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
         {else}
         <label>{$fetch_parameter}:</label> <input class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
         {/if}
@@ -88,7 +88,7 @@
             {undef $use_browse_mode}
         {/foreach}
     {else}
-        <input class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="Add item" />
+        <input class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
     {/if}
     </div>
     <div class="right source">

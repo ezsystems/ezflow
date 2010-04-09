@@ -95,6 +95,22 @@
         <source>Select:</source>
         <translation>選択: </translation>
     </message>
+    <message>
+        <source>Store draft and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle fullscreen editing!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/admin/contextsubmenu</name>
@@ -157,6 +173,13 @@
     <message>
         <source>There are %anonymous_count anonymous users accessing the site.</source>
         <translation type="unfinished">現在、%anonymous_count人の匿名ユーザがサイトにいます。</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">検索</translation>
     </message>
 </context>
 <context>
@@ -256,7 +279,7 @@
     </message>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ブロックにプッシュ</translation>
     </message>
 </context>
 <context>
@@ -310,6 +333,28 @@
     <message>
         <source>Next image</source>
         <translation>次の画像</translation>
+    </message>
+</context>
+<context>
+    <name>design/iphone/page_footer</name>
+    <message>
+        <source>Visit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mobile site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>full site</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/iphone/pagelayout</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -418,6 +463,14 @@
         <source>History:</source>
         <translation>履歴: </translation>
     </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotating item.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -508,13 +561,6 @@
     <message>
         <source>Push to block</source>
         <translation type="unfinished">ブロックにプッシュ</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezflow/block/search</name>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished">検索</translation>
     </message>
 </context>
 </TS>
