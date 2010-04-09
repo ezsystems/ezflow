@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -92,6 +94,22 @@
     <message>
         <source>Select:</source>
         <translation>Elige:</translation>
+    </message>
+    <message>
+        <source>Store draft and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle fullscreen editing!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -265,140 +283,6 @@
     </message>
 </context>
 <context>
-    <name>design/ezwebin/collectedinfo/poll</name>
-    <message>
-        <source>Poll %pollname</source>
-        <translation type="obsolete">Encuesta %pollname</translation>
-    </message>
-    <message>
-        <source>Results</source>
-        <translation type="obsolete">Resultados</translation>
-    </message>
-    <message>
-        <source>Please log in to vote on this poll.</source>
-        <translation type="obsolete">Por favor, conéctate para votar en esta encuesta.</translation>
-    </message>
-    <message>
-        <source>You have already voted for this poll.</source>
-        <translation type="obsolete">Ya has votado en esta encuesta.</translation>
-    </message>
-    <message>
-        <source>Votes</source>
-        <translation type="obsolete">Votos</translation>
-    </message>
-    <message>
-        <source>%count total votes</source>
-        <translation type="obsolete">%count votos</translation>
-    </message>
-    <message>
-        <source>Back to poll</source>
-        <translation type="obsolete">Volver a la encuesta</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezwebin/content/edit</name>
-    <message>
-        <source>Edit %1 - %2</source>
-        <translation type="obsolete">Editar %1 - %2</translation>
-    </message>
-    <message>
-        <source>Translating content from %from_lang to %to_lang</source>
-        <translation type="obsolete">Traduciendo contenido de %from_lang a %to_lang</translation>
-    </message>
-    <message>
-        <source>Content in %language</source>
-        <translation type="obsolete">Contenido en %language</translation>
-    </message>
-    <message>
-        <source>Send for publishing</source>
-        <translation type="obsolete">Publicar</translation>
-    </message>
-    <message>
-        <source>Store draft</source>
-        <translation type="obsolete">Guardar borrador</translation>
-    </message>
-    <message>
-        <source>Discard draft</source>
-        <translation type="obsolete">Descartar borrador</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezwebin/embed/poll</name>
-    <message>
-        <source>Vote</source>
-        <translation type="obsolete">Votar</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezwebin/full/image</name>
-    <message>
-        <source>Previous</source>
-        <translation type="obsolete">Anterior</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="obsolete">Siguiente</translation>
-    </message>
-    <message>
-        <source>Next image</source>
-        <translation type="obsolete">Siguiente imagen</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezwebin/pagelayout</name>
-    <message>
-        <source>Search</source>
-        <translation type="obsolete">Buscar</translation>
-    </message>
-</context>
-<context>
-    <name>design/ezwebin/parts/website_toolbar</name>
-    <message>
-        <source>About</source>
-        <translation type="obsolete">Acerca de</translation>
-    </message>
-    <message>
-        <source>Create here</source>
-        <translation type="obsolete">Crear aquí</translation>
-    </message>
-    <message>
-        <source>Edit: %node_name [%class_name]</source>
-        <translation type="obsolete">Editar: %node_name [%class_name]</translation>
-    </message>
-    <message>
-        <source>Move</source>
-        <translation type="obsolete">Mover</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Eliminar</translation>
-    </message>
-    <message>
-        <source>Add locations</source>
-        <translation type="obsolete">Añadir ubicaciones</translation>
-    </message>
-    <message>
-        <source>Timeline</source>
-        <translation type="obsolete">Línea temporal</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation type="obsolete">Documentación</translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation type="obsolete">Reemplazar</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="obsolete">Exportar</translation>
-    </message>
-    <message>
-        <source>Import</source>
-        <translation type="obsolete">Importar</translation>
-    </message>
-</context>
-<context>
     <name>design/iphone/collectedinfo/poll</name>
     <message>
         <source>Poll %pollname</source>
@@ -532,10 +416,6 @@
         <translation>Rotación:</translation>
     </message>
     <message>
-        <source>sec</source>
-        <translation type="obsolete">segundo</translation>
-    </message>
-    <message>
         <source>min</source>
         <translation>minuto</translation>
     </message>
@@ -586,6 +466,10 @@
     <message>
         <source>Rotating item.</source>
         <translation>Rotando elemento.</translation>
+    </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

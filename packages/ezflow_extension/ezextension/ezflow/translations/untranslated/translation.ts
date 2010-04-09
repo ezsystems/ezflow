@@ -95,6 +95,22 @@
         <source>Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Store draft and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle fullscreen editing!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/admin/contextsubmenu</name>
@@ -156,6 +172,13 @@
     </message>
     <message>
         <source>There are %anonymous_count anonymous users accessing the site.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/ezflow/block/search</name>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -313,6 +336,28 @@
     </message>
 </context>
 <context>
+    <name>design/iphone/page_footer</name>
+    <message>
+        <source>Visit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mobile site</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>full site</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/iphone/pagelayout</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>design/standard/block/edit</name>
     <message>
         <source>Move up</source>
@@ -418,6 +463,14 @@
         <source>History:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotating item.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -507,13 +560,6 @@
     <name>ezflow/push</name>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ezflow/block/search</name>
-    <message>
-        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
