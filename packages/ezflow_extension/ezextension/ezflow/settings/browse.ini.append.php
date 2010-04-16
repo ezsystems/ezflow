@@ -3,7 +3,7 @@
 [AddNewBlockItem]
 StartNode=content
 SelectionType=multiple
-ReturnType=ObjectID
+ReturnType=NodeID
 
 [AddNewBlockSource]
 StartNode=content

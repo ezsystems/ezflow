@@ -606,26 +606,33 @@ class eZPageType extends eZDataType
                 $zone->moveBlockDown( $params[2] );
                 break;
             case 'new_item':
-                if ( $http->hasPostVariable( 'SelectedObjectIDArray' ) )
+                if ( $http->hasPostVariable( 'SelectedNodeIDArray' ) )
                 {
                     if ( !$http->hasPostVariable( 'BrowseCancelButton' ) )
                     {
-                        $selectedObjectIDArray = $http->postVariable( 'SelectedObjectIDArray' );
+                        $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
 
                         $page = $contentObjectAttribute->content();
                         $zone = null;
                         $block = null;
 
-                        if( isset( $params[1] ) )
+                        if( isset( $params[1] ) && ( $page instanceof eZPage ) )
                             $zone = $page->getZone( $params[1] );
 
-                            if ( $zone )
-                                $block = $zone->getBlock( $params[2] );
+                        if ( $zone instanceof eZPageZone )
+                            $block = $zone->getBlock( $params[2] );
 
-                            if ( $block )
+                        if ( $block instanceof eZPageBlock )
+                        {
+                            foreach ( $selectedNodeIDArray as $index => $nodeID )
                             {
-                                foreach ( $selectedObjectIDArray as $index => $objectID )
-                                {
+                                $object = eZContentObject::fetchByNodeID( $nodeID );
+
+                                if ( !$object instanceof eZContentObject )
+                                    return false;
+
+                                $objectID = $object->attribute( 'id' );
+
                                     //judge the list if there is a same item in history
                                     $itemAdded = false;
                                     $itemValid = false;
@@ -663,9 +670,6 @@ class eZPageType extends eZDataType
                                         }
                                     }
                                     
-                                    $node = eZContentObjectTreeNode::fetchByContentObjectID( $objectID );
-                                    $object = $node[0]->object();
-                                    $nodeID = $node[0]->attribute( 'node_id' );
                                     if( $itemAdded || $itemToBeRemoved )
                                     {
                                         //if there is same item in history, or item to be removed (in history or valid), set the item in history to be modified
