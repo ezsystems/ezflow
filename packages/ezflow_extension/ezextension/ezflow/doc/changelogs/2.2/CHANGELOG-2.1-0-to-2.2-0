@@ -1,7 +1,8 @@
 Changes from 2.1-0 to 2.2-0
 
 *Enhancements*
-- Implemented enhancement #016711: Making extension aware of the order/priority in which they need to be loaded
+- Implemented enhancement #16711: Making extension aware of the order/priority in which they need to be loaded
+- Implemented enhancement #16741: Add possibility to disable time-based operations on publication
 
 *Bugs*
 
