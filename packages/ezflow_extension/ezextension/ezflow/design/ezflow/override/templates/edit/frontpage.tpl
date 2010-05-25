@@ -6,6 +6,9 @@
 
 <div class="content-edit-frontpage">
 
+{* Current gui locale, to be used for class [attribute] name & description fields *}
+{def $content_language = ezini( 'RegionalSettings', 'Locale' )}
+
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
 <div class="border-ml"><div class="border-mr"><div class="border-mc float-break">
@@ -140,10 +143,18 @@ eZAJAXSearch.init();
 <div class="content-edit">
 
     <div class="attribute-header">
-        <h1 class="long">{'Edit %1 - %2'|i18n( 'design/ezflow/edit/frontpage', , array( $class.name|wash, $object.name|wash ) )}</h1>
+        <h1 class="long">{'Edit <%object_name> (%class_name)'|i18n( 'design/ezflow/edit/frontpage', , hash( '%object_name', $object.name, '%class_name', first_set( $class.nameList[$content_language], $class.name ) ) )|wash}</h1>
     </div>
 
-    <div class="attribute-language">
+    <div class="context-information">
+
+    {if $object.content_class.description}
+    <p class="left class-description">
+        {first_set( $class.descriptionList[$content_language], $class.description )|wash}
+    </p>
+    {/if}
+
+    <p class="right translation">
     {def $language_index = 0
          $from_language_index = 0
          $translation_list = $content_version.translation_list}
@@ -167,6 +178,8 @@ eZAJAXSearch.init();
         {'Content in %language'|i18n( 'design/ezflow/edit/frontpage',, hash( '%language', $translation_list[$language_index].locale.intl_language_name ))}&nbsp;<img src="{$translation_list[$language_index].language_code|flag_icon}" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />
 
     {/if}
+    </p>
+    <div class="break"></div>
     </div>
 
     {include uri='design:content/edit_validation.tpl'}
