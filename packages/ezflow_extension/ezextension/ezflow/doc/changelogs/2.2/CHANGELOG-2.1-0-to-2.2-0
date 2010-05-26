@@ -6,6 +6,8 @@ Changes from 2.1-0 to 2.2-0
 
 *Bugs*
 
+- Fixed bug #16799: CSS class doesn't show when link is image, not text
+  (merged from eZ Publish trunk rev. 25306)
 - Fixed bug #16613: ezflow: add item is not translatable
 - Fixed bug #16598: Get rid of yui-tmp-0 when recording tests in selenium
 - Fixed bug #16594: eZ Flow block items' new positions lost on "save draft"
