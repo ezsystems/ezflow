@@ -74,6 +74,7 @@
 <!--
 (function() {ldelim}
     YUILoader.onSuccess = function() {ldelim}
+
         YAHOO.namespace("timeline.slider");
         YAHOO.timeline.slider.initalSliderPosition = {sum( $now_in_pixels, $slide_label_inital_spacing )};
 
@@ -95,25 +96,29 @@
     {rdelim}
 
     YUILoader.addModule({ldelim}
+        
         name: 'prototype',
         type: 'js',
         fullpath: '{"javascript/prototype.js"|ezdesign( 'no' )}'
     {rdelim});
     
     YUILoader.addModule({ldelim}
+        
         name: 'timeline',
         type: 'js',
         fullpath: '{"javascript/timeline/timeline.js"|ezdesign( 'no' )}'
     {rdelim});
 
     YUILoader.addModule({ldelim}
+        
         name: 'timeline-css',
         type: 'css',
         fullpath: '{"stylesheets/timeline/timeline.css"|ezdesign( 'no' )}'
     {rdelim});
     
-    YUILoader.require(["timeline-css","prototype","calendar","slider","utilities","timeline"]);
+    YUILoader.require(["calendar","slider","utilities","timeline","timeline-css","prototype"]);
     YUILoader.insert();
+
 {rdelim})();
 //-->
 </script>

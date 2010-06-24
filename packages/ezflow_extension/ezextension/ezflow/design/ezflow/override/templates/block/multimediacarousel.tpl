@@ -3,14 +3,18 @@
 (function() {ldelim}
 
 YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
+
     Y.on('domready', function(e) {ldelim}
+
         var offset = 0;
         var limit = 3;
         var total = {$block.valid_nodes|count()};
 
         var handleRequest = function(e) {ldelim}
+
             var className = e.target.get('className');
             if ( className == 'carousel-next-button' ) {ldelim}
+
                 offset += 3;
 
                 if ( offset > total )
@@ -18,6 +22,7 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
             {rdelim}
 
             if ( className == 'carousel-prev-button' ) {ldelim}
+
                 var diff = total - offset;
 
                 if( offset == 0 )
@@ -28,6 +33,7 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
 
             var colContent = Y.Node.all('#block-{$block.id} .col-content');
             colContent.each(function(n, e) {ldelim}
+
                 n.addClass('loading');
                 var height = n.get('region').bottom - n.get('region').top;
                 n.setStyle('height', height + 'px');
@@ -39,20 +45,23 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
             data += '&block_id={$block.id}';
 
             Y.io.ez( 'ezflow::getvaliditems', {ldelim} on: {ldelim} success: _callBack {rdelim}, method: 'POST', data: data {rdelim} );
-        {rdelim}
+        {rdelim};
 
         var _callBack = function(id, o) {ldelim}
+
             if ( o.responseJSON !== undefined ) {ldelim}
+
                 var response = o.responseJSON;
                 var colContent = Y.Node.all('#block-{$block.id} .col-content');
 
                 for(var i = 0; i < colContent.size(); i++) {ldelim}
+
                     var colNode = colContent.item(i);
                     if ( response.content[i] !== undefined )
                         colNode.set('innerHTML', response.content[i] );
                 {rdelim}
             {rdelim}
-        {rdelim}
+        {rdelim};
 
             var prevButton = Y.get('#block-{$block.id} input.carousel-prev-button');
             prevButton.on('click', handleRequest);
