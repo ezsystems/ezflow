@@ -14,3 +14,4 @@ Changes from 2.1-0 to 2.2-0
 - Fixed bug #15700: eZ Flow ignores locations
 - Added extension.xml. Replaces the deprecated ezinfo.php and loading.php.
 - Fixed bug #16935: eZ Flow timeline failes on Multimediacarousel beacuse missing ; in function declarations
+- Fixed bug #16904: eZFlow 'addToBlock' functionality is not working in frontpage edition view
