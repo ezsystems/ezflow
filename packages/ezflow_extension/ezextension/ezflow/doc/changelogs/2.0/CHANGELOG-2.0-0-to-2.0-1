@@ -33,3 +33,5 @@ Changes from 2.0-0 to 2.0-1
 - Fixed bug #16613: ezflow: add item is not translatable
 - Fixed bug #15700: eZ Flow ignores locations
   (Merged from trunk rev. 4580)
+- Fixed bug #16904: eZFlow 'addToBlock' functionality is not working in frontpage edition view
+  (Merged from trunk rev. 4643)
