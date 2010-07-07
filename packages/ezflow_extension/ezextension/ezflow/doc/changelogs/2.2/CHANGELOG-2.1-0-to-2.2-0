@@ -16,3 +16,4 @@ Changes from 2.1-0 to 2.2-0
 - Fixed bug #16935: eZ Flow timeline failes on Multimediacarousel beacuse missing ; in function declarations
 - Fixed bug #16904: eZFlow 'addToBlock' functionality is not working in frontpage edition view
 - Fixed bug #16634: ezflow: minor css issue
+- Fixed bug #15813: ezflow block "rss feed reader": cannot add many blocks in one page
