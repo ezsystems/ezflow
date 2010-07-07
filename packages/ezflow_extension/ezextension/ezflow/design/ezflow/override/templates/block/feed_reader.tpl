@@ -1,4 +1,4 @@
-{cache-block expiry=300}
+{cache-block expiry=300 keys=array($block.custom_attributes.source, $block.custom_attributes.limit, $block.custom_attributes.offset)}
 
 {def $source = $block.custom_attributes.source
      $limit = $block.custom_attributes.limit
