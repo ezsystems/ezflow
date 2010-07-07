@@ -171,7 +171,7 @@ div.block-container .button
 {
     border: 1px solid #D8D8D8;
     background-image: url(../../images/ezpage/button_bg.png);
-    background-repeat: center top;
+    background-position: center top;
     background-repeat: repeat-x;
     color: #FFFFFF;
     padding: 0.15em 0.5em 0.2em 0.5em;
@@ -278,7 +278,7 @@ div.zones .button
 {
     border: 1px solid #D8D8D8;
     background-image: url(../../images/ezpage/button_bg.png);
-    background-repeat: center top;
+    background-position: center top;
     background-repeat: repeat-x;
     color: #FFFFFF;
     padding: 0.15em 0.5em 0.2em 0.5em;
