@@ -35,3 +35,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4580)
 - Fixed bug #16904: eZFlow 'addToBlock' functionality is not working in frontpage edition view
   (Merged from trunk rev. 4643)
+- Fixed bug #16634: ezflow: minor css issue
+  (Merged from trunk rev. 4674,4675)
