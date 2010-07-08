@@ -15,3 +15,5 @@ Changes from 2.1-0 to 2.1-1
   (Merged from trunk rev. 4674,4675)
 - Fixed bug #15813: ezflow block "rss feed reader": cannot add many blocks in one page
   (Merged from trunk rev. 4678)
+- Fixed bug #16210: ezflow: custom attributes will not be deleted if the post variable is missing
+  (Merged from trunk rev. 4681)
