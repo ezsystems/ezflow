@@ -68,12 +68,13 @@ class eZRed5StreamListOperator
      */
     function namedParameterList()
     {
-        return array( 'fileserver' => array( 'type' => 'string',
+
+        return array( 'red5list' => array( 'fileserver' => array( 'type' => 'string',
                                              'required' => true,
                                              'default' => "" ),
                       'key' => array( 'type' => 'string',
                                       'required' => true,
-                                      'default' => "" ) );
+                                      'default' => "" ) ) );
     }
 
     /**
