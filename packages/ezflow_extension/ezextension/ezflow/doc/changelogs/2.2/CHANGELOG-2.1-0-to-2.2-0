@@ -19,3 +19,4 @@ Changes from 2.1-0 to 2.2-0
 - Fixed bug #15813: ezflow block "rss feed reader": cannot add many blocks in one page
 - Fixed bug #16210: ezflow: custom attributes will not be deleted if the post variable is missing
 - Fixed bug #15101: Undefined index in ezred5streamlist.php
+- Fixed bug #16918: dbschema.ini file on settings with wrong comment
