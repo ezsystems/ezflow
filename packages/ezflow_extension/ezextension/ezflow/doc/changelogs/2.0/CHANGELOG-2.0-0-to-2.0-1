@@ -43,3 +43,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4681)
 - Fixed bug #15101: Undefined index in ezred5streamlist.php
   (Merged from trunk rev. 4684)
+- Fixed bug #16759: Numbered lists in eZ Flow isn't numbered
+  (Merged from trunk rev. 4689)
