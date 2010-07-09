@@ -1,3 +1,10 @@
+/* ORDERED AND UNORDERED LISTS */
+
+ul li
+{
+    background-image: url(../images/li-bullet.gif);
+}
+
 /* HEADERS: START */
 
 div.attribute-header h1, div.attribute-header h1.long
