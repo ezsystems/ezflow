@@ -45,3 +45,5 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4684)
 - Fixed bug #16759: Numbered lists in eZ Flow isn't numbered
   (Merged from trunk rev. 4689)
+- Fixed bug #016562: EZOE shows to editor in edit mode mesasage "You do not have permission to view this object" instead of embed files
+  (Merged from trunk rev. 4712)
