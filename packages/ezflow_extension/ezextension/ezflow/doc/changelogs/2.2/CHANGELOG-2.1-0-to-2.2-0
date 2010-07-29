@@ -21,3 +21,4 @@ Changes from 2.1-0 to 2.2-0
 - Fixed bug #15101: Undefined index in ezred5streamlist.php
 - Fixed bug #16918: dbschema.ini file on settings with wrong comment
 - Fixed bug #16759: Numbered lists in eZ Flow isn't numbered
+- Fixed bug #016562: EZOE shows to editor in edit mode mesasage "You do not have permission to view this object" instead of embed files
