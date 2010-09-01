@@ -233,10 +233,6 @@
         <translation>Zu Block hinzufügen</translation>
     </message>
     <message>
-        <source>Edit %1 - %2</source>
-        <translation>%1 - %2 bearbeiten</translation>
-    </message>
-    <message>
         <source>Translating content from %from_lang to %to_lang</source>
         <translation>Übersetze Content von %from_lang nach %to_lang</translation>
     </message>
@@ -255,6 +251,10 @@
     <message>
         <source>Discard draft</source>
         <translation>Entwurf verwerfen</translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

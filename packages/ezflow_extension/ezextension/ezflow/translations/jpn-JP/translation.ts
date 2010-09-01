@@ -233,10 +233,6 @@
         <translation>ブロックへ追加</translation>
     </message>
     <message>
-        <source>Edit %1 - %2</source>
-        <translation>%1 - %2を編集する</translation>
-    </message>
-    <message>
         <source>Translating content from %from_lang to %to_lang</source>
         <translation>%from_langから%to_langにコンテンツを翻訳する</translation>
     </message>
@@ -255,6 +251,10 @@
     <message>
         <source>Discard draft</source>
         <translation>下書きの破棄</translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

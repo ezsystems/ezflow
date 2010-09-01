@@ -233,10 +233,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit %1 - %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Translating content from %from_lang to %to_lang</source>
         <translation type="unfinished"></translation>
     </message>
@@ -254,6 +250,10 @@
     </message>
     <message>
         <source>Discard draft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit &lt;%object_name&gt; (%class_name)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
