@@ -266,24 +266,6 @@ class eZPageType extends eZDataType
                 }
             }
         }
-        else
-        {
-            foreach ( array_keys( $page->attribute( 'zones' ) ) as $zoneID )
-            {
-                $zone = $page->getZone( $zoneID );
-
-                if ( $zone->getBlockCount() > 0 )
-                {
-                    foreach ( array_keys( $zone->attribute( 'blocks' ) ) as $blockID )
-                    {
-                        $block = $zone->getBlock( $blockID );
-
-                        $customAttributes = array();
-                        $block->setAttribute( 'custom_attributes', $customAttributes );
-                    }
-                }
-            }
-        }
 
         if ( $http->hasPostVariable( $base . '_ezpage_block_view_' . $contentObjectAttribute->attribute( 'id' ) ) )
         {

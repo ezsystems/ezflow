@@ -44,8 +44,6 @@ Changes from 2.0-0 to 2.0-1
   (Merged from trunk rev. 4674,4675)
 - Fixed bug #15813: ezflow block "rss feed reader": cannot add many blocks in one page
   (Merged from trunk rev. 4678)
-- Fixed bug #16210: ezflow: custom attributes will not be deleted if the post variable is missing
-  (Merged from trunk rev. 4681)
 - Fixed bug #15101: Undefined index in ezred5streamlist.php
   (Merged from trunk rev. 4684)
 - Fixed bug #16759: Numbered lists in eZ Flow isn't numbered
