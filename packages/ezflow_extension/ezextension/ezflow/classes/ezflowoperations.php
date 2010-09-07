@@ -2,7 +2,7 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Flow
-// SOFTWARE RELEASE: 1.1-0
+// SOFTWARE RELEASE: 2.0-0
 // COPYRIGHT NOTICE: Copyright (C) 1999-2009 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
@@ -40,7 +40,7 @@ class eZFlowOperations
     {
         $ini = eZINI::instance('ezflow.ini');
         
-        return ( $ini->variable( 'eZFlowOperations', 'UpdateOnPublish' ) == 'enabled' );
+        return ( $ini->hasGroup( 'eZFlowOperations' ) && ( $ini->variable( 'eZFlowOperations', 'UpdateOnPublish' ) == 'enabled' ) );
     }
 
     /**
@@ -51,7 +51,7 @@ class eZFlowOperations
      * @param integer $publishedBeforeOrAt
      * @return integer
      */
-    public static function updateBlockPoolByBlockID( $blockID, $publishedBeforeOrAt = false )
+    public static function updateBlockPoolByBlockID( $block, $publishedBeforeOrAt = false )
     {
         $db = eZDB::instance();
         $blockINI = eZINI::instance( 'block.ini' );
@@ -61,50 +61,39 @@ class eZFlowOperations
             $publishedBeforeOrAt = time();
         }
 
-        $result = $db->arrayQuery( "SELECT * FROM ezm_block WHERE id='$blockID'" );
-
-        if ( !$result )
-        {
-            eZDebug::writeWarning( "Block does not exist", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
-            return false;
-        }
-
-        $result = $result[0];
-
-        $blockType = $result['block_type'];
-
-        if ( !$blockINI->hasVariable( $blockType, 'FetchClass' ) )
+        if ( !$blockINI->hasVariable( $block['block_type'], 'FetchClass' ) )
         {
             // Pure manual block, nothing is going to be fetched, but we need to update last_update as it is used for rotations
-            $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='$blockID'" );
+            if ( $block['rotation_type'] != self::ROTATION_NONE )
+                $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
             return 0;
         }
 
-        $fetchClass = $blockINI->variable( $blockType, 'FetchClass' );
+        $fetchClass = $blockINI->variable( $block['block_type'], 'FetchClass' );
         @include_once( "extension/ezflow/classes/fetches/$fetchClass.php" );
         $fetchInstance = new $fetchClass();
 
         if ( !( $fetchInstance instanceof eZFlowFetchInterface ) )
         {
-            eZDebug::writeWarning( "Can't create an instance of the $fetchClass class", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
+            eZDebug::writeWarning( "Can't create an instance of the $fetchClass class", "eZFlowOperations::updateBlockPoolByBlockID('" . $block['id'] . "')" );
             return false;
         }
 
         $fetchFixedParameters = array();
-        if ( $blockINI->hasVariable( $blockType, 'FetchFixedParameters' ) )
+        if ( $blockINI->hasVariable( $block['block_type'], 'FetchFixedParameters' ) )
         {
-            $fetchFixedParameters = $blockINI->variable( $blockType, 'FetchFixedParameters' );
+            $fetchFixedParameters = $blockINI->variable( $block['block_type'], 'FetchFixedParameters' );
         }
-        $fetchParameters = unserialize( $result['fetch_params'] );
+        $fetchParameters = unserialize( $block['fetch_params'] );
         if ( !is_array( $fetchParameters ) )
         {
             // take care of blocks existing in db where ini definition changed
-            eZDebug::writeWarning( "Found existing block which has no necessary parameters serialized in the db (block needs updating)", "eZFlowOperations::updateBlockPoolByBlockID('$blockID')" );
+            eZDebug::writeWarning( "Found existing block which has no necessary parameters serialized in the db (block needs updating)", "eZFlowOperations::updateBlockPoolByBlockID('" . $block['id'] . "')" );
             $fetchParameters = array();
         }
         $parameters = array_merge( $fetchFixedParameters, $fetchParameters );
 
-        $newItems = $fetchInstance->fetch( $parameters, $result['last_update'], $publishedBeforeOrAt );
+        $newItems = $fetchInstance->fetch( $parameters, $block['last_update'], $publishedBeforeOrAt );
 
         // Update pool
         $db->begin();
@@ -117,19 +106,19 @@ class eZFlowOperations
 
             $duplicityCheck = $db->arrayQuery( "SELECT object_id
                                                 FROM ezm_pool
-                                                WHERE block_id='$blockID'
+                                                WHERE block_id='" . $block['id'] . "'
                                                   AND object_id=$objectID", array( 'limit' => 1 ) );
             if ( $duplicityCheck )
             {
-                eZDebug::writeNotice( "Object $objectID is already available in the block $blockID.", 'eZFlowOperations' );
+                eZDebug::writeNotice( "Object $objectID is already available in the block " . $block['id'] . ".", 'eZFlowOperations' );
             }
             else
             {
-                $db->query( "INSERT INTO ezm_pool(block_id,object_id,node_id,ts_publication) VALUES ('$blockID',$objectID,$nodeID,$publicationTS)" );
+                $db->query( "INSERT INTO ezm_pool(block_id,object_id,node_id,ts_publication) VALUES ('" . $block['id'] . "',$objectID,$nodeID,$publicationTS)" );
             }
         }
 
-        $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='$blockID'" );
+        $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
 
         $db->commit();
 
@@ -142,7 +131,7 @@ class eZFlowOperations
      * 
      * @static
      */
-    public static function update( $cronjobMode = false )
+    public static function update( $nodeArray = array() )
     {
         include_once( 'kernel/classes/ezcontentcache.php' );
 
@@ -164,49 +153,22 @@ class eZFlowOperations
             $db->commit();
         }
 
-        // This code will run when called from the cronjob, and not when publishing.
-        if ( $cronjobMode )
+        if ( !$nodeArray )
         {
-            // Find items that have been moved to trash or deleted
-            $itemArray = array();
-            $offset = 0;
-            $limit = 50;
-            do
+            // Update pool and pages for all nodes
+            $res = $db->arrayQuery( "SELECT DISTINCT node_id FROM ezm_block" );
+
+            foreach ( $res as $row )
             {
-                $items = $db->arrayQuery( 'SELECT object_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
-                if ( count( $items ) == 0 )
-                    break;
-
-                foreach( $items as $item )
-                {
-                    $rows = $db->arrayQuery( 'SELECT id, status FROM ezcontentobject WHERE id = ' . $item['object_id'] );
-                    if ( count( $rows ) == 0 or // deleted
-                         ( count( $rows ) == 1 and $rows[0]['status'] == 2 ) ) // trashed
-                        $itemArray[] = $item['object_id'];
-                }
-
-                $offset += $limit;
-            } while ( true );
-
-            // Remove them all from the flow
-            if ( count( $itemArray ) > 0 )
-            {
-                $db->begin();
-                $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
-                $db->commit();
+                $nodeArray[] = $row['node_id'];
             }
         }
 
-        // Update pool and pages for all nodes
-        $res = $db->arrayQuery( "SELECT DISTINCT node_id
-                         FROM ezm_block" );
-
-        foreach ( $res as $row )
+        foreach ( $nodeArray as $nodeID )
         {
             $time = time() - 5; // a safety margin
 
             $nodeChanged = false;
-            $nodeID = $row['node_id'];
 
             $blocks = $db->arrayQuery( "SELECT *
                                 FROM ezm_block
@@ -318,7 +280,7 @@ class eZFlowOperations
                 $blockChanged = false;
 
                 // Fetch new objects and add them to the queue of the current block
-                eZFlowOperations::updateBlockPoolByBlockID( $block['id'], $time );
+                eZFlowOperations::updateBlockPoolByBlockID( $block, $time );
 
                 $db->begin();
 
@@ -522,6 +484,48 @@ class eZFlowOperations
             }
         }
 
+    }
+
+    /**
+     * Clean up removed items from pool
+     * 
+     * @static
+     * @return integer Number of removed items from pool
+     */
+    public static function cleanupRemovedItems()
+    {
+        $db = eZDB::instance();
+        // Find items that have been moved to trash or deleted
+        $itemArray = array();
+        $offset = 0;
+        $limit = 50;
+        do
+        {
+            $items = $db->arrayQuery( 'SELECT object_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
+            if ( count( $items ) == 0 )
+                break;
+
+            foreach( $items as $item )
+            {
+                $rows = $db->arrayQuery( 'SELECT id, status FROM ezcontentobject WHERE id = ' . $item['object_id'] );
+                if ( count( $rows ) == 0 or // deleted
+                     ( count( $rows ) == 1 and $rows[0]['status'] == 2 ) ) // trashed
+                    $itemArray[] = $item['object_id'];
+            }
+
+            $offset += $limit;
+        } while ( true );
+
+        // Remove them all from the flow
+        $itemArrayCount = count( $itemArray );
+        if ( $itemArrayCount > 0 )
+        {
+            $db->begin();
+            $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
+            $db->commit();
+        }
+        
+        return $itemArrayCount;
     }
 }
 
