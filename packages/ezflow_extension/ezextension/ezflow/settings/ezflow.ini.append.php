@@ -1,0 +1,6 @@
+<?php /*
+
+[eZFlowOperations]
+UpdateOnPublish=disabled
+
+*/ ?>

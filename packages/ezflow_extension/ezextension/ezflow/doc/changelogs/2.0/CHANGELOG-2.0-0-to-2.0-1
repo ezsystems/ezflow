@@ -1,5 +1,10 @@
 Changes from 2.0-0 to 2.0-1
 
+*Enhancements*
+
+- Implemented enhancement #016741: Add possibility to disable time-based operations on publication
+  (Merged from trunk rev. 4618)
+
 *Bugs*
 
 - Fixed bug #15676: impossible to activate previously archived article with eZ Flow when using its cronjob (patch by XC)

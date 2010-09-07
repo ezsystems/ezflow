@@ -1043,8 +1043,8 @@ class eZPageType extends eZDataType
             }
         }
 
-        eZFlowOperations::update();
-
+        if ( eZFlowOperations::updateOnPublish() )
+            eZFlowOperations::update();
 
         foreach ( $publishedNodes as $node )
         {

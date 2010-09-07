@@ -31,6 +31,19 @@ class eZFlowOperations
     const ROTATION_RANDOM = 2;
 
     /**
+     * Checks if time based operations are enabled for publishing operation
+     * 
+     * @static
+     * @return bool
+     */
+    public static function updateOnPublish()
+    {
+        $ini = eZINI::instance('ezflow.ini');
+        
+        return ( $ini->variable( 'eZFlowOperations', 'UpdateOnPublish' ) == 'enabled' );
+    }
+
+    /**
      * Update block pool for block with given $blockID
      * 
      * @static
