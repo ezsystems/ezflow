@@ -48,7 +48,8 @@ class eZFlowLatestObjects implements eZFlowFetchInterface
         $subTreeParameters['AttributeFilter'] = array(
             'and',
             array( 'published', '>', $publishedAfter ),
-            array( 'published', '<=', $publishedBeforeOrAt )
+            array( 'published', '<=', $publishedBeforeOrAt ),
+            array( 'visibility', '=', true ) // Do not fetch hidden nodes even when ShowHiddenNodes=true
         );
 
         if ( isset( $parameters['Class'] ) )
@@ -56,9 +57,11 @@ class eZFlowLatestObjects implements eZFlowFetchInterface
             $subTreeParameters['ClassFilterType'] = 'include';
             $subTreeParameters['ClassFilterArray'] = explode( ';', $parameters['Class'] );
         }
-        
-        // Do not fetch hidden nodes even when ShowHiddenNodes=true
-        $subTreeParameters['AttributeFilter'] = array( 'and', array( 'visibility', '=', true ) );
+
+        if ( isset( $parameters['Limit'] ) )
+        {
+            $subTreeParameters['Limit'] = (int)$parameters['Limit'];
+        }
 
         $result = eZContentObjectTreeNode::subTreeByNodeID( $subTreeParameters, $nodeID );
         $fetchResult = array();

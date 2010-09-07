@@ -2,7 +2,7 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Flow
-// SOFTWARE RELEASE: 1.1-0
+// SOFTWARE RELEASE: 2.0-0
 // COPYRIGHT NOTICE: Copyright (C) 1999-2009 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
@@ -26,9 +26,16 @@
 
 if ( !$isQuiet )
 {
-    $cli->output( "Updating ezm_pool" );
+    $cli->output( "Performing cleanup operations." );
+    $cli->output( "Cleaning up removed items ..." );
 }
 
-eZFlowOperations::update();
+$count = eZFlowOperations::cleanupRemovedItems();
+
+if ( !$isQuiet )
+{
+    $cli->output( "Number of removed items: $count" );
+    $cli->output( "Done." );
+}
 
 ?>
