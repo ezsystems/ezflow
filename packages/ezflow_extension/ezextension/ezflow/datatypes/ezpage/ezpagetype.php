@@ -1044,7 +1044,14 @@ class eZPageType extends eZDataType
         }
 
         if ( eZFlowOperations::updateOnPublish() )
-            eZFlowOperations::update();
+        {
+            $nodeArray = array();
+            foreach ( $publishedNodes as $node )
+            {
+                $nodeArray[] = $node->attribute( 'node_id' );
+            }
+            eZFlowOperations::update( $nodeArray );
+        }
 
         foreach ( $publishedNodes as $node )
         {
