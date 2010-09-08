@@ -588,13 +588,13 @@ class eZPageBlock
      */
     public function sortItems( eZPageBlockItem $a, eZPageBlockItem $b )
     {
-        if ( $a->attribute('ts_publication') == $b->attribute('ts_publication') )
+        if ( $a->attribute('priority') == $b->attribute('priority') )
         {
-            if ( $a->attribute('priority') > $b->attribute('priority') )
+            if ( $a->attribute('ts_publication') > $b->attribute('ts_publication') )
             {
                 return 1;
             }
-            else if ( $a->attribute('priority') < $b->attribute('priority') )
+            else if ( $a->attribute('ts_publication') < $b->attribute('ts_publication') )
             {
                 return -1;
             }
@@ -603,13 +603,17 @@ class eZPageBlock
                 return 0;
             }
         }
-        else if ( $a->attribute('ts_publication') > $b->attribute('ts_publication') )
+        else if ( $a->attribute('priority') > $b->attribute('priority') )
+        {
+            return -1;
+        }
+        else if ( $a->attribute('priority') < $b->attribute('priority') )
         {
             return 1;
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
 
