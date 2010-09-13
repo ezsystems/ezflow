@@ -4,6 +4,8 @@ Changes from 2.1-0 to 2.1-1
 
 - Implemented enhancement #016741: Add possibility to disable time-based operations on publication
   (Merged from trunk rev. 4618)
+- Implemented enhancement #17271: eZ publish 4.4 beta3: eZ flow my profile page
+  (Merged from trunk rev. 4792)
 
 *Bugs*
 
