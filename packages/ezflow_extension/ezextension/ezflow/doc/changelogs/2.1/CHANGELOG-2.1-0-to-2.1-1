@@ -30,3 +30,5 @@ Changes from 2.1-0 to 2.1-1
   (Merged from trunk rev. 4712)
 - Fixed bug #016589: Lot's of queries at publishing a frontpage...
   (Merged from trunk rev. 4768)
+- Fixed bug #017265: Global layout fetch trashed first
+  (Merged from trunk rev. 4787)
