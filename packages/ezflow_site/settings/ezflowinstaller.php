@@ -820,10 +820,6 @@ class eZFlownInstaller extends eZSiteInstaller
                             'function' => '*' 
                         ), 
                         array( 
-                            'module' => 'shop', 
-                            'function' => 'administrate' 
-                        ), 
-                        array( 
                             'module' => 'content', 
                             'function' => 'diff' 
                         ), 
@@ -1013,10 +1009,6 @@ class eZFlownInstaller extends eZSiteInstaller
                         array( 
                             'module' => 'notification', 
                             'function' => 'use' 
-                        ), 
-                        array( 
-                            'module' => 'shop', 
-                            'function' => 'administrate' 
                         ) 
                     ) 
                 ) 
@@ -1161,10 +1153,6 @@ class eZFlownInstaller extends eZSiteInstaller
                         array( 
                             'module' => 'notification', 
                             'function' => 'use' 
-                        ), 
-                        array( 
-                            'module' => 'shop', 
-                            'function' => 'buy' 
                         ), 
                         array( 
                             'module' => 'user', 
