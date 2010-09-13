@@ -1,8 +1,9 @@
-{def $global_layout_class = fetch( 'content', 'class', hash( 'class_id', 'global_layout' ) )
-     $global_layout_object = $global_layout_class.object_list[0]}
+{def $global_layout_object = fetch( 'content', 'tree', hash( 'parent_node_id', 1,
+                                                             'limit', 1,
+                                                             'class_filter_type', include,
+                                                             'class_filter_array', array( 'global_layout' ) ) )[0]}
 
 <!-- ZONE CONTENT: START -->
-
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
 <div class="border-ml"><div class="border-mr"><div class="border-mc">
