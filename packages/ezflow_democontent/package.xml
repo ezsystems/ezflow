@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package version="2.2-0beta3" development="false" install_type="install">
+  <name>ezflow_democontent</name>
+  <summary>Home, Global zone, News, Events, Knowledge, Blogs, Message Board, Live Video</summary>
+  <description>This package contains the following nodes :&#13;
+Home - node&#13;
+Global zone - subtree&#13;
+News - subtree&#13;
+Events - subtree&#13;
+Knowledge - subtree&#13;
+Blogs - subtree&#13;
+Message Board - subtree&#13;
+Live Video - subtree&#13;
+</description>
+  <vendor>eZ systems</vendor>
+  <type value="contentobject"/>
+  <ezpublish>
+    <version>4.4.0beta3</version>
+    <named-version>4.4</named-version>
+  </ezpublish>
+  <maintainers>
+    <maintainer>
+      <name>Administrator User</name>
+      <email>nospam@ez.no</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <packaging>
+    <timestamp>1284462509</timestamp>
+    <host>packages.ez.no</host>
+  </packaging>
+  <documents>
+    <document mime-type="text/plain" name="LICENCE"/>
+  </documents>
+  <changelog>
+    <entry timestamp="1284462509" person="Administrator User" email="nospam@ez.no" release="1">
+      <change>Creation of package.</change>
+    </entry>
+  </changelog>
+  <simple-files>
+    <simple-file key="c1ac6f7d35f516a21346c805778ed73a" original-path="var/storage/images/news/ez-awards-2010-winners/678-1-eng-GB/eZ-Awards-2010-winners.jpg" package-path="simplefiles/9de8089b.jpg"/>
+    <simple-file key="0c7414e088a29ac331ed53b27f239b32" original-path="var/storage/images/news/ez-systems-names-new-ceo/706-1-eng-GB/eZ-Systems-names-new-CEO.jpg" package-path="simplefiles/1b6e583a.jpg"/>
+    <simple-file key="0d033669fc4508d6bfd9e133fe683922" original-path="var/storage/images/news/discover-ez-publish-4.4/718-2-eng-GB/Discover-eZ-Publish-4.4.jpg" package-path="simplefiles/4bec54d4.jpg"/>
+    <simple-file key="efe53cf03c8cb70b078375ecd55d5ba0" original-path="var/storage/images/conference/ez-awards-2010/charl-porter-on-stage/459-1-eng-GB/Charl-Porter-on-stage.jpg" package-path="simplefiles/9e9152d7.jpg"/>
+    <simple-file key="3d7b1597f0f705cb846a73bb5b019e7b" original-path="var/storage/images/conference/ez-awards-2010/the-awards-2010/463-1-eng-GB/The-awards-2010.jpg" package-path="simplefiles/33ffc9f3.jpg"/>
+    <simple-file key="c897e4c0c91223425738736581a95196" original-path="var/storage/images/conference/ez-awards-2010/charl-porter-and-tony-wood/467-1-eng-GB/Charl-Porter-and-Tony-Wood.jpg" package-path="simplefiles/a4cff171.jpg"/>
+    <simple-file key="4a4f204cf83267f9663a39ee54e44650" original-path="var/storage/images/conference/ez-awards-2010/the-winners-2010/471-1-eng-GB/The-winners-2010.jpg" package-path="simplefiles/f597e610.jpg"/>
+    <simple-file key="979648b2ba4720b65aca13668f7e34ee" original-path="var/storage/images/conference/ez-awards-2010/charl-porter-speaking/475-1-eng-GB/Charl-Porter-speaking.jpg" package-path="simplefiles/7bdffaf7.jpg"/>
+    <simple-file key="801b612d8867f72674d56874afbe6972" original-path="var/storage/images/conference/ez-awards-2010/the-blue-fish-tank/479-1-eng-GB/The-Blue-Fish-Tank.jpg" package-path="simplefiles/ccfcc27f.jpg"/>
+    <simple-file key="0217a238b217e0defce39c737e88cf16" original-path="var/storage/images/conference/ez-awards-2010/the-brandenburggate-at-night/483-1-eng-GB/The-Brandenburggate-at-night.jpg" package-path="simplefiles/8fa14c79.jpg"/>
+    <simple-file key="fd9ec3beebae382178938c25eeb6ce83" original-path="var/storage/images/conference/ez-awards-2010/charl-porter-and-the-vwt-team/487-1-eng-GB/Charl-Porter-and-the-VWT-team.jpg" package-path="simplefiles/48807f42.jpg"/>
+    <simple-file key="67fc9dfebf2fb2f0cf54e2e892a01006" original-path="var/storage/images/conference/ez-awards-2010/the-entry-to-the-award/491-1-eng-GB/The-entry-to-the-award.jpg" package-path="simplefiles/77141ba5.jpg"/>
+    <simple-file key="d9dcb7c23e5869448f30e914a3108a7f" original-path="var/storage/images/conference/ez-awards-2010/the-roof-of-the-axica-venue/495-1-eng-GB/The-roof-of-the-Axica-venue.jpg" package-path="simplefiles/487fe2e1.jpg"/>
+    <simple-file key="53decb95c4a5d658f1367f213f8c6621" original-path="var/storage/images/conference/ez-awards-2010/the-brandenburg-gate/499-1-eng-GB/The-Brandenburg-gate.jpg" package-path="simplefiles/c5ba2d12.jpg"/>
+    <simple-file key="44d3d826a10375def42d2171dd03b6bf" original-path="var/storage/original/video/961d8a65efffdd93708cc23bc6398953.flv" package-path="simplefiles/ac9568e2.flv"/>
+    <simple-file key="78860ffb9cd0c9a354307f86ed2f77c3" original-path="var/storage/images/conference/news/ez-conference-2009-feedback-from-attendees/272-1-eng-GB/eZ-Conference-2009-feedback-from-attendees.jpg" package-path="simplefiles/1745c471.jpg"/>
+    <simple-file key="1fc16fa6742b1f444fa646bb979255da" original-path="var/storage/images/conference/news/video-summary-of-ez-conference-and-awards-2009/284-1-eng-GB/Video-summary-of-eZ-Conference-and-Awards-2009.jpg" package-path="simplefiles/2de5d7e0.jpg"/>
+    <simple-file key="da13ffa6cd15ce3ad84c69a8057e7126" original-path="var/storage/images/conference/news/ez-conference-awards-2010-in-berlin/296-1-eng-GB/eZ-Conference-Awards-2010-in-Berlin.jpg" package-path="simplefiles/aa9c8b75.jpg"/>
+    <simple-file key="82ba4918d3a510edb43ecfe8dd224ca8" original-path="var/storage/images/events/conference-2009/ez-awards-2009-winners/308-1-eng-GB/eZ-Awards-2009-winners.jpg" package-path="simplefiles/72540325.jpg"/>
+    <simple-file key="53d7ab137fa613c846b7738f06333966" original-path="var/storage/images/media/images/community-and-enterprise-codebases/698-1-eng-GB/Community-and-Enterprise-codebases.jpg" package-path="simplefiles/c95a19c8.jpg"/>
+  </simple-files>
+  <version>
+      <number>2.2</number>
+      <release>0beta3</release>
+  </version>
+  <licence>GPL</licence>
+  <state>stable</state>
+  <dependencies>
+    <provides/>
+    <requires/>
+    <obsoletes/>
+    <conflicts/>
+  </dependencies>
+  <install>
+    <item type="ezcontentobject" filename="contentobjects" sub-directory="ezcontentobject"/>
+  </install>
+  <uninstall>
+    <item type="ezcontentobject" filename="contentobjects" sub-directory="ezcontentobject"/>
+  </uninstall>
+</package>
