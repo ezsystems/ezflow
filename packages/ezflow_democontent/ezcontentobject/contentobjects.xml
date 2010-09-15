@@ -28,7 +28,7 @@
                       <overflow_id></overflow_id>
                     </block>
                     <block id="id_9202cce2b5f34df64f2f0acd5f653930">
-                      <name>eZ Conference 2009</name>
+                      <name>eZ Conference 2010</name>
                       <zone_id>082188b2a113cc866cbcf6ca6e5ce7d3</zone_id>
                       <type>MultimediaCarousel</type>
                       <fetch_params>a:2:{s:7:"Classes";s:5:"image";s:6:"Source";s:2:"64";}</fetch_params>
