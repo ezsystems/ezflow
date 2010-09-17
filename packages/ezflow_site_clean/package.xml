@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="2.1-0"
+<package version="2.2-0"
          development="false"
          is_active="true"
          install_type="import">
@@ -9,8 +9,8 @@
   <vendor>eZ systems</vendor>
   <type value="site" />
   <ezpublish>
-    <version>4.3.0</version>
-    <named-version>4.3</named-version>
+    <version>4.4.0</version>
+    <named-version>4.4</named-version>
   </ezpublish>
   <maintainers>
     <maintainer>
@@ -50,7 +50,7 @@
      </collection>
   </files>
   <version>
-    <number>2.1</number>
+    <number>2.2</number>
     <release>0</release>
   </version>
   <licence>GPL</licence>
@@ -60,28 +60,28 @@
     <requires>
       <require type="ezpackage"
                name="ezwt_extension"
-               min-version="1.2" />
+               min-version="1.3" />
       <require type="ezpackage"
                name="ezstarrating_extension"
-               min-version="1.1" />
+               min-version="1.2" />
       <require type="ezpackage"
                name="ezgmaplocation_extension"
-               min-version="1.1" />
+               min-version="1.2" />
       <require type="ezpackage"
                name="ezwebin_extension"
-               min-version="1.6" />
+               min-version="1.7" />
       <require type="ezpackage"
                name="ezflow_extension"
-               min-version="2.1" />
+               min-version="2.2" />
       <require type="ezpackage"
                name="ezflow_classes"
-               min-version="2.1" />
+               min-version="2.2" />
       <require type="ezpackage"
                name="ezflow_democontent_clean"
-               min-version="2.1" />
+               min-version="2.2" />
       <require type="ezpackage"
                name="ezflow_design"
-               min-version="2.1" />
+               min-version="2.2" />
     </requires>
     <obsoletes />
     <conflicts />
