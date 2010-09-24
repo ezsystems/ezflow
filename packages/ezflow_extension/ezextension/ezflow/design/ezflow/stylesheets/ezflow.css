@@ -17,6 +17,12 @@ div.attribute-header h1, div.attribute-header h1.long
 
 /* HEADERS: END */
 
+.datepicker-icon
+{
+    margin-bottom: -2px;
+    padding-top: 9px;
+}
+
 /* CONTENT CLASSES: START */
 
 div.content-view-full div.class-frontpage
