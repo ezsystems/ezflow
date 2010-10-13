@@ -35,7 +35,7 @@ $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttribu
 $page = $contentObjectAttribute->content();
 $zone = $page->getZone( $zoneID );
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable('zone_id', $zoneID );
 $tpl->setVariable('zone', $zone );

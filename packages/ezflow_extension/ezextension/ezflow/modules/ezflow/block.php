@@ -26,7 +26,6 @@
 
 include_once( 'extension/ezflow/classes/ezpageblock.php' );
 include_once( 'extension/ezflow/classes/ezpageblockitem.php' );
-include_once( 'kernel/common/template.php' );
 
 $module = $Params['Module'];
 
@@ -35,7 +34,7 @@ $output = $Params['Output'];
 
 $block = eZPageBlock::fetch( $blockID );
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable('block', $block );
 
@@ -48,7 +47,7 @@ if ( isset( $output ) )
             break;
         case 'json':
             $output = '[ {';
-            
+
             foreach ( $block->attributes() as $attr )
             {
                 if ( in_array( $attr, array( 'waiting', 'valid', 'valid_nodes', 'archived' ) ) )
@@ -58,7 +57,7 @@ if ( isset( $output ) )
             }
             $out .= '\'html\':\'' . htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES ) . '\', ';
             $out .= '} ]';
-                        
+
             $out = str_replace( "\n", "", $out );
             echo $out;
             break;

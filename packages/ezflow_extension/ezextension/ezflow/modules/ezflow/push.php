@@ -1,7 +1,5 @@
 <?php
 
-include_once( 'kernel/common/template.php' );
-
 $Module = $Params['Module'];
 $nodeID = $Params['NodeID'];
 
@@ -42,13 +40,13 @@ if ( $Module->isCurrentAction( 'Store' ) )
 
     $Module->redirectTo( $node->urlAlias() );
 }
- 
-$tpl = templateInit();
+
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'node', $node );
 
 $Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'ezflow/push', 'Push to block' ) ) );;
+                                'text' => ezpI18n::tr( 'ezflow/push', 'Push to block' ) ) );;
 $Result['content'] = $tpl->fetch('design:page/push.tpl');
 
 ?>

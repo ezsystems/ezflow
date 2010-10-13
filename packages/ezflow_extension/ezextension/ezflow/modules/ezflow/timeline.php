@@ -24,12 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'kernel/common/template.php' );
-//include_once( 'kernel/classes/eznodeviewfunctions.php' );
-//include_once( 'kernel/classes/ezcontentobject.php' );
-//include_once( 'kernel/classes/ezcontentobjecttreenode.php' );
-
-
 $Module = $Params["Module"];
 
 if ( isset( $Params['NodeID'] ) )
@@ -37,7 +31,7 @@ if ( isset( $Params['NodeID'] ) )
 
 if ( !$nodeID )
     return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
-    
+
 if ( isset( $Params['LanguageCode'] ) )
 {
     $languageCode = $Params['LanguageCode'];
@@ -54,7 +48,7 @@ $node = eZContentObjectTreeNode::fetch( $nodeID, $languageCode );
 if ( !$node )
     return $Module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $ini = eZINI::instance();
 
 $contentObject = $node->attribute( 'object' );
@@ -62,7 +56,7 @@ $contentObject = $node->attribute( 'object' );
 $nodeResult = eZNodeviewfunctions::generateNodeViewData( $tpl, $node, $contentObject, $languageCode, 'full', 0 );
 
 // Generate a unique cache key for use in cache-blocks in pagelayout.tpl.
-// This should be looked as a temporary fix as ideally all cache-blocks 
+// This should be looked as a temporary fix as ideally all cache-blocks
 // should be disabled by this view.
 $cacheKey = "timeline-" + time();
 $nodeResult["title_path"] = array( array( "text" => "Timeline Preview" ), array( "text" => $node->attribute( 'name' ) ) );
@@ -105,7 +99,7 @@ $pagelayoutResult = $tpl->fetch( 'design:pagelayout.tpl' );
 
 eZDisplayResult( $pagelayoutResult );
 
-// Stop execution at this point, if we do not we'll have the 
+// Stop execution at this point, if we do not we'll have the
 // pagelayout.tpl inside another pagelayout.tpl.
 eZExecution::cleanExit();
 

@@ -24,8 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'kernel/common/template.php' );
-
 define( 'ROTATION_NONE', 0 );
 define( 'ROTATION_SIMPLE', 1 );
 define( 'ROTATION_RANDOM', 2 );
@@ -46,8 +44,8 @@ if( isset( $Params['NodeID'] ) )
 if( isset( $Params['Time'] ) )
     $time = (int)$Params['Time'];
 
-$db->createTempTable( 'CREATE TEMPORARY TABLE ' . $blockTMPTable . 
-                        ' AS SELECT * FROM ' . $blockTableDef['name'] . 
+$db->createTempTable( 'CREATE TEMPORARY TABLE ' . $blockTMPTable .
+                        ' AS SELECT * FROM ' . $blockTableDef['name'] .
                             ' WHERE node_id=\'' . $nodeID . '\'' );
 
 $tmpBlocks = $db->arrayQuery( 'SELECT id FROM ' . $blockTMPTable );
@@ -61,8 +59,8 @@ foreach ( $tmpBlocks as $tmpBlock )
     $tmpBlockIDArray[] = "'" . $tmpBlock['id'] . "'";
 }
 
-$db->createTempTable( 'CREATE TEMPORARY TABLE ' . $poolTMPTable . 
-                        ' AS SELECT * FROM ' . $poolTableDef['name'] . 
+$db->createTempTable( 'CREATE TEMPORARY TABLE ' . $poolTMPTable .
+                        ' AS SELECT * FROM ' . $poolTableDef['name'] .
                             ' WHERE ' . $db->generateSQLINStatement( $tmpBlockIDArray, 'block_id' ) );
 
 /* OPERATIONS CODE: START */
@@ -371,7 +369,7 @@ foreach ( $correctOrder as $blockID )
 
 /* OPERATIONS CODE: END */
 $timelineINI = eZINI::instance('timeline.ini');
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $httpCharset = eZTextCodec::httpCharset();
 $node = eZContentObjectTreeNode::fetch( $nodeID );
 

@@ -2,41 +2,39 @@
 
 /**
  * Implements methods called remotely by sending XHR calls
- * 
+ *
  */
 class eZFlowServerCallFunctions
 {
     /**
-     * Returns statistics about users which are currently online 
-     * 
+     * Returns statistics about users which are currently online
+     *
      * @param mixed $args
      * @return array
      */
     public static function onlineUsers( $args )
     {
         $result = array();
-        
+
         $result['logged_in_count'] = eZFunctionHandler::execute( 'user', 'logged_in_count', array() );
         $result['anonymous_count'] = eZFunctionHandler::execute( 'user', 'anonymous_count', array() );
-        
+
         return $result;
     }
 
     /**
-     * Returns block item XHTML 
-     * 
+     * Returns block item XHTML
+     *
      * @param mixed $args
      * @return array
      */
     public static function getValidItems( $args )
     {
-        include_once( 'kernel/common/template.php' );
-        
         $http = eZHTTPTool::instance();
-        $tpl = templateInit();
+        $tpl = eZTemplate::factory();
 
         $result = array();
-        
+
         $blockID = $http->postVariable('block_id');
         $offset = $http->postVariable('offset');
         $limit = $http->postVariable('limit');
@@ -46,17 +44,17 @@ class eZFlowServerCallFunctions
         foreach( $validNodes as $validNode )
         {
             $counter++;
-            
+
             if ( $counter <= $offset )
                 continue;
-            
+
             $tpl->setVariable('node', $validNode);
             $tpl->setVariable('view', 'block_item');
             $tpl->setVariable('image_class', 'blockgallery1');
             $content = $tpl->fetch('design:node/view/view.tpl');
-            
+
             $result[] = $content;
-            
+
             if ( $counter === $limit )
                 break;
         }
@@ -66,7 +64,7 @@ class eZFlowServerCallFunctions
 
     /**
      * Update blocks order based on AJAX data send after D&D operation is finished
-     * 
+     *
      * @param mixed $args
      * @return array
      */
