@@ -34,3 +34,5 @@ Changes from 2.1-0 to 2.1-1
   (Merged from trunk rev. 4768)
 - Fixed bug #017265: Global layout fetch trashed first
   (Merged from trunk rev. 4787)
+- Fixed bug #017462: ezflow: problem with feed reader and proxy
+  (Merged from trunk rev. 4854)
