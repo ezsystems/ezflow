@@ -99,10 +99,11 @@ class eZFeedReader
                 $limit = isset( $namedParameters['limit'] ) ? $namedParameters['limit'] : 0;
                 $offset = isset( $namedParameters['offset'] ) ? $namedParameters['offset'] : 0;
                 $res = array();
+                $sourceXML = eZHTTPTool::getDataByURL( $namedParameters['source'] );
 
                 try
                 {
-                    $feed = ezcFeed::parse( $source );
+                    $feed = ezcFeed::parseContent( $sourceXML );
                 }
                 catch( Exception $e )
                 {
