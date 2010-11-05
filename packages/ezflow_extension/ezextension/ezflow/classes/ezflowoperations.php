@@ -2,8 +2,8 @@
 //
 // ## BEGIN COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 // SOFTWARE NAME: eZ Flow
-// SOFTWARE RELEASE: 2.0-0
-// COPYRIGHT NOTICE: Copyright (C) 1999-2009 eZ Systems AS
+// SOFTWARE RELEASE: 2.2.0
+// COPYRIGHT NOTICE: Copyright (C) 1999-2010 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
 //   This program is free software; you can redistribute it and/or
@@ -32,20 +32,20 @@ class eZFlowOperations
 
     /**
      * Checks if time based operations are enabled for publishing operation
-     * 
+     *
      * @static
      * @return bool
      */
     public static function updateOnPublish()
     {
         $ini = eZINI::instance('ezflow.ini');
-        
+
         return ( $ini->hasGroup( 'eZFlowOperations' ) && ( $ini->variable( 'eZFlowOperations', 'UpdateOnPublish' ) == 'enabled' ) );
     }
 
     /**
      * Update block pool for block with given $blockID
-     * 
+     *
      * @static
      * @param string $blockID
      * @param integer $publishedBeforeOrAt
@@ -128,11 +128,22 @@ class eZFlowOperations
     /**
      * Do all time based operations on block pool such as rotation, updating
      * the queue, overflow as well as executes fetch interfaces.
-     * 
+     *
      * @static
      */
     public static function update( $nodeArray = array() )
     {
+        // log in user as anonymous if another user is logged in
+        $currentUser = eZUser::currentUser();
+        if ( $currentUser->isLoggedIn() )
+        {
+            $loggedInUser = $currentUser;
+            $anonymousUserId = eZUser::anonymousId();
+            $anonymousUser = eZUser::instance( $anonymousUserId );
+            eZUser::setCurrentlyLoggedInUser( $anonymousUser, $anonymousUserId );
+            unset( $currentUser, $anonymousUser, $anonymousUserId );
+        }
+
         include_once( 'kernel/classes/ezcontentcache.php' );
 
         $ini = eZINI::instance( 'block.ini' );
@@ -484,11 +495,16 @@ class eZFlowOperations
             }
         }
 
+        // log the previously logged in user if it was changed to anonymous earlier
+        if ( isset( $loggedInUser ) )
+        {
+            eZUser::setCurrentlyLoggedInUser( $loggedInUser, $loggedInUser->attribute( 'contentobject_id' ) );
+        }
     }
 
     /**
      * Clean up removed items from pool
-     * 
+     *
      * @static
      * @return integer Number of removed items from pool
      */
@@ -524,9 +540,8 @@ class eZFlowOperations
             $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
             $db->commit();
         }
-        
+
         return $itemArrayCount;
     }
 }
-
 ?>
