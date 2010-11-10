@@ -2,6 +2,7 @@ Changes from 2.2-0 to 2.3-0
 
 *Enhancements*
 - BC: Change use of old templateInit()/ezi18n() api and use class based api's introduced in 4.3 instead
+- Implemented enhancement #014945: Improve usability of eZ Flow
 
 *Bugs*
 - Fixed bug #017462: ezflow: problem with feed reader and proxy

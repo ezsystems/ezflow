@@ -1,6 +1,7 @@
 {def $is_dynamic = false()
      $is_custom = false()
-     $fetch_params = unserialize( $block.fetch_params )}
+     $fetch_params = unserialize( $block.fetch_params )
+     $action = $block.action}
 
 {if and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
          ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' ) )}
@@ -9,20 +10,22 @@
              ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
     {set $is_custom = true()}
 {/if}
+
 <div id="id_{$block.id}" class="block-container">
 
 <div class="block-header float-break">
     <div class="button-left">
-        <em id="block-expand-{$block_id}" class="trigger expand"></em> {ezini( $block.type, 'Name', 'block.ini' )}
+        <em id="block-expand-{$block_id}" class="trigger expand"></em> {ezini( $block.type, 'Name', 'block.ini' )} {if ne( $block.name, '' )}- {$block.name|wash()}{/if}
     </div>
     <div class="button-right">
         <input id="block-up-{$block_id}" class="block-control" type="image" src="{'ezpage/block_up.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_up-{$zone_id}-{$block_id}]" alt="{'Move up'|i18n( 'design/standard/block/edit' )}" title="{'Move up'|i18n( 'design/standard/block/edit' )}" /> <input id="block-down-{$block_id}" class="block-control" type="image" src="{'ezpage/block_down.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_move_block_down-{$zone_id}-{$block_id}]" alt="{'Move down'|i18n( 'design/standard/block/edit' )}" title="{'Move down'|i18n( 'design/standard/block/edit' )}" /> <input id="block-remove-{$block_id}" class="block-control" type="image" src="{'ezpage/block_del.gif'|ezimage(no)}" name="CustomActionButton[{$attribute.id}_remove_block-{$zone_id}-{$block_id}]" title="{'Remove'|i18n( 'design/standard/block/edit' )}" alt="{'Remove'|i18n( 'design/standard/block/edit' )}" value="{'Remove'|i18n( 'design/standard/block/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to remove this block?'|i18n( 'design/standard/block/edit' )}' );" />
     </div>
 </div>
-<div class="block-content collapsed">
+<div class="block-content {if $action|eq( 'add' )}expanded{else}collapsed{/if}">
 
 <div class="block-controls float-break">
     <div class="left blockname">
+    <label>{'Name:'|i18n( 'design/standard/block/edit' )}</label>
     <input id="block-name-{$block.id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name}" size="35" />
     </div>
     <div class="right">
@@ -47,11 +50,26 @@
 </div>
 
 <div class="block-parameters float-break">
-    <div class="left">
+    <div>
     {if $is_dynamic}
         {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
         {if eq( $fetch_parameter, 'Source' )}
             <input id="block-fetch-parameter-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+            <div class="source">
+            {'Current source:'|i18n( 'design/standard/block/edit' )}
+            {if is_set( $fetch_params['Source'] )}
+                {if is_array( $fetch_params['Source'] )}
+                    {foreach $fetch_params['Source'] as $source}
+                        {$source}
+                    {/foreach}
+                {else}
+                    {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
+                    {$source_node.name} [{$source_node.object.content_class.name}]
+                    {undef $source_node}
+                {/if}
+            {/if}
+            </div>
+            <div class="break"></div>
         {else}
         <label>{$fetch_parameter}:</label> <input id="block-fetch-parameter-{$fetch_parameter}-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
         {/if}
@@ -63,6 +81,17 @@
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 <input id="block-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+                <div class="source">
+                {'Current source:'|i18n( 'design/standard/block/edit' )}
+                {if is_set( $block.custom_attributes )}
+                    {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
+                    {foreach $block.custom_attributes as $custom_attrib => $value}
+                        {if eq( $use_browse_mode[$custom_attrib], 'true' )}
+                            {fetch( 'content', 'node', hash( 'node_id', $value ) ).name}
+                        {/if}
+                    {/foreach}
+                {/if}
+                </div>
             {else}
                 <label>{$custom_attrib}:</label> 
                 {if is_set( $custom_attribute_types[$custom_attrib] )}
@@ -89,26 +118,6 @@
         {/foreach}
     {else}
         <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
-    {/if}
-    </div>
-    <div class="right source">
-    {if and( $is_dynamic, is_set( $fetch_params['Source'] ) )}
-        {if is_array( $fetch_params['Source'] )}
-            {foreach $fetch_params['Source'] as $source}
-                {$source}
-            {/foreach}
-        {else}
-            {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
-            {$source_node.name} [{$source_node.object.content_class.name}]
-            {undef $source_node}
-        {/if}
-    {elseif and( $is_custom, is_set( $block.custom_attributes ) )}
-        {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
-        {foreach $block.custom_attributes as $custom_attrib => $value}
-            {if eq( $use_browse_mode[$custom_attrib], 'true' )}
-                {fetch( 'content', 'node', hash( 'node_id', $value ) ).name}
-            {/if}
-        {/foreach}
     {/if}
     </div>
 </div>

@@ -177,7 +177,8 @@ YAHOO.ez.BlockCollapse = function(){
     var getTriggers = function() {
         var emTriggers = Dom.getElementsByClassName( "trigger", "em", "zone-tabs-container" );
         var aTriggers = Dom.getElementsByClassName( "trigger", "a", "zone-tabs-container" );
-        var triggers = emTriggers.concat(aTriggers);
+        var buttonTriggers = Dom.getElementsByClassName( "trigger", "button", "zone-tabs-container" );
+        var triggers = emTriggers.concat(aTriggers).concat(buttonTriggers);
 
         return triggers;
     };
