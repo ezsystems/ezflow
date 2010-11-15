@@ -591,6 +591,9 @@ class eZPageType extends eZDataType
                 $block->setAttribute( 'id', md5( mt_rand() . microtime() . $zone->getBlockCount() ) );
                 $block->setAttribute( 'zone_id', $zone->attribute( 'id' ) );
                 $block->setAttribute( 'type', $blockType );
+
+                $blockState = 'id_' . $block->attribute( 'id' ) . '=1';
+                setrawcookie( 'eZPageBlockState', isset( $_COOKIE['eZPageBlockState'] ) ? $_COOKIE['eZPageBlockState'] . '&' . $blockState : $blockState, time() + 3600, '/' );
                 break;
             case 'move_block_up':
                 $page = $contentObjectAttribute->content();

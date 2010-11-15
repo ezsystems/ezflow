@@ -270,6 +270,8 @@ YAHOO.ez.BlockCollapse = function(){
 
         if(state == "1") {
             expandBlock(o);
+        } else {
+            collapseBlock(o);
         }
     };
     
