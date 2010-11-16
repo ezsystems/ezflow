@@ -301,9 +301,7 @@ optgroup
 
 input.button, button, input.defaultbutton, input.button-disabled
 {
-    background-image: url(../images/button-bg.png);
-    background-repeat: repeat-x;
-    background-position: left top;
+    background: #ebebeb url(../images/button-bg.png) repeat-x left top;
     border: 1px solid #b9b7b7;
     cursor: pointer;
     font-size: 0.8em;
