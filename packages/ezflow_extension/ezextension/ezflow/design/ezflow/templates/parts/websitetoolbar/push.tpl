@@ -1,1 +1,1 @@
-    <a href={concat( "/ezflow/push/", $current_node.node_id )|ezurl} title="{'Push to block'|i18n( 'design/ezflow/parts/website_toolbar' )}"><img src={"websitetoolbar/ezwt-icon-push.gif"|ezimage()} alt="{'Push to block'|i18n( 'design/ezflow/parts/website_toolbar' )}" /></a>
+    <a href={concat( "/ezflow/push/", $current_node.node_id )|ezurl} title="{'Push to block'|i18n( 'design/ezflow/parts/website_toolbar' )}"><img class="ezwt-input-image" src={"websitetoolbar/ezwt-icon-push.png"|ezimage()} alt="{'Push to block'|i18n( 'design/ezflow/parts/website_toolbar' )}" /></a>
