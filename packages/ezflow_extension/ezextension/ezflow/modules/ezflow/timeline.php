@@ -65,8 +65,8 @@ $httpCharset = eZTextCodec::httpCharset();
 $locale = eZLocale::instance();
 $languageCode = $locale->httpLocaleCode();
 
-$nodeResult['content_info']['persistent_variable'] = array( 'extra_template_list' => array( 'timeline.tpl' ),
-                                                            'pagestyle_css_classes' => array( 'yui-skin-sam', 'yui-skin-ezflow' ) );
+$nodeResult['content_info']['persistent_variable']['extra_template_list'] = array( 'timeline.tpl' );
+$nodeResult['content_info']['persistent_variable']['pagestyle_css_classes'] = array( 'yui-skin-sam', 'yui-skin-ezflow' );
 
 $site = array( 'title' => $ini->variable( 'SiteSettings', 'SiteName' ),
                'design' => $ini->variable( 'DesignSettings', 'SiteDesign' ),
