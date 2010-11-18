@@ -115,7 +115,7 @@
 <context>
     <name>design/admin/contextsubmenu</name>
     <message>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Zu Block hinzufügen</translation>
     </message>
 </context>
@@ -274,7 +274,7 @@
 <context>
     <name>design/ezflow/parts/website_toolbar</name>
     <message>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Zu Block hinzufügen</translation>
     </message>
     <message>
@@ -560,7 +560,7 @@
     <name>ezflow/push</name>
     <message>
         <location filename="push.php" line="51"/>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Zu Block hinzufügen</translation>
     </message>
 </context>

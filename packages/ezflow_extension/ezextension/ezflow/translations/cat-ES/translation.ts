@@ -115,7 +115,7 @@
 <context>
     <name>design/admin/contextsubmenu</name>
     <message>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Passa al bloc</translation>
     </message>
 </context>
@@ -278,7 +278,7 @@
         <translation>Línia temporal</translation>
     </message>
     <message>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Passa al bloc</translation>
     </message>
 </context>
@@ -559,7 +559,7 @@
 <context>
     <name>ezflow/push</name>
     <message>
-        <source>Push to block</source>
+        <source>Add to block in frontpage</source>
         <translation>Passa al bloc</translation>
     </message>
 </context>
