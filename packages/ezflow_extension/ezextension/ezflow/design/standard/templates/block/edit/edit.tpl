@@ -26,11 +26,11 @@
 <div class="block-controls float-break">
     <div class="left blockname">
     <label>{'Name:'|i18n( 'design/standard/block/edit' )}</label>
-    <input id="block-name-{$block.id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name}" size="35" />
+    <input id="block-name-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name}" size="35" />
     </div>
     <div class="right">
     {if $is_custom|not}
-        <select id="block-overflow-control-{$block.id}" class="list block-control" name="ContentObjectAttribute_ezpage_block_overflow_{$attribute.id}[{$zone_id}][{$block_id}]">
+        <select id="block-overflow-control-{$block_id}" class="list block-control" name="ContentObjectAttribute_ezpage_block_overflow_{$attribute.id}[{$zone_id}][{$block_id}]">
             <option value="">{'Set overflow'|i18n( 'design/standard/block/edit' )}</option>
             {foreach $zone.blocks as $index => $overflow_block}
                 {if eq( $overflow_block.id, $block.id )}
@@ -40,7 +40,7 @@
             {/foreach}
         </select>
      {/if}
-        <select id="block-view-{$block.id}" class="list block-control" name="ContentObjectAttribute_ezpage_block_view_{$attribute.id}[{$zone_id}][{$block_id}]">
+        <select id="block-view-{$block_id}" class="list block-control" name="ContentObjectAttribute_ezpage_block_view_{$attribute.id}[{$zone_id}][{$block_id}]">
         {def $view_name = ezini( $block.type, 'ViewName', 'block.ini' )}
         {foreach ezini( $block.type, 'ViewList', 'block.ini' ) as $view}
             <option value="{$view}" {if eq( $block.view, $view )}selected="selected"{/if}>{$view_name[$view]}</option>
@@ -223,8 +223,8 @@
     </tr>
     {/if}
     <tr class="rotation">
-        <td colspan="3">{'Rotation:'|i18n( 'design/standard/block/edit' )} <input id="block-rotation-value-{$block.id}" class="textfield block-control" type="text" name="RotationValue_{$block_id}" value="{$block.rotation.value}" size="5" />
-            <select id="block-rotation-unit-{$block.id}" class="list block-control" name="RotationUnit_{$block_id}">
+        <td colspan="3">{'Rotation:'|i18n( 'design/standard/block/edit' )} <input id="block-rotation-value-{$block_id}" class="textfield block-control" type="text" name="RotationValue_{$block_id}" value="{$block.rotation.value}" size="5" />
+            <select id="block-rotation-unit-{$block_id}" class="list block-control" name="RotationUnit_{$block_id}">
                 <option value="2" {if eq( $block.rotation.unit, 2 )}selected="selected"{/if}>{'min'|i18n( 'design/standard/block/edit' )}</option>
                 <option value="3" {if eq( $block.rotation.unit, 3 )}selected="selected"{/if}>{'hour'|i18n( 'design/standard/block/edit' )}</option>
                 <option value="4" {if eq( $block.rotation.unit, 4 )}selected="selected"{/if}>{'day'|i18n( 'design/standard/block/edit' )}</option>
