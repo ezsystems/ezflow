@@ -126,6 +126,82 @@ class eZFlowPool
                                       ORDER BY ts_hidden ASC" );
         return $archived;
     }
+
+    /**
+     * Insert items in the pool
+     *
+     * @param array $items Array of items to insert in the pool.
+     *                     The following information must appear for every item:
+     *                     blockID, objectID, nodeID, priority and timestamp.
+     *
+     * @return bool Returns true if the operation suceeded, false otherwise.
+     */
+    static function insertItems( array $items )
+    {
+        // Checking the validity of items.
+        foreach ( $items as $item )
+        {
+            if ( !isset( $item['blockID'], $item['objectID'], $item['nodeID'], $item['priority'], $item['timestamp'] ) )
+            {
+                eZDebug::writeError( "Pool item is missing one of the following information: blockID, objectID, nodeID, priority or timestamp", __METHOD__ );
+                return false;
+            }
+        }
+
+        $db = eZDB::instance();
+
+        if ( $db->databaseName() === 'mysql' )
+        {
+            // MySQL permits inserting elements without complaining about duplicates thanks to "INSERT IGNORE".
+            // additionally, it support multiple inserts which may improve performance a lot.
+            // @see #017120
+            $values = array();
+
+            foreach ( $items as $item )
+            {
+                $values[] = "( '" . $db->escapeString( $item['blockID'] ) . "', " .
+                    (int)$item['objectID'] . ", " .
+                    (int)$item['nodeID'] . ", " .
+                    (int)$item['priority'] . ", " .
+                    (int)$item['timestamp'] . " )";
+            }
+
+            if ( !empty( $values ) )
+            {
+                $db->query( "INSERT IGNORE INTO ezm_pool ( block_id, object_id, node_id, priority, ts_publication ) VALUES " .
+                    implode( ',', $values ) );
+            }
+        }
+        else
+        {
+            $db->lock( 'ezm_pool' );
+
+            foreach ( $items as $item )
+            {
+                $escapedBlockID = $db->escapeString( $item['blockID'] );
+
+                $itemCount = $db->arrayQuery(
+                    "SELECT COUNT( * ) as count " .
+                    "FROM ezm_pool " .
+                    "WHERE block_id='$escapedBlockID' AND object_id=" . (int)$item['objectID'] );
+
+                if ( $itemCount[0]['count'] == 0 )
+                {
+                    $db->query( "INSERT INTO ezm_pool ( block_id, object_id, node_id, priority, ts_publication ) " .
+                                "VALUES ( '$escapedBlockID', " .
+                                    (int)$item['objectID'] . ", " .
+                                    (int)$item['nodeID'] . ", " .
+                                    (int)$item['priority'] . ", " .
+                                    (int)$item['timestamp'] .
+                                " )" );
+                }
+            }
+
+            $db->unlock();
+        }
+
+        return true;
+    }
 }
 
 ?>

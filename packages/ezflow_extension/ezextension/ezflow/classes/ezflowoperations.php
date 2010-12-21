@@ -93,34 +93,28 @@ class eZFlowOperations
         }
         $parameters = array_merge( $fetchFixedParameters, $fetchParameters );
 
-        $newItems = $fetchInstance->fetch( $parameters, $block['last_update'], $publishedBeforeOrAt );
+        $newItems = array();
 
-        // Update pool
-        $db->begin();
-
-        foreach( $newItems as $item )
+        foreach ( $fetchInstance->fetch( $parameters, $block['last_update'], $publishedBeforeOrAt ) as $item )
         {
-            $objectID = $item['object_id'];
-            $nodeID = $item['node_id'];
-            $publicationTS = $item['ts_publication'];
-
-            $duplicityCheck = $db->arrayQuery( "SELECT object_id
-                                                FROM ezm_pool
-                                                WHERE block_id='" . $block['id'] . "'
-                                                  AND object_id=$objectID", array( 'limit' => 1 ) );
-            if ( $duplicityCheck )
-            {
-                eZDebug::writeNotice( "Object $objectID is already available in the block " . $block['id'] . ".", 'eZFlowOperations' );
-            }
-            else
-            {
-                $db->query( "INSERT INTO ezm_pool(block_id,object_id,node_id,ts_publication) VALUES ('" . $block['id'] . "',$objectID,$nodeID,$publicationTS)" );
-            }
+            $newItems[] = array(
+                'blockID' => $block['id'],
+                'objectID' => $item['object_id'],
+                'nodeID' => $item['node_id'],
+                'priority' => 0,
+                'timestamp' => $item['ts_publication'],
+            );
         }
 
-        $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
+        if ( !empty( $newItems ) )
+        {
+            $db->begin();
 
-        $db->commit();
+            eZFlowPool::insertItems( $newItems );
+            $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
+
+            $db->commit();
+        }
 
         return count( $newItems );
     }

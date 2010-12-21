@@ -890,18 +890,15 @@ class eZPageType extends eZDataType
                             }
                         }
 
+                        $newItems = array();
+
                         foreach ( $zone->attribute( 'blocks' ) as $block )
                         {
                             $blockID = $block->attribute( 'id' );
-                            $blockType = $block->attribute( 'type' );
-                            $escapedBlockType = $db->escapeString( $blockType );
-                            $action = $block->attribute( 'action' );
                             $fetchParams = $block->attribute( 'fetch_params' );
-                            $zoneID = $block->attribute( 'zone_id' );
-                            $blockName = $block->attribute( 'name' );
-                            $escapedBlockName = $db->escapeString( $blockName );
+                            $escapedBlockName = $db->escapeString( $block->attribute( 'name' ) );
 
-                            switch ( $action )
+                            switch ( $block->attribute( 'action' ) )
                             {
                                 case 'remove':
                                     $db->query( "UPDATE ezm_block SET is_removed='1' WHERE id='" . $blockID . "'" );
@@ -930,11 +927,11 @@ class eZPageType extends eZDataType
 
                                         $db->query( "INSERT INTO ezm_block ( id, zone_id, name, node_id, overflow_id, block_type, fetch_params, rotation_type, rotation_interval )
                                                                     VALUES ( '" . $blockID . "',
-                                                                             '" . $zoneID . "',
+                                                                             '" . $block->attribute( 'zone_id' ) . "',
                                                                              '" . $escapedBlockName . "',
                                                                              '" . $nodeID . "',
                                                                              '" . $overflowID . "',
-                                                                             '" . $escapedBlockType . "',
+                                                                             '" . $db->escapeString( $block->attribute( 'type' ) ) . "',
                                                                              '" . $fetchParams . "',
                                                                              '" . $rotationType . "',
                                                                              '" . $rotationInterval . "' )" );
@@ -955,7 +952,7 @@ class eZPageType extends eZDataType
                                     }
 
                                     if ( $block->hasAttribute( 'overflow_id' ) )
-                                    $overflowID = $block->attribute( 'overflow_id' );
+                                        $overflowID = $block->attribute( 'overflow_id' );
 
                                     $db->query( "UPDATE ezm_block SET name='" . $escapedBlockName . "',
                                                                       overflow_id='" . $overflowID . "',
@@ -970,9 +967,7 @@ class eZPageType extends eZDataType
                             {
                                 foreach ( $block->attribute( 'items' ) as $item )
                                 {
-                                    $action = $item->attribute( 'action' );
-
-                                    switch ( $action )
+                                    switch ( $item->attribute( 'action' ) )
                                     {
                                         case 'remove':
 
@@ -982,19 +977,13 @@ class eZPageType extends eZDataType
                                             break;
 
                                         case 'add':
-                                            $itemCount = $db->arrayQuery( "SELECT COUNT( * ) as count FROM ezm_pool
-                                                              WHERE block_id='" . $blockID ."'
-                                                                 AND object_id='" . $item->attribute( 'object_id' ) . "'" );
-
-                                            if ( $itemCount[0]['count'] == 0 )
-                                            {
-                                                $db->query( "INSERT INTO ezm_pool ( block_id, object_id, node_id, priority, ts_publication )
-                                            VALUES ( '" . $blockID . "',
-                                                     '" . $item->attribute( 'object_id' )  . "',
-                                                     '" . $item->attribute( 'node_id' ) . "',
-                                                     '" . $item->attribute( 'priority' ) . "',
-                                                     '" . $item->attribute( 'ts_publication' ) . "'  )" );
-                                            }
+                                            $newItems[] =  array(
+                                                'blockID' => $blockID,
+                                                'objectID' => $item->attribute( 'object_id' ),
+                                                'nodeID' => $item->attribute( 'node_id' ),
+                                                'priority' => $item->attribute( 'priority' ),
+                                                'timestamp' => $item->attribute( 'ts_publication' ),
+                                            );
                                             break;
 
                                         case 'modify':
@@ -1022,6 +1011,11 @@ class eZPageType extends eZDataType
                                     }
                                 }
                             }
+                        }
+
+                        if ( !empty( $newItems ) )
+                        {
+                            eZFlowPool::insertItems( $newItems );
                         }
                     }
                 }

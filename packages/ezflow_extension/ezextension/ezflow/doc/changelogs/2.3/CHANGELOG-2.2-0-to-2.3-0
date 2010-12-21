@@ -5,6 +5,7 @@ Changes from 2.2-0 to 2.3-0
 - Implemented enhancement #014945: Improve usability of eZ Flow
 
 *Bugs*
+- Fixed bug #017120: ezflow - Possible insertion of duplicates which leads to unique key violation
 - Fixed bug #017462: ezflow: problem with feed reader and proxy
 - Fixed bug #017609: Editor permissions are used when generating initial content for ezflow dynamic blocks
 - Fixed bug #017631: TC-461 (Enhanced eZFlow) - Adding a new block expands the blocks previous added
