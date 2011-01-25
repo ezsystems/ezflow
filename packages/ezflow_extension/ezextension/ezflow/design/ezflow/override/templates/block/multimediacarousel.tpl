@@ -63,10 +63,10 @@ YUI( YUI3_config ).use( 'node', 'event', 'io-ez', function(Y, result) {ldelim}
             {rdelim}
         {rdelim};
 
-            var prevButton = Y.get('#block-{$block.id} input.carousel-prev-button');
+            var prevButton = Y.one('#block-{$block.id} input.carousel-prev-button');
             prevButton.on('click', handleRequest);
 
-            var nextButton = Y.get('#block-{$block.id} input.carousel-next-button');
+            var nextButton = Y.one('#block-{$block.id} input.carousel-next-button');
             nextButton.on('click', handleRequest);
 
     {rdelim});

@@ -26,8 +26,8 @@ YUI(YUI3_config).use('node', 'event', 'io-ez', function(Y) {
             if ( response.content !== undefined )
             {
 {/literal}
-                Y.get( '#logged-in-count-{$block.id}' ).set( 'innerHTML', response.content.logged_in_count );
-                //Y.get( '#anonymous-count-{$block.id}' ).set( 'innerHTML', response.content.anonymous_count );
+                Y.one( '#logged-in-count-{$block.id}' ).set( 'innerHTML', response.content.logged_in_count );
+                //Y.one( '#anonymous-count-{$block.id}' ).set( 'innerHTML', response.content.anonymous_count );
 {literal}
             }
         }
