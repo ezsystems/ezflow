@@ -11,7 +11,7 @@ CREATE TABLE ezm_block (
     rotation_interval INTEGER UNSIGNED NULL,
     is_removed INTEGER(2) UNSIGNED NULL DEFAULT 0,
     PRIMARY KEY(id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 CREATE INDEX ezm_block__is_removed ON ezm_block(is_removed);
 CREATE INDEX ezm_block__node_id ON ezm_block(node_id);
@@ -27,7 +27,7 @@ CREATE TABLE ezm_pool (
     rotation_until INTEGER UNSIGNED NULL DEFAULT 0,
     moved_to CHAR(32) NULL,
     PRIMARY KEY(block_id, object_id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 CREATE INDEX ezm_pool__block_id__ts_publication__priority ON ezm_pool(block_id,ts_publication,priority);
 CREATE INDEX ezm_pool__block_id__ts_visible ON ezm_pool(block_id,ts_visible);
