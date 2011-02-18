@@ -29,9 +29,9 @@ class ezflowInfo
     static function info()
     {
         return array( 'Name' => 'eZ Flow',
-                      'Version' => '1.1-0',
+                      'Version' => '//autogentag//',
                       'Copyright' => 'Copyright (C) 1999-2010 eZ Systems AS',
-                      'License' => 'GNU General Public License v2.0'
+                      'License' => '//EZP_LICENSE//',
                      );
     }
 }
