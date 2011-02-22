@@ -384,10 +384,10 @@ var BlockDDInit = function() {
             data += '&zone=' + BlockDDInit.cfg.zone;
             Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
 
-            var newOrder = drag.get('node').get('parentNode').queryAll('.block-container');
+            var newOrder = drag.get('node').get('parentNode').all('.block-container');
             var index = 0;
             newOrder.each(function(v, k) {
-                var inputList = v.queryAll('.block-control');
+                var inputList = v.all('.block-control');
 
                 for(var i = 0; i < inputList.size(); i++) {
                     var input = inputList.item(i);

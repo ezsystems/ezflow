@@ -10,3 +10,4 @@ Changes from 2.2-0 to 2.3-0
 - Fixed bug #017609: Editor permissions are used when generating initial content for ezflow dynamic blocks
 - Fixed bug #017631: TC-461 (Enhanced eZFlow) - Adding a new block expands the blocks previous added
 - Fixed bug #017652: ezflow : the block name no longer has a ID in the fronpage edit
+- Fixed bug #017925: Drag and Drop functionality broken in Webin and Flow interfaces
