@@ -399,17 +399,6 @@ class eZPageType extends eZDataType
     }
 
     /**
-     * Returns the meta data used for storing search indeces.
-     *
-     * @param eZContentObjectAttribute $contentObjectAttribute
-     * @return string
-     */
-    function metaData( $contentObjectAttribute )
-    {
-        return $contentObjectAttribute->attribute( 'data_text' );
-    }
-
-    /**
      * Returns the value as it will be shown if this attribute is used in the object name pattern.
      *
      * @param eZContentObjectAttribute $contentObjectAttribute
@@ -1044,16 +1033,6 @@ class eZPageType extends eZDataType
         $contentObjectAttribute->content( $page );
         $contentObjectAttribute->store();
 
-        return true;
-    }
-
-    /**
-     * return true if the datatype can be indexed
-     *
-     * @return bool
-     */
-    function isIndexable()
-    {
         return true;
     }
 
