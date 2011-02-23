@@ -10,7 +10,7 @@ if ( $node instanceof eZContentObjectTreeNode )
 else
     $object = false;
 
-if ( $Module->isCurrentAction( 'Store' ) )
+if ( $Module->isCurrentAction( 'Store' ) && $Module->hasActionParameter( 'PlacementList' ) )
 {
     $newItems = array();
 
