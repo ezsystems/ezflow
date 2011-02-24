@@ -2509,7 +2509,8 @@ class eZFlownInstaller extends eZSiteInstaller
                 'ClearCacheMethod' => array( 
                     '0' => 'object', 
                     '1' => 'parent', 
-                    '2' => 'relating' 
+                    '2' => 'relating',
+                    '3' => 'children'
                 ) 
             ), 
             'image' => array( 
