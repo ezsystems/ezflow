@@ -512,13 +512,13 @@ class eZFlowOperations
         do
         {
             $items = $db->arrayQuery( 'SELECT object_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
-            if ( count( $items ) == 0 )
+            if ( empty( $items ) )
                 break;
 
             foreach( $items as $item )
             {
                 $rows = $db->arrayQuery( 'SELECT id, status FROM ezcontentobject WHERE id = ' . $item['object_id'] );
-                if ( count( $rows ) == 0 or // deleted
+                if ( empty( $rows ) or // deleted
                      ( count( $rows ) == 1 and $rows[0]['status'] == 2 ) ) // trashed
                     $itemArray[] = $item['object_id'];
             }

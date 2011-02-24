@@ -89,7 +89,7 @@ class eZFlowPool
                                           AND ezcontentobject_tree.node_id = ezm_pool.node_id
                                         ORDER BY ezm_pool.priority DESC" );
 
-        if ( $asObject && count( $validNodes ) > 0 )
+        if ( $asObject && !empty( $validNodes ) )
         {
             $validNodesObjects = array();
 

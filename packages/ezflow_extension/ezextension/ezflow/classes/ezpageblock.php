@@ -511,7 +511,7 @@ class eZPageBlock
     {
         $validItems = $this->getValidItems();
         $result = null;
-        if( count( $validItems ) > 0 )
+        if( !empty( $validItems ) )
         {
             $result = null;
             $lastTime = 0;
