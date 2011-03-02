@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="es_ES">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar borrador y salir</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar el contenido del borrador que se está editando y continuar con la edición. Pulsar este botón para ir guardando los cambios mientras se edita.</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation type="unfinished"></translation>
+        <translation>(Des)Activar edición a pantalla completa</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -254,7 +254,7 @@
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -469,7 +469,15 @@
     </message>
     <message>
         <source>Add item</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir elemento</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Nombre:</translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation>Fuente actual:</translation>
     </message>
 </context>
 <context>
@@ -502,11 +510,11 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>Nombre del bloque:</translation>
+        <translation type="obsolete">Nombre del bloque:</translation>
     </message>
     <message>
         <source>Block type:</source>
-        <translation>Tipo del bloque:</translation>
+        <translation type="obsolete">Tipo del bloque:</translation>
     </message>
     <message>
         <source>Add block</source>
@@ -514,11 +522,19 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation>Ampliar</translation>
+        <translation type="obsolete">Ampliar</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Minimizar</translation>
+        <translation type="obsolete">Minimizar</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Expandir todo</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Minimizar todo</translation>
     </message>
 </context>
 <context>
@@ -560,7 +576,11 @@
     <name>ezflow/push</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation>Empujar al bloque</translation>
+        <translation type="obsolete">Empujar al bloque</translation>
+    </message>
+    <message>
+        <source>Push to block</source>
+        <translation>Añadir a bloque</translation>
     </message>
 </context>
 </TS>
