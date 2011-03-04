@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).</source>
-        <translation>編集中の下書きの破棄。下書きに翻訳バージョンが存在する場合は翻訳も削除されます。</translation>
+        <translation>編集中のドラフトの破棄。下書きに翻訳バージョンが存在する場合は翻訳も削除されます。</translation>
     </message>
     <message>
         <source>Search phrase</source>
@@ -97,89 +97,89 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation type="unfinished"></translation>
+        <translation>ドラフトを保存し、編集の終了</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>編集中のドラフトを保存し、編集モードを終了。作業を一時的に保留する場合に使ってください。</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation type="unfinished"></translation>
+        <translation>フールスクリーン編集モードを切り替え！</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;%object_name&gt; (%class_name)の編集</translation>
     </message>
 </context>
 <context>
     <name>design/admin/contextsubmenu</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation type="unfinished">ブロックにプッシュ</translation>
+        <translation>フロントページのブロックに追加</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/contextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished">eZ Flow</translation>
+        <translation>eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/subitemcontextmenu</name>
     <message>
         <source>eZ Flow</source>
-        <translation type="unfinished">eZ Flow</translation>
+        <translation>eZ Flow</translation>
     </message>
 </context>
 <context>
     <name>design/admin/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished">&quot;%node_name&quot;の配置先を選択してください</translation>
+        <translation>&quot;%node_name&quot;の配置先を選択してください</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished">フロントページを選択</translation>
+        <translation>フロントページを選択</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished">ゾーンを選択</translation>
+        <translation>ゾーンを選択</translation>
     </message>
     <message>
         <source>Select block</source>
-        <translation type="unfinished">ブロックを選択</translation>
+        <translation>ブロックを選択</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">追加</translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/online_users</name>
     <message>
         <source>There are currently %logged_in_count active users on the system.</source>
-        <translation type="unfinished">現在、%logged_in_count人のログインユーザがサイトにいます。</translation>
+        <translation>現在、%logged_in_count人のログインユーザがサイトにいます。</translation>
     </message>
     <message>
         <source>There are %anonymous_count anonymous users accessing the site.</source>
-        <translation type="unfinished">現在、%anonymous_count人の匿名ユーザがサイトにいます。</translation>
+        <translation>現在、%anonymous_count人の匿名ユーザがサイトにいます。</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">検索</translation>
+        <translation>検索</translation>
     </message>
 </context>
 <context>
@@ -254,7 +254,7 @@
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;%object_name&gt; (%class_name)の編集</translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@
     </message>
     <message>
         <source>Add to block in frontpage</source>
-        <translation type="unfinished">ブロックにプッシュ</translation>
+        <translation>フロントページのブロックに追加</translation>
     </message>
 </context>
 <context>
@@ -339,22 +339,22 @@
     <name>design/iphone/page_footer</name>
     <message>
         <source>Visit:</source>
-        <translation type="unfinished"></translation>
+        <translation>サイトバージョン:</translation>
     </message>
     <message>
         <source>mobile site</source>
-        <translation type="unfinished"></translation>
+        <translation>モバイルサイト</translation>
     </message>
     <message>
         <source>full site</source>
-        <translation type="unfinished"></translation>
+        <translation>フールサイト</translation>
     </message>
 </context>
 <context>
     <name>design/iphone/pagelayout</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>ナビゲーション</translation>
     </message>
 </context>
 <context>
@@ -465,11 +465,11 @@
     </message>
     <message>
         <source>Add item</source>
-        <translation type="unfinished"></translation>
+        <translation>アイテムの追加</translation>
     </message>
     <message>
         <source>Rotating item.</source>
-        <translation type="unfinished"></translation>
+        <translation>回転アイテム。</translation>
     </message>
 </context>
 <context>
@@ -483,7 +483,7 @@
     <name>design/standard/class/datatype</name>
     <message>
         <source>Default layout:</source>
-        <translation>デフォルトのレイアウト: </translation>
+        <translation>デフォルトレイアウト: </translation>
     </message>
     <message>
         <source>None</source>
@@ -525,42 +525,42 @@
     <name>design/standard/page/push</name>
     <message>
         <source>Choose placement for &quot;%node_name&quot;</source>
-        <translation type="unfinished">&quot;%node_name&quot;の配置先を選択してください</translation>
+        <translation>&quot;%node_name&quot;の配置先を選択してください</translation>
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation type="unfinished">フロントページを選択</translation>
+        <translation>フロントページを選択</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation type="unfinished">ゾーンを選択</translation>
+        <translation>ゾーンを選択</translation>
     </message>
     <message>
         <source>Select block</source>
-        <translation type="unfinished">ブロックを選択</translation>
+        <translation>ブロックを選択</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">追加</translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Placement list</source>
-        <translation type="unfinished">配置先リスト</translation>
+        <translation>配置先リスト</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Store</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
     <name>ezflow/push</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation type="unfinished">ブロックにプッシュ</translation>
+        <translation>フロントページのブロックに追加</translation>
     </message>
 </context>
 </TS>
