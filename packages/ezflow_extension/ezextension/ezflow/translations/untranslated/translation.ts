@@ -471,6 +471,14 @@
         <source>Rotating item.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -501,23 +509,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Block name:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Block type:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Expand</source>
+        <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Collapse</source>
+        <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -559,7 +559,7 @@
 <context>
     <name>ezflow/push</name>
     <message>
-        <source>Add to block in frontpage</source>
+        <source>Push to block</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
