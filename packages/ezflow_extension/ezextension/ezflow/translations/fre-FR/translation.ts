@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Date range</source>
-        <translation>Interval de date</translation>
+        <translation>Intervalle de date</translation>
     </message>
     <message>
         <source>Past day</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Translating content from %from_lang to %to_lang</source>
-        <translation>Traduire le contenu de %from_lang à %to_lang</translation>
+        <translation>Traduire le contenu en %to_lang en se basant sur la version en %from_lang</translation>
     </message>
     <message>
         <source>Back to edit</source>
@@ -198,7 +198,7 @@
     </message>
     <message>
         <source>Date range</source>
-        <translation>Interval de date</translation>
+        <translation>Intervalle de date</translation>
     </message>
     <message>
         <source>Past day</source>
@@ -234,7 +234,7 @@
     </message>
     <message>
         <source>Translating content from %from_lang to %to_lang</source>
-        <translation>Traduire le contenu de %from_lang à %to_lang</translation>
+        <translation>Traduire le contenu en %to_lang en se basant sur la version en %from_lang</translation>
     </message>
     <message>
         <source>Content in %language</source>
@@ -242,7 +242,7 @@
     </message>
     <message>
         <source>Send for publishing</source>
-        <translation>Envoyez pour publication</translation>
+        <translation>Envoyer pour publication</translation>
     </message>
     <message>
         <source>Store draft</source>
@@ -361,7 +361,7 @@
     <name>design/standard/block/edit</name>
     <message>
         <source>Move up</source>
-        <translation>Remonter</translation>
+        <translation>Monter</translation>
     </message>
     <message>
         <source>Move down</source>
@@ -437,7 +437,7 @@
     </message>
     <message>
         <source>Moved to:</source>
-        <translation>Déplacer vers:</translation>
+        <translation>Déplacez vers:</translation>
     </message>
     <message>
         <source>Not visible</source>
@@ -502,7 +502,7 @@
     <name>design/standard/datatype/ezpage</name>
     <message>
         <source>The total number of zones in the new layout is less than the number of zones in the previous layout. Therefore, you must map the previous zones to new zones. Unmapped zones will be removed!</source>
-        <translation>Le nombre total de zones dans la nouvelle disposition est inférieur au nombre de zones dans la disposition précédente. Par conséquent, vous devez mapper les zones précédentes à de nouvelles zones. Les zones non mappées seront supprimées!</translation>
+        <translation>Le nombre total de zones dans la nouvelle disposition est inférieur au nombre de zones dans la disposition précédente. Par conséquent, vous devez associer les zones précédentes à de nouvelles zones. Les zones non associées seront supprimées!</translation>
     </message>
     <message>
         <source>Set layout</source>
