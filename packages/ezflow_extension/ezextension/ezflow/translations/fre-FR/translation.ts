@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="fr_FR" sourcelanguage="en_GB">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Select:</source>
-        <translation>Selectionnez:</translation>
+        <translation>Sélectionnez:</translation>
     </message>
     <message>
         <source>Add to block</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; [%class_name]</source>
-        <translation>Editez &lt;%object_name&gt; [%class_name]</translation>
+        <translation>Editer &lt;%object_name&gt; [%class_name]</translation>
     </message>
     <message>
         <source>Translating content from %from_lang to %to_lang</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Are you sure you want to discard the draft?</source>
-        <translation>Etes vous sur de vouloir annuler ce brouillon?</translation>
+        <translation>Etes vous sûr de vouloir annuler ce brouillon?</translation>
     </message>
     <message>
         <source>Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).</source>
@@ -141,15 +141,15 @@
     </message>
     <message>
         <source>Select frontpage</source>
-        <translation>Selectionnez une page d&apos;accueil</translation>
+        <translation>Sélectionnez une page d&apos;accueil</translation>
     </message>
     <message>
         <source>Select zone</source>
-        <translation>Selectionnez une zone</translation>
+        <translation>Sélectionnez une zone</translation>
     </message>
     <message>
         <source>Select block</source>
-        <translation>Selectionnez un bloc</translation>
+        <translation>Sélectionnez un bloc</translation>
     </message>
     <message>
         <source>Add</source>
@@ -339,7 +339,7 @@
     <name>design/iphone/page_footer</name>
     <message>
         <source>Visit:</source>
-        <translation>Visitez:</translation>
+        <translation>Visiter:</translation>
     </message>
     <message>
         <source>mobile site</source>
@@ -373,7 +373,7 @@
     </message>
     <message>
         <source>Are you sure you want to remove this block?</source>
-        <translation>Etes-vous sur de vouloir supprimer ce bloc?</translation>
+        <translation>Etes-vous sûr de vouloir supprimer ce bloc?</translation>
     </message>
     <message>
         <source>Set overflow</source>
@@ -437,7 +437,7 @@
     </message>
     <message>
         <source>Moved to:</source>
-        <translation>Déplacez vers:</translation>
+        <translation>Déplacé vers:</translation>
     </message>
     <message>
         <source>Not visible</source>
@@ -469,7 +469,7 @@
     </message>
     <message>
         <source>Rotating item.</source>
-        <translation>Elément tournant</translation>
+        <translation>Elément tournant.</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -484,7 +484,7 @@
     <name>design/standard/block/view</name>
     <message>
         <source>Block:</source>
-        <translation>Bloc</translation>
+        <translation>Bloc:</translation>
     </message>
 </context>
 <context>
