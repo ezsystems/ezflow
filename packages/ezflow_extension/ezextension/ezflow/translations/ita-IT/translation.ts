@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -471,6 +469,14 @@
         <source>Rotating item.</source>
         <translation>Elemento in rotazione.</translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -502,11 +508,11 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>Nome blocco:</translation>
+        <translation type="obsolete">Nome blocco:</translation>
     </message>
     <message>
         <source>Block type:</source>
-        <translation>Tipo blocco:</translation>
+        <translation type="obsolete">Tipo blocco:</translation>
     </message>
     <message>
         <source>Add block</source>
@@ -514,11 +520,19 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation>Espandi</translation>
+        <translation type="obsolete">Espandi</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Comprimi</translation>
+        <translation type="obsolete">Comprimi</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -560,7 +574,7 @@
     <name>ezflow/push</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation>Spingi al blocco</translation>
+        <translation type="obsolete">Spingi al blocco</translation>
     </message>
 </context>
 </TS>

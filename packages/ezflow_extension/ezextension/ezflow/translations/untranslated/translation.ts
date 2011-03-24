@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -558,9 +556,5 @@
 </context>
 <context>
     <name>ezflow/push</name>
-    <message>
-        <source>Push to block</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>

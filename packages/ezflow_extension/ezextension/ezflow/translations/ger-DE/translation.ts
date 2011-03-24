@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="de_DE" sourcelanguage="en">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -471,6 +469,14 @@
         <source>Rotating item.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -502,11 +508,11 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>Block Name:</translation>
+        <translation type="obsolete">Block Name:</translation>
     </message>
     <message>
         <source>Block type:</source>
-        <translation>Block Typ:</translation>
+        <translation type="obsolete">Block Typ:</translation>
     </message>
     <message>
         <source>Add block</source>
@@ -514,11 +520,19 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation>Aufklappen</translation>
+        <translation type="obsolete">Aufklappen</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Zuklappen</translation>
+        <translation type="obsolete">Zuklappen</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -559,9 +573,8 @@
 <context>
     <name>ezflow/push</name>
     <message>
-        <location filename="push.php" line="51"/>
         <source>Add to block in frontpage</source>
-        <translation>Zu Block hinzufügen</translation>
+        <translation type="obsolete">Zu Block hinzufügen</translation>
     </message>
 </context>
 </TS>

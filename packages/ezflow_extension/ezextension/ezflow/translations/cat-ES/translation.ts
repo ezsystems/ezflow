@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -471,6 +469,14 @@
         <source>Add item</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -502,11 +508,11 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>Nom del bloc:</translation>
+        <translation type="obsolete">Nom del bloc:</translation>
     </message>
     <message>
         <source>Block type:</source>
-        <translation>Tipus del bloc:</translation>
+        <translation type="obsolete">Tipus del bloc:</translation>
     </message>
     <message>
         <source>Add block</source>
@@ -514,11 +520,19 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation>Ampliar</translation>
+        <translation type="obsolete">Ampliar</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>Minimitzar</translation>
+        <translation type="obsolete">Minimitzar</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -560,7 +574,7 @@
     <name>ezflow/push</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation>Passa al bloc</translation>
+        <translation type="obsolete">Passa al bloc</translation>
     </message>
 </context>
 </TS>

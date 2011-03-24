@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<!DOCTYPE TS><TS>
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -471,6 +469,14 @@
         <source>Rotating item.</source>
         <translation>回転アイテム。</translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current source:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/standard/block/view</name>
@@ -502,11 +508,11 @@
     </message>
     <message>
         <source>Block name:</source>
-        <translation>ブロック名: </translation>
+        <translation type="obsolete">ブロック名: </translation>
     </message>
     <message>
         <source>Block type:</source>
-        <translation>ブロックタイプ: </translation>
+        <translation type="obsolete">ブロックタイプ: </translation>
     </message>
     <message>
         <source>Add block</source>
@@ -514,11 +520,19 @@
     </message>
     <message>
         <source>Expand</source>
-        <translation>開く</translation>
+        <translation type="obsolete">開く</translation>
     </message>
     <message>
         <source>Collapse</source>
-        <translation>閉じる</translation>
+        <translation type="obsolete">閉じる</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -560,7 +574,7 @@
     <name>ezflow/push</name>
     <message>
         <source>Add to block in frontpage</source>
-        <translation>フロントページのブロックに追加</translation>
+        <translation type="obsolete">フロントページのブロックに追加</translation>
     </message>
 </context>
 </TS>
