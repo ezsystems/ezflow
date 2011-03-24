@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -575,6 +577,10 @@
     <message>
         <source>Add to block in frontpage</source>
         <translation type="obsolete">Colocar em um bloco</translation>
+    </message>
+    <message>
+        <source>Push to block</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

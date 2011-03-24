@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -558,7 +560,7 @@
     <name>ezflow/push</name>
     <message>
         <source>Push to block</source>
-        <translation type="obsolete">Ajouter au bloc</translation>
+        <translation type="unfinished">Ajouter au bloc</translation>
     </message>
 </context>
 </TS>
