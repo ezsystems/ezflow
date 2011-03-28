@@ -1341,7 +1341,7 @@
                     <tr>
                       <td>
                         <paragraph xmlns:tmp="http://ez.no/namespaces/ezpublish3/temporary/">
-                          <link node_remote_id="cd5dd1cd67903d1ec92a00ad6c340ab2">Guidelines&amp;nbsp;for building an eZ Publish site</link>
+                          <link object_remote_id="595c036eafdcb81030b1d4a1e783e74e">Guidelines&amp;nbsp;for building an eZ Publish site</link>
                         </paragraph>
                       </td>
                     </tr>
