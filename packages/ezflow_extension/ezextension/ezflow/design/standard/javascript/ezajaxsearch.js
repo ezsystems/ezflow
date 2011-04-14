@@ -18,6 +18,15 @@ var eZAJAXSearch = function()
                     resultsTarget.set('innerHTML', '');
                     resultsTarget.addClass('loading');
 
+                    if( itemCount == 0 )
+                    {
+                        var template = ret.cfg.noresulttemplate;
+                        template = template.replace(/\{+search_string+\}/, response.content.SearchString);
+
+                        var itemContainer = Y.Node.create(template);
+                        resultsTarget.appendChild(itemContainer);
+                    }
+
                     for(var i = 0; i < itemCount; i++)
                     {
                         var item = response.content.SearchResult[i];
@@ -41,9 +50,10 @@ var eZAJAXSearch = function()
 
                         var itemContainer = Y.Node.create(template);
 
-                        resultsTarget.removeClass('loading');
                         resultsTarget.appendChild(itemContainer);
                     }
+
+                    resultsTarget.removeClass('loading');
                 }
             }
         }
