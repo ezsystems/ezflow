@@ -3,5 +3,7 @@ Changes from 2.3.0 to 2.4.0
 *Bugs*
 
 - Fixed #018198: (tc-460)(eZ Flow) Adding a "Tag cloud" block without any source, raise an error
+- Fixed #016514: eZ Flow Search Block, Nothing happens if you search returns zero hits
 - Fixed #017651: ezflow : block name not mandatory
+
 

@@ -76,6 +76,7 @@ if ( $http->hasPostVariable( 'content' ) )
                                 if ( $blockINI->hasVariable( $block->attribute('type'), 'ManualAddingOfItems' )
                                         && $blockINI->variable( $block->attribute('type'), 'ManualAddingOfItems' ) === 'enabled' )
                                 {
+                                    $blockName = ( $block->attribute( 'name' ) == '' ) ? $blockINI->variable( $block->attribute('type'), 'Name' ) : $block->attribute( 'name' );
                                     if ( $blockINI->hasVariable( $block->attribute('type'), 'AllowedClasses' ) )
                                     {
                                         $allowedClasses = $blockINI->variable( $block->attribute('type'), 'AllowedClasses' );
@@ -84,14 +85,14 @@ if ( $http->hasPostVariable( 'content' ) )
                                         {
                                             $res[] = array( 'index' => $index,
                                                             'id' => $block->attribute( 'id' ),
-                                                            'name' => $block->attribute( 'name' ) );
+                                                            'name' => $blockName );
                                         }
                                     }
                                     else
                                     {
                                         $res[] = array( 'index' => $index,
                                                         'id' => $block->attribute( 'id' ),
-                                                        'name' => $block->attribute( 'name' ) );
+                                                        'name' => $blockName );
                                     }
                                 }
                             }
