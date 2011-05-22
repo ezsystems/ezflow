@@ -25,22 +25,38 @@
                                                   'sort_by', array( 'published', false() ),
                                                   'limit', $limit ) )
      $attribute = $block.custom_attributes.attribute}
-
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={ezini('SiteSettings','GMapsKey')}" type="text/javascript"></script>
-{ezscript_require( 'ezflgmapview.js' )}
-
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+    function initialize{$block.id}() {ldelim}
+        var bounds = new google.maps.LatLngBounds();
+        var myLatlng = new google.maps.LatLng(0,0);
+        var myOption = {ldelim}
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        {rdelim};
+        var map = new google.maps.Map(document.getElementById("ezflb-map-{$block.id}"), myOption);    
+        {foreach $locations as $index=>$location}        
+            {if $location.data_map[$attribute].content.latitude|ne("")}
+            var marker{$index} = new google.maps.Marker({ldelim}
+                position: new google.maps.LatLng({$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude}), 
+                map: map,
+                title:""            
+            {rdelim});
+            google.maps.event.addListener(marker{$index}, 'click', function() {ldelim}
+              window.location.href={$location.url_alias|ezurl()};  
+                        {rdelim} );
+            {/if}
+            bounds.extend(new google.maps.LatLng({$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude}));
+    {/foreach}
+        map.fitBounds(bounds);
+        alert(map.getZoom());
+    {rdelim}
+    </script>
 <script type="text/javascript">
 <!--
-    var data{$block.id} = [];
-    
-    {foreach $locations as $location}
-    data{$block.id}.push( {ldelim}
-                            point: new GLatLng( {$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude} ),
-                            address: '{$location.data_map[$attribute].content.address}'
-                        {rdelim} );
-    {/foreach}
-
-    eZFLGMapAddListener( window, 'load', function(){ldelim} eZFLGMapView( '{$block.id}', data{$block.id} ) {rdelim}, false );
+    if ( window.addEventListener )
+        window.addEventListener('load', function(){ldelim} initialize{$block.id}() {rdelim}, false);
+    else if ( window.attachEvent )
+        window.attachEvent('onload', function(){ldelim} initialize{$block.id}() {rdelim} );
 -->
 </script>
 
