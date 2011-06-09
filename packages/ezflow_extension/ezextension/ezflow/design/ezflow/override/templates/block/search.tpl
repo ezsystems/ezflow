@@ -15,7 +15,7 @@ eZAJAXSearch.cfg = {ldelim}
                         searchbutton: '#search-button-{$block.id}',
                         searchresults: '#search-results-{$block.id}',
                         dateformattype: 'shortdatetime',
-                        noresulttemplate: '<p>{'No search results found for:'|i18n( 'design/ezflow/block/search' ))} "{ldelim}search_string{rdelim}"</p>',
+                        noresulttemplate: '<p>{'No search results found for:'|i18n( 'design/ezflow/block/search' )} "{ldelim}search_string{rdelim}"</p>',
                         resulttemplate: '<div class="result-item float-break"><div class="item-title"><a href="{ldelim}url_alias{rdelim}">{ldelim}title{rdelim}</a></div><div class="item-published-date">[{ldelim}class_name{rdelim}] {ldelim}date{rdelim}</div></div>'
                    {rdelim};
 eZAJAXSearch.init();
