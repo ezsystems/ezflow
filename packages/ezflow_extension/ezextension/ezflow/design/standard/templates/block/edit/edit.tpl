@@ -26,7 +26,7 @@
 <div class="block-controls float-break">
     <div class="left blockname">
     <label>{'Name:'|i18n( 'design/standard/block/edit' )}</label>
-    <input id="block-name-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name}" size="35" />
+    <input id="block-name-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_name_array_{$attribute.id}[{$zone_id}][{$block_id}]" value="{$block.name|wash()}" size="35" />
     </div>
     <div class="right">
     {if $is_custom|not}
@@ -36,7 +36,7 @@
                 {if eq( $overflow_block.id, $block.id )}
                     {skip}
                 {/if}
-            <option value="{$overflow_block.id}" {if eq( $overflow_block.id, $block.overflow_id )}selected="selected"{/if}>{$index|inc}. {if is_set( $overflow_block.name )}{$overflow_block.name}{else}{ezini( $overflow_block.type, 'Name', 'block.ini' )}{/if}</option>
+            <option value="{$overflow_block.id}" {if eq( $overflow_block.id, $block.overflow_id )}selected="selected"{/if}>{$index|inc}. {if is_set( $overflow_block.name )}{$overflow_block.name|wash()}{else}{ezini( $overflow_block.type, 'Name', 'block.ini' )}{/if}</option>
             {/foreach}
         </select>
      {/if}
@@ -90,7 +90,7 @@
                     {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
                     {foreach $block.custom_attributes as $custom_attrib => $value}
                         {if eq( $use_browse_mode[$custom_attrib], 'true' )}
-                            {fetch( 'content', 'node', hash( 'node_id', $value ) ).name}
+                            {fetch( 'content', 'node', hash( 'node_id', $value ) ).name|wash()}
                         {/if}
                     {/foreach}
                 {/if}
@@ -251,7 +251,7 @@
                 {foreach $zone.blocks as $index => $dest_block}
                 {if eq( $dest_block.id, $item.moved_to )}
                     {if ne( $dest_block.name, '' )}
-                        {$dest_block.name}
+                        {$dest_block.name|wash())}
                     {else}
                         {ezini( $dest_block.type, 'Name', 'block.ini' )}
                     {/if}
