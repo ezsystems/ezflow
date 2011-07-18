@@ -9,22 +9,16 @@ if ( $http->hasPostVariable( 'content' ) )
     $zoneName = array();
     $classIdentifier = false;
     
-    if ( $http->hasPostVariable( 'node_id' ) )
+    if ( $http->hasPostVariable( 'frontpage_node_id' ) )
     {
-        $node = eZContentObjectTreeNode::fetch( $http->postVariable( 'node_id' ) );
+        $frontPageNode = eZContentObjectTreeNode::fetch( $http->postVariable( 'frontpage_node_id' ) );
         
-        if ( $node instanceof eZContentObjectTreeNode )
-            $object = $node->object();
-        else
-            $object = false;
-        
-        if ( $object instanceof eZContentObject )
-        {
-            $classID = $object->attribute( 'contentclass_id' );
-            $classIdentifier = eZContentClass::classIdentifierByID( $classID );
-        }
+        if ( $frontPageNode instanceof eZContentObjectTreeNode )
+            $frontPageObject = $frontPageNode->object();
 
-        $dataMap = $object->dataMap();
+        $dataMap = array();
+        if ( $frontPageObject instanceof eZContentObject )
+            $dataMap = $frontPageObject->dataMap();
 
         foreach( $dataMap as $attribute )
         {
@@ -36,6 +30,20 @@ if ( $http->hasPostVariable( 'content' ) )
 
                 break;
             }
+        }
+    }
+
+    if ( $http->hasPostVariable( 'node_id' ) )
+    {
+        $nodeToAdd = eZContentObjectTreeNode::fetch( $http->postVariable( 'node_id' ) );
+
+        $objectToAdd = null;
+        if ( $nodeToAdd instanceof eZContentObjectTreeNode )
+            $objectToAdd = $nodeToAdd->object();
+
+        if ( $objectToAdd instanceof eZContentObject )
+        {
+            $classIdentifier = eZContentClass::classIdentifierByID( $objectToAdd->attribute( 'contentclass_id' ) );
         }
     }
 
@@ -80,7 +88,6 @@ if ( $http->hasPostVariable( 'content' ) )
                                     if ( $blockINI->hasVariable( $block->attribute('type'), 'AllowedClasses' ) )
                                     {
                                         $allowedClasses = $blockINI->variable( $block->attribute('type'), 'AllowedClasses' );
-                                        
                                         if ( in_array( $classIdentifier, $allowedClasses ) )
                                         {
                                             $res[] = array( 'index' => $index,

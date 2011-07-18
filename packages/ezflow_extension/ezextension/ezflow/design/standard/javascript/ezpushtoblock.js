@@ -48,7 +48,7 @@ eZPushToBlock = function() {
         clearMenuContent( oBlockButton );
 
         if (oMenuItem) {
-            var sPostData = "content=frontpage&node_id=" + oMenuItem.value; 
+            var sPostData = "content=frontpage&frontpage_node_id=" + oMenuItem.value;
 
             handleRequest( sPostData, oZoneButton );
 
@@ -63,7 +63,7 @@ eZPushToBlock = function() {
         if (oMenuItem) {
             oZoneButton.set( "label", oMenuItem.cfg.getProperty("text") );
             var nodeID = oFrontpageButton.get("selectedMenuItem").value;
-            var sPostData = "content=zone&node_id=" + nodeID + "&zone=" + oMenuItem.value;
+            var sPostData = "content=zone&frontpage_node_id=" + nodeID + "&zone=" + oMenuItem.value + "&node_id=" + ret.cfg.nodeid;
 
             handleRequest( sPostData, oBlockButton );
 

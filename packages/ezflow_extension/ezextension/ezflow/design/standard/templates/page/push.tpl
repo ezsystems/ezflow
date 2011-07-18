@@ -59,6 +59,7 @@
         eZPushToBlock.cfg = {ldelim}
             requesturl: "{'ezflow/get'|ezurl('no')}",
             nodename: "{$node.name|wash()|shorten( '50' )}",
+            nodeid: "{$node.node_id}",
             imagepath: "{'ezpage/clock_ico.gif'|ezimage('no')}"
         {rdelim}
         
