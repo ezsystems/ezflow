@@ -60,11 +60,13 @@
             {if is_set( $fetch_params['Source'] )}
                 {if is_array( $fetch_params['Source'] )}
                     {foreach $fetch_params['Source'] as $source}
-                        {$source}
+                        {def $source_node = fetch( 'content', 'node', hash( 'node_id', $source ) )}
+                        <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>{delimiter}, {/delimiter}
+                        {undef $source_node}
                     {/foreach}
                 {else}
                     {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
-                    {$source_node.name} [{$source_node.object.content_class.name}]
+                    <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>
                     {undef $source_node}
                 {/if}
             {/if}
@@ -198,7 +200,7 @@
                             )
                           {/if}
                     <input class="block-control" type="hidden" name="ContentObjectAttribute_ezpage_item_ts_published_value_{$attribute.id}[{$zone_id}][{$block_id}][{$item.object_id}]" value="{$item.ts_publication}" />
-                    <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" alt="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" title="{concat( 'Publishing shedule for: ', $item_object.name|wash() )|shorten( '50' )}" />
+                    <img class="schedule-handler" src="{'ezpage/clock_ico.gif'|ezimage(no)}" alt="{concat( 'Publishing schedule for: '|i18n( 'design/standard/block/edit' ), $item_object.name|wash() )|shorten( '50' )}" title="{concat( 'Publishing schedule for: '|i18n( 'design/standard/block/edit' ), $item_object.name|wash() )|shorten( '50' )}" />
                 {/if}
             </td>
     </tr>
@@ -217,7 +219,7 @@
     {foreach $block.valid as $item sequence array( 'bglight', 'bgdark') as $style}
     <tr id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}">
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
-        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" colspan="2" class="handler">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
+        <td id="z:{$zone_id}_b:{$block_id}_i:{$item.object_id}_h" colspan="2" class="handler">{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash()}</td>
     </tr>
     {/foreach}
     {else}
@@ -241,7 +243,7 @@
     {foreach $block.archived as $item sequence array( 'bglight', 'bgdark') as $style}
     <tr>
         <td class="tight"><input type="checkbox" value="{$item.object_id}" name="DeleteItemIDArray[]" /></td>
-        <td>{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash}</td>
+        <td>{fetch( 'content', 'object', hash( 'object_id', $item.object_id ) ).name|wash()}</td>
         <td class="status">
             {if ne( $item.moved_to , '' )}
                 {'Moved to:'|i18n( 'design/standard/block/edit' )}
