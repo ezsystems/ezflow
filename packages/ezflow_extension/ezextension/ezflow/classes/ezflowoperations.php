@@ -69,9 +69,12 @@ class eZFlowOperations
             return 0;
         }
 
-        $fetchClass = $blockINI->variable( $block['block_type'], 'FetchClass' );
-        @include_once( "extension/ezflow/classes/fetches/$fetchClass.php" );
-        $fetchInstance = new $fetchClass();
+        $fetchClassOptions = new ezpExtensionOptions();
+        $fetchClassOptions->iniFile = 'block.ini';
+        $fetchClassOptions->iniSection = $block['block_type'];
+        $fetchClassOptions->iniVariable = 'FetchClass';
+
+        $fetchInstance = eZExtension::getHandlerClass( $fetchClassOptions );
 
         if ( !( $fetchInstance instanceof eZFlowFetchInterface ) )
         {
