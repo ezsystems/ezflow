@@ -393,12 +393,12 @@ var BlockDDInit = function() {
                     var input = inputList.item(i);
                     var name = input.get('name');
 
-                    if( name.match(/([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/) ) {
-                        name = name.replace( /([\a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/, "$1_$2[$3][" + index + "]" );
+                    if( name.match(/([a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/) ) {
+                        name = name.replace( /([a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/, "$1_$2[$3][" + index + "]" );
                     } else if ( name.match(/([a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)+(-[\w_]+)?\]/) ) {
                         name = name.replace( /([a-zA-Z+]+)\[([\d-\w_]+)-([\d]+)+(-[\w_]+)?\]/, "$1[$2-" + index + "$4]" );
-                    } else if ( name.match(/([\a-zA-Z]+)+\_+([0-9])/) ) {
-                        name = name.replace( /([\a-zA-Z]+)+\_+([0-9])/, "$1_" + index );
+                    } else if ( name.match(/([a-zA-Z]+)+\_+([0-9])/) ) {
+                        name = name.replace( /([a-zA-Z]+)+\_+([0-9])/, "$1_" + index );
                     }
 
                     input.set('name', name);
