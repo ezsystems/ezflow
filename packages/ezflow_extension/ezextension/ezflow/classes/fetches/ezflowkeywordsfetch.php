@@ -45,7 +45,7 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
         }
         else
         {
-            $nodeID = 0;
+            $nodeID = false;
         }
 
         $sortBy = array( 'published', false );
