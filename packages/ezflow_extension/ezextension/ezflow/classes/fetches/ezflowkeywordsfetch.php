@@ -29,12 +29,12 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
     public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
     {
         $ini = eZINI::instance( 'block.ini' );
-        
+
         $limit = 5;
         if ( $ini->hasVariable( 'Keywords', 'NumberOfValidItems' ) )
             $limit = $ini->variable( 'Keywords', 'NumberOfValidItems' );
-        
-        if ( isset( $parameters['Source'] ) )
+
+        if ( isset( $parameters['Source'] ) && $parameters['Source'] != '' )
         {
             $nodeID = $parameters['Source'];
             $node = eZContentObjectTreeNode::fetch( $nodeID, false, false ); // not as an object
@@ -50,14 +50,17 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
 
         $sortBy = array( 'published', false );
 
-        if ( isset( $parameters['Classes'] ) )
+        $classIDs =  array();
+        if ( isset( $parameters['Classes'] ) && $parameters['Classes'] != '' )
         {
             $classIdentifiers = explode( ',', $parameters['Classes'] );
-            $classIDs =  array();
             foreach( $classIdentifiers as $classIdentifier )
             {
                 $class = eZContentClass::fetchByIdentifier( $classIdentifier, false ); // not as an object
-                $classIDs[] = $class['id'];
+                if( $class )
+                {
+                    $classIDs[] = $class['id'];
+                }
             }
         }
 
