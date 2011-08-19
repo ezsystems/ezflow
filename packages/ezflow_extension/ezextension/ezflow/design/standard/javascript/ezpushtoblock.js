@@ -36,6 +36,14 @@ eZPushToBlock = function() {
           success: handleSuccess
         };
 
+        var _tokenNode = document.getElementById('ezxform_token_js');
+ 	    if ( _tokenNode ) {
+            if ( p ) {
+                p = p + '&';
+            }
+            p = p + 'ezxform_token=' + _tokenNode.getAttribute('title');
+        }
+
         var request = YAHOO.util.Connect.asyncRequest('POST', ret.cfg.requesturl, callback, p);
     }
 
