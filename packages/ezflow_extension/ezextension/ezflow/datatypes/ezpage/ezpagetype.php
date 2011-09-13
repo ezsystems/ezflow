@@ -448,7 +448,7 @@ class eZPageType extends eZDataType
                     if ( $allowedZonesCount < $existingZoneCount )
                         $zoneCountDiff = $existingZoneCount - $allowedZonesCount;
 
-                    if ( count( $zoneMap ) > 0 )
+                    if ( !empty( $zoneMap ) )
                     {
                         foreach( $page->attribute( 'zones' ) as $zoneIndex => $zone )
                         {
