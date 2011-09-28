@@ -89,6 +89,7 @@ class eZFlowBlock extends eZPersistentObject
                                                                           'default' => '0',
                                                                           'required' => false ) ),
                       'keys' => array( 'id' ),
+                      'function_attributes' => array( 'node' => 'node' ),
                       'class_name' => 'eZFlowBlock',
                       'sort' => array( 'id' => 'asc' ),
                       'name' => 'ezm_block' );
@@ -107,6 +108,15 @@ class eZFlowBlock extends eZPersistentObject
         return $rs;
     }
 
+    /**
+     * Returns node associated with block
+     *
+     * @return eZContentObjectTreeNode
+     */
+    public function node()
+    {
+        return eZContentObjectTreeNode::fetch( $this->attribute( 'node_id' ) );
+    }
 }
 
 ?>

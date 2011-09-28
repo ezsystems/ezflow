@@ -79,7 +79,7 @@ class eZFlowPoolItem extends eZPersistentObject
                                                                     'datatype' => 'integer',
                                                                     'default' => '0',
                                                                     'required' => false ),
-                                         'moved_to' => array( 'name' => 'BlockID',
+                                         'moved_to' => array( 'name' => 'MovedTo',
                                                               'datatype' => 'string',
                                                               'default' => '',
                                                               'required' => false,
@@ -87,11 +87,34 @@ class eZFlowPoolItem extends eZPersistentObject
                                                               'foreign_attribute' => 'id',
                                                               'multiplicity' => '1..*' ) ),
                       'keys' => array( 'block_id', 'object_id' ),
+                      'function_attributes' => array( 'block' => 'block' ),
                       'class_name' => 'eZFlowPoolItem',
                       'sort' => array( 'block_id' => 'asc' ),
                       'name' => 'ezm_pool' );
     }
 
+    /**
+     * Fetch pool items by content object ID
+     *
+     * @param $objectId
+     * @return array
+     */
+    static function fetchListByContentObjectId( $objectId )
+    {
+        $conds = array( 'object_id' => $objectId );
+        $objectList = eZPersistentObject::fetchObjectList( self::definition(), null, $conds );
+        return $objectList;
+    }
+
+    /**
+     * Returns eZFlowBlock object for current pool item
+     *
+     * @return eZFlowBlock|null
+     */
+    public function block()
+    {
+        return eZFlowBlock::fetch( $this->attribute( 'block_id' ) );
+    }
 }
 
 ?>

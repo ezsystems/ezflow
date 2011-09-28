@@ -37,6 +37,9 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezfe
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezred5streamlist.php',
                                     'class' => 'eZRed5StreamListOperator',
                                     'operator_names' => array( 'red5list' ) );
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/ezflow/autoloads/ezpagelink.php',
+                                    'class' => 'eZPageLink',
+                                    'operator_names' => array( 'pagelink' ) );
 
 $eZTemplateFunctionArray = array();
 $eZTemplateFunctionArray[] = array( 'function' => 'eZPageForwardInit',
