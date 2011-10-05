@@ -38,7 +38,7 @@ $tpl = eZTemplate::factory();
 
 $tpl->setVariable('block', $block );
 
-$template = 'design:page/preview.tpl';
+$template = 'design:page/block.tpl';
 
 if ( !isset( $output ) )
     $output = 'xhtml';
@@ -46,6 +46,7 @@ if ( !isset( $output ) )
 switch ( strtolower( $output ) )
 {
     case 'json':
+        $template = 'design:page/preview.tpl';
         $obj = new stdClass;
 
         foreach ( $block->attributes() as $attr )
