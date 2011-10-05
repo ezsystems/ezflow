@@ -38,54 +38,47 @@ $tpl = eZTemplate::factory();
 
 $tpl->setVariable('block', $block );
 
-if ( isset( $output ) )
+$template = 'design:page/block.tpl';
+
+if ( !isset( $output ) )
+    $output = 'xhtml';
+
+switch ( strtolower( $output ) )
 {
-    switch ( strtolower( $output ) )
-    {
-        case 'xhtml':
-            echo $tpl->fetch( 'design:page/block.tpl' );
-            break;
-        case 'json':
-            $output = '[ {';
+    case 'json':
+        $template = 'design:page/preview.tpl';
+        $obj = new stdClass;
 
-            foreach ( $block->attributes() as $attr )
-            {
-                if ( in_array( $attr, array( 'waiting', 'valid', 'valid_nodes', 'archived' ) ) )
-                    continue;
+        foreach ( $block->attributes() as $attr )
+        {
+            if ( !in_array( $attr, array( 'waiting', 'valid', 'valid_nodes', 'archived' ) ) )
+                $obj->$attr = $block->attribute($attr);
+        }
+        $obj->html = htmlentities($tpl->fetch($template), ENT_QUOTES);
 
-                $out .= '\'' . $attr . '\':\'' . $block->attribute( $attr ) . '\', ';
-            }
-            $out .= '\'html\':\'' . htmlentities( $tpl->fetch( 'design:page/preview.tpl' ), ENT_QUOTES ) . '\', ';
-            $out .= '} ]';
+        header('Content-type: application/json');
+        echo json_encode(array('block' => $obj));
+        break;
+    case 'xml':
+        $dom = new DOMDocument( '1.0', 'utf-8' );
+        $dom->formatOutput = true;
 
-            $out = str_replace( "\n", "", $out );
-            echo $out;
-            break;
-        case 'xml':
-            $dom = new DOMDocument( '1.0', 'utf-8' );
-            $dom->formatOutput = true;
+        $items = eZFlowPool::validItems( $blockID );
+        foreach( $items as $item )
+        {
+            $block->addItem( new eZPageBlockItem( $item, true ) );
+        }
 
-            $items = eZFlowPool::validItems( $blockID );
-            foreach( $items as $item )
-            {
-                $block->addItem( new eZPageBlockItem( $item, true ) );
-            }
+        $block->setAttribute( 'xhtml', $tpl->fetch( $template ) );
 
-            $block->setAttribute( 'xhtml', $tpl->fetch( 'design:page/block.tpl' ) );
-
-            $blockElement = $block->toXML( $dom );
-            $dom->appendChild( $blockElement );
-            echo $dom->saveXML();
-            break;
-        default:
-            echo $tpl->fetch( 'design:page/block.tpl' );
-            break;
-    }
-
-}
-else
-{
-    echo $tpl->fetch( 'design:page/block.tpl' );
+        $blockElement = $block->toXML( $dom );
+        $dom->appendChild( $blockElement );
+        echo $dom->saveXML();
+        break;
+    case 'xhtml':
+    default:
+        echo $tpl->fetch($template);
+        break;
 }
 
 eZExecution::cleanExit();
