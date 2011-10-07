@@ -19,8 +19,35 @@
 
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
 
-    {attribute_view_gui attribute=$attribute_file}
-
+    <script type="text/javascript">
+        <!--
+        var flash_id="flash-{$block.zone_id}-{$block.id}";
+        
+        var flashStart = '<object type="application/x-shockwave-flash" data={"flash/flash_player.swf"|ezdesign} width="266" height="211">';
+        var flash = '<param name="movie" value={"flash/flash_player.swf"|ezdesign}  /> ';
+        flash = flash + '<param name="scale" value="exactfit" /> ';
+        flash = flash + '<param name="allowScriptAccess" value="sameDomain" />';
+        flash = flash + '<param name="allowFullScreen" value="true" />';
+        flash = flash + '<param name="flashvars" value="{$flash_var}" />';
+        flash = flash + '<param name="wmode" value="opaque" />';
+        flash = flash + '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player<\/a> avaliable!<\/p>';
+        var flashEnd = '<\/object>';
+        
+        insertMedia2( flash_id, flashStart + flash + flashEnd );
+        //-->
+    </script>
+    <noscript>
+    <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="266" height="211">
+        <param name="movie" value="{'flash/flash_player.swf'|ezdesign(no)}" />
+        <param name="scale" value="exactfit" />
+        <param name="allowScriptAccess" value="sameDomain" />
+        <param name="allowFullScreen" value="true" />
+        <param name="flashvars" value="{$flash_var}" />
+        <param name="wmode" value="opaque" />
+        <p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>
+    </object>
+</noscript>
+    
     </div>
 </div>
 
