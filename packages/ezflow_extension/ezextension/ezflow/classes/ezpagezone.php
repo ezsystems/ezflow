@@ -383,9 +383,12 @@ class eZPageZone
         $this->attributes['id'] = md5( (string)microtime() . (string)mt_rand() );
         $this->attributes['action'] = 'add';
 
-        foreach ( $this->attributes['blocks'] as $i => $block )
+        if ( $this->hasAttribute( 'blocks' ) )
         {
-            $this->attributes['blocks'][$i] = clone $block;
+            foreach ( $this->attributes['blocks'] as $i => $block )
+            {
+                $this->attributes['blocks'][$i] = clone $block;
+            }
         }
     }
 }
