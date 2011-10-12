@@ -20,7 +20,7 @@ class eZFlowMCFetch implements eZFlowFetchInterface
 
         $subTreeParameters = array();
         $subTreeParameters['AsObject'] = false;
-        $subTreeParameters['SortBy'] = array( 'published', true ); // first the oldest
+        $subTreeParameters['SortBy'] = array( 'published', false ); // first the latest
         $subTreeParameters['AttributeFilter'] = array(
             'and',
             array( 'published', '>', $publishedAfter ),
