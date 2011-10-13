@@ -1,6 +1,4 @@
-{if $block_wrap_template}
-    {include uri='design:block_wrap_top.tpl'}
-{/if}
+{include uri='design:parts/zone_block_top.tpl'}
 
 {if or( $block.valid_nodes|count(), 
     and( is_set( $block.custom_attributes), $block.custom_attributes|count() ), 
@@ -11,6 +9,4 @@
     <div class="block-separator"></div>
 {/if}
 
-{if $block_wrap_template}
-    {include uri='design:block_wrap_bottom.tpl'}
-{/if}
+{include uri='design:parts/zone_block_bottom.tpl'}
