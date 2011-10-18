@@ -79,8 +79,11 @@
     {elseif $is_custom}
         {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )
              $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )
-             $custom_attribute_names = ezini( $block.type, 'CustomAttributeNames', 'block.ini' )
+             $custom_attribute_names = array()
              $loop_count=0}
+        {if ezini_hasvariable( $block.type, 'CustomAttributeNames', 'block.ini' )}
+            {set $custom_attribute_names = $custom_attribute_names|merge( ezini( $block.type, 'CustomAttributeNames', 'block.ini' ) )}
+        {/if}
         {foreach $custom_attributes as $custom_attrib}
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
