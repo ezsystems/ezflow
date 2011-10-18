@@ -79,6 +79,7 @@
     {elseif $is_custom}
         {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )
              $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )
+             $custom_attribute_names = ezini( $block.type, 'CustomAttributeNames', 'block.ini' )
              $loop_count=0}
         {foreach $custom_attributes as $custom_attrib}
             {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
@@ -96,7 +97,7 @@
                 {/if}
                 </div>
             {else}
-                <label>{$custom_attrib}:</label> 
+                <label>{if is_set( $custom_attribute_names[$custom_attrib] )}{$custom_attribute_names[$custom_attrib]}{else}{$custom_attrib}{/if}:</label> 
                 {if is_set( $custom_attribute_types[$custom_attrib] )}
                     {switch match = $custom_attribute_types[$custom_attrib]}
                         {case match = 'text'}
