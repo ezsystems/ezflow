@@ -181,6 +181,10 @@
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
+    <message>
+        <source>No search results found for:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/ezflow/edit/frontpage</name>
@@ -478,6 +482,10 @@
     <message>
         <source>Current source:</source>
         <translation>Fuente actual:</translation>
+    </message>
+    <message>
+        <source>Publishing schedule for: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
