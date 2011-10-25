@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content-object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/">
-  <object-list xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/">
-    <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="66" name="Home" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="23" ezremote:published="Mon, 19 Nov 2007 13:54:46 GMT" ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" remote_id="8a9c9c761004866fb458d89910f52bee" class_remote_id="e36c458e3e4a81298a0945f53a2c81f4" ezremote:class_identifier="frontpage" ezremote:always_available="1" initial_language="eng-GB">
-      <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="60">
-        <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="60" ezremote:status="1" ezremote:created="Wed, 28 Nov 2007 16:50:55 GMT" ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" initial_language="eng-GB">
-          <ezobject:object-translation language="eng-GB" object_name="Home">
-            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="247" ezremote:identifier="name" name="Name" type="ezstring">
-              <text>Home</text>
-            </ezobject:attribute>
-            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1034" ezremote:identifier="page" name="Layout" type="ezpage">
-<page>
-  <zone_layout>2ZonesLayout1</zone_layout>
-  <zone id="id_4f6d946ab48d95799d31179c3acde8cb">
-    <zone_identifier>left</zone_identifier>
-    <block id="id_ab9e386be359563619c639ea52acd75d">
-      <name/>
-      <zone_id>4f6d946ab48d95799d31179c3acde8cb</zone_id>
-      <type>DemoBlock</type>
-      <view>demoblock</view>
-    </block>
-  </zone>
-  <zone id="id_a1117aa7fd4548568490cc7ab1271a4b">
-    <zone_identifier>right</zone_identifier>
-  </zone>
-</page>
-            </ezobject:attribute>
-            <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="253" ezremote:identifier="tags" name="Tags" type="ezkeyword">
-              <keyword-string></keyword-string>
-            </ezobject:attribute>
-          </ezobject:object-translation>
-          <ezobject:node-assignment-list>
-            <node-assignment is-main-node="1" name="Home" node-id="2" remote-id="07cdfd23373b17c6b337251c22b7ea57" sort-field="priority" sort-order="1" priority="0"/>
-          </ezobject:node-assignment-list>
-        </ezobject:version>
-      </ezobject:version-list>
-    </ezremote:object>
-  </object-list>
-  <site-access-list>
-    <site-access>eng</site-access>
-  </site-access-list>
-  <top-node-list>
-    <top-node node-id="2" remote-id="07cdfd23373b17c6b337251c22b7ea57">Home</top-node>
-  </top-node-list>
+    <object-list xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/">
+        <ezremote:object xmlns:ezremote="http://ez.no/ezobject" xmlns:ezobject="http://ez.no/object/" ezremote:id="66"
+                         name="Home" ezremote:section_id="1" ezremote:owner_id="14" ezremote:class_id="23"
+                         ezremote:published="Mon, 19 Nov 2007 13:54:46 GMT"
+                         ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" remote_id="8a9c9c761004866fb458d89910f52bee"
+                         class_remote_id="e36c458e3e4a81298a0945f53a2c81f4" ezremote:class_identifier="frontpage"
+                         ezremote:always_available="1" initial_language="eng-GB">
+            <ezobject:version-list xmlns:ezobject="http://ez.no/object/" active_version="60">
+                <ezobject:version xmlns:ezremote="http://ez.no/ezobject" ezremote:version="60" ezremote:status="1"
+                                  ezremote:created="Wed, 28 Nov 2007 16:50:55 GMT"
+                                  ezremote:modified="Wed, 28 Nov 2007 16:51:36 GMT" initial_language="eng-GB">
+                    <ezobject:object-translation language="eng-GB" object_name="Home">
+                        <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="247"
+                                            ezremote:identifier="name" name="Name" type="ezstring">
+                            <text>Home</text>
+                        </ezobject:attribute>
+                        <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="1034"
+                                            ezremote:identifier="page" name="Layout" type="ezpage">
+                            <page>
+                                <zone_layout>2ZonesLayout1</zone_layout>
+                                <zone id="id_4f6d946ab48d95799d31179c3acde8cb">
+                                    <zone_identifier>left</zone_identifier>
+                                    <block id="id_ab9e386be359563619c639ea52acd75d">
+                                        <name/>
+                                        <zone_id>4f6d946ab48d95799d31179c3acde8cb</zone_id>
+                                        <type>DemoBlock</type>
+                                        <view>demoblock</view>
+                                    </block>
+                                </zone>
+                                <zone id="id_a1117aa7fd4548568490cc7ab1271a4b">
+                                    <zone_identifier>right</zone_identifier>
+                                </zone>
+                            </page>
+                        </ezobject:attribute>
+                        <ezobject:attribute xmlns:ezremote="http://ez.no/ezobject" ezremote:id="253"
+                                            ezremote:identifier="tags" name="Tags" type="ezkeyword">
+                            <keyword-string></keyword-string>
+                        </ezobject:attribute>
+                    </ezobject:object-translation>
+                    <ezobject:node-assignment-list>
+                        <node-assignment is-main-node="1" name="Home" node-id="2"
+                                         remote-id="07cdfd23373b17c6b337251c22b7ea57" sort-field="priority"
+                                         sort-order="1" priority="0"/>
+                    </ezobject:node-assignment-list>
+                </ezobject:version>
+            </ezobject:version-list>
+        </ezremote:object>
+    </object-list>
+    <site-access-list>
+        <site-access>eng</site-access>
+    </site-access-list>
+    <top-node-list>
+        <top-node node-id="2" remote-id="07cdfd23373b17c6b337251c22b7ea57">Home</top-node>
+    </top-node-list>
 </content-object>

@@ -1,100 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="2.2-0"
+<package version="2.4-0"
          development="false"
          is_active="true"
          install_type="import">
-  <name>ezflow_site_clean</name>
-  <summary>eZ Flow (without demo content)</summary>
-  <description>The eZ Flow extension to eZ Publish enables editors to build complex page layouts and pre-plan the publication schedule to ensure a constant flow of rich content.</description>
-  <vendor>eZ systems</vendor>
-  <type value="site" />
-  <ezpublish>
-    <version>4.4.0</version>
-    <named-version>4.4</named-version>
-  </ezpublish>
-  <maintainers>
-    <maintainer>
-      <name>Administrator User</name>
-      <email>nospam@ez.no</email>
-      <role>lead</role>
-    </maintainer>
-  </maintainers>
-  <packaging>
-    <timestamp>1153313252</timestamp>
-    <host>packages.ez.no</host>
-  </packaging>
-  <documents>
-    <document mime-type="text/plain"
-              name="LICENCE" />
-  </documents>
-  <changelog>
-    <entry person="Administrator User"
-           email="nospam@ez.no"
-           release="1">
-      <change>Creation of package.</change>
-    </entry>
-  </changelog>
-  <simple-files />
-  <files>
-    <collection name="default">
-      <file-list type="thumbnail"
-                 variable-name="thumbnail">
-        <file name="thumbnail.png"
-              md5sum="d0a098ad93432761ff270ea553e549d4" />
-      </file-list>
-      <file-list type="image"
-                 variable-name="image">
-        <file name="logo.png"
-              md5sum="ec4c8c048e629f3f6aa320cb7817ffc7" />
-      </file-list>
-     </collection>
-  </files>
-  <version>
-    <number>2.2</number>
-    <release>0</release>
-  </version>
-  <licence>GPL</licence>
-  <state>stable</state>
-  <dependencies>
-    <provides />
-    <requires>
-      <require type="ezpackage"
-               name="ezwt_extension"
-               min-version="1.3" />
-      <require type="ezpackage"
-               name="ezstarrating_extension"
-               min-version="1.2" />
-      <require type="ezpackage"
-               name="ezgmaplocation_extension"
-               min-version="1.2" />
-      <require type="ezpackage"
-               name="ezwebin_extension"
-               min-version="1.7" />
-      <require type="ezpackage"
-               name="ezflow_extension"
-               min-version="2.2" />
-      <require type="ezpackage"
-               name="ezflow_classes"
-               min-version="2.2" />
-      <require type="ezpackage"
-               name="ezflow_democontent_clean"
-               min-version="2.2" />
-      <require type="ezpackage"
-               name="ezflow_design"
-               min-version="2.2" />
-    </requires>
-    <obsoletes />
-    <conflicts />
-  </dependencies>
-  <settings>
-    <settings-file filename='ini-site.php'/>
-    <settings-file filename='ini-admin.php'/>
-    <settings-file filename='ini-common.php'/>
-    <settings-file filename='ezflowinstaller.php'/>
-    <settings-file filename='install-scripts.php'/>
-    <settings-file filename='roles.php'/>
-    <settings-file filename='preferences.php'/>
-  </settings>
-  <install />
-  <uninstall />
+    <name>ezflow_site_clean</name>
+    <summary>eZ Flow (without demo content)</summary>
+    <description>The eZ Flow extension to eZ Publish enables editors to build complex page layouts and pre-plan the
+        publication schedule to ensure a constant flow of rich content.
+    </description>
+    <vendor>eZ systems</vendor>
+    <type value="site"/>
+    <ezpublish>
+        <version>4.6.0</version>
+        <named-version>4.6</named-version>
+    </ezpublish>
+    <maintainers>
+        <maintainer>
+            <name>Administrator User</name>
+            <email>nospam@ez.no</email>
+            <role>lead</role>
+        </maintainer>
+    </maintainers>
+    <packaging>
+        <timestamp>1153313252</timestamp>
+        <host>packages.ez.no</host>
+    </packaging>
+    <documents>
+        <document mime-type="text/plain"
+                  name="LICENCE"/>
+    </documents>
+    <changelog>
+        <entry person="Administrator User"
+               email="nospam@ez.no"
+               release="1">
+            <change>Creation of package.</change>
+        </entry>
+    </changelog>
+    <simple-files/>
+    <files>
+        <collection name="default">
+            <file-list type="thumbnail"
+                       variable-name="thumbnail">
+                <file name="thumbnail.png"
+                      md5sum="d0a098ad93432761ff270ea553e549d4"/>
+            </file-list>
+            <file-list type="image"
+                       variable-name="image">
+                <file name="logo.png"
+                      md5sum="ec4c8c048e629f3f6aa320cb7817ffc7"/>
+            </file-list>
+        </collection>
+    </files>
+    <version>
+        <number>2.4</number>
+        <release>0</release>
+    </version>
+    <licence>GPL</licence>
+    <state>stable</state>
+    <dependencies>
+        <provides/>
+        <requires>
+            <require type="ezpackage"
+                     name="ezwt_extension"
+                     min-version="1.3"/>
+            <require type="ezpackage"
+                     name="ezstarrating_extension"
+                     min-version="1.2"/>
+            <require type="ezpackage"
+                     name="ezgmaplocation_extension"
+                     min-version="1.2"/>
+            <require type="ezpackage"
+                     name="ezwebin_extension"
+                     min-version="1.7"/>
+            <require type="ezpackage"
+                     name="ezflow_extension"
+                     min-version="2.2"/>
+            <require type="ezpackage"
+                     name="ezflow_classes"
+                     min-version="2.2"/>
+            <require type="ezpackage"
+                     name="ezflow_democontent_clean"
+                     min-version="2.2"/>
+            <require type="ezpackage"
+                     name="ezflow_design"
+                     min-version="2.2"/>
+        </requires>
+        <obsoletes/>
+        <conflicts/>
+    </dependencies>
+    <settings>
+        <settings-file filename='ini-site.php'/>
+        <settings-file filename='ini-admin.php'/>
+        <settings-file filename='ini-common.php'/>
+        <settings-file filename='ezflowinstaller.php'/>
+        <settings-file filename='install-scripts.php'/>
+        <settings-file filename='roles.php'/>
+        <settings-file filename='preferences.php'/>
+    </settings>
+    <install/>
+    <uninstall/>
 </package>

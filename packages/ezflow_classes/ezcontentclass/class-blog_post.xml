@@ -1,95 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="true" always-available="false" sort-field="path" sort-order="1">
-  <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"Blog post";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-  <identifier>blog_post</identifier>
-  <remote-id>7ecb961056b7cbb30f22a91357e0a007</remote-id>
-  <object-name-pattern>&lt;title&gt;</object-name-pattern>
-  <url-alias-pattern></url-alias-pattern>
-  <remote>
-    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
-    <url>http://localhost/~ls/ezflow_test/index.php/class/view/20</url>
-    <groups>
-      <group id="1" name="Content"/>
-    </groups>
-    <id>20</id>
-    <created>1235986117</created>
-    <modified>1235986117</modified>
-    <creator>
-      <user-id>14</user-id>
-      <user-login>admin</user-login>
-    </creator>
-    <modifier>
-      <user-id>14</user-id>
-      <user-login>admin</user-login>
-    </modifier>
-  </remote>
-  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>213</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:5:"Title";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>title</identifier>
-      <placement>1</placement>
-      <datatype-parameters>
-        <max-length>0</max-length>
-        <default-string/>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>214</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Body";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>body</identifier>
-      <placement>2</placement>
-      <datatype-parameters>
-        <text-column-count>25</text-column-count>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezdatetime" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>215</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:16:"Publication date";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>publication_date</identifier>
-      <placement>3</placement>
-      <datatype-parameters>
-        <default-value type="current-date"/>
-        <use-seconds>0</use-seconds>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezdatetime" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>216</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:14:"Unpublish date";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>unpublish_date</identifier>
-      <placement>4</placement>
-      <datatype-parameters>
-        <default-value type="empty"/>
-        <use-seconds>0</use-seconds>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezkeyword" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>217</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Tags";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>tags</identifier>
-      <placement>5</placement>
-      <datatype-parameters/>
-    </attribute>
-    <attribute datatype="ezboolean" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>218</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:15:"Enable comments";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>enable_comments</identifier>
-      <placement>6</placement>
-      <datatype-parameters>
-        <default-value is-set="false"/>
-      </datatype-parameters>
-    </attribute>
-  </ezcontentclass-attri:attributes>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="true"
+               always-available="false" sort-field="path" sort-order="1">
+    <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"Blog post";s:16:"always-available";s:6:"eng-GB";}
+    </serialized-name-list>
+    <identifier>blog_post</identifier>
+    <remote-id>7ecb961056b7cbb30f22a91357e0a007</remote-id>
+    <object-name-pattern>&lt;title&gt;</object-name-pattern>
+    <url-alias-pattern></url-alias-pattern>
+    <remote>
+        <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+        <url>http://localhost/~ls/ezflow_test/index.php/class/view/20</url>
+        <groups>
+            <group id="1" name="Content"/>
+        </groups>
+        <id>20</id>
+        <created>1235986117</created>
+        <modified>1235986117</modified>
+        <creator>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </creator>
+        <modifier>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </modifier>
+    </remote>
+    <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+        <attribute datatype="ezstring" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>213</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:5:"Title";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>title</identifier>
+            <placement>1</placement>
+            <datatype-parameters>
+                <max-length>0</max-length>
+                <default-string/>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>214</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Body";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>body</identifier>
+            <placement>2</placement>
+            <datatype-parameters>
+                <text-column-count>25</text-column-count>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezdatetime" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>215</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:16:"Publication date";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>publication_date</identifier>
+            <placement>3</placement>
+            <datatype-parameters>
+                <default-value type="current-date"/>
+                <use-seconds>0</use-seconds>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezdatetime" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>216</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:14:"Unpublish date";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>unpublish_date</identifier>
+            <placement>4</placement>
+            <datatype-parameters>
+                <default-value type="empty"/>
+                <use-seconds>0</use-seconds>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezkeyword" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>217</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Tags";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>tags</identifier>
+            <placement>5</placement>
+            <datatype-parameters/>
+        </attribute>
+        <attribute datatype="ezboolean" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>218</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:15:"Enable comments";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>enable_comments</identifier>
+            <placement>6</placement>
+            <datatype-parameters>
+                <default-value is-set="false"/>
+            </datatype-parameters>
+        </attribute>
+    </ezcontentclass-attri:attributes>
 </content-class>

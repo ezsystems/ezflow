@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false" always-available="false" sort-field="path" sort-order="1">
-  <serialized-name-list>a:2:{s:6:"eng-GB";s:13:"Multicalendar";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-  <identifier>multicalendar</identifier>
-  <remote-id>99aec4e5682414517ed929ecd969439f</remote-id>
-  <object-name-pattern>&lt;name&gt;</object-name-pattern>
-  <url-alias-pattern></url-alias-pattern>
-  <remote>
-    <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
-    <url>http://localhost/~ls/ezflow_test/index.php/class/view/26</url>
-    <groups>
-      <group id="1" name="Content"/>
-    </groups>
-    <id>26</id>
-    <created>1235986118</created>
-    <modified>1235986118</modified>
-    <creator>
-      <user-id>14</user-id>
-      <user-login>admin</user-login>
-    </creator>
-    <modifier>
-      <user-id>14</user-id>
-      <user-login>admin</user-login>
-    </modifier>
-  </remote>
-  <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
-    <attribute datatype="ezstring" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>247</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>name</identifier>
-      <placement>1</placement>
-      <datatype-parameters>
-        <max-length>0</max-length>
-        <default-string/>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>248</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>description</identifier>
-      <placement>2</placement>
-      <datatype-parameters>
-        <text-column-count>10</text-column-count>
-      </datatype-parameters>
-    </attribute>
-    <attribute datatype="ezobjectrelationlist" required="false" searchable="true" information-collector="false" translatable="true">
-      <remote>
-        <id>249</id>
-      </remote>
-      <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"Calendars";s:16:"always-available";s:6:"eng-GB";}</serialized-name-list>
-      <identifier>calendars</identifier>
-      <placement>3</placement>
-      <datatype-parameters>
-        <type>2</type>
-        <class-constraints>
-          <class-constraint class-identifier="event_calendar"/>
-        </class-constraints>
-        <selection-type>0</selection-type>
-      </datatype-parameters>
-    </attribute>
-  </ezcontentclass-attri:attributes>
+<content-class xmlns:ezcontentclass-attri="http://ezpublish/contentclassattribute" is-container="false"
+               always-available="false" sort-field="path" sort-order="1">
+    <serialized-name-list>a:2:{s:6:"eng-GB";s:13:"Multicalendar";s:16:"always-available";s:6:"eng-GB";}
+    </serialized-name-list>
+    <identifier>multicalendar</identifier>
+    <remote-id>99aec4e5682414517ed929ecd969439f</remote-id>
+    <object-name-pattern>&lt;name&gt;</object-name-pattern>
+    <url-alias-pattern></url-alias-pattern>
+    <remote>
+        <site-url>http://localhost/~ls/ezflow_test/index.php/</site-url>
+        <url>http://localhost/~ls/ezflow_test/index.php/class/view/26</url>
+        <groups>
+            <group id="1" name="Content"/>
+        </groups>
+        <id>26</id>
+        <created>1235986118</created>
+        <modified>1235986118</modified>
+        <creator>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </creator>
+        <modifier>
+            <user-id>14</user-id>
+            <user-login>admin</user-login>
+        </modifier>
+    </remote>
+    <ezcontentclass-attri:attributes xmlns:ezcontentclass-attribute="http://ezpublish/contentclassattribute">
+        <attribute datatype="ezstring" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>247</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:4:"Name";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>name</identifier>
+            <placement>1</placement>
+            <datatype-parameters>
+                <max-length>0</max-length>
+                <default-string/>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezxmltext" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>248</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:11:"Description";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>description</identifier>
+            <placement>2</placement>
+            <datatype-parameters>
+                <text-column-count>10</text-column-count>
+            </datatype-parameters>
+        </attribute>
+        <attribute datatype="ezobjectrelationlist" required="false" searchable="true" information-collector="false"
+                   translatable="true">
+            <remote>
+                <id>249</id>
+            </remote>
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:9:"Calendars";s:16:"always-available";s:6:"eng-GB";}
+            </serialized-name-list>
+            <identifier>calendars</identifier>
+            <placement>3</placement>
+            <datatype-parameters>
+                <type>2</type>
+                <class-constraints>
+                    <class-constraint class-identifier="event_calendar"/>
+                </class-constraints>
+                <selection-type>0</selection-type>
+            </datatype-parameters>
+        </attribute>
+    </ezcontentclass-attri:attributes>
 </content-class>
