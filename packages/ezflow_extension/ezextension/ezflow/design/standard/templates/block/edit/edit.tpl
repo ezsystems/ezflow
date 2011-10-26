@@ -1,6 +1,6 @@
 {def $is_dynamic = false()
      $is_custom = false()
-     $fetch_params = unserialize( $block.fetch_params )
+     $fetch_params = array()
      $action = $block.action}
 
 {if and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
@@ -9,6 +9,10 @@
 {elseif and( eq( ezini( $block.type, 'ManualAddingOfItems', 'block.ini' ), 'disabled' ),
              ezini_hasvariable( $block.type, 'FetchClass', 'block.ini' )|not )}
     {set $is_custom = true()}
+{/if}
+
+{if is_set( $block.fetch_params )}
+    {set $fetch_params = unserialize( $block.fetch_params )}
 {/if}
 
 <div id="id_{$block.id}" class="block-container">
@@ -77,21 +81,29 @@
         {/if}
         {/foreach}
     {elseif $is_custom}
-        {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )
-             $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )
+        {def $custom_attributes = array()
+             $custom_attribute_types = array()
              $custom_attribute_names = array()
-             $loop_count=0}
+             $loop_count = 0}
+        {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
+            {set $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
+        {/if}
+        {if ezini_hasvariable( $block.type, 'CustomAttributeTypes', 'block.ini' )}
+            {set $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )}
+        {/if}
         {if ezini_hasvariable( $block.type, 'CustomAttributeNames', 'block.ini' )}
-            {set $custom_attribute_names = $custom_attribute_names|merge( ezini( $block.type, 'CustomAttributeNames', 'block.ini' ) )}
+            {set $custom_attribute_names = ezini( $block.type, 'CustomAttributeNames', 'block.ini' )}
         {/if}
         {foreach $custom_attributes as $custom_attrib}
-            {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
+            {def $use_browse_mode = array()}
+            {if ezini_hasvariable( $block.type, 'UseBrowseMode', 'block.ini' )}
+                {set $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
+            {/if}
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 <input id="block-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
                 <div class="source">
                 {'Current source:'|i18n( 'design/standard/block/edit' )}
                 {if is_set( $block.custom_attributes )}
-                    {def $use_browse_mode = ezini( $block.type, 'UseBrowseMode', 'block.ini' )}
                     {foreach $block.custom_attributes as $custom_attrib => $value}
                         {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                             {fetch( 'content', 'node', hash( 'node_id', $value ) ).name|wash()}
@@ -255,7 +267,7 @@
                 {foreach $zone.blocks as $index => $dest_block}
                 {if eq( $dest_block.id, $item.moved_to )}
                     {if ne( $dest_block.name, '' )}
-                        {$dest_block.name|wash())}
+                        {$dest_block.name|wash()}
                     {else}
                         {ezini( $dest_block.type, 'Name', 'block.ini' )}
                     {/if}
