@@ -71,8 +71,7 @@
             <remote>
                 <id>295</id>
             </remote>
-            <serialized-name-list>a:2:{s:6:"eng-GB";s:23:"Notify me about
-                updates";s:16:"always-available";s:6:"eng-GB";}
+            <serialized-name-list>a:2:{s:6:"eng-GB";s:23:"Notify me about updates";s:16:"always-available";s:6:"eng-GB";}
             </serialized-name-list>
             <identifier>notify_me</identifier>
             <placement>4</placement>
