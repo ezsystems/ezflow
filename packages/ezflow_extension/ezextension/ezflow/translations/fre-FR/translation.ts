@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>No search results found for:</source>
-        <translation>Aucun résultats trouvés pour:</translation>
+        <translation type="unfinished">Aucun résultat trouvé pour:</translation>
     </message>
 </context>
 <context>
