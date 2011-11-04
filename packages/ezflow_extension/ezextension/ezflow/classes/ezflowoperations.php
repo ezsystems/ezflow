@@ -189,7 +189,7 @@ class eZFlowOperations
 
             foreach ( $blocks as $block )
             {
-                $next[$block['id']] = $block['overflow_id'];
+                $next[$block['id']] = trim( $block['overflow_id'] ); // Make sure that block ID does not any have spaces
                 $blockByID[$block['id']] = $block;
             }
 
