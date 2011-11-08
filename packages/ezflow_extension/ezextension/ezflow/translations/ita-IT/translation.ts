@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="it_IT">
 <context>
     <name>design/admin/content/edit</name>
     <message>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>No search results found for:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessun risultato trovato per la ricerca di:</translation>
     </message>
 </context>
 <context>
@@ -477,15 +477,15 @@
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Current source:</source>
-        <translation type="unfinished"></translation>
+        <translation>Origine attuale:</translation>
     </message>
     <message>
         <source>Publishing schedule for: </source>
-        <translation type="unfinished"></translation>
+        <translation>Pubblicazione programmata per:</translation>
     </message>
 </context>
 <context>
@@ -538,11 +538,11 @@
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"></translation>
+        <translation>Espandi tutti</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprimi tutti</translation>
     </message>
 </context>
 <context>
@@ -588,7 +588,7 @@
     </message>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation>Spingi al blocco</translation>
     </message>
 </context>
 </TS>
