@@ -76,7 +76,8 @@
         <label>{$fetch_parameter}:</label> <input id="block-fetch-parameter-{$fetch_parameter}-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
         {/if}
         {/foreach}
-    {elseif $is_custom}
+    {/if}
+    {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
         {def $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )
              $custom_attribute_types = ezini( $block.type, 'CustomAttributeTypes', 'block.ini' )
              $custom_attribute_names = array()
@@ -125,8 +126,11 @@
             {set $loop_count=inc( $loop_count )}
         {/foreach}
         {undef $loop_count}
-    {else}
-        <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
+    {/if}
+    {if and( not( $is_dynamic ), not( $is_custom ) )}
+        <div>
+            <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
+        </div>
     {/if}
     </div>
 </div>
