@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package version="1.1-0" development="false" install_type="install">
+<package version="2.4-0" development="false" install_type="install">
   <name>ezflow_extension</name>
   <summary>ezflow_extension</summary>
   <description>ezflow extension</description>
   <vendor>eZ systems</vendor>
   <type value="extension"/>
   <ezpublish>
-    <version>4.1.0</version>
-    <named-version>4.1</named-version>
+    <version>4.6.0</version>
+    <named-version>4.6</named-version>
   </ezpublish>
   <maintainers>
     <maintainer>
@@ -18,7 +18,7 @@
   </maintainers>
   <packaging>
     <timestamp>1196688756</timestamp>
-    <host>localhost</host>
+    <host>packages.ez.no</host>
   </packaging>
   <documents>
     <document mime-type="text/plain" name="LICENCE"/>
@@ -30,7 +30,7 @@
   </changelog>
   <simple-files/>
   <version>
-    <number>1.1</number>
+    <number>2.4</number>
     <release>0</release>
   </version>
   <licence>GPL</licence>
