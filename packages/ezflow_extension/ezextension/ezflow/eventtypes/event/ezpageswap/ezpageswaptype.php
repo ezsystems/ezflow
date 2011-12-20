@@ -31,7 +31,10 @@ class eZPageSwapType extends eZWorkflowEventType
 
     function __construct()
     {
-        parent::__construct( self::WORKFLOW_TYPE_STRING, ezi18n( 'kernel/workflow/event', 'eZ Page swap workflow event' ) );
+        parent::__construct(
+            self::WORKFLOW_TYPE_STRING,
+            ezpI18n::tr( 'kernel/workflow/event', 'eZ Page swap workflow event' )
+        );
         $this->setTriggerTypes( array( 'content' => array( 'swap' => array ( 'after' ) ) ) );
     }
 
