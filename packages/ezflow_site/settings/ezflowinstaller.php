@@ -2238,12 +2238,8 @@ class eZFlownInstaller extends eZSiteInstaller
     function commonSiteINISettings()
     {
         $settings = array();
-        $siteaccessUrl = $this->setting( 'siteaccess_urls' );
         $settings['SiteAccessSettings'] = array(
-            'AvailableSiteAccessList' => $this->setting( 'all_siteaccess_list' ),
-            'DetectMobileDevice' => 'enabled',
-            'MobileSiteAccessList' => array( 'iphone' ),
-            'MobileSiteAccessURL' => 'http://' . $siteaccessUrl['mobile']['iphone']['url']
+            'AvailableSiteAccessList' => $this->setting( 'all_siteaccess_list' )
         );
         $settings['SiteSettings'] = array( 
             'SiteList' => $this->setting( 'all_siteaccess_list' ), 
@@ -2740,9 +2736,13 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings['RegionalSettings'] = array( 
             'ShowUntranslatedObjects' => 'disabled' 
         );
+        $siteaccessUrl = $this->setting( 'siteaccess_urls' );
         $settings['SiteAccessSettings'] = array( 
             'RequireUserLogin' => 'false', 
-            'ShowHiddenNodes' => 'false' 
+            'ShowHiddenNodes' => 'false',
+            'DetectMobileDevice' => 'enabled',
+            'MobileSiteAccessList' => array( 'iphone' ),
+            'MobileSiteAccessURL' => 'http://' . $siteaccessUrl['mobile']['iphone']['url']
         );
         $siteaccessUrl = $this->setting( 'siteaccess_urls' );
         $adminSiteaccessName = $this->setting( 'admin_siteaccess' );
