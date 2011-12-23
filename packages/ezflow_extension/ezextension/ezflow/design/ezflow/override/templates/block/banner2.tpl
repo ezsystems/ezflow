@@ -1,4 +1,4 @@
-<script type='text/javascript'><!--//<![CDATA[
+<script type='text/javascript'>
    var m3_u = (location.protocol=='https:'?'https://openads.ezpublish.no/www/delivery/ajs.php':'http://openads.ezpublish.no/www/delivery/ajs.php');
    var m3_r = Math.floor(Math.random()*99999999999);
    if (!document.MAX_used) document.MAX_used = ',';
@@ -11,7 +11,7 @@
    if (document.context) document.write ("&context=" + escape(document.context));
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    document.write ("'><\/scr"+"ipt>");
-//]]>--></script>
+</script>
 <noscript>
 <a href='http://openads.ezpublish.no/www/delivery/ck.php?n=ae6d1541&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://openads.ezpublish.no/www/delivery/avw.php?zoneid=4&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ae6d1541' border='0' alt='' /></a>
 </noscript>

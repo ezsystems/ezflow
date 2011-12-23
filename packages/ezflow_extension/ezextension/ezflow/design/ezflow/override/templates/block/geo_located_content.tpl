@@ -30,7 +30,6 @@
 {ezscript_require( 'ezflgmapview.js' )}
 
 <script type="text/javascript">
-<!--
     var data{$block.id} = [];
     
     {foreach $locations as $location}
@@ -41,7 +40,6 @@
     {/foreach}
 
     eZFLGMapAddListener( window, 'load', function(){ldelim} eZFLGMapView( '{$block.id}', data{$block.id} ) {rdelim}, false );
--->
 </script>
 
 <h2>{$block.name|wash()}</h2>

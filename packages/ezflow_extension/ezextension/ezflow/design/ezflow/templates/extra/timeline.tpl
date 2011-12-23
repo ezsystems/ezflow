@@ -71,7 +71,6 @@
 {ezscript_require( 'ezjsc::yui2' )}
 
 <script type="text/javascript">
-<!--
 (function() {ldelim}
     YUILoader.onSuccess = function() {ldelim}
 
@@ -120,5 +119,4 @@
     YUILoader.insert();
 
 {rdelim})();
-//-->
 </script>

@@ -52,7 +52,6 @@
 
         <div class="block">    
             <script type="text/javascript">
-            <!--
                 insertMedia( '<object type="application/x-shockwave-flash" data="{$flash}" width="{$width}" height="{$height}"> ');
                 insertMedia( '<param name="movie" value="{$flash}" /> ');
                 insertMedia( '<param name="scale" value="exactfit" /> ');
@@ -65,7 +64,6 @@
                 insertMedia( '<param name="menu" value="false" />' );
                 insertMedia( '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player<\/a> avaliable!<\/p>');
                 insertMedia( '<\/object>' );
-            //-->
             </script>
 
             <noscript>

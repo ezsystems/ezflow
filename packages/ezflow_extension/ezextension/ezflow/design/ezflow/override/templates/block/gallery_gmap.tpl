@@ -1,6 +1,5 @@
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={ezini('SiteSettings','GMapsKey')}" type="text/javascript"></script>
 <script type="text/javascript">
-<!--
     var gmapExistingOnload{$block.id} = null;
     var gmapExistingOnUnload{$block.id} = null;
 
@@ -128,7 +127,6 @@ if (window.loadPointMap === undefined) {
         }
     }
 {/literal}
-//-->
 </script>
 
 <h2 class="grey_background">{$block_name}</h2>
