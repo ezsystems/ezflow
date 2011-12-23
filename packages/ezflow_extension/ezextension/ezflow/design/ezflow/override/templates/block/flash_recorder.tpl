@@ -27,7 +27,6 @@
     
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
         <script type="text/javascript">
-        <!--
             var flash_id="flash-{$block.zone_id}-{$block.id}";
         
             var flashString = '<object type="application/x-shockwave-flash" data="{$flash}?{$flash_var}" width="{$width}" height="{$height}"> ';
@@ -43,8 +42,7 @@
             flashString += '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>';
             flashString += '</object>' ;
             
-            insertMedia2( flash_id, flashString );            
-        //-->
+            insertMedia2( flash_id, flashString );
         </script>
 
         <noscript>

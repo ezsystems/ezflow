@@ -250,7 +250,6 @@ eZAJAXSearch.init();
 
 {literal}
 <script language="JavaScript" type="text/javascript">
-<!--
     window.onload=function()
     {
         with( document.editform )
@@ -275,6 +274,5 @@ eZAJAXSearch.init();
         // Ask user if she really wants do it, return this to the handler.
         return confirm( question );
     }
--->
 </script>
 {/literal}

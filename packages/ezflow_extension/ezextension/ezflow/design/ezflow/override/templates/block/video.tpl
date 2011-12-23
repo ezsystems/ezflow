@@ -20,7 +20,6 @@
     <div class="content-media" id="flash-{$block.zone_id}-{$block.id}">
 
     <script type="text/javascript">
-        <!--
         var flash_id="flash-{$block.zone_id}-{$block.id}";
         
         var flashStart = '<object type="application/x-shockwave-flash" data={"flash/flash_player.swf"|ezdesign} width="266" height="211">';
@@ -34,7 +33,6 @@
         var flashEnd = '<\/object>';
         
         insertMedia2( flash_id, flashStart + flash + flashEnd );
-        //-->
     </script>
     <noscript>
     <object type="application/x-shockwave-flash" data="{'flash/flash_player.swf'|ezdesign(no)}" width="266" height="211">

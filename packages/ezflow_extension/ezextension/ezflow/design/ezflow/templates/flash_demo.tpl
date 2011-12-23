@@ -18,7 +18,6 @@
 {/if}
 
 <script type="text/javascript">
-<!--
     insertMedia( '<object type="application/x-shockwave-flash" data="{$flash_player}" width="{$width}" height="{$height}"> ');
     insertMedia( '<param name="movie" value="{$flash_player}" /> ');
     insertMedia( '<param name="scale" value="exactfit" /> ');
@@ -27,7 +26,6 @@
     insertMedia( '<param name="flashvars" value="{$flash_var_value}" />');
     insertMedia( '<p>No <a href="http://www.macromedia.com/go/getflashplayer">Flash player</a> avaliable!</p>');
     insertMedia( '</object>' );
-//-->
 </script>
 
 <noscript>

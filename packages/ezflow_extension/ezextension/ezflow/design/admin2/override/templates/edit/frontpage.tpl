@@ -128,7 +128,6 @@ function addBlock( object, id )
 {ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io', 'ezajaxsearch.js' ) )}
 
 <script type="text/javascript">
-<!--
 eZAJAXSearch.cfg = {ldelim}
                         searchstring: '#search-string-{$object.id}',
                         searchbutton: '#search-button-{$object.id}',
@@ -137,7 +136,6 @@ eZAJAXSearch.cfg = {ldelim}
                         resulttemplate: '<div class="block"><div class="item-title">{ldelim}title{rdelim}<\/div><div class="item-published-date">[{ldelim}class_name{rdelim}] {ldelim}date{rdelim}<\/div><div class="item-selector"><input type="checkbox" value="{ldelim}node_id{rdelim}" name="SelectedNodeIDArray[]" /></div></div>'
                    {rdelim};
 eZAJAXSearch.init();
--->
 </script>
 
 <!-- SEARCH BOX: END -->
@@ -280,7 +278,6 @@ eZAJAXSearch.init();
 
 {literal}
 <script language="JavaScript" type="text/javascript">
-<!--
 jQuery(function( $ )//called on document.ready
 {
     var docScrollTop = 0, el = $('#editform input:text:enabled:first');
@@ -306,6 +303,5 @@ function confirmDiscard( question )
     // Ask user if she really wants do it, return this to the handler.
     return confirm( question );
 }
--->
 </script>
 {/literal}

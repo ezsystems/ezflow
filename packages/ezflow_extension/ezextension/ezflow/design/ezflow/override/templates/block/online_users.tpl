@@ -14,7 +14,6 @@
 
 {ezscript_require( array( 'ezjsc::yui3', 'ezjsc::yui3io' ) )}
 <script type="text/javascript">
-<!--
 {literal}
 (function() {
 YUI(YUI3_config).use('node', 'event', 'io-ez', function(Y) {
@@ -37,5 +36,4 @@ YUI(YUI3_config).use('node', 'event', 'io-ez', function(Y) {
 
 })();
 {/literal}
--->
 </script>
