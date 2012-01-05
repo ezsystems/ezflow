@@ -134,7 +134,19 @@ class eZFlownInstaller extends eZSiteInstaller
                     $this->setting( 'admin_access_type_value' ), 
                     $this->setting( 'access_type_value' ) 
                 ) 
-            ) ) 
+            ) ),
+            'mobile' => $this->createSiteaccessUrls( array(
+                'siteaccess_list' => array(
+                    'iphone'
+                ),
+                'access_type' => $this->setting( 'access_type' ),
+                'access_type_value' => $this->setting( 'access_type_value' ) + count( $this->setting( 'language_based_siteaccess_list' ) ) + 1,
+                'host' => $this->setting( 'host' ),
+                'exclude_port_list' => array(
+                    $this->setting( 'admin_access_type_value' ),
+                    $this->setting( 'access_type_value' )
+                )
+            ) )
         );
         $this->addSetting( 'siteaccess_urls', $siteaccessUrls );
         $this->addSetting( 'primary_language', eZSiteInstaller::getParam( $parameters, 'all_language_codes/0', '' ) );
@@ -2226,8 +2238,8 @@ class eZFlownInstaller extends eZSiteInstaller
     function commonSiteINISettings()
     {
         $settings = array();
-        $settings['SiteAccessSettings'] = array( 
-            'AvailableSiteAccessList' => $this->setting( 'all_siteaccess_list' ) 
+        $settings['SiteAccessSettings'] = array(
+            'AvailableSiteAccessList' => $this->setting( 'all_siteaccess_list' )
         );
         $settings['SiteSettings'] = array( 
             'SiteList' => $this->setting( 'all_siteaccess_list' ), 
@@ -2724,9 +2736,13 @@ class eZFlownInstaller extends eZSiteInstaller
         $settings['RegionalSettings'] = array( 
             'ShowUntranslatedObjects' => 'disabled' 
         );
+        $siteaccessUrl = $this->setting( 'siteaccess_urls' );
         $settings['SiteAccessSettings'] = array( 
             'RequireUserLogin' => 'false', 
-            'ShowHiddenNodes' => 'false' 
+            'ShowHiddenNodes' => 'false',
+            'DetectMobileDevice' => 'enabled',
+            'MobileSiteAccessList' => array( 'iphone' ),
+            'MobileSiteAccessURL' => 'http://' . $siteaccessUrl['mobile']['iphone']['url']
         );
         $siteaccessUrl = $this->setting( 'siteaccess_urls' );
         $adminSiteaccessName = $this->setting( 'admin_siteaccess' );
