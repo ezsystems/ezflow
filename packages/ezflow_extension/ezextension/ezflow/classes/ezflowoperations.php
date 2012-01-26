@@ -213,12 +213,12 @@ class eZFlowOperations
                 {
                     if ( !in_array( $nextID, $nextIDs, true ) )
                     {
-                        eZDebug::writeWarning( "Overflow for $currentID is $nextID, but no such block was found for the given node", 'eZ Flow Update Cronjob' );
+                        eZDebug::writeWarning( "Overflow for $currentID is $nextID, but no such block was found for the given node", __METHOD__ );
                         break;
                     }
                     if ( in_array( $nextID, $subCorrectOrder, true ) )
                     {
-                        eZDebug::writeWarning( "Loop detected, ignoring ($nextID should be after $currentID and vice versa)", 'eZ Flow Update Cronjob' );
+                        eZDebug::writeWarning( "Loop detected, ignoring ($nextID should be after $currentID and vice versa)", __METHOD__ );
                         break;
                     }
                     if ( in_array( $nextID, $correctOrder, true ) )
@@ -338,7 +338,7 @@ class eZFlowOperations
                     {
                         $numberOfValidItems = 20;
                         eZDebug::writeWarning( 'Number of valid items for ' . $block['block_type'] .
-                                               ' is not set; using the default value (' . $numberOfValidItems . ')', 'eZ Flow Update Cronjob' );
+                                               ' is not set; using the default value (' . $numberOfValidItems . ')', __METHOD__ );
                     }
 
                     $countToRemove = $countValid - $numberOfValidItems;
@@ -407,7 +407,7 @@ class eZFlowOperations
                                                                       AND object_id=$itemObjectID", array( 'limit' => 1 ) );
                                         if ( $duplicityCheck )
                                         {
-                                            eZDebug::writeNotice( "Object $itemObjectID is already available in the block $overflowID.", 'eZ Flow Update Cronjob' );
+                                            eZDebug::writeNotice( "Object $itemObjectID is already available in the block $overflowID.", __METHOD__ );
                                         }
                                         else
                                         {
@@ -449,7 +449,7 @@ class eZFlowOperations
                     {
                         $numberOfArchivedItems = 50;
                         eZDebug::writeWarning( 'Number of archived items for ' . $block['block_type'] .
-                    ' is not set; using the default value (' . $numberOfArchivedItems . ')', 'eZ Flow Update Cronjob' );
+                    ' is not set; using the default value (' . $numberOfArchivedItems . ')', __METHOD__ );
                     }
                     $countToRemove = $countArchived - $numberOfArchivedItems;
 
