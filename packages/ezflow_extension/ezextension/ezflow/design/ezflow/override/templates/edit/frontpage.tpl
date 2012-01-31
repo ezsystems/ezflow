@@ -184,6 +184,10 @@ eZAJAXSearch.init();
 
     {include uri='design:content/edit_validation.tpl'}
 
+    {foreach ezini( 'EditSettings', 'AdditionalTemplates', 'content.ini' ) as $additional_tpl}
+        {include uri=concat( 'design:', $additional_tpl )}
+    {/foreach}
+
     {include uri='design:content/edit_attribute.tpl'}
 
     <div class="buttonblock">
