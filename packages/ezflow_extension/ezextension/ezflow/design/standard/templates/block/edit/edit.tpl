@@ -80,10 +80,12 @@
         <label>{$fetch_parameter}:</label> <input id="block-fetch-parameter-{$fetch_parameter}-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
         {/if}
         {/foreach}
-    {elseif $is_custom}
+    {/if}
+    {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
         {def $custom_attributes = array()
              $custom_attribute_types = array()
              $custom_attribute_names = array()
+             $custom_attribute_selections = array()
              $loop_count = 0}
         {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
             {set $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
@@ -125,6 +127,14 @@
                         {case match = 'string'}
                         <input id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]|wash()}" />
                         {/case}
+                        {case match = 'select'}
+                            {set $custom_attribute_selections = ezini( $block.type, concat( 'CustomAttributeSelection_', $custom_attrib ), 'block.ini' )}
+                            <select id="block-custom_attribute-{$block_id}-{$loop_count}" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]">
+                                {foreach $custom_attribute_selections as $selection_value => $selection_name}
+                                    <option value="{$selection_value|wash()}"{if eq( $block.custom_attributes[$custom_attrib], $selection_value )} selected="selected"{/if} />{$selection_name|wash()}</option>
+                                {/foreach}
+                            </select>
+                        {/case}
                         {case}
                         <input id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]|wash()}" />
                         {/case}
@@ -137,8 +147,11 @@
             {set $loop_count=inc( $loop_count )}
         {/foreach}
         {undef $loop_count}
-    {else}
-        <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
+    {/if}
+    {if and( not( $is_dynamic ), not( $is_custom ) )}
+        <div>
+            <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
+        </div>
     {/if}
     </div>
 </div>
