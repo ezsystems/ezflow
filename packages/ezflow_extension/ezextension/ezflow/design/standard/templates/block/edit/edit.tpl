@@ -104,7 +104,7 @@
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 {if is_set($custom_attribute_names[$custom_attrib])}<label>{$custom_attribute_names[$custom_attrib]}:</label>{/if}
                 <input id="block-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
-                <div class="source">
+                <div class="source"> 
                     {'Current source:'|i18n( 'design/standard/block/edit' )}
                     {if is_set( $block.custom_attributes[$custom_attrib] )}
                         {def $source_node = fetch( 'content', 'node', hash( 'node_id', $block.custom_attributes[$custom_attrib] ) )}
