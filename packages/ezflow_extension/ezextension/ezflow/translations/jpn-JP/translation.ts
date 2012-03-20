@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation>ドラフトを保存し、編集の終了</translation>
+        <translation type="obsolete">ドラフトを保存し、編集の終了</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation>編集中のドラフトを保存し、編集モードを終了。作業を一時的に保留する場合に使ってください。</translation>
+        <translation type="obsolete">編集中のドラフトを保存し、編集モードを終了。作業を一時的に保留する場合に使ってください。</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation>フールスクリーン編集モードを切り替え！</translation>
+        <translation type="obsolete">フールスクリーン編集モードを切り替え！</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation>&lt;%object_name&gt; (%class_name)の編集</translation>
+        <translation type="obsolete">&lt;%object_name&gt; (%class_name)の編集</translation>
     </message>
 </context>
 <context>
@@ -588,6 +588,13 @@
     </message>
     <message>
         <source>Push to block</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

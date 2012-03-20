@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation>Registra la bozza ed esci</translation>
+        <translation type="obsolete">Registra la bozza ed esci</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation>Registra la bozza che stai modificando ed esci dalle modifiche. Usa questo pulsante per uscire dal tuo lavoro e continuare successivamente.</translation>
+        <translation type="obsolete">Registra la bozza che stai modificando ed esci dalle modifiche. Usa questo pulsante per uscire dal tuo lavoro e continuare successivamente.</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation>Attiva la modifica a schermo intero!</translation>
+        <translation type="obsolete">Attiva la modifica a schermo intero!</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation>Modifica &lt;%object_name&gt; [%class_name]</translation>
+        <translation type="obsolete">Modifica &lt;%object_name&gt; [%class_name]</translation>
     </message>
 </context>
 <context>
@@ -589,6 +589,13 @@
     <message>
         <source>Push to block</source>
         <translation>Spingi al blocco</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

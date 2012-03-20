@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation>Enregistrer le brouillon et quitter</translation>
+        <translation type="obsolete">Enregistrer le brouillon et quitter</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation>Enregistrer le brouillon qui est en cours d&apos;édition et quitter le mode d&apos;édition. Utiliser ce bouton quand vous avez besoin de quitter votre travail et pour continuer plus tard.</translation>
+        <translation type="obsolete">Enregistrer le brouillon qui est en cours d&apos;édition et quitter le mode d&apos;édition. Utiliser ce bouton quand vous avez besoin de quitter votre travail et pour continuer plus tard.</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation>Passer en édition plein écran!</translation>
+        <translation type="obsolete">Passer en édition plein écran!</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation>Editer &lt;%object_name&gt; (%class_name)</translation>
+        <translation type="obsolete">Editer &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -569,6 +569,13 @@
     <message>
         <source>Push to block</source>
         <translation>Ajouter au bloc</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

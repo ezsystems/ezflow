@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation>Pohrani skicu i izađi</translation>
+        <translation type="obsolete">Pohrani skicu i izađi</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation>Pohrani skicu koja se uređuje i izađi iz uređivanja. Koristite ovu opciju kada želite pohraniti trenutnu verziju skice koju ćete naknadno nastaviti uređivati.</translation>
+        <translation type="obsolete">Pohrani skicu koja se uređuje i izađi iz uređivanja. Koristite ovu opciju kada želite pohraniti trenutnu verziju skice koju ćete naknadno nastaviti uređivati.</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation>Uključi/isključi uređivanje preko cijelog zaslona!</translation>
+        <translation type="obsolete">Uključi/isključi uređivanje preko cijelog zaslona!</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation>Uredi &lt;%object_name&gt; (%class_name)</translation>
+        <translation type="obsolete">Uredi &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -569,6 +569,13 @@
     <message>
         <source>Push to block</source>
         <translation>Gurni u blok</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

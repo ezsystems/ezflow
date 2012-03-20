@@ -97,19 +97,19 @@
     </message>
     <message>
         <source>Store draft and exit</source>
-        <translation>Guardar borrador y salir</translation>
+        <translation type="obsolete">Guardar borrador y salir</translation>
     </message>
     <message>
         <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation>Guardar el contenido del borrador que se está editando y continuar con la edición. Pulsar este botón para ir guardando los cambios mientras se edita.</translation>
+        <translation type="obsolete">Guardar el contenido del borrador que se está editando y continuar con la edición. Pulsar este botón para ir guardando los cambios mientras se edita.</translation>
     </message>
     <message>
         <source>Toggle fullscreen editing!</source>
-        <translation>(Des)Activar edición a pantalla completa</translation>
+        <translation type="obsolete">(Des)Activar edición a pantalla completa</translation>
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation>Editar &lt;%object_name&gt; (%class_name)</translation>
+        <translation type="obsolete">Editar &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -589,6 +589,13 @@
     <message>
         <source>Push to block</source>
         <translation type="unfinished">Añadir a bloque</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

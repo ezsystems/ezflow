@@ -95,22 +95,6 @@
         <source>Select:</source>
         <translation>Tria:</translation>
     </message>
-    <message>
-        <source>Store draft and exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle fullscreen editing!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>design/admin/contextsubmenu</name>
@@ -588,6 +572,13 @@
     </message>
     <message>
         <source>Push to block</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>kernel/workflow/event</name>
+    <message>
+        <source>eZ Page swap workflow event</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
