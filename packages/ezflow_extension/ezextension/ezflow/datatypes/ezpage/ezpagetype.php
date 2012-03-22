@@ -38,6 +38,15 @@ class eZPageType extends eZDataType
     }
 
     /**
+     * Sets the default values in class attribute
+     *
+     * @param eZContentClassAttribute $classAttribute
+     */
+    function initializeClassAttribute( $classAttribute )
+    {
+    }
+
+    /**
      * Initialize contentobject attribute content
      *
      * @param eZContentObjectAttribute $contentObjectAttribute
