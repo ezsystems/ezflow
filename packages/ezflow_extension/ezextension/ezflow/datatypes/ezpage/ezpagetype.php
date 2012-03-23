@@ -28,6 +28,8 @@ class eZPageType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezpage';
 
+    const DEFAULT_ZONE_LAYOUT_FIELD = 'data_text1';
+
     /**
      * Constructor
      *
@@ -44,6 +46,10 @@ class eZPageType extends eZDataType
      */
     function initializeClassAttribute( $classAttribute )
     {
+        if ( $classAttribute->attribute( self::DEFAULT_ZONE_LAYOUT_FIELD ) === null )
+            $classAttribute->setAttribute( self::DEFAULT_ZONE_LAYOUT_FIELD, '' );
+
+        $classAttribute->store();
     }
 
     /**
@@ -81,7 +87,7 @@ class eZPageType extends eZDataType
         else
         {
             $contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
-            $defaultLayout = $contentClassAttribute->attribute( "data_text1" );
+            $defaultLayout = $contentClassAttribute->attribute( self::DEFAULT_ZONE_LAYOUT_FIELD );
             $zoneINI = eZINI::instance( 'zone.ini' );
             $page = new eZPage();
             $zones = array();
@@ -186,7 +192,7 @@ class eZPageType extends eZDataType
         if ( $http->hasPostVariable( $base . '_ezpage_default_layout_' . $classAttribute->attribute( 'id' ) ) )
         {
             $defaultLayout = $http->postVariable( $base . '_ezpage_default_layout_' . $classAttribute->attribute( 'id' ) );
-            $classAttribute->setAttribute( 'data_text1', $defaultLayout );
+            $classAttribute->setAttribute( self::DEFAULT_ZONE_LAYOUT_FIELD, $defaultLayout );
         }
         return true;
     }
