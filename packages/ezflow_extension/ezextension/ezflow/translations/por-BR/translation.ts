@@ -163,11 +163,11 @@
     <name>design/ezflow/block/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Pesquisar</translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <source>No search results found for:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum resultado foi encontrado para:</translation>
     </message>
 </context>
 <context>
@@ -242,7 +242,7 @@
     </message>
     <message>
         <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar &lt;%object_name&gt; (%class_name)</translation>
     </message>
 </context>
 <context>
@@ -327,22 +327,22 @@
     <name>design/iphone/page_footer</name>
     <message>
         <source>Visit:</source>
-        <translation type="unfinished"></translation>
+        <translation>Visite:</translation>
     </message>
     <message>
         <source>mobile site</source>
-        <translation type="unfinished"></translation>
+        <translation>site para celular</translation>
     </message>
     <message>
         <source>full site</source>
-        <translation type="unfinished"></translation>
+        <translation>site completo</translation>
     </message>
 </context>
 <context>
     <name>design/iphone/pagelayout</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navegação</translation>
     </message>
 </context>
 <context>
@@ -453,23 +453,23 @@
     </message>
     <message>
         <source>Add item</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar item</translation>
     </message>
     <message>
         <source>Rotating item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Item rotativo.</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>Current source:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte atual:</translation>
     </message>
     <message>
         <source>Publishing schedule for: </source>
-        <translation type="unfinished"></translation>
+        <translation>Programação de publicação para:</translation>
     </message>
 </context>
 <context>
@@ -522,11 +522,11 @@
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"></translation>
+        <translation>Expandir tudo</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"></translation>
+        <translation>Contrair tudo</translation>
     </message>
 </context>
 <context>
@@ -572,14 +572,14 @@
     </message>
     <message>
         <source>Push to block</source>
-        <translation type="unfinished"></translation>
+        <translation>Empurrar para o bloco</translation>
     </message>
 </context>
 <context>
     <name>kernel/workflow/event</name>
     <message>
         <source>eZ Page swap workflow event</source>
-        <translation type="unfinished"></translation>
+        <translation>Evento de workflow eZ Page swap</translation>
     </message>
 </context>
 </TS>
