@@ -43,6 +43,8 @@ class eZFlowServerCallFunctions
         $counter = 0;
         foreach( $validNodes as $validNode )
         {
+            if ( !$validNode->attribute( 'can_read' ) )
+                continue;
             $counter++;
 
             if ( $counter <= $offset )
@@ -72,19 +74,35 @@ class eZFlowServerCallFunctions
     {
         $http = eZHTTPTool::instance();
 
-        if ( $http->hasPostVariable( 'contentobject_attribute_id' ) )
-            $contentObjectAttributeID = $http->postVariable( 'contentobject_attribute_id' );
-
-        if ( $http->hasPostVariable( 'version' ) )
-            $version = $http->postVariable( 'version' );
-
-        if ( $http->hasPostVariable( 'zone' ) )
-            $zoneID = $http->postVariable( 'zone' );
-
-        if ( $http->hasPostVariable( 'block_order' ) )
-            $blockOrder = $http->postVariable( 'block_order' );
+        $contentObjectAttributeID = (int)$http->postVariable( 'contentobject_attribute_id', 0 );
+        $version =(int)$http->postVariable( 'version', 0 );
+        $zoneID = $http->postVariable( 'zone', '' );
+        $blockOrder = $http->postVariable( 'block_order', array() );
 
         $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
+        if ( !$contentObjectAttribute instanceof eZContentObjectAttribute )
+        {
+            return array();
+        }
+        $contentObject = $contentObjectAttribute->attribute( 'object' );
+        if ( !$contentObject->attribute( 'can_edit' ) )
+        {
+            return array();
+        }
+
+        // checking that the version is a draft and belongs to the current user
+        $contentVersion = $contentObjectAttribute->attribute( 'object_version' );
+        if ( $contentVersion->attribute( 'status' ) != eZContentObjectVersion::STATUS_DRAFT &&
+                $contentVersion->attribute( 'status' ) != eZContentObjectVersion::STATUS_INTERNAL_DRAFT
+           )
+        {
+            return array();
+        }
+        if ( $contentVersion->attribute( 'creator_id' ) != eZUser::currentUserID() )
+        {
+            return array();
+        }
+
         $sortArray = array();
         foreach ( $blockOrder as $blockID )
         {
