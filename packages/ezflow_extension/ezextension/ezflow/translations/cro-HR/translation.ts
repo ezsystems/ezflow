@@ -95,22 +95,6 @@
         <source>Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).</source>
         <translation>Odbaci skicu koja se trenutno uređuje. Ovo će ujedno ukloniti i sve eventualne prijevode koji pripadaju skici.</translation>
     </message>
-    <message>
-        <source>Store draft and exit</source>
-        <translation type="obsolete">Pohrani skicu i izađi</translation>
-    </message>
-    <message>
-        <source>Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.</source>
-        <translation type="obsolete">Pohrani skicu koja se uređuje i izađi iz uređivanja. Koristite ovu opciju kada želite pohraniti trenutnu verziju skice koju ćete naknadno nastaviti uređivati.</translation>
-    </message>
-    <message>
-        <source>Toggle fullscreen editing!</source>
-        <translation type="obsolete">Uključi/isključi uređivanje preko cijelog zaslona!</translation>
-    </message>
-    <message>
-        <source>Edit &lt;%object_name&gt; (%class_name)</source>
-        <translation type="obsolete">Uredi &lt;%object_name&gt; (%class_name)</translation>
-    </message>
 </context>
 <context>
     <name>design/admin/contextsubmenu</name>
@@ -575,7 +559,7 @@
     <name>kernel/workflow/event</name>
     <message>
         <source>eZ Page swap workflow event</source>
-        <translation type="unfinished"></translation>
+        <translation>Događaj radnog toga za zamjenu eZ Page blokova</translation>
     </message>
 </context>
 </TS>
