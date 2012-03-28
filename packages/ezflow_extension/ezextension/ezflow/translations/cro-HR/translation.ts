@@ -559,7 +559,7 @@
     <name>kernel/workflow/event</name>
     <message>
         <source>eZ Page swap workflow event</source>
-        <translation>Događaj radnog toga za zamjenu eZ Page blokova</translation>
+        <translation>Događaj radnog toka za zamjenu eZ Page blokova</translation>
     </message>
 </context>
 </TS>
