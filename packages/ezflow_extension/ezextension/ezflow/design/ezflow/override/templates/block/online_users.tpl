@@ -37,3 +37,4 @@ YUI(YUI3_config).use('node', 'event', 'io-ez', function(Y) {
 })();
 {/literal}
 </script>
+{undef $logged_in_count}

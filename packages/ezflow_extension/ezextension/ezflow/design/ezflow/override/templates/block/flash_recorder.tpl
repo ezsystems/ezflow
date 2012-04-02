@@ -2,7 +2,8 @@
    and that list will change independently of this object. *}
 {set-block scope=root variable=cache_ttl}0{/set-block}
 
-{def $valid_node = $block.valid_nodes[0]}
+{def $valid_node = $block.valid_nodes[0]
+     $name = ''}
 
 {* Define default settings for the broadcaster flash *}
 {def $width=266
@@ -74,3 +75,4 @@
     
     
 </div>
+{undef $valid_node $width $height $flash $fileserver $streamserver $key $flash_list $flash_var $name}

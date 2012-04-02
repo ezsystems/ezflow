@@ -16,5 +16,6 @@
     </div>
 {/foreach}
 
+{undef $source $limit $offset $res}
 </div>
 {/cache-block}

@@ -1,4 +1,5 @@
-{def $valid_nodes = $block.valid_nodes}
+{def $valid_nodes = $block.valid_nodes
+     $valid_node = false()}
 
 <div class="block-type-2items block-view-{$block.view}">
 
@@ -10,4 +11,4 @@
 
 </div>
 
-{undef $valid_nodes}
+{undef $valid_nodes $valid_node}

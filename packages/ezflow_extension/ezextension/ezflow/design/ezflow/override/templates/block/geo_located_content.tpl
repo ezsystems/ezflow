@@ -24,7 +24,9 @@
                                                   'class_filter_array', array( $block.custom_attributes.class ),
                                                   'sort_by', array( 'published', false() ),
                                                   'limit', $limit ) )
-     $attribute = $block.custom_attributes.attribute}
+     $attribute = $block.custom_attributes.attribute
+     $location = false()
+     $index = 0}
 
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={ezini('SiteSettings','GMapsKey')}" type="text/javascript"></script>
 {ezscript_require( 'ezflgmapview.js' )}
@@ -51,3 +53,4 @@
 </ul>
 
 <div id="ezflb-map-{$block.id}" style="width: {$width}px; height: {$height}px"></div>
+{undef $limit $width $height $locations $attribute $index $location}

@@ -1,4 +1,5 @@
-{def $valid_nodes = $block.valid_nodes}
+{def $valid_nodes = $block.valid_nodes
+     $valid_node = false()}
 
 <!-- BLOCK: START -->
 
@@ -40,4 +41,4 @@
 
 <!-- BLOCK: END -->
 
-{undef $valid_nodes}
+{undef $valid_nodes $valid_node}

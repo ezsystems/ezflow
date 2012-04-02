@@ -1,6 +1,8 @@
 {def $poll_node = fetch( 'content', 'node', hash( 'node_id', $block.custom_attributes.poll_node_id ) )
      $poll_object = $poll_node.object
-     $question_attribute = $poll_object.data_map.question}
+     $question_attribute = $poll_object.data_map.question
+     $index = 0
+     $option = false()}
 
 <!-- BLOCK: START -->
 <div class="block-type-poll">
@@ -56,4 +58,4 @@
 </div>
 <!-- BLOCK: END -->
 
-{undef}
+{undef $poll_node $poll_object $question_attribute $index $option}
