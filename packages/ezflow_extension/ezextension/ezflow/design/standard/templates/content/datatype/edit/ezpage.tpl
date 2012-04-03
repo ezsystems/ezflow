@@ -64,7 +64,9 @@
 
 <script type="text/javascript">
 (function() {ldelim}
-    YUILoader.onSuccess = function() {ldelim}
+    var loader = new YAHOO.util.YUILoader(YUI2_config);
+
+    loader.onSuccess = function() {ldelim}
         YAHOO.ez.ZoneLayout.cfg = {ldelim} 'allowedzones': '{$allowed_zones|json()}',
                                            'zonelayout': '{$attribute.content.zone_layout}' {rdelim};
         YAHOO.ez.ZoneLayout.init();
@@ -128,41 +130,41 @@
         tabView.appendTo('zone-tabs-container');
         {/literal}
     {rdelim}
-    
-    YUILoader.addModule({ldelim}
+
+    loader.addModule({ldelim}
         name: 'blocktools',
         type: 'js',
         fullpath: '{"javascript/blocktools.js"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.addModule({ldelim}
+    loader.addModule({ldelim}
         name: 'zonetools',
         type: 'js',
         fullpath: '{"javascript/zonetools.js"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.addModule({ldelim}
+    loader.addModule({ldelim}
         name: 'scheduledialog',
         type: 'js',
         fullpath: '{"javascript/scheduledialog.js"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.addModule({ldelim}
+    loader.addModule({ldelim}
         name: 'scheduledialog-css',
         type: 'css',
         fullpath: '{"stylesheets/scheduledialog.css"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.addModule({ldelim}
+    loader.addModule({ldelim}
         name: 'pagedatatype-css',
         type: 'css',
         fullpath: '{"stylesheets/ezpage/ezpage.css"|ezdesign( 'no' )}'
     {rdelim});
 
-    YUILoader.require(["button","calendar","container","cookie","get","json","tabview","utilities","blocktools","zonetools","scheduledialog","scheduledialog-css", "pagedatatype-css"]);
+    loader.require(["button","calendar","container","cookie","get","json","tabview","utilities","blocktools","zonetools","scheduledialog","scheduledialog-css", "pagedatatype-css"]);
 
-    // Load the files using the insert() method.
-    YUILoader.insert();
+    loader.insert();
+
 {rdelim})();
 
 function confirmDiscard( question )
