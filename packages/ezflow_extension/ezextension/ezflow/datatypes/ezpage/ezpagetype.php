@@ -118,12 +118,12 @@ class eZPageType extends eZDataType
                     $availableForClasses = array();
                     if ( $zoneINI->hasVariable( $allowedZone, 'AvailableForClasses' ) )
                         $availableForClasses = $zoneINI->variable( $allowedZone, 'AvailableForClasses' );
-                    
+
                     if ( in_array( $class->attribute( 'identifier' ), $availableForClasses ) )
                     {
                         if ( $zoneINI->hasVariable( $allowedZone, 'Zones' ) )
                             $zones = $zoneINI->variable( $allowedZone, 'Zones' );
-                            
+
                         $page->setAttribute( 'zone_layout', $allowedZone );
                         foreach ( $zones as $zoneIdentifier )
                         {
@@ -161,7 +161,7 @@ class eZPageType extends eZDataType
             if ( $zone->getBlockCount() > 0 )
                 return true;
         }
-        
+
         return false;
     }
 
@@ -250,7 +250,7 @@ class eZPageType extends eZDataType
                     }
 
                     $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
-                    
+
                     if ( $fetchParams !== $tmpFetchParams )
                     {
                         $persBlockObject = eZFlowBlock::fetch( $block->attribute( 'id' ) );
@@ -456,16 +456,16 @@ class eZPageType extends eZDataType
                     $zoneINI = eZINI::instance( 'zone.ini' );
                     $page = $contentObjectAttribute->content();
                     $zoneAllowedType = $http->postVariable( 'ContentObjectAttribute_ezpage_zone_allowed_type_' . $contentObjectAttribute->attribute( 'id' ) );
-                    
+
                     if ( $zoneAllowedType == $page->attribute('zone_layout') )
                         return false;
-                    
+
                     $allowedZones = $zoneINI->variable( $zoneAllowedType, 'Zones' );
                     $allowedZonesCount = count( $allowedZones );
-                    
+
                     $page->setAttribute( 'zone_layout', $zoneAllowedType );
                     $existingZoneCount = $page->getZoneCount();
-                    
+
                     $zoneCountDiff = 0;
                     if ( $allowedZonesCount < $existingZoneCount )
                         $zoneCountDiff = $existingZoneCount - $allowedZonesCount;
@@ -495,7 +495,7 @@ class eZPageType extends eZDataType
                         foreach ( $allowedZones as $index => $zoneIdentifier )
                         {
                             $existingZone = $page->getZone($index);
-                        
+
                             if ( $existingZone instanceof eZPageZone )
                             {
                                 $existingZone->setAttribute( 'action', 'modify' );
@@ -516,17 +516,17 @@ class eZPageType extends eZDataType
                             {
                                 $existingZoneIndex = $existingZoneCount - $zoneCountDiff;
                                 $existingZone = $page->getZone( $existingZoneIndex );
-                    
+
                                 if ( $existingZone->toBeAdded() )
                                     $page->removeZone( $existingZoneIndex );
                                 else
                                     $existingZone->setAttribute( 'action', 'remove' );
-                    
+
                                 $zoneCountDiff -= 1;
                             }
                         }
                     }
-                    
+
                     $page->sortZones();
                 }
                 break;
@@ -663,7 +663,7 @@ class eZPageType extends eZDataType
                                             $itemValid = $validItem;
                                         }
                                     }
-                                    
+
                                     //judge if the item will be removed
                                     $itemToBeRemoved = false;
                                     if ( $block->getItemCount() > 0 )
@@ -680,7 +680,7 @@ class eZPageType extends eZDataType
                                             }
                                         }
                                     }
-                                    
+
                                     if( $itemAdded || $itemToBeRemoved )
                                     {
                                         //if there is same item in history, or item to be removed (in history or valid), set the item in history to be modified
@@ -712,7 +712,7 @@ class eZPageType extends eZDataType
                                     }
                                 }
                             }
-                            
+
                             $contentObjectAttribute->setContent( $page );
                             $contentObjectAttribute->store();
                         }
@@ -761,9 +761,9 @@ class eZPageType extends eZDataType
                         $fetchParams['Source'] = $selectedNodeIDArray;
 
                     $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
-                    
+
                     $persBlockObject = eZFlowBlock::fetch( $block->attribute( 'id' ) );
-                    
+
                     if ( $persBlockObject instanceof eZFlowBlock )
                     {
                         $persBlockObject->setAttribute( 'last_update', 0 );
@@ -1014,7 +1014,7 @@ class eZPageType extends eZDataType
                                             if ( $item->hasAttribute( 'ts_hidden' ) && $item->hasAttribute( 'ts_visible' ) )
                                             {
                                                 $db->query( "UPDATE ezm_pool SET ts_hidden='" . $item->attribute( 'ts_hidden' ) . "',
-                                                             ts_visible='" . $item->attribute('ts_visible') . "' 
+                                                             ts_visible='" . $item->attribute('ts_visible') . "'
                                                                 WHERE object_id='" . $item->attribute( 'object_id' ) . "'
                                                                     AND block_id='" . $blockID ."'" );
                                             }
