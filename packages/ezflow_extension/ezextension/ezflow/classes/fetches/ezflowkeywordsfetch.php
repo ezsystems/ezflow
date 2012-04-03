@@ -78,6 +78,9 @@ class eZFlowKeywordsFetch implements eZFlowFetchInterface
                                                                           'sort_by' => $sortBy,
                                                                           'strict_matching' => false ) );
 
+        if ( $result === null )
+            return array();
+
         $fetchResult = array();
         foreach( $result as $item )
         {

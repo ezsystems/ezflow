@@ -64,6 +64,9 @@ class eZFlowLatestObjects implements eZFlowFetchInterface
         }
 
         $result = eZContentObjectTreeNode::subTreeByNodeID( $subTreeParameters, $nodeID );
+        if ( $result === null )
+            return array();
+
         $fetchResult = array();
         foreach( $result as $item )
         {
