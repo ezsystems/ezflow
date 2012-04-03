@@ -153,7 +153,9 @@ class eZPageType extends eZDataType
     {
         $page = $contentObjectAttribute->content();
         $zones = $page->attribute( 'zones' );
-        
+        if ( !is_array( $zones ) )
+            return false;
+
         foreach ( $zones as $zone )
         {
             if ( $zone->getBlockCount() > 0 )
