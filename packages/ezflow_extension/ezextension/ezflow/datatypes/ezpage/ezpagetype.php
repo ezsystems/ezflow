@@ -65,13 +65,13 @@ class eZPageType extends eZDataType
         {
             $contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
             $originalContentObjectID = $originalContentObjectAttribute->attribute( 'contentobject_id' );
-            $languageID = $contentObjectAttribute->attribute( 'language_id' );
-            $originalLanguageID = $originalContentObjectAttribute->attribute( 'language_id' );
+            $languageCode = $contentObjectAttribute->attribute( 'language_code' );
+            $originalLanguageCode = $originalContentObjectAttribute->attribute( 'language_code' );
 
             // Case when content object was copied or when new translation has been added to the existing one
             if ( ( $contentObjectID != $originalContentObjectID )
                     || ( ( $contentObjectID == $originalContentObjectID )
-                       && ( $languageID != $originalLanguageID ) ) )
+                       && ( $languageCode != $originalLanguageCode ) ) )
             {
                 $page = $originalContentObjectAttribute->content();
                 $clonedPage = clone $page;
