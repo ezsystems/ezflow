@@ -595,7 +595,7 @@
     <name>kernel/workflow/event</name>
     <message>
         <source>eZ Page swap workflow event</source>
-        <translation type="unfinished"></translation>
+        <translation>Evento workflow scambio eZ Page</translation>
     </message>
 </context>
 </TS>
