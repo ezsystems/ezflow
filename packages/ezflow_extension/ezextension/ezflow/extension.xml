@@ -13,6 +13,7 @@
         </requires>
         <extends>
             <extension name="ezwebin" />
+            <extension name="ezwt" />
         </extends>
     </dependencies>
 
