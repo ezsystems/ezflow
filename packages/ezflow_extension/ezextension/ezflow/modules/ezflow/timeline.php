@@ -70,6 +70,7 @@ $nodeResult['content_info']['persistent_variable']['pagestyle_css_classes'] = ar
 
 $site = array( 'title' => $ini->variable( 'SiteSettings', 'SiteName' ),
                'design' => $ini->variable( 'DesignSettings', 'SiteDesign' ),
+               'uri' => eZURI::instance( eZSys::requestURI() ),
                'http_equiv' => array( 'Content-Type' => 'text/html; charset=' . $httpCharset,
                                       'Content-language' => $languageCode ) );
 
