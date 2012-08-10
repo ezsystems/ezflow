@@ -60,7 +60,11 @@ YAHOO.ez.BlockDD = function() {
             a.animate();
 
             var tableBody = srcEl.parentNode;
-            var postData = "";
+            var postData = "",
+                _tokenNode = document.getElementById('ezxform_token_js');
+            if ( _tokenNode ) {
+                postData = 'ezxform_token=' + _tokenNode.getAttribute('title') + '&';
+            }
             var items = Dom.getElementsByClassName("handler", "td", tableBody);
             
             for (i=0;i<items.length;i++) {
