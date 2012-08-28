@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package version="2.5-0"
+<package version="5.0-0"
          development="false"
          install_type="install">
   <name>ezflow_classes</name>
@@ -8,8 +8,8 @@
   <vendor>eZ systems</vendor>
   <type value="contentclass" />
   <ezpublish>
-    <version>4.7.0-beta1</version>
-    <named-version>4.7</named-version>
+    <version>5.0.0-alpha1</version>
+    <named-version>5.0</named-version>
   </ezpublish>
   <maintainers>
     <maintainer>
@@ -36,8 +36,8 @@
   </changelog>
   <simple-files />
   <version>
-    <number>2.5</number>
-    <release>0-beta1</release>
+    <number>5.0</number>
+    <release>0-alpha1</release>
   </version>
   <licence>GPL</licence>
   <state>stable</state>
