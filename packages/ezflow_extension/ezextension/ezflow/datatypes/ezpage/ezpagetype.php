@@ -1009,7 +1009,7 @@ class eZPageType extends eZDataType
                                                 $updateQuery[] = " priority='" . $item->attribute( 'priority' ) . "' ";
                                             //if there is ts_hidden and ts_visible, update the two fields. This is the case when add items from history
                                             if ( $item->hasAttribute( 'ts_hidden' ) && $item->hasAttribute( 'ts_visible' ) )
-                                                $updateQuery[] = " ts_hidden='" . $item->attribute( 'ts_hidden' )
+                                                $updateQuery[] = " ts_hidden='" . $item->attribute( 'ts_hidden' ) . "' "
                                                              . ", ts_visible='" . $item->attribute( 'ts_visible' ) . "' ";
 
                                             if ( count( $updateQuery ) > 0)
