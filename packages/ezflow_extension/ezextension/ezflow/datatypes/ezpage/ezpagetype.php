@@ -998,25 +998,45 @@ class eZPageType extends eZDataType
                                             break;
 
                                         case 'modify':
+                                            $updateQuery = array();
+
                                             if ( $item->hasAttribute( 'ts_publication' ) )
                                             {
-                                                $db->query( "UPDATE ezm_pool SET ts_publication='" . $item->attribute( 'ts_publication' ) . "'
-                                                                WHERE object_id='" . $item->attribute( 'object_id' ) . "'
-                                                                    AND block_id='" . $blockID ."'" );
+                                                $updateQuery[] = " ts_publication="
+                                                    . (int)$item->attribute( 'ts_publication' );
                                             }
+
+                                            //make sure to update different node locations of the same object
+                                            if ( $item->hasAttribute( 'node_id' ) )
+                                            {
+                                                $updateQuery[] = " node_id="
+                                                    . (int)$item->attribute( 'node_id' );
+                                            }
+
                                             if ( $item->hasAttribute( 'priority' ) )
                                             {
-                                                $db->query( "UPDATE ezm_pool SET priority='" . $item->attribute( 'priority' ) . "'
-                                                                WHERE object_id='" . $item->attribute( 'object_id' ) . "'
-                                                                    AND block_id='" . $blockID ."'" );
+                                                $updateQuery[] = " priority="
+                                                    . (int)$item->attribute( 'priority' );
                                             }
+
                                             //if there is ts_hidden and ts_visible, update the two fields. This is the case when add items from history
                                             if ( $item->hasAttribute( 'ts_hidden' ) && $item->hasAttribute( 'ts_visible' ) )
                                             {
-                                                $db->query( "UPDATE ezm_pool SET ts_hidden='" . $item->attribute( 'ts_hidden' ) . "',
-                                                             ts_visible='" . $item->attribute('ts_visible') . "'
-                                                                WHERE object_id='" . $item->attribute( 'object_id' ) . "'
-                                                                    AND block_id='" . $blockID ."'" );
+                                                $updateQuery[] = " ts_hidden="
+                                                    . (int)$item->attribute( 'ts_hidden' )
+                                                    . ", ts_visible="
+                                                    . (int)$item->attribute( 'ts_visible' );
+                                            }
+
+                                            if ( !empty( $updateQuery ) )
+                                            {
+                                                $db->query(
+                                                    "UPDATE ezm_pool SET "
+                                                    . join( ", ", $updateQuery )
+                                                    . " WHERE object_id="
+                                                    . (int)$item->attribute( 'object_id' )
+                                                    . " AND block_id='" . $blockID ."'"
+                                                );
                                             }
                                             break;
                                     }
