@@ -24,8 +24,6 @@
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 //
 
-include_once( 'kernel/common/template.php' );
-
 $module = $Params["Module"];
 $contentObjectAttributeID = $Params['ContentObjectAttributeID'];
 $version = $Params['Version'];
