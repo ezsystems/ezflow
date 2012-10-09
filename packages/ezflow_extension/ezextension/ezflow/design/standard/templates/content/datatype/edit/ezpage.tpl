@@ -63,109 +63,112 @@
 {ezscript_require( array( 'ezjsc::yui2', 'ezjsc::yui3', 'ezjsc::yui3io' ) )}
 
 <script type="text/javascript">
-(function() {ldelim}
-    var loader = new YAHOO.util.YUILoader(YUI2_config);
+(function(YUI) {ldelim}
+    YUI.use('updatepanels', function(Y) {ldelim} // using Y.eZ.updatePanelsHeight() wherever neccessary
+        var loader = new YAHOO.util.YUILoader(YUI2_config);
 
-    loader.onSuccess = function() {ldelim}
-        YAHOO.ez.ZoneLayout.cfg = {ldelim} 'allowedzones': '{$allowed_zones|json()}',
-                                           'zonelayout': '{$attribute.content.zone_layout}' {rdelim};
-        YAHOO.ez.ZoneLayout.init();
+        loader.onSuccess = function() {ldelim}
+            YAHOO.ez.ZoneLayout.cfg = {ldelim} 'allowedzones': '{$allowed_zones|json()}',
+                                               'zonelayout': '{$attribute.content.zone_layout}' {rdelim};
+            YAHOO.ez.ZoneLayout.init();
 
-        var tabView = new YAHOO.widget.TabView();
+            var tabView = new YAHOO.widget.TabView();
 
-        {foreach $attribute.content.zones as $index => $zone}
-            {if and( is_set( $zone.action ), eq( $zone.action, 'remove' ) )}
-                {skip}
-            {/if}
-            tabView.addTab( new YAHOO.widget.Tab({ldelim}
-                label: '{$zone_names[$zone.zone_identifier]}',
-                dataSrc: '{concat( '/ezflow/zone/', $attribute.id, '/', $attribute.version, '/', $index  )|ezurl(no)}',
-                cacheData: true
-                {rdelim}));
-        {/foreach}
+            {foreach $attribute.content.zones as $index => $zone}
+                {if and( is_set( $zone.action ), eq( $zone.action, 'remove' ) )}
+                    {skip}
+                {/if}
+                tabView.addTab( new YAHOO.widget.Tab({ldelim}
+                    label: '{$zone_names[$zone.zone_identifier]}',
+                    dataSrc: '{concat( '/ezflow/zone/', $attribute.id, '/', $attribute.version, '/', $index  )|ezurl(no)}',
+                    cacheData: true
+                    {rdelim}));
+            {/foreach}
 
-        {literal}
-        var activeTabIndex = YAHOO.util.Cookie.get( 'eZPageActiveTabIndex' );
+            {literal}
+            var activeTabIndex = YAHOO.util.Cookie.get( 'eZPageActiveTabIndex' );
 
-        if ( activeTabIndex ) {
-            if ( tabView.getTab( activeTabIndex ) ) {
-                tabView.set( 'activeIndex',  activeTabIndex );
+            if ( activeTabIndex ) {
+                if ( tabView.getTab( activeTabIndex ) ) {
+                    tabView.set( 'activeIndex',  activeTabIndex );
+                }
+                else {
+                    tabView.set( 'activeIndex', 0 );
+                }
             }
             else {
                 tabView.set( 'activeIndex', 0 );
             }
-        }
-        else {
-            tabView.set( 'activeIndex', 0 );
-        }
 
-        var tabs = tabView.get("tabs");
-        for( var i = 0; i < tabs.length; i++ ) {
-            tabs[i].on("dataLoadedChange", function(e) {
-                YAHOO.util.Event.onContentReady("zone-tabs-container", function() {
-                    var cfg = {
-        {/literal} 
-                        url: "{'ezflow/request'|ezurl('no')}",
-                        attributeid: {$attribute.id},
-                        version: {$attribute.version},
-                        zone: tabView.getTabIndex(this)
-        {literal} 
-                    };
-                    YAHOO.ez.BlockDD.cfg = cfg;
-                    YAHOO.ez.BlockDD.init();
-                    YAHOO.ez.BlockCollapse.init();
-                    YAHOO.ez.sheduleDialog.init();
-                    BlockDDInit.cfg = cfg;
-                    BlockDDInit();
-                }, this, true);
+            var tabs = tabView.get("tabs");
+            for( var i = 0; i < tabs.length; i++ ) {
+                tabs[i].on("dataLoadedChange", function(e) {
+                    YAHOO.util.Event.onContentReady("zone-tabs-container", function() {
+                        var cfg = {
+            {/literal}
+                            url: "{'ezflow/request'|ezurl('no')}",
+                            attributeid: {$attribute.id},
+                            version: {$attribute.version},
+                            zone: tabView.getTabIndex(this)
+            {literal}
+                        };
+                        YAHOO.ez.BlockDD.cfg = cfg;
+                        YAHOO.ez.BlockDD.init();
+                        YAHOO.ez.BlockCollapse.init();
+                        YAHOO.ez.sheduleDialog.init();
+                        BlockDDInit.cfg = cfg;
+                        BlockDDInit();
+                    }, this, true);
+                });
+            }
+
+            tabView.on("activeTabChange", function(e) {
+                Y.eZ.updatePanelsHeight();
+
+                var tabIndex = tabView.getTabIndex( e.newValue );
+                YAHOO.util.Cookie.set("eZPageActiveTabIndex", tabIndex, {path: "/"});
+                BlockDDInit.cfg.zone = tabIndex;
             });
-        }
 
-        tabView.on("activeTabChange", function(e) {
-            var tabIndex = tabView.getTabIndex( e.newValue );
-            YAHOO.util.Cookie.set("eZPageActiveTabIndex", tabIndex, {path: "/"});
-            BlockDDInit.cfg.zone = tabIndex;
-        });
+            tabView.appendTo('zone-tabs-container');
+            {/literal}
+        {rdelim}
 
-        tabView.appendTo('zone-tabs-container');
-        {/literal}
-    {rdelim}
+        loader.addModule({ldelim}
+            name: 'blocktools',
+            type: 'js',
+            fullpath: '{"javascript/blocktools.js"|ezdesign( 'no' )}'
+        {rdelim});
 
-    loader.addModule({ldelim}
-        name: 'blocktools',
-        type: 'js',
-        fullpath: '{"javascript/blocktools.js"|ezdesign( 'no' )}'
+        loader.addModule({ldelim}
+            name: 'zonetools',
+            type: 'js',
+            fullpath: '{"javascript/zonetools.js"|ezdesign( 'no' )}'
+        {rdelim});
+
+        loader.addModule({ldelim}
+            name: 'scheduledialog',
+            type: 'js',
+            fullpath: '{"javascript/scheduledialog.js"|ezdesign( 'no' )}'
+        {rdelim});
+
+        loader.addModule({ldelim}
+            name: 'scheduledialog-css',
+            type: 'css',
+            fullpath: '{"stylesheets/scheduledialog.css"|ezdesign( 'no' )}'
+        {rdelim});
+
+        loader.addModule({ldelim}
+            name: 'pagedatatype-css',
+            type: 'css',
+            fullpath: '{"stylesheets/ezpage/ezpage.css"|ezdesign( 'no' )}'
+        {rdelim});
+
+        loader.require(["button","calendar","container","cookie","get","json","tabview","utilities","blocktools","zonetools","scheduledialog","scheduledialog-css", "pagedatatype-css"]);
+
+        loader.insert();
     {rdelim});
-
-    loader.addModule({ldelim}
-        name: 'zonetools',
-        type: 'js',
-        fullpath: '{"javascript/zonetools.js"|ezdesign( 'no' )}'
-    {rdelim});
-
-    loader.addModule({ldelim}
-        name: 'scheduledialog',
-        type: 'js',
-        fullpath: '{"javascript/scheduledialog.js"|ezdesign( 'no' )}'
-    {rdelim});
-
-    loader.addModule({ldelim}
-        name: 'scheduledialog-css',
-        type: 'css',
-        fullpath: '{"stylesheets/scheduledialog.css"|ezdesign( 'no' )}'
-    {rdelim});
-
-    loader.addModule({ldelim}
-        name: 'pagedatatype-css',
-        type: 'css',
-        fullpath: '{"stylesheets/ezpage/ezpage.css"|ezdesign( 'no' )}'
-    {rdelim});
-
-    loader.require(["button","calendar","container","cookie","get","json","tabview","utilities","blocktools","zonetools","scheduledialog","scheduledialog-css", "pagedatatype-css"]);
-
-    loader.insert();
-
-{rdelim})();
+{rdelim})(YUI(YUI3_config));
 
 function confirmDiscard( question )
 {ldelim}
