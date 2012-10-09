@@ -176,7 +176,7 @@ YAHOO.ez.BlockDD = function() {
 YAHOO.ez.BlockCollapse = function(){
     var Dom = YAHOO.util.Dom,
         Event = YAHOO.util.Event,
-        Cookie = YAHOO.util.Cookie;
+        Cookie = YAHOO.util.Cookie,
         drawCallBack;
 
     var getTriggers = function() {

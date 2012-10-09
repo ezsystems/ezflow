@@ -114,7 +114,7 @@
                         };
                         YAHOO.ez.BlockDD.cfg = cfg;
                         YAHOO.ez.BlockDD.init();
-                        YAHOO.ez.BlockCollapse.init();
+                        YAHOO.ez.BlockCollapse.init(Y.eZ.updatePanelsHeight);
                         YAHOO.ez.sheduleDialog.init();
                         BlockDDInit.cfg = cfg;
                         BlockDDInit();
