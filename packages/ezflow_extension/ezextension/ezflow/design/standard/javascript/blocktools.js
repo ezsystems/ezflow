@@ -176,7 +176,8 @@ YAHOO.ez.BlockDD = function() {
 YAHOO.ez.BlockCollapse = function(){
     var Dom = YAHOO.util.Dom,
         Event = YAHOO.util.Event,
-        Cookie = YAHOO.util.Cookie;
+        Cookie = YAHOO.util.Cookie,
+        drawCallBack;
 
     var getTriggers = function() {
         var emTriggers = Dom.getElementsByClassName( "trigger", "em", "zone-tabs-container" );
@@ -253,6 +254,7 @@ YAHOO.ez.BlockCollapse = function(){
         }
         
         Cookie.setSub("eZPageBlockState", getBlockID(o), "1", {path: "/"});
+        drawCallBack();
     };
     
     var collapseBlock = function(o) {
@@ -265,6 +267,7 @@ YAHOO.ez.BlockCollapse = function(){
         }
         
         Cookie.setSub("eZPageBlockState", getBlockID(o), "0", {path: "/"});
+        drawCallBack();
     }
     
     var updateBlockView = function(o) {
@@ -320,7 +323,8 @@ YAHOO.ez.BlockCollapse = function(){
     };
 
     return {
-        init: function() {
+        init: function(onDrawCallBack) {
+            drawCallBack = onDrawCallBack;
             exec();
         }
     };
