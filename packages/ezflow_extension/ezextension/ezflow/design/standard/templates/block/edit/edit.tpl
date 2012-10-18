@@ -86,7 +86,6 @@
              $custom_attribute_types = array()
              $custom_attribute_names = array()
              $custom_attribute_selections = array()
-             $custom_attribute_description = ''
              $loop_count = 0}
         {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
             {set $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
@@ -136,10 +135,6 @@
                                     <option value="{$selection_value|wash()}"{if eq( $block.custom_attributes[$custom_attrib], $selection_value )} selected="selected"{/if} />{$selection_name|wash()}</option>
                                 {/foreach}
                             </select>
-                        {/case}
-                        {case match = 'description'}
-                            {set $custom_attribute_description = ezini( $block.type, concat( 'CustomAttributeDescription_', $custom_attrib ), 'block.ini' )}
-                            <span id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]">{$custom_attribute_description}</span>
                         {/case}
                         {case}
                         <input id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]|wash()}" />
