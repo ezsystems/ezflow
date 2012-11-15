@@ -2067,14 +2067,14 @@ class eZFlownInstaller extends eZSiteInstaller
                         'class_identifier' => 'image' 
                     ) 
                 ), 
-                'edit_frontpage' => array( 
-                    'Source' => 'content/edit.tpl', 
-                    'MatchFile' => 'edit/frontpage.tpl', 
-                    'Subdir' => 'templates', 
-                    'Match' => array( 
-                        'class_identifier' => 'frontpage' 
-                    ) 
-                ), 
+                'add_to_block_frontpage' => array(
+                    'Source' => 'content/parts/add_to_block.tpl',
+                    'MatchFile' => 'content/parts/add_to_block_frontpage.tpl',
+                    'Subdir' => 'templates',
+                    'Match' => array(
+                        'class_identifier' => 'frontpage'
+                    )
+                ),
                 'embed_image' => array( 
                     'Source' => 'content/view/embed.tpl', 
                     'MatchFile' => 'embed_image.tpl', 
