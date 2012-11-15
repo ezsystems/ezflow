@@ -43,7 +43,11 @@ function addBlock( object, id )
 <select name="zonelist" onchange="addBlock( this, {$content_attribute.id} );">
 <option>{'Select:'|i18n( 'design/admin/content/edit' )}</option>
 {def $zone_id = ''
-     $zone_name = ezini( $content_attribute.content.zone_layout, 'ZoneName', 'zone.ini' )}
+     $zone_layout = cond( $attribute.content.zone_layout, $attribute.content.zone_layout, '' )
+     $zone_name = array()}
+    {if $zone_layout|ne( '' )}
+        {set $zone_name = ezini( $zone_layout, 'ZoneName', 'zone.ini' )}
+    {/if}
     {foreach $content_attribute.content.zones as $index => $zone}
     {if and( is_set( $zone.action ), eq( $zone.action, 'remove' ) )}
         {skip}
