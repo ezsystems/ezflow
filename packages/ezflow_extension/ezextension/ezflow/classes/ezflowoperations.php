@@ -109,13 +109,22 @@ class eZFlowOperations
             );
         }
 
-        if ( !empty( $newItems ) )
+        $itemsToRemove = 0;
+        if ( isset( $parameters['Limit'] ) ) {
+            $count = $db->arrayQuery( "SELECT count(*) as count FROM ezm_pool WHERE block_id='".$block['id']."'" );
+            $itemsToRemove = (int)$count[0]['count'] + count($newItems) - (int)$parameters['Limit'];
+        }
+
+        if ( !empty( $newItems ) || ( $itemsToRemove > 0 ) )
         {
             $db->begin();
 
-            eZFlowPool::insertItems( $newItems );
-            $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
+            if ( $itemsToRemove > 0 )
+                $db->query( "DELETE FROM ezm_pool WHERE block_id='".$block['id']."' ORDER BY ts_publication ASC LIMIT " . $itemsToRemove);
+            if ( !empty( $newItems ) )
+                eZFlowPool::insertItems( $newItems );
 
+            $db->query( "UPDATE ezm_block SET last_update=$publishedBeforeOrAt WHERE id='" . $block['id'] . "'" );
             $db->commit();
         }
 
