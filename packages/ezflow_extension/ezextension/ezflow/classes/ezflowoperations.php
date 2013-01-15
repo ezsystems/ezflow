@@ -145,7 +145,7 @@ class eZFlowOperations
         {
             $loggedInUser = $currentUser;
             $anonymousUserId = eZUser::anonymousId();
-            $anonymousUser = eZUser::instance( $anonymousUserId );
+            $anonymousUser = eZUser::fetch( $anonymousUserId );
             eZUser::setCurrentlyLoggedInUser( $anonymousUser, $anonymousUserId );
             unset( $currentUser, $anonymousUser, $anonymousUserId );
         }
