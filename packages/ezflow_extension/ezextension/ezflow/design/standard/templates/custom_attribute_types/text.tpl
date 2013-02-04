@@ -1,0 +1,1 @@
+<textarea id="block-custom_attribute-{$block_id}-{$loop_count}" class="textbox block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" rows="7">{$block.custom_attributes[$custom_attrib]|wash()}</textarea>
