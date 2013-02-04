@@ -119,6 +119,23 @@ class eZPage
             }
         }
 
+        $zoneINI = eZINI::instance( 'zone.ini' );
+        $zla = $newObj->attribute( 'zone_layout' );
+        $zones = $zoneINI->variable( $newObj->attribute( 'zone_layout' ), 'Zones' );
+        foreach ( $zones as $zoneIdentifier )
+        {
+            $alreadyIncluded = false;
+            foreach ( $newObj->attribute( 'zones' ) as $inObjectZone )
+                $alreadyIncluded = $alreadyIncluded || ( $inObjectZone->attribute( 'zone_identifier' ) === $zoneIdentifier );
+            if ( !$alreadyIncluded )
+            {
+                $newZone = $newObj->addZone( new eZPageZone() );
+                $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $newObj->getZoneCount() ) );
+                $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                $newZone->setAttribute( 'action', 'add' );
+            }
+        }
+
         return $newObj;
     }
 
