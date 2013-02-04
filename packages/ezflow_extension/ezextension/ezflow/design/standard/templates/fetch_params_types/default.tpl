@@ -1,0 +1,1 @@
+<label>{$fetch_parameter}:</label> <input id="block-fetch-parameter-{$fetch_parameter}-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />

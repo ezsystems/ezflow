@@ -56,30 +56,45 @@
 <div class="block-parameters float-break">
     <div>
     {if $is_dynamic}
-        {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
-        {if eq( $fetch_parameter, 'Source' )}
-            <input id="block-fetch-parameter-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
-            <div class="source">
-            {'Current source:'|i18n( 'design/standard/block/edit' )}
-            {if is_set( $fetch_params['Source'] )}
-                {if is_array( $fetch_params['Source'] )}
-                    {foreach $fetch_params['Source'] as $source}
-                        {def $source_node = fetch( 'content', 'node', hash( 'node_id', $source ) )}
-                        <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>{delimiter}, {/delimiter}
-                        {undef $source_node}
-                    {/foreach}
-                {else}
-                    {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
-                    <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>
-                    {undef $source_node}
-                {/if}
-            {/if}
-            </div>
-            <div class="break"></div>
-        {else}
-        <label>{$fetch_parameter}:</label> <input id="block-fetch-parameter-{$fetch_parameter}-{$block_id}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_fetch_param_{$attribute.id}[{$zone_id}][{$block_id}][{$fetch_parameter}]" value="{$fetch_params[$fetch_parameter]}" />
+        {def
+            $fetch_params_types = array()
+            $fetch_params_names = array()}
+        {if ezini_hasvariable( $block.type, 'FetchParametersTypes', 'block.ini' )}
+            {set $fetch_params_types = ezini( $block.type, 'FetchParametersTypes', 'block.ini' )}
         {/if}
+        {if ezini_hasvariable( $block.type, 'FetchParametersNames', 'block.ini' )}
+            {set $fetch_params_names = ezini( $block.type, 'FetchParametersNames', 'block.ini' )}
+        {/if}
+        {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
+	        {if eq( $fetch_parameter, 'Source' )}
+	            <input id="block-fetch-parameter-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+	            <div class="source">
+	            {'Current source:'|i18n( 'design/standard/block/edit' )}
+	            {if is_set( $fetch_params['Source'] )}
+	                {if is_array( $fetch_params['Source'] )}
+	                    {foreach $fetch_params['Source'] as $source}
+	                        {def $source_node = fetch( 'content', 'node', hash( 'node_id', $source ) )}
+	                        <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>{delimiter}, {/delimiter}
+	                        {undef $source_node}
+	                    {/foreach}
+	                {else}
+	                    {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
+	                    <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>
+	                    {undef $source_node}
+	                {/if}
+	            {/if}
+	            </div>
+	            <div class="break"></div>
+	        {else}
+	            <label>{if is_set( $fetch_params_names[$fetch_parameter] )}{$fetch_params_names[$fetch_parameter]}{else}{$fetch_parameter}{/if}:</label>
+	            {if is_set( $fetch_params_types[$fetch_parameter] )} 
+	                {include uri=concat( "design:fetch_params_types/", $fetch_params_types[$fetch_parameter], ".tpl" )}
+	            {else}
+	                {include uri=concat( "design:fetch_params_types/default.tpl" )}
+	            {/if}
+	        {/if}
         {/foreach}
+        {undef $fetch_params_types $fetch_params_names}
     {/if}
     {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
         {def $custom_attributes = array()
