@@ -539,12 +539,22 @@ class eZPageType extends eZDataType
                 $rotationUnit = $http->postVariable( 'RotationUnit_' . $params[2] );
                 $rotationSuffle = $http->postVariable( 'RotationShuffle_' . $params[2] );
 
-                if ( $rotationValue == '' )
+                if ( trim( $rotationValue ) == '' || $rotationValue == 0 )
                 {
                     $block->setAttribute( 'rotation', array( 'interval' => 0,
                                                              'type' => 0,
                                                              'value' => '',
                                                              'unit' => '' ) );
+                    $waitingItems = $block->attribute( 'waiting' );
+                    foreach ( $waitingItems as $item )
+                    {
+                        $item->setAttribute( 'ts_publication', time() );
+                        $item->setAttribute( 'ts_visible', time() );
+                        $item->setAttribute( 'ts_hidden', '0' );
+                        $item->setAttribute( 'action', 'add' );
+                        $item->setXMLStorable( true );
+                        $block->addItem( $item );
+                    }
                 }
                 else
                 {
