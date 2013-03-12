@@ -724,9 +724,9 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'ManualItemsStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'ManualBlockStartBrowseNode' ) )
                 {
-                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'ManualItemsStartNode' );
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'ManualBlockStartBrowseNode' );
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
@@ -784,9 +784,9 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'FetchSourceStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'DynamicBlockStartBrowseNode' ) )
                 {
-                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'FetchSourceStartNode' );
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'DynamicBlockStartBrowseNode' );
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
@@ -826,13 +826,13 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' ) )
                 {
-                    $customAttributeStartNode = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeStartNode' );
+                    $customAttributeStartBrowseNode = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' );
                     $customAttributeIdentifier = $params[3];
-                    if( isset( $customAttributeStartNode[$customAttributeIdentifier] ) )
+                    if( isset( $customAttributeStartBrowseNode[$customAttributeIdentifier] ) )
                     {
-                        $browseParameters['start_node'] = $customAttributeStartNode[$customAttributeIdentifier];
+                        $browseParameters['start_node'] = $customAttributeStartBrowseNode[$customAttributeIdentifier];
                     }
                 }
 
