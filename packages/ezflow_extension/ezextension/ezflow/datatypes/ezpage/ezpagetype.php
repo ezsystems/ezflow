@@ -724,9 +724,9 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute('type'), 'ManualItemsStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'ManualItemsStartNode' ) )
                 {
-                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute('type'), 'ManualItemsStartNode' );
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'ManualItemsStartNode' );
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
@@ -742,7 +742,7 @@ class eZPageType extends eZDataType
                     $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
                     $blockINI = eZINI::instance( 'block.ini' );
 
-                    $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                    $fetchParametersSelectionType = $blockINI->variable( $block->attribute( 'type' ), 'FetchParametersSelectionType' );
                     $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
 
                     if ( $fetchParametersSelectionType['Source'] == 'single' )
@@ -771,7 +771,7 @@ class eZPageType extends eZDataType
 
                 $blockINI = eZINI::instance( 'block.ini' );
 
-                $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                $fetchParametersSelectionType = $blockINI->variable( $block->attribute( 'type' ), 'FetchParametersSelectionType' );
 
                 $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
@@ -784,9 +784,9 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute('type'), 'FetchSourceStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'FetchSourceStartNode' ) )
                 {
-                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute('type'), 'FetchSourceStartNode' );
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'FetchSourceStartNode' );
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
@@ -826,9 +826,9 @@ class eZPageType extends eZDataType
                                            'cancel_page' => $redirectionURI,
                                            'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                if( $blockINI->hasVariable( $block->attribute('type'), 'CustomAttributeStartNode' ) )
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeStartNode' ) )
                 {
-                    $customAttributeStartNode = $blockINI->variable( $block->attribute('type'), 'CustomAttributeStartNode' );
+                    $customAttributeStartNode = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeStartNode' );
                     $customAttributeIdentifier = $params[3];
                     if( isset( $customAttributeStartNode[$customAttributeIdentifier] ) )
                     {
