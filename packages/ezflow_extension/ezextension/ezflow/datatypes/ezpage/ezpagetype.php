@@ -743,13 +743,20 @@ class eZPageType extends eZDataType
                 if( $blockINI->hasVariable( $type, 'AllowedClasses' ) )
                     $classArray = $blockINI->variable( $type, 'AllowedClasses' );
 
-                eZContentBrowse::browse( array( 'class_array' => $classArray,
-                                                'action_name' => 'AddNewBlockItem',
-                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
-                                                                                 'value' => $contentObjectAttribute->attribute( 'id' ) ),
-                                                'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI,
-                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ), $module );
+                $browseParameters = array( 'class_array' => $classArray,
+                                           'action_name' => 'AddNewBlockItem',
+                                           'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_item-' . $params[1] . '-' . $params[2] . ']',
+                                                                            'value' => $contentObjectAttribute->attribute( 'id' ) ),
+                                           'from_page' => $redirectionURI,
+                                           'cancel_page' => $redirectionURI,
+                                           'persistent_data' => array( 'HasObjectInput' => 0 ) );
+
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'ManualBlockStartBrowseNode' ) )
+                {
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'ManualBlockStartBrowseNode' );
+                }
+
+                eZContentBrowse::browse( $browseParameters, $module );
                 break;
             case 'new_source':
                 $page = $contentObjectAttribute->content();
@@ -762,7 +769,7 @@ class eZPageType extends eZDataType
                     $selectedNodeIDArray = $http->postVariable( 'SelectedNodeIDArray' );
                     $blockINI = eZINI::instance( 'block.ini' );
 
-                    $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                    $fetchParametersSelectionType = $blockINI->variable( $block->attribute( 'type' ), 'FetchParametersSelectionType' );
                     $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
 
                     if ( $fetchParametersSelectionType['Source'] == 'single' )
@@ -791,19 +798,25 @@ class eZPageType extends eZDataType
 
                 $blockINI = eZINI::instance( 'block.ini' );
 
-                $fetchParametersSelectionType = $blockINI->variable( $block->attribute('type'), 'FetchParametersSelectionType' );
+                $fetchParametersSelectionType = $blockINI->variable( $block->attribute( 'type' ), 'FetchParametersSelectionType' );
 
                 $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
 
+                $browseParameters = array( 'action_name' => 'AddNewBlockSource',
+                                           'selection' => $fetchParametersSelectionType['Source'],
+                                           'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_source-' . $params[1] . '-' . $params[2] . ']',
+                                                                            'value' => $contentObjectAttribute->attribute( 'id' ) ),
+                                           'from_page' => $redirectionURI,
+                                           'cancel_page' => $redirectionURI,
+                                           'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                eZContentBrowse::browse( array( 'action_name' => 'AddNewBlockSource',
-                                                'selection' => $fetchParametersSelectionType['Source'],
-                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_new_source-' . $params[1] . '-' . $params[2] . ']',
-                                                                                 'value' => $contentObjectAttribute->attribute( 'id' ) ),
-                                                'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI,
-                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ), $module );
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'DynamicBlockStartBrowseNode' ) )
+                {
+                    $browseParameters['start_node'] = $blockINI->variable( $block->attribute( 'type' ), 'DynamicBlockStartBrowseNode' );
+                }
+
+                eZContentBrowse::browse( $browseParameters, $module );
                 break;
             case 'custom_attribute':
                 $page = $contentObjectAttribute->content();
@@ -828,14 +841,29 @@ class eZPageType extends eZDataType
             case 'custom_attribute_browse':
                 $module = $parameters['module'];
                 $redirectionURI = $redirectionURI = $parameters['current-redirection-uri'];
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
+                $blockINI = eZINI::instance( 'block.ini' );
 
+                $browseParameters = array( 'action_name' => 'CustomAttributeBrowse',
+                                           'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_custom_attribute-' . $params[1] . '-' . $params[2] . '-' . $params[3] . ']',
+                                                                            'value' => $contentObjectAttribute->attribute( 'id' ) ),
+                                           'from_page' => $redirectionURI,
+                                           'cancel_page' => $redirectionURI,
+                                           'persistent_data' => array( 'HasObjectInput' => 0 ) );
 
-                eZContentBrowse::browse( array( 'action_name' => 'CustomAttributeBrowse',
-                                                'browse_custom_action' => array( 'name' => 'CustomActionButton[' . $contentObjectAttribute->attribute( 'id' ) . '_custom_attribute-' . $params[1] . '-' . $params[2] . '-' . $params[3] . ']',
-                                                                                 'value' => $contentObjectAttribute->attribute( 'id' ) ),
-                                                'from_page' => $redirectionURI,
-                                                'cancel_page' => $redirectionURI,
-                                                'persistent_data' => array( 'HasObjectInput' => 0 ) ), $module );
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' ) )
+                {
+                    $customAttributeStartBrowseNode = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' );
+                    $customAttributeIdentifier = $params[3];
+                    if( isset( $customAttributeStartBrowseNode[$customAttributeIdentifier] ) )
+                    {
+                        $browseParameters['start_node'] = $customAttributeStartBrowseNode[$customAttributeIdentifier];
+                    }
+                }
+
+                eZContentBrowse::browse( $browseParameters, $module );
                 break;
             case 'remove_item':
                 $page = $contentObjectAttribute->content();
