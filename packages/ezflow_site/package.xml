@@ -60,28 +60,28 @@
     <requires>
       <require type="ezpackage"
                name="ezwt_extension"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezstarrating_extension"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezgmaplocation_extension"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezwebin_extension"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezflow_extension"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezflow_classes"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezflow_democontent"
-               min-version="5.0" />
+               min-version="5.1" />
       <require type="ezpackage"
                name="ezflow_design"
-               min-version="5.0" />
+               min-version="5.1" />
     </requires>
     <obsoletes />
     <conflicts />
