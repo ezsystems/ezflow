@@ -119,19 +119,23 @@ class eZPage
             }
         }
 
-        $zones = eZINI::instance( 'zone.ini' )->variable( $newObj->attribute( 'zone_layout' ), 'Zones' );
-        foreach ( $zones as $zoneIdentifier )
+        $zoneINI = eZINI::instance( 'zone.ini' );
+        $layoutName = $newObj->attribute( 'zone_layout' );
+        if ( $zoneINI->hasVariable( $layoutName, 'Zones' ) )
         {
-            foreach ( $newObj->attribute( 'zones' ) as $inObjectZone )
+            foreach ( $zoneINI->variable( $layoutName, 'Zones' ) as $zoneIdentifier )
             {
-                if ( $inObjectZone->attribute( 'zone_identifier' ) === $zoneIdentifier )
-                    continue 2;
-            }
+                foreach ( $newObj->attribute( 'zones' ) as $inObjectZone )
+                {
+                    if ( $inObjectZone->attribute( 'zone_identifier' ) === $zoneIdentifier )
+                        continue 2;
+                }
 
-            $newZone = $newObj->addZone( new eZPageZone() );
-            $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $newObj->getZoneCount() ) );
-            $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
-            $newZone->setAttribute( 'action', 'add' );
+                $newZone = $newObj->addZone( new eZPageZone() );
+                $newZone->setAttribute( 'id', md5( mt_rand() . microtime() . $newObj->getZoneCount() ) );
+                $newZone->setAttribute( 'zone_identifier', $zoneIdentifier );
+                $newZone->setAttribute( 'action', 'add' );
+            }
         }
 
         return $newObj;
