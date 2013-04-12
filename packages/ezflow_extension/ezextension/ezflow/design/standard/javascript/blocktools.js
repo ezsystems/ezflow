@@ -175,8 +175,7 @@ YAHOO.ez.BlockDD = function() {
 
 YAHOO.ez.BlockCollapse = function(){
     var Dom = YAHOO.util.Dom,
-        Event = YAHOO.util.Event,
-        Cookie = YAHOO.util.Cookie;
+        Event = YAHOO.util.Event;
 
     var getTriggers = function() {
         var emTriggers = Dom.getElementsByClassName( "trigger", "em", "zone-tabs-container" );
@@ -242,6 +241,20 @@ YAHOO.ez.BlockCollapse = function(){
         
         return id;
     };
+
+    function setStorageItem(item) {
+        if("localStorage" in window) { localStorage.setItem("eZPBS_" + item, "1"); }
+    }
+
+    function removeStorageItem(item) {
+        if("localStorage" in window) { localStorage.removeItem("eZPBS_" + item); }
+    }    
+    
+    function getStorageItem(item) {
+        if("localStorage" in window) {
+            return (localStorage.getItem("eZPBS_" + item) === null)? "0" : "1";
+        } else return "0";     
+    }    
     
     var expandBlock = function(o) {
         Dom.replaceClass(o,"expand", "collapse" );
@@ -252,7 +265,7 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( collapsedEl, "collapsed", "expanded" );
         }
         
-        Cookie.setSub("eZPageBlockState", getBlockID(o), "1", {path: "/"});
+        setStorageItem(getBlockID(o));
     };
     
     var collapseBlock = function(o) {
@@ -264,17 +277,16 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( expandedEl, "expanded", "collapsed" );
         }
         
-        Cookie.setSub("eZPageBlockState", getBlockID(o), "0", {path: "/"});
-    }
+        removeStorageItem(getBlockID(o));
+    };
     
     var updateBlockView = function(o) {
-        var id = getBlockID(o);
-
-        var state = Cookie.getSub("eZPageBlockState", id);
+        var state = getStorageItem(getBlockID(o));
 
         if(state == "1") {
             expandBlock(o);
-        } else {
+        }
+        else {
             collapseBlock(o);
         }
     };
