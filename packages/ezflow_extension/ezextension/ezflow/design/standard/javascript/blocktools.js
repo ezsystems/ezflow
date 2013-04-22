@@ -252,7 +252,7 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( collapsedEl, "collapsed", "expanded" );
         }
         
-        Cookie.setSub("eZPageBlockState", getBlockID(o), "1", {path: "/"});
+        Cookie.removeSub("eZPageBlockState", getBlockID(o), {path: "/"});
     };
     
     var collapseBlock = function(o) {
@@ -270,12 +270,13 @@ YAHOO.ez.BlockCollapse = function(){
     var updateBlockView = function(o) {
         var id = getBlockID(o);
 
+        // Verify if the block should be collapsed by default:
         var state = Cookie.getSub("eZPageBlockState", id);
 
-        if(state == "1") {
-            expandBlock(o);
-        } else {
+        if(state == "0") {
             collapseBlock(o);
+        } else {
+            expandBlock(o);
         }
     };
     
