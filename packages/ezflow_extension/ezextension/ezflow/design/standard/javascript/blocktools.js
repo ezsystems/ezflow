@@ -173,9 +173,28 @@ YAHOO.ez.BlockDD = function() {
 
 }();
 
+// function taken from the modernizr library
+YAHOO.ez.hasStorage = (function() {
+    var mod = '_ez_ls_check';
+
+    try {
+        localStorage.setItem(mod, mod);
+        localStorage.removeItem(mod);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}());
+
 YAHOO.ez.BlockCollapse = function(){
     var Dom = YAHOO.util.Dom,
-        Event = YAHOO.util.Event;
+        Event = YAHOO.util.Event,
+        Cookie;
+
+    if ( !YAHOO.ez.hasStorage )
+    {
+        Cookie = YAHOO.util.Cookie;
+    }
 
     var getTriggers = function() {
         var emTriggers = Dom.getElementsByClassName( "trigger", "em", "zone-tabs-container" );
@@ -243,18 +262,37 @@ YAHOO.ez.BlockCollapse = function(){
     };
 
     function setStorageItem(item) {
-        if("localStorage" in window) { localStorage.setItem("eZPBS_" + item, "1"); }
-    }
+
+        if( YAHOO.ez.hasStorage ){
+            localStorage.setItem( "eZPBS_" + item, "1" );
+        }
+        else{
+            Cookie.setSub("eZPageBlockState", item, "0", {path: "/"});
+        }
+    };
 
     function removeStorageItem(item) {
-        if("localStorage" in window) { localStorage.removeItem("eZPBS_" + item); }
-    }    
+
+        if( YAHOO.ez.hasStorage ){
+            localStorage.removeItem( "eZPBS_" + item );
+        }
+        else{
+            Cookie.removeSub("eZPageBlockState", item, {path: "/"});
+        }
+    };
     
-    function getStorageItem(item) {
-        if("localStorage" in window) {
-            return (localStorage.getItem("eZPBS_" + item) === null)? "0" : "1";
-        } else return "0";     
-    }    
+    function getStorageItemState(item) {
+
+        if( YAHOO.ez.hasStorage ){
+            return ( localStorage.getItem( "eZPBS_" + item ) === null )? "0" : "1";
+        }
+        else if (Cookie){
+            return (Cookie.getSub("eZPageBlockState", item) === null)? "0" : "1";
+        }
+        else{
+            return "0";
+        }
+    };
     
     var expandBlock = function(o) {
         Dom.replaceClass(o,"expand", "collapse" );
@@ -265,6 +303,7 @@ YAHOO.ez.BlockCollapse = function(){
             Dom.replaceClass( collapsedEl, "collapsed", "expanded" );
         }
         
+        // we save only expanded blocks
         setStorageItem(getBlockID(o));
     };
     
@@ -281,12 +320,14 @@ YAHOO.ez.BlockCollapse = function(){
     };
     
     var updateBlockView = function(o) {
-        var state = getStorageItem(getBlockID(o));
+        var state = getStorageItemState(getBlockID(o));
 
-        if(state == "1") {
+        if(state == "1")
+        {
             expandBlock(o);
         }
-        else {
+        else
+        {
             collapseBlock(o);
         }
     };
