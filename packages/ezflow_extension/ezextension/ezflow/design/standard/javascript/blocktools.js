@@ -173,8 +173,9 @@ YAHOO.ez.BlockDD = function() {
 
 }();
 
+// function taken from the modernizr library
 YAHOO.ez.hasStorage = (function() {
-    var mod = 'modernizr';
+    var mod = '_ez_ls_check';
 
     try {
         localStorage.setItem(mod, mod);
@@ -187,11 +188,12 @@ YAHOO.ez.hasStorage = (function() {
 
 YAHOO.ez.BlockCollapse = function(){
     var Dom = YAHOO.util.Dom,
-        Event = YAHOO.util.Event;
+        Event = YAHOO.util.Event,
+        Cookie;
 
     if ( !YAHOO.ez.hasStorage )
     {
-        var Cookie = YAHOO.util.Cookie;
+        Cookie = YAHOO.util.Cookie;
     }
 
     var getTriggers = function() {
@@ -261,42 +263,36 @@ YAHOO.ez.BlockCollapse = function(){
 
     function setStorageItem(item) {
 
-        if( YAHOO.ez.hasStorage )
-        {
+        if( YAHOO.ez.hasStorage ){
             localStorage.setItem( "eZPBS_" + item, "1" );
         }
-        else
-        {
+        else{
             Cookie.setSub("eZPageBlockState", item, "0", {path: "/"});
         }
-    }
+    };
 
     function removeStorageItem(item) {
 
-        if( YAHOO.ez.hasStorage )
-        {
+        if( YAHOO.ez.hasStorage ){
             localStorage.removeItem( "eZPBS_" + item );
         }
-        else
-        {
+        else{
             Cookie.removeSub("eZPageBlockState", item, {path: "/"});
         }
-    }    
+    };
     
     function getStorageItemState(item) {
 
         if( YAHOO.ez.hasStorage ){
             return ( localStorage.getItem( "eZPBS_" + item ) === null )? "0" : "1";
         }
-        else if ( Cookie != 'undefined' )
-        {
+        else if (Cookie){
             return (Cookie.getSub("eZPageBlockState", item) === null)? "0" : "1";
         }
-        else
-        {
+        else{
             return "0";
         }
-    }    
+    };
     
     var expandBlock = function(o) {
         Dom.replaceClass(o,"expand", "collapse" );
