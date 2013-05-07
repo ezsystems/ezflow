@@ -28,20 +28,24 @@
      $location = false()
      $index = 0}
 
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={ezini('SiteSettings','GMapsKey')}" type="text/javascript"></script>
+
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key={ezini('SiteSettings','GMapsKey')}&sensor={ezini('GMap', 'UseSensor', 'block.ini')}"></script>
+
 {ezscript_require( 'ezflgmapview.js' )}
 
 <script type="text/javascript">
-    var data{$block.id} = [];
-    
+(function() {ldelim}
+    var gmapDataArray = [];
+
     {foreach $locations as $location}
-    data{$block.id}.push( {ldelim}
-                            point: new GLatLng( {$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude} ),
-                            address: '{$location.data_map[$attribute].content.address}'
+    gmapDataArray.push( {ldelim}
+                            point: new google.maps.LatLng( {$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude} ),
+                            address: '{$location.data_map[$attribute].content.address|wash("javascript")}'
                         {rdelim} );
     {/foreach}
 
-    eZFLGMapAddListener( window, 'load', function(){ldelim} eZFLGMapView( '{$block.id}', data{$block.id} ) {rdelim}, false );
+    eZFLGMapAddListener( window, 'load', function(){ldelim} eZFLGMapView( '{$block.id}', gmapDataArray ) {rdelim}, false );
+{rdelim})();
 </script>
 
 <h2>{$block.name|wash()}</h2>
@@ -53,4 +57,5 @@
 </ul>
 
 <div id="ezflb-map-{$block.id}" style="width: {$width}px; height: {$height}px"></div>
+
 {undef $limit $width $height $locations $attribute $index $location}
