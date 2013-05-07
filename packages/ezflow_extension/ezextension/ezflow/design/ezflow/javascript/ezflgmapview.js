@@ -1,50 +1,48 @@
-function eZFLGMapView( blockId, data )
-{
-    if (GBrowserIsCompatible()) 
-    {
-        var startPoint = new GLatLng( 0, 0 ), zoom = 0;
+function eZFLGMapView( blockId, data ){
+    var bounds = new google.maps.LatLngBounds();
 
-        var map = new GMap2( document.getElementById( 'ezflb-map-' + blockId ) ), 
-            bounds = new GLatLngBounds();
+    var map = new google.maps.Map(
+        document.getElementById('ezflb-map-' + blockId), {
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
 
-        map.addControl( new GMapTypeControl() );
-        map.addControl( new GLargeMapControl() );
-        map.setCenter( startPoint, zoom );
+    for(var i = 0; i < data.length; i++){
+        var locationData = data[i];
 
-        for( var i = 0; i < data.length; i++ )
-        {
-            var locationData = data[i];
-            var pointerHandler = document.getElementById( 'ezflb-pointer-' + blockId + '-' + i );
-            pointerHandler.point = locationData.point;
-            pointerHandler.address = locationData.address;
-            eZFLGMapAddListener( pointerHandler, 'click', function(e) {
-                map.panTo( this.point );
-                map.setCenter( this.point, 13 );
-                map.openInfoWindowHtml( this.point, this.address );
-                if ( e.preventDefault )
-                    e.preventDefault();
-                else
-                    e.returnValue = false;
-            } );
-            map.addOverlay( eZFLGMapMarker( locationData.point, bounds, locationData.address ) );
-        }
+        var pointerHandler = document.getElementById('ezflb-pointer-' + blockId + '-' + i);
+        pointerHandler.point = locationData.point;
+        pointerHandler.address = locationData.address;
 
-        map.setCenter( bounds.getCenter(), map.getBoundsZoomLevel( bounds ) );
+        eZFLGMapAddListener( pointerHandler, 'click', function(e) {
+            map.panTo(this.point);
+            map.setCenter(this.point, 13);
+
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent(this.address);
+            infoWindow.setPosition(this.point);
+            infoWindow.open(map);
+
+            e.preventDefault();
+        } );
+
+        var marker = new google.maps.Marker({
+            position: locationData.point,
+            map: map
+        });
+
+        marker.setMap(map);
+        bounds.extend( locationData.point );
+
+        google.maps.event.addListener( marker, 'click', function() {
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent(locationData.address);
+            infoWindow.setPosition(locationData.point);
+            infoWindow.open(map);
+        } );
     }
-}
 
-function eZFLGMapMarker( point, bounds, address )
-{
-    var marker = new GMarker( point );
-
-    GEvent.addListener( marker, 'click', function() {
-        marker.openInfoWindowHtml( address );
-    } );
-
-    if ( bounds )
-        bounds.extend( point );
-
-    return marker;
+    map.fitBounds(bounds);
 }
 
 function eZFLGMapAddListener( element, type, expression, bubbling )
