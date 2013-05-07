@@ -70,7 +70,7 @@ class eZFlowLatestObjects implements eZFlowFetchInterface
         $fetchResult = array();
         foreach( $result as $item )
         {
-            $fetchResult[] = array( 'object_id' => $item['contentobject_id'],
+            $fetchResult[] = array( 'object_id' => $item['id'],
                                     'node_id' => $item['node_id'],
                                     'ts_publication' => $item['published'] );
         }
