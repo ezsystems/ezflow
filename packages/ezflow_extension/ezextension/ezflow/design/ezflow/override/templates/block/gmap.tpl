@@ -12,26 +12,40 @@
     Option to skip loading GMap API in case when it was loaded globally e.g in <head> section
 *}
 {if ne( $key, '' )}
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key={$key}" type="text/javascript"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key={$key}&sensor={ezini('GMap', 'UseSensor', 'block.ini')}"></script>
 {/if}
 
 <script type="text/javascript">
 YUI(YUI3_config).use('event', function(Y) {ldelim}
     Y.on('domready', function() {ldelim}
-        if (GBrowserIsCompatible()) {ldelim}
-            var mapContainer = document.getElementById("map-container-{$block.id}");
-            var map = new GMap2(mapContainer);
-            var geocoder = new GClientGeocoder();
-            geocoder.getLatLng("{$location}", function(point) {ldelim}
-                if (point) {ldelim}
-                    map.setCenter(point, 13);
-                    var marker = new GMarker(point);
-                    map.addOverlay(marker);
-                    marker.openInfoWindowHtml("{$location}");
-                    {rdelim}
+
+        var mapContainer = document.getElementById("map-container-{$block.id}");
+
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+
+        var mapOptions = {ldelim}
+            zoom: 12,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        {rdelim};
+
+        var map = new google.maps.Map(mapContainer, mapOptions);
+
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode( {ldelim} 'address': "{$location|wash('javascript')}" {rdelim}, function(results, status) {ldelim}
+            if (status == google.maps.GeocoderStatus.OK) {ldelim}
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({ldelim}
+                    map: map,
+                    position: results[0].geometry.location
                 {rdelim});
+            {rdelim} else {ldelim}
+                alert("Geocode was not successful for the following reason: " + status);
             {rdelim}
-        {rdelim});
+        });
+
+    {rdelim});
 {rdelim});
 </script>
 
