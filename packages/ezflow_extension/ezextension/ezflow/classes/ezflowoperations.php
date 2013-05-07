@@ -140,14 +140,13 @@ class eZFlowOperations
     public static function update( $nodeArray = array() )
     {
         // log in user as anonymous if another user is logged in
-        $currentUser = eZUser::currentUser();
-        if ( $currentUser->isLoggedIn() )
+        if ( eZUser::isCurrentUserRegistered() )
         {
-            $loggedInUser = $currentUser;
+            $loggedInUser = eZUser::currentUser();
             $anonymousUserId = eZUser::anonymousId();
             $anonymousUser = eZUser::fetch( $anonymousUserId );
             eZUser::setCurrentlyLoggedInUser( $anonymousUser, $anonymousUserId );
-            unset( $currentUser, $anonymousUser, $anonymousUserId );
+            unset( $anonymousUser, $anonymousUserId );
         }
 
         include_once( 'kernel/classes/ezcontentcache.php' );
