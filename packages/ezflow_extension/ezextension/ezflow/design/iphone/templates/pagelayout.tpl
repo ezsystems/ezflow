@@ -62,7 +62,7 @@
                 {ezscript_require( 'ezjsc::yui3' )}
                 <script type="text/javascript">
                 {literal}
-                    YUI().use('node','dom','event','anim', function(Y)  {
+                    YUI(YUI3_config).use('node','dom','event','anim', function(Y)  {
                         Y.one('#nav-menu-handler').on('click', function(e) {
                             var node = Y.one('#nav-menu-items');
                             node.setStyle( 'display', 'block' );
