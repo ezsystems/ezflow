@@ -373,6 +373,9 @@ class eZPageBlock
         if ( $asObject )
         {
             $block = new eZPageBlock( null, $row[0] );
+            $block->attributes['type'] = $block->attributes['block_type'];
+            $viewList = eZINI::instance("block.ini")->variable( $block->attributes['type'], 'ViewList' );
+            $block->attributes['view'] = $viewList[0];
             return $block;
         }
         else
