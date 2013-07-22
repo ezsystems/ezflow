@@ -51,7 +51,6 @@ if ( !function_exists( 'eZPageForwardInit' ) )
 {
     function eZPageForwardInit()
     {
-        include_once( 'kernel/common/ezobjectforwarder.php' );
         $forward_rules = array(
                 'block_edit_gui' => array( 'template_root' => 'block/edit',
                                            'input_name' => 'block',
