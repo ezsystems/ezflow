@@ -522,16 +522,15 @@ class eZFlowOperations
         $limit = 50;
         do
         {
-            $items = $db->arrayQuery( 'SELECT object_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
+            $items = $db->arrayQuery( 'SELECT node_id FROM ezm_pool', array( 'offset' => $offset, 'limit' => $limit ) );
             if ( empty( $items ) )
                 break;
 
             foreach( $items as $item )
             {
-                $rows = $db->arrayQuery( 'SELECT id, status FROM ezcontentobject WHERE id = ' . $item['object_id'] );
-                if ( empty( $rows ) or // deleted
-                     ( count( $rows ) == 1 and $rows[0]['status'] == 2 ) ) // trashed
-                    $itemArray[] = $item['object_id'];
+                $rows = $db->arrayQuery( 'SELECT node_id FROM ezcontentobject_tree WHERE node_id = ' . $item['node_id'] );
+                if ( empty( $rows ) )
+                    $itemArray[] = $item['node_id'];
             }
 
             $offset += $limit;
@@ -542,7 +541,7 @@ class eZFlowOperations
         if ( $itemArrayCount > 0 )
         {
             $db->begin();
-            $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'object_id' ) );
+            $db->query( 'DELETE FROM ezm_pool WHERE ' . $db->generateSQLINStatement( $itemArray, 'node_id' ) );
             $db->commit();
         }
 
