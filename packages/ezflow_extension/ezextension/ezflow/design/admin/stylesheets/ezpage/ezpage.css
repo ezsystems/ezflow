@@ -1,10 +1,5 @@
 /* BLOCK EDIT: START */
 
-div.block-container
-{
-
-}
-
 div.block-header
 {
     padding: 0.25em;
@@ -167,90 +162,21 @@ div.legend div.history
     margin-right: 0.25em;
 }
 
-div.block-container .button
-{
-    border: 1px solid #D8D8D8;
-    background-image: url(../../images/ezpage/button_bg.png);
-    background-position: center top;
-    background-repeat: repeat-x;
-    color: #FFFFFF;
-    padding: 0.15em 0.5em 0.2em 0.5em;
-    cursor: pointer;
-}
-
-th.tight, td.tight
-{
-    width:1%;
-}
-
-div.block-container .list
-{
-
-}
-
-div.block-container .textfield
-{
-}
-
-div.block-container div.left
-{
-    float: left;
-    clear: left;
-    width: 49%;
-}
-
-div.block-container div.right
-{
-    float: right;
-    clear: right;
-    width: 49%;
-    text-align: right;
-}
-
 div.block-container div.blockname .textfield
 {
     margin-bottom: 0.5em;
 }
 
-div.block-container div.block-parameters
-{
-
-}
-
 div.block-container div.block-parameters div.source
 {
-    padding-top: 0.25em;
+    padding: 0.65em 0;
     font-weight: bold;
     color: #000000;
 }
 
-.float-break:after
+div.block-container div.right
 {
-    content: "-";
-    height: 0;
-    visibility: hidden;
-    display: block; 
-    clear: both; 
-}
-
-.hidden
-{
-    display: none;
-}
-
-.visible
-{
-    display: block;
-}
-
-.float-break
-{
-    height: 1%;
-}
-
-.break
-{
-    clear: both;
+    text-align: right;
 }
 
 /* BLOCK EDIT: END */
@@ -274,16 +200,6 @@ div.zones div.zone div.zone-thumbnail, div.zones div.zone div.zone-label, div.zo
     margin-bottom: 0.5em;
 }
 
-div.zones .button
-{
-    border: 1px solid #D8D8D8;
-    background-image: url(../../images/ezpage/button_bg.png);
-    background-position: center top;
-    background-repeat: repeat-x;
-    color: #FFFFFF;
-    padding: 0.15em 0.5em 0.2em 0.5em;
-    cursor: pointer;
-}
 /* ZONE LAYOUT: END */
 
 div#zone-map-container
