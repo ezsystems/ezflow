@@ -1,7 +1,8 @@
 <?php /*
 
 [EventSettings]
-AvailableEventTypes[event_ezpageswap]=eZPageSwapType
+ExtensionDirectories[]=ezflow
+AvailableEventTypes[]=event_ezpageswap
 
 [OperationSettings]
 AvailableOperationList[]=content_swap

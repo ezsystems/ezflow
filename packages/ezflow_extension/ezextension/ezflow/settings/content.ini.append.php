@@ -1,6 +1,7 @@
 <?php /*
 
 [DataTypeSettings]
-AvailableDataTypes[ezpage]=eZPageType
+ExtensionDirectories[]=ezflow
+AvailableDataTypes[]=ezpage
 
 */ ?>
