@@ -53,6 +53,37 @@ class eZPageType extends eZDataType
     }
 
     /**
+     * Serialize contentclass attribute
+     *
+     * @param eZContentClassAttribute $classAttribute
+     * @param DOMNode $attributeNode
+     * @param DOMNode $attributeParametersNode
+     */
+    function serializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
+    {
+        $defaultZoneLayout = $classAttribute->attribute( self::DEFAULT_ZONE_LAYOUT_FIELD );
+        $dom = $attributeParametersNode->ownerDocument;
+
+        $defaultLayoutNode = $dom->createElement( 'default-layout' );
+        $defaultLayoutNode->appendChild( $dom->createTextNode( $defaultZoneLayout ) );
+        $attributeParametersNode->appendChild( $defaultLayoutNode );
+    }
+
+    /**
+     * Unserialize contentclass attribute
+     *
+     * @param eZContentClassAttribute $classAttribute
+     * @param DOMNode $attributeNode
+     * @param DOMNode $attributeParametersNode
+     */
+    function unserializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
+    {
+        $defaultZoneLayout = $attributeParametersNode->getElementsByTagName( 'default-layout' )->item( 0 )->textContent;
+        if ( $defaultZoneLayout !== false )
+            $classAttribute->setAttribute( self::DEFAULT_ZONE_LAYOUT_FIELD, $defaultZoneLayout );
+    }
+
+    /**
      * Initialize contentobject attribute content
      *
      * @param eZContentObjectAttribute $contentObjectAttribute
