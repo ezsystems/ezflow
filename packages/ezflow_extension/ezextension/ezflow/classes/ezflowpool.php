@@ -80,6 +80,13 @@ class eZFlowPool
         if ( isset( $GLOBALS['eZFlowPool'][$blockID] ) )
             return $GLOBALS['eZFlowPool'][$blockID];
 
+        $visibilitySQL = "";
+
+        if ( eZINI::instance( 'site.ini' )->variable( 'SiteAccessSettings', 'ShowHiddenNodes' ) !== 'true' )
+        {
+            $visibilitySQL = "AND ezcontentobject_tree.is_invisible = 0 ";
+        }
+
         $db = eZDB::instance();
         $validNodes = $db->arrayQuery( "SELECT *
                                         FROM ezm_pool, ezcontentobject_tree
@@ -87,6 +94,7 @@ class eZFlowPool
                                           AND ezm_pool.ts_visible>0
                                           AND ezm_pool.ts_hidden=0
                                           AND ezcontentobject_tree.node_id = ezm_pool.node_id
+                                          $visibilitySQL
                                         ORDER BY ezm_pool.priority DESC" );
 
         if ( $asObject && !empty( $validNodes ) )
