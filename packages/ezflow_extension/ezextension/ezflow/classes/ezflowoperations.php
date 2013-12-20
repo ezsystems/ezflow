@@ -182,7 +182,10 @@ class eZFlowOperations
 
         foreach ( $nodeArray as $nodeID )
         {
-            $time = time() - 5; // a safety margin
+            // a safety margin
+            $delay = intval( eZINI::instance( 'ezflow.ini' )->variable( 'SafetyDelay', 'DelayInSeconds' ) );
+
+            $time = time() - $delay;
 
             $nodeChanged = false;
 
