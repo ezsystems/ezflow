@@ -88,12 +88,14 @@ class eZFlowPool
         }
 
         $db = eZDB::instance();
-        $validNodes = $db->arrayQuery( "SELECT *
-                                        FROM ezm_pool, ezcontentobject_tree
+        $validNodes = $db->arrayQuery( "SELECT ezm_pool.node_id
+                                        FROM ezm_pool, ezcontentobject_tree, ezcontentobject
                                         WHERE ezm_pool.block_id='$blockID'
                                           AND ezm_pool.ts_visible>0
                                           AND ezm_pool.ts_hidden=0
                                           AND ezcontentobject_tree.node_id = ezm_pool.node_id
+                                          AND ezcontentobject.id = ezm_pool.object_id
+                                          AND " . eZContentLanguage::languagesSQLFilter( 'ezcontentobject' ) . "
                                           $visibilitySQL
                                         ORDER BY ezm_pool.priority DESC" );
 
