@@ -495,6 +495,16 @@ div.object-right, table.object-right /* Used for floating images and other conte
     clear: right;
 }
 
+.embed-inline-left
+{
+    float: left;
+}
+
+.embed-inline-right
+{
+    float: right;
+}
+
 div.object-center, table.object-center
 {
     margin: 0.25em auto 0.25em auto;
