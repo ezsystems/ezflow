@@ -102,7 +102,8 @@ class eZPageType extends eZDataType
             // Case when content object was copied or when new translation has been added to the existing one
             if ( ( $contentObjectID != $originalContentObjectID )
                     || ( ( $contentObjectID == $originalContentObjectID )
-                       && ( $languageMask != $originalLanguageMask ) ) )
+                       && ( $languageMask != $originalLanguageMask )
+                            && ( $contentObjectAttribute->attribute( 'can_translate' ) ) ) )
             {
                 $page = $originalContentObjectAttribute->content();
                 $clonedPage = clone $page;
