@@ -105,8 +105,9 @@ class eZFlowPool
 
             foreach( $validNodes as $node )
             {
-                $nodeID = $node['node_id'];
-                $validNodesObjects[] = eZContentObjectTreeNode::fetch( $nodeID );
+                $validNodeObject = eZContentObjectTreeNode::fetch( $node['node_id'] );
+                if ( $validNodeObject instanceof eZContentObjectTreeNode && $validNodeObject->canRead() )
+                    $validNodesObjects[] = $validNodeObject;
             }
 
             $GLOBALS['eZFlowPool'][$blockID] = $validNodesObjects;
