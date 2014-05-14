@@ -1,0 +1,22 @@
+{
+    "name": "ezsystems/ezflow-ls",
+    "description": "eZ Publish Legacy Flow extension",
+    "type": "ezpublish-legacy-extension",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "eZ Publish dev-team & eZ Community",
+            "homepage": "https://github.com/ezsystems/ezflow-extension"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ezsystems/ezpublish-legacy-installer": "*"
+    },
+    "suggest": {
+        "ezsystems/ezwt": "~5.3"
+    },
+    "extra": {
+        "ezpublish-legacy-extension-name": "ezflow"
+    }
+}
