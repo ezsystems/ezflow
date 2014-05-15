@@ -1,5 +1,5 @@
 {
-    "name": "ezsystems/ezflow-ls",
+    "name": "ezsystems/ezflow-ls-extension",
     "description": "eZ Publish Legacy Flow extension",
     "type": "ezpublish-legacy-extension",
     "license": "GPL-2.0",
