@@ -953,6 +953,12 @@ class eZPageType extends eZDataType
         $db = eZDB::instance();
         $page = $contentObjectAttribute->content();
 
+        foreach ( $publishedNodes as $publishedNode )
+        {
+            if ( $publishedNode->isMain() )
+                $mainNode = $publishedNode;
+        }
+
         foreach ( $publishedNodes as $node )
         {
             $nodeID = $node->attribute( 'node_id' );
@@ -1035,11 +1041,17 @@ class eZPageType extends eZDataType
                                     if ( $block->hasAttribute( 'overflow_id' ) )
                                         $overflowID = $block->attribute( 'overflow_id' );
 
+                                    // Fixes http://jira.ez.no/browse/EZP-23124 where ezm_block.node_id might be = 0
+                                    // due to the way staging handles ezflow
+                                    // If the block's node id is set to 0, it gets set to the main node ID
+                                    $blockNodeId = $block->attribute( 'node_id' ) ?: $mainNode->attribute( 'node_id' );
+
                                     $db->query( "UPDATE ezm_block SET name='" . $escapedBlockName . "',
                                                                       overflow_id='" . $overflowID . "',
                                                                       fetch_params='" . $fetchParams . "',
                                                                       rotation_type='" . $rotationType . "',
-                                                                      rotation_interval='" . $rotationInterval ."'
+                                                                      rotation_interval='" . $rotationInterval ."',
+                                                                      node_id='" . $blockNodeId. "'
                                                             WHERE id='" . $blockID . "'" );
                                     break;
                             }
