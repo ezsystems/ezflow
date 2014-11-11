@@ -278,7 +278,14 @@ class eZPageType extends eZDataType
 
                     foreach ( $params as $param => $value )
                     {
-                        $fetchParams[$param] = $value;
+                        if (is_array($value))
+                        {
+                            $customAttributes[$param] = implode(',', $value);
+                        }
+                        else
+                        {
+                            $customAttributes[$param] = $value;
+                        }
                     }
 
                     $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );

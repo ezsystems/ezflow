@@ -86,6 +86,11 @@
              $custom_attribute_types = array()
              $custom_attribute_names = array()
              $custom_attribute_selections = array()
+             $custom_attribute_value = ''
+             $custom_attribute_values = array()
+             $custom_attribute_default = ''
+             $custom_attribute_multiselect_setting = false()
+             $custom_attribute_multiselect_value = false()
              $loop_count = 0}
         {if ezini_hasvariable( $block.type, 'CustomAttributes', 'block.ini' )}
             {set $custom_attributes = ezini( $block.type, 'CustomAttributes', 'block.ini' )}
@@ -129,12 +134,56 @@
                         <input id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]|wash()}" />
                         {/case}
                         {case match = 'select'}
-                            {set $custom_attribute_selections = ezini( $block.type, concat( 'CustomAttributeSelection_', $custom_attrib ), 'block.ini' )}
-                            <select id="block-custom_attribute-{$block_id}-{$loop_count}" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]">
-                                {foreach $custom_attribute_selections as $selection_value => $selection_name}
-                                    <option value="{$selection_value|wash()}"{if eq( $block.custom_attributes[$custom_attrib], $selection_value )} selected="selected"{/if} />{$selection_name|wash()}</option>
-                                {/foreach}
-                            </select>
+                        {set $custom_attribute_selections = ezini( $block.type, concat( 'CustomAttributeSelection_', $custom_attrib ),'block.ini' )}
+
+                        {* Check if there is a default value for the select *}
+                        {if ezini_hasvariable( $block.type, concat( 'CustomAttributeSelectionDefault_', $custom_attrib ), 'block.ini' )}
+                            {set $custom_attribute_default = ezini( $block.type, concat( 'CustomAttributeSelectionDefault_', $custom_attrib ), 'block.ini' )}
+                        {else}
+                            {set $custom_attribute_default = ''}
+                        {/if}
+
+                        {* Check if there is a value set for the custom attribute - empty is assumed to be no value *}
+                        {if $block.custom_attributes[$custom_attrib]|ne( '' )}
+                            {set $custom_attribute_value = $block.custom_attributes[$custom_attrib]}
+                        {else}
+                            {set $custom_attribute_value = $custom_attribute_default}
+                        {/if}
+
+                        {* Test for multiselect option *}
+                        {set $custom_attribute_multiselect_setting = ezini_hasvariable( $block.type, concat( 'CustomAttributeMultipleSelection_', $custom_attrib ), 'block.ini' )}
+                        {* If multiselect select option is set, use the value *}
+                        {if $custom_attribute_multiselect_setting}
+                            {* Test against common settings which may be used *}
+                            {set $custom_attribute_multiselect_value = array('1',1,'true',true())|contains(ezini( $block.type, concat( 'CustomAttributeMultipleSelection_', $custom_attrib ), 'block.ini' ))}
+                        {else}
+                            {* Default value is false - single select *}
+                            {set $custom_attribute_multiselect_value = false()}
+                        {/if}
+
+                        {* Set custom_attribute_values based on the multiselect setting value *}
+                        {if $custom_attribute_multiselect_value}
+                            {set $custom_attribute_values = $custom_attribute_value|explode(',')}
+                        {else}
+                            {set $custom_attribute_values = array( $custom_attribute_value )}
+                        {/if}
+
+                        {def $i_selected = ''}
+                        <select id="block-custom_attribute-{$block_id}-{$loop_count}" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]{if $custom_attribute_multiselect_value}[]" multiple="multiple" size="{min($custom_attribute_selections|count(), 6)}"{else}" size="1"{/if}>
+                        {foreach $custom_attribute_selections as $selection_value => $selection_name}
+
+                            {* mark option as selected *}
+                            {set $i_selected = ''}
+                            {foreach $custom_attribute_values as $value}
+                                {if eq( $value|trim(), $selection_value|trim() )}
+                                    {set $i_selected = 'selected="selected"'}
+                                    {break}
+                                {/if}
+                            {/foreach}
+
+                            <option value="{$selection_value|trim()|wash()}" {$i_selected}>{$selection_name|wash()}</option>
+                        {/foreach}
+                        </select>
                         {/case}
                         {case}
                         <input id="block-custom_attribute-{$block_id}-{$loop_count}" class="textfield block-control" type="text" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]" value="{$block.custom_attributes[$custom_attrib]|wash()}" />
