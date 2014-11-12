@@ -73,14 +73,14 @@ class eZPageType extends eZDataType
      * Unserialize contentclass attribute
      *
      * @param eZContentClassAttribute $classAttribute
-     * @param DOMNode $attributeNode
-     * @param DOMNode $attributeParametersNode
+     * @param DOMElement $attributeNode
+     * @param DOMElement $attributeParametersNode
      */
     function unserializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
     {
-        $defaultZoneLayout = $attributeParametersNode->getElementsByTagName( 'default-layout' )->item( 0 )->textContent;
-        if ( $defaultZoneLayout !== false )
-            $classAttribute->setAttribute( self::DEFAULT_ZONE_LAYOUT_FIELD, $defaultZoneLayout );
+        $defaultZoneLayoutItem = $attributeParametersNode->getElementsByTagName( 'default-layout' )->item( 0 );
+        if ( $defaultZoneLayoutItem !== null && $defaultZoneLayoutItem->textContent !== false )
+            $classAttribute->setAttribute( self::DEFAULT_ZONE_LAYOUT_FIELD, $defaultZoneLayoutItem->textContent );
     }
 
     /**
