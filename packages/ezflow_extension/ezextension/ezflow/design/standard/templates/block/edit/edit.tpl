@@ -143,19 +143,19 @@
                             {set $custom_attribute_default = ''}
                         {/if}
 
-                        {* Check if there is a value set for the custom attribute - empty is assumed to be no value *}
-                        {if $block.custom_attributes[$custom_attrib]|ne( '' )}
+                        {* Check if this is a new block *}
+                        {if is_set( $block.custom_attributes[$custom_attrib] )}
                             {set $custom_attribute_value = $block.custom_attributes[$custom_attrib]}
                         {else}
                             {set $custom_attribute_value = $custom_attribute_default}
                         {/if}
 
                         {* Test for multiselect option *}
-                        {set $custom_attribute_multiselect_setting = ezini_hasvariable( $block.type, concat( 'CustomAttributeMultipleSelection_', $custom_attrib ), 'block.ini' )}
+                        {set $custom_attribute_multiselect_setting = ezini_hasvariable( $block.type, concat( 'CustomAttributeSelectionMultiple_', $custom_attrib ), 'block.ini' )}
                         {* If multiselect select option is set, use the value *}
                         {if $custom_attribute_multiselect_setting}
-                            {* Test against common settings which may be used *}
-                            {set $custom_attribute_multiselect_value = array('1',1,'true',true())|contains(ezini( $block.type, concat( 'CustomAttributeMultipleSelection_', $custom_attrib ), 'block.ini' ))}
+                            {* If multiselect is enabled *}
+                            {set $custom_attribute_multiselect_value = ezini( $block.type, concat( 'CustomAttributeSelectionMultiple_', $custom_attrib ), 'block.ini' )|eq( 'enabled' )}
                         {else}
                             {* Default value is false - single select *}
                             {set $custom_attribute_multiselect_value = false()}
@@ -168,8 +168,18 @@
                             {set $custom_attribute_values = array( $custom_attribute_value )}
                         {/if}
 
+
                         {def $i_selected = ''}
-                        <select id="block-custom_attribute-{$block_id}-{$loop_count}" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]{if $custom_attribute_multiselect_value}[]" multiple="multiple" size="{min($custom_attribute_selections|count(), 6)}"{else}" size="1"{/if}>
+                        <select id="block-custom_attribute-{$block_id}-{$loop_count}" class="block-control" name="ContentObjectAttribute_ezpage_block_custom_attribute_{$attribute.id}[{$zone_id}][{$block_id}][{$custom_attrib}]{if $custom_attribute_multiselect_value}[]" multiple="multiple" size="{min($custom_attribute_selections|count(), 6)}{else}" size="1{/if}">
+
+                        {* If an allow empty option has been set *}
+                        {if ezini_hasvariable( $block.type, concat( 'CustomAttributeSelectionEmpty_', $custom_attrib ), 'block.ini' )}
+                            {* Test allow empty option, this ensures the value is sent to the server and set *}
+                            {if ezini( $block.type, concat( 'CustomAttributeSelectionMultiple_', $custom_attrib ), 'block.ini' )|eq( 'enabled' )}
+                            <option value="" {if $custom_attribute_value|eq('')}selected="selected"{/if} title="Empty/No selection">--</option>
+                            {/if}
+                        {/if}
+
                         {foreach $custom_attribute_selections as $selection_value => $selection_name}
 
                             {* mark option as selected *}
