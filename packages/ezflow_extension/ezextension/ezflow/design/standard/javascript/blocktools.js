@@ -424,36 +424,36 @@ var BlockDDInit = function() {
             });
         });
 
-        Y.DD.DDM.on('drag:end', function(e) {
-            var drag = e.target;
 
-            drag.get('node').setStyles({
-                visibility: '',
-                opacity: '1'
-            });
-            drag.get('dragNode').set('innerHTML', '');
-            
-            var blocks = Y.Node.all( '#'+ drag.get('node').get('parentNode').get('id') + ' .block-container' );
-            var data = '';
+        function storeOrder(blocks) {
+            var data = '',
+                form = Y.one('#zone-' + BlockDDInit.cfg.zone + '-blocks').ancestor('form');
 
-            blocks.each( function(v, k) {
-                data += 'block_order%5B%5D=' + v.get('id');
-                data += '&';
-            } );
+            if ( Y.Global.Autosave && Y.Global.Autosave[form.get('id')] ) {
+                Y.Global.Autosave[form.get('id')].submit('FlowForceSave=' + (new Date()));
+            } else {
+                blocks.each(function(v, k) {
+                    data += 'block_order%5B%5D=' + v.get('id');
+                    data += '&';
+                });
 
-            data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
-            data += '&version=' + BlockDDInit.cfg.version;
-            data += '&zone=' + BlockDDInit.cfg.zone;
-            Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
+                data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
+                data += '&version=' + BlockDDInit.cfg.version;
+                data += '&zone=' + BlockDDInit.cfg.zone;
+                Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
+            }
+        }
 
-            var newOrder = drag.get('node').get('parentNode').all('.block-container');
+        function updateInputIndex(blocks) {
             var index = 0;
-            newOrder.each(function(v, k) {
-                var inputList = v.all('.block-control');
 
-                for(var i = 0; i < inputList.size(); i++) {
-                    var input = inputList.item(i);
-                    var name = input.get('name');
+            blocks.each(function(v, k) {
+                var inputList = v.all('.block-control'),
+                    i, input, name;
+
+                for(i = 0; i < inputList.size(); i++) {
+                    input = inputList.item(i);
+                    name = input.get('name');
 
                     if( name.match(/([a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/) ) {
                         name = name.replace( /([a-z]+)+_([\d]+)\[([\d]+)\]\[([\d]+)\]/, "$1_$2[$3][" + index + "]" );
@@ -468,6 +468,20 @@ var BlockDDInit = function() {
 
                 index++;
             });
+        }
+
+        Y.DD.DDM.on('drag:end', function(e) {
+            var drag = e.target,
+                blocks = drag.get('node').get('parentNode').all('.block-container');
+
+            drag.get('node').setStyles({
+                visibility: '',
+                opacity: '1'
+            });
+            drag.get('dragNode').set('innerHTML', '');
+
+            updateInputIndex(blocks);
+            storeOrder(blocks);
         });
 
         Y.DD.DDM.on('drag:drophit', function(e) {
@@ -509,6 +523,33 @@ var BlockDDInit = function() {
                 node: v
             });
         });
-        
+
+        // configuring the up and down button
+        Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks input[name*="move_block"]').on('click', function (e) {
+            var blocks = Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container'),
+                movedBlock = e.target.ancestor('.block-container'),
+                goingUp = (e.target.get('name').indexOf('move_block_up') !== -1);
+
+            e.preventDefault();
+            blocks.some(function (block, i) {
+                var refBlock;
+
+                if ( block.get('id') === movedBlock.get('id') ) {
+                    if ( goingUp ) {
+                        refBlock = blocks.item(i - 1);
+                    } else {
+                        refBlock = blocks.item(i + 1);
+                    }
+                    if ( refBlock ) {
+                        refBlock.insert(movedBlock, (goingUp ? 'before' : 'after'));
+                        blocks = Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container');
+                        updateInputIndex(blocks);
+                        storeOrder(blocks);
+                    }
+                    return true;
+                }
+                return false;
+            });
+        });
     });
 }
