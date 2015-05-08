@@ -525,7 +525,7 @@ var BlockDDInit = function() {
         });
 
         // configuring the up and down button
-        Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks input[name*="move_block"]').on('click', function (e) {
+        Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks input[name*="_move_block"]').on('click', function (e) {
             var blocks = Y.all('#zone-' + BlockDDInit.cfg.zone + '-blocks .block-container'),
                 movedBlock = e.target.ancestor('.block-container'),
                 goingUp = (e.target.get('name').indexOf('move_block_up') !== -1);
