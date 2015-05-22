@@ -59,6 +59,9 @@
         {foreach ezini( $block.type, 'FetchParameters', 'block.ini' ) as $fetch_parameter => $value}
         {if eq( $fetch_parameter, 'Source' )}
             <input id="block-fetch-parameter-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+            {if is_set( $fetch_params['Source'] )}
+                <input id="block-fetch-parameter-remove-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_remove_source-{$zone_id}-{$block_id}]" type="submit" value="{'Remove source'|i18n( 'design/standard/block/edit' )}" />
+            {/if}
             <div class="source">
             {'Current source:'|i18n( 'design/standard/block/edit' )}
             {if is_set( $fetch_params['Source'] )}
@@ -104,6 +107,9 @@
             {if eq( $use_browse_mode[$custom_attrib], 'true' )}
                 {if is_set($custom_attribute_names[$custom_attrib])}<label>{$custom_attribute_names[$custom_attrib]}:</label>{/if}
                 <input id="block-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+                {if is_set( $block.custom_attributes[$custom_attrib] )}
+                    <input class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_remove_source-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Remove source'|i18n( 'design/standard/block/edit' )}" />
+                {/if}
                 <div class="source">
                     {'Current source:'|i18n( 'design/standard/block/edit' )}
                     {if is_set( $block.custom_attributes[$custom_attrib] )}
