@@ -850,6 +850,20 @@ class eZPageType extends eZDataType
 
                 eZContentBrowse::browse( $browseParameters, $module );
                 break;
+            case 'remove_source':
+                $page = $contentObjectAttribute->content();
+
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
+
+                $fetchParams = unserialize( $block->attribute( 'fetch_params' ) );
+
+                unset( $fetchParams['Source'] );
+
+                $block->setAttribute( 'fetch_params', serialize( $fetchParams ) );
+                $contentObjectAttribute->setContent( $page );
+                $contentObjectAttribute->store();
+                break;
             case 'custom_attribute':
                 $page = $contentObjectAttribute->content();
                 $zone = $page->getZone( $params[1] );
@@ -896,6 +910,19 @@ class eZPageType extends eZDataType
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
+                break;
+            case 'custom_attribute_remove_source':
+                $page = $contentObjectAttribute->content();
+                $zone = $page->getZone( $params[1] );
+                $block = $zone->getBlock( $params[2] );
+
+                $customAttributes = $block->attribute( 'custom_attributes' );
+
+                unset( $customAttributes[$params[3]] );
+
+                $block->setAttribute( 'custom_attributes', $customAttributes );
+                $contentObjectAttribute->setContent( $page );
+                $contentObjectAttribute->store();
                 break;
             case 'remove_item':
                 $page = $contentObjectAttribute->content();
