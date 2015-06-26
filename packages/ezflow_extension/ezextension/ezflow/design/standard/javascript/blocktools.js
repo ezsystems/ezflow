@@ -429,19 +429,15 @@ var BlockDDInit = function() {
             var data = '',
                 form = Y.one('#zone-' + BlockDDInit.cfg.zone + '-blocks').ancestor('form');
 
-            if ( Y.Global.Autosave && Y.Global.Autosave[form.get('id')] ) {
-                Y.Global.Autosave[form.get('id')].submit('FlowForceSave=' + (new Date()));
-            } else {
-                blocks.each(function(v, k) {
-                    data += 'block_order%5B%5D=' + v.get('id');
-                    data += '&';
-                });
+            blocks.each(function(v, k) {
+                data += 'block_order%5B%5D=' + v.get('id');
+                data += '&';
+            });
 
-                data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
-                data += '&version=' + BlockDDInit.cfg.version;
-                data += '&zone=' + BlockDDInit.cfg.zone;
-                Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
-            }
+            data += 'contentobject_attribute_id=' + BlockDDInit.cfg.attributeid;
+            data += '&version=' + BlockDDInit.cfg.version;
+            data += '&zone=' + BlockDDInit.cfg.zone;
+            Y.io.ez( 'ezflow::updateblockorder', { on: { success: _callBack }, method: 'POST', data: data } );
         }
 
         function updateInputIndex(blocks) {
