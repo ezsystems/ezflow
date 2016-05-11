@@ -388,6 +388,7 @@ class eZPageZone
             foreach ( $this->attributes['blocks'] as $i => $block )
             {
                 $this->attributes['blocks'][$i] = clone $block;
+                $this->attributes['blocks'][$i]->setAttribute( 'zone_id', $this->attributes['id'] );
             }
         }
     }
