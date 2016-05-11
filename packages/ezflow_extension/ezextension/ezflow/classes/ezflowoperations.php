@@ -73,7 +73,6 @@ class eZFlowOperations
         $fetchClassOptions->iniFile = 'block.ini';
         $fetchClassOptions->iniSection = $block['block_type'];
         $fetchClassOptions->iniVariable = 'FetchClass';
-        $fetchClassOptions->handlerParams = new eZFlowFetchParameters($block);
 
         $fetchInstance = eZExtension::getHandlerClass( $fetchClassOptions );
 
