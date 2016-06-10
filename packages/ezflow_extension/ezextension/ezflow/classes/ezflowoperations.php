@@ -150,8 +150,6 @@ class eZFlowOperations
             unset( $anonymousUser, $anonymousUserId );
         }
 
-        include_once( 'kernel/classes/ezcontentcache.php' );
-
         $ini = eZINI::instance( 'block.ini' );
         $db = eZDB::instance();
 
