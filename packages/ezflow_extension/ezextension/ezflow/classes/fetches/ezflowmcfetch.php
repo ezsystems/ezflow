@@ -2,6 +2,11 @@
 
 class eZFlowMCFetch implements eZFlowFetchInterface
 {
+    public function __construct( $paramenters )
+    {
+        // nothing to be done
+    }
+
     public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
     {
         if ( isset( $parameters['Source'] ) )

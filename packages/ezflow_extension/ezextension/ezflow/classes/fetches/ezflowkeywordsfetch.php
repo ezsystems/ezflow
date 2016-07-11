@@ -26,6 +26,11 @@
 
 class eZFlowKeywordsFetch implements eZFlowFetchInterface
 {
+    public function __construct( $paramenters )
+    {
+        // nothing to be done
+    }
+
     public function fetch( $parameters, $publishedAfter, $publishedBeforeOrAt )
     {
         $ini = eZINI::instance( 'block.ini' );
