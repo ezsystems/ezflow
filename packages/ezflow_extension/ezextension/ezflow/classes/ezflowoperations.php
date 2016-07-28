@@ -146,7 +146,7 @@ class eZFlowOperations
             $loggedInUser = eZUser::currentUser();
             $anonymousUserId = eZUser::anonymousId();
             $anonymousUser = eZUser::fetch( $anonymousUserId );
-            eZUser::setCurrentlyLoggedInUser( $anonymousUser, $anonymousUserId );
+            eZUser::setCurrentlyLoggedInUser( $anonymousUser, $anonymousUserId, eZUser::NO_SESSION_REGENERATE );
             unset( $anonymousUser, $anonymousUserId );
         }
 
@@ -507,7 +507,7 @@ class eZFlowOperations
         // log the previously logged in user if it was changed to anonymous earlier
         if ( isset( $loggedInUser ) )
         {
-            eZUser::setCurrentlyLoggedInUser( $loggedInUser, $loggedInUser->attribute( 'contentobject_id' ) );
+            eZUser::setCurrentlyLoggedInUser( $loggedInUser, $loggedInUser->attribute( 'contentobject_id' ), eZUser::NO_SESSION_REGENERATE );
         }
     }
 
