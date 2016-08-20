@@ -890,6 +890,7 @@ class eZPageType extends eZDataType
                 $page = $contentObjectAttribute->content();
                 $zone = $page->getZone( $params[1] );
                 $block = $zone->getBlock( $params[2] );
+                $customAttributeIdentifier = $params[3];
                 $blockINI = eZINI::instance( 'block.ini' );
 
                 $browseParameters = array( 'action_name' => 'CustomAttributeBrowse',
@@ -902,11 +903,14 @@ class eZPageType extends eZDataType
                 if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' ) )
                 {
                     $customAttributeStartBrowseNode = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeStartBrowseNode' );
-                    $customAttributeIdentifier = $params[3];
                     if( isset( $customAttributeStartBrowseNode[$customAttributeIdentifier] ) )
                     {
                         $browseParameters['start_node'] = $customAttributeStartBrowseNode[$customAttributeIdentifier];
                     }
+                }
+                if( $blockINI->hasVariable( $block->attribute( 'type' ), 'CustomAttributeAllowedClasses_' . $customAttributeIdentifier ) )
+                {
+                    $browseParameters['class_array'] = $blockINI->variable( $block->attribute( 'type' ), 'CustomAttributeAllowedClasses_' . $customAttributeIdentifier );
                 }
 
                 eZContentBrowse::browse( $browseParameters, $module );
