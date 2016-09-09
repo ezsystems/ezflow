@@ -30,6 +30,9 @@ $version = $Params['Version'];
 $zoneID = $Params['ZoneID'];
 
 $contentObjectAttribute = eZContentObjectAttribute::fetch( $contentObjectAttributeID, $version );
+if ( !$contentObjectAttribute )
+    return $module->handleError( eZError::KERNEL_NOT_AVAILABLE, 'kernel' );
+
 $page = $contentObjectAttribute->content();
 $zone = $page->getZone( $zoneID );
 
