@@ -27,6 +27,13 @@
 interface eZFlowFetchInterface
 {
     /**
+     * Constructor
+     *
+     * @param array $parameters
+     */
+
+    public function __construct( $parameters );
+    /**
      * Fetches and returns content
      *
      * @param array $parameters
