@@ -1249,5 +1249,4 @@ class eZPageType extends eZDataType
     }
 }
 
-eZDataType::register( eZPageType::DATA_TYPE_STRING, "ezpagetype" );
 ?>

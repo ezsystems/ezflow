@@ -67,6 +67,4 @@ class eZPageSwapType extends eZWorkflowEventType
     }
 }
 
-eZWorkflowEventType::registerEventType( eZPageSwapType::WORKFLOW_TYPE_STRING, 'eZPageSwapType' );
-
 ?>
