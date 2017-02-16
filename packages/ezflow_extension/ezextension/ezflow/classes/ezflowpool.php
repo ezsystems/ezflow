@@ -213,6 +213,52 @@ class eZFlowPool
 
         return true;
     }
+
+    /**
+     * Set block items in the pool - removes any other items for the block and updates/inserts new ones.
+     *
+     * @param array $items Array of items to insert/update in the pool.
+     *                     The following information must appear for every item:
+     *                     blockID, objectID, nodeID, priority and timestamp.
+     *
+     * @return bool Returns true if the operation suceeded, false otherwise.
+     */
+    public static function setItems( array $items )
+    {
+        // Checking the validity of items.
+        foreach ( $items as $item )
+        {
+            if ( !isset( $item['blockID'], $item['objectID'], $item['nodeID'], $item['priority'], $item['timestamp'] ) )
+            {
+                eZDebug::writeError( "Pool item is missing one of the following information: blockID, objectID, nodeID, priority or timestamp", __METHOD__ );
+                return false;
+            }
+        }
+        $db = eZDB::instance();
+        $db->begin();
+
+
+        // First remove all items from blocks
+        foreach ( $items as $item )
+        {
+            $db->query( "DELETE FROM ezm_pool WHERE block_id='" . $db->escapeString( $item['blockID'] ) . "'" );
+        }
+
+        foreach ( $items as $item )
+        {
+            $db->query(
+                "INSERT INTO ezm_pool ( block_id, object_id, node_id, priority, ts_publication ) VALUES ( " .
+                    "'" . $db->escapeString( $item['blockID'] ) . "', " .
+                    (int)$item['objectID'] . ", " .
+                    (int)$item['nodeID'] . ", " .
+                    (int)$item['priority'] . ", " .
+                    (int)$item['timestamp'] .
+                " )" );
+        }
+
+        $db->commit();
+
+    }
 }
 
 ?>
