@@ -157,6 +157,9 @@
     {/if}
     {if and( not( $is_dynamic ), not( $is_custom ) )}
         <div>
+            {if ezini( $block.type, 'ManualBlockStartBrowseNode', 'block.ini' )}
+                <input type="hidden" name="start-browse-node-id[{$attribute.id}][{$zone_id}][{$block_id}]" value="{ezini( $block.type, 'ManualBlockStartBrowseNode', 'block.ini' )}" />
+            {/if}
             <input id="block-add-item-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_item_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Add item'|i18n( 'design/standard/block/edit' )}" />
         </div>
     {/if}
