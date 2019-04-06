@@ -315,7 +315,25 @@
         <input id="block-remove-selected-{$block_id}" class="button block-control" type="submit" name="CustomActionButton[{$attribute.id}_remove_item-{$zone_id}-{$block_id}]" value="{'Remove selected'|i18n( 'design/standard/block/edit' )}" />
     </div>
     <div class="right legend">
-        <div class="queue">&nbsp;</div> {'Queue:'|i18n( 'design/standard/block/edit' )} {$block.waiting|count()} <div class="online">&nbsp;</div> {'Online:'|i18n( 'design/standard/block/edit' )} {$block.valid|count()} <div class="history">&nbsp;</div> {'History:'|i18n( 'design/standard/block/edit' )} {$block.archived|count()}
+        {if ezini_hasvariable( $block.type, 'NumberOfValidItems', 'block.ini' )}
+            {def $max_valid_items = ezini( $block.type, 'NumberOfValidItems', 'block.ini' )}
+        {/if}
+        {if ezini_hasvariable( $block.type, 'NumberOfArchivedItems', 'block.ini' )}
+            {def $max_archived_items = ezini( $block.type, 'NumberOfArchivedItems', 'block.ini' )}
+        {/if}
+        <div class="queue">&nbsp;</div> {'Queue:'|i18n( 'design/standard/block/edit' )} {$block.waiting|count()} <div class="online">&nbsp;</div> {'Online:'|i18n( 'design/standard/block/edit' )} {$block.valid|count()}{if is_set($max_valid_items)} / {$max_valid_items}{/if} <div class="history">&nbsp;</div> {'History:'|i18n( 'design/standard/block/edit' )} {$block.archived|count()}{if is_set($max_archived_items)} / {$max_archived_items}{/if} 
+        {if ezini_hasvariable( $block.type, 'AllowedClasses', 'block.ini' )}
+            {def $allowed_classes = ezini( $block.type, 'AllowedClasses', 'block.ini' )}
+            {if $allowed_classes}
+                &nbsp;
+                <select>
+                    <option>{'Allowed classes'|i18n( 'design/standard/block/edit' )}</option>
+                {foreach $allowed_classes as $class}
+                    <option>{$class}</option>
+                {/foreach}
+                </select>
+            {/if}
+        {/if}
     </div>
 </div>
 {/if}
